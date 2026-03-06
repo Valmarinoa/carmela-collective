@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+}
+
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #F5F5F0;
+  color: #1a1a1a;
+  font-family: var(--font-arial), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+.font-arial {
+  font-family: var(--font-arial), system-ui, sans-serif;
+}
+
+.font-inter {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+.font-funtastic {
+  font-family: var(--font-funtastic), system-ui, sans-serif;
+}
+
+.font-leakage {
+  font-family: var(--font-leakage), system-ui, sans-serif;
+}
+
+.font-myriad {
+  font-family: var(--font-myriad), system-ui, sans-serif;
+}
+
+.font-spintee {
+  font-family: var(--font-spintee), system-ui, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  display:none; 
+}
+
+::-webkit-scrollbar-track {
+  display:none; 
+}
+
+::-webkit-scrollbar-thumb {
+  display:none; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  display:none; 
+}
+ 
+/* hide scrollbars but keep scrolling */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for horizontal scroll sections */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Oval button styles */
+.oval-button {
+  @apply px-6 py-2 border border-black rounded-full text-sm font-medium 
+         transition-all duration-300 hover:bg-black hover:text-white;
+}
+
+/* Project card hover effect */
+.project-card {
+  @apply transition-transform duration-500 ease-out;
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+}
+
+/* Floating animation delays */
+.float-delay-1 {
+  animation-delay: 0s;
+}
+
+.float-delay-2 {
+  animation-delay: 1.5s;
+}
+
+.float-delay-3 {
+  animation-delay: 3s;
+}
+
+/* Text reveal animation */
+@keyframes text-reveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.text-reveal {
+  animation: text-reveal 1s ease-out forwards;
+}
+
+/* Keepa logo 3D effect */
+.keepa-logo {
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+  transition: transform 0.3s ease-out;
+}
+
+/* Parallax image styles */
+.parallax-image {
+  will-change: transform;
+}
+
+/* Form input styles */
+.form-input {
+  @apply w-full px-4 py-3 bg-white/10 border border-white/20 rounded-full 
+         text-white placeholder-white/50 outline-none transition-all duration-300
+         focus:border-white/50 focus:bg-white/15;
+}
+
+/* Submit button */
+.submit-btn {
+  @apply w-full py-3 bg-[#70fe01] text-black font-medium rounded-full 
+         transition-all duration-300 hover:bg-[#70fe01] hover:scale-[1.02];
+}
+
+/* Smooth scroll snap for sections */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Gallery background image smooth transition */
+.gallery-bg-image {
+  transition: opacity 0.1s linear, transform 0.1s linear;
+  will-change: opacity, transform;
+}
+
+/* Floating images smooth hover */
+.parallax-image {
+  transition: box-shadow 0.3s ease;
+}
+
+.parallax-image:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Ensure smooth parallax */
+@media (prefers-reduced-motion: no-preference) {
+  .parallax-image {
+    will-change: transform;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
