@@ -17,11 +17,6 @@ function clamp(n: number, min: number, max: number) {
   return Math.min(max, Math.max(min, n));
 }
 
-/**
- * Single item renderer
- * - Parallax is ONLY Y
- * - Simple hover (no rotation)
- */
 function FloatingItem({
   item,
   progress,
@@ -31,16 +26,10 @@ function FloatingItem({
   progress: ReturnType<typeof useSpring>;
   reduceMotion: boolean;
 }) {
-  // More perceivable depth separation:
-  // baseTravel controls overall strength
   const baseTravelPx = 900;
-
-  // Make speed distribution more “layered” (optional but helps a lot)
-  // keeps your values but nudges them into a nicer curve
   const depth = clamp(item.parallaxSpeed, 0.1, 1.2);
   const travel = baseTravelPx * depth;
 
-  // Move upward as we scroll through the section
   const y = useTransform(progress, [0, 1], reduceMotion ? [0, 0] : [0, -travel]);
 
   return (
@@ -55,7 +44,6 @@ function FloatingItem({
         willChange: "transform",
       }}
     >
-      {/* Hover only on inner wrapper so parallax (outer) stays clean */}
       <div
         className={[
           "relative h-full w-full",
@@ -65,14 +53,26 @@ function FloatingItem({
         ].join(" ")}
         style={{ willChange: "transform" }}
       >
-        <Image
-          src={item.src}
-          alt={item.alt}
-          fill
-          className="object-contain select-none"
-          draggable={false}
-          sizes="(max-width: 768px) 160px, 360px"
-        />
+        {item.mediaType === "video" && item.vid ? (
+          <video
+            src={item.vid}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="h-full w-full object-contain select-none"
+          />
+        ) : item.mediaType === "image" && item.src ? (
+          <Image
+            src={item.src}
+            alt={item.alt}
+            fill
+            className="object-contain select-none"
+            draggable={false}
+            sizes="(max-width: 768px) 160px, 360px"
+          />
+        ) : null}
       </div>
     </motion.div>
   );
@@ -87,23 +87,25 @@ export default function FloatingGallery() {
     offset: ["start end", "end start"],
   });
 
-  // Smooth the progress to avoid jitter
   const smooth = useSpring(scrollYProgress, {
     stiffness: 90,
     damping: 24,
     mass: 0.7,
   });
 
-  /**
-   * Flower: reaches full size faster
-   * We compress the progress range so it finishes early.
-   */
-  const bgP = useTransform(smooth, [0.10, 0.28], [0, 1]);
+  const bgP = useTransform(smooth, [0.1, 0.28], [0, 1]);
 
-  const bgOpacity = useTransform(bgP, [0, 0.4, 1], reduceMotion ? [1, 1, 1] : [0, 0.75, 1]);
-  const bgScale   = useTransform(bgP, [0, 0.55, 1], reduceMotion ? [1, 1, 1] : [0.6, 0.92, 1]);
-  const bgY       = useTransform(bgP, [0, 1], reduceMotion ? [0, 0] : [20, -90]);
-  const exitP = useTransform(smooth, [0.72, 0.92], [0, 1])
+  const bgOpacity = useTransform(
+    bgP,
+    [0, 0.4, 1],
+    reduceMotion ? [1, 1, 1] : [0, 0.75, 1]
+  );
+  const bgScale = useTransform(
+    bgP,
+    [0, 0.55, 1],
+    reduceMotion ? [1, 1, 1] : [0.6, 0.92, 1]
+  );
+  const bgY = useTransform(bgP, [0, 1], reduceMotion ? [0, 0] : [20, -90]);
 
   return (
     <section
@@ -122,7 +124,7 @@ export default function FloatingGallery() {
         }}
         aria-hidden="true"
       >
-        <div className="relative w-[600px] h-[600px]">
+        <div className="relative h-[600px] w-[600px]">
           <Image
             src="/images/flower.png"
             alt="Carmela Collective"
@@ -145,21 +147,6 @@ export default function FloatingGallery() {
           />
         ))}
       </div>
-
-      {/* Bottom Navigation */}
-      {/* <div className="absolute bottom-20 left-0 right-0 flex justify-center z-20">
-        <nav className="flex gap-8">
-          {["Projects", "Gallery", "About", "Contact"].map((label) => (
-            <a
-              key={label}
-              href={`#${label.toLowerCase()}`}
-              className="text-sm font-medium text-black/50 hover:text-black transition-colors"
-            >
-              {label}
-            </a>
-          ))}
-        </nav>
-      </div> */}
     </section>
   );
 }

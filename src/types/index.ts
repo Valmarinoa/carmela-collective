@@ -7,28 +7,7 @@ export interface Project {
   href?: string
 }
 
-export interface FloatingImage {
-  id: string
-  src: string
-  alt: string
-  x: string
-  y: string
-  width: number
-  rotation: number
-  delay: number
-}
-
-export interface NavItem {
-  label: string
-  href: string
-}
-
-export interface SocialLink {
-  platform: string
-  href: string
-  icon: string
-}
-
+export type FloatingMediaType = "image" | "video";
 
 export type PercentString = `${number}%`;
 
@@ -42,17 +21,24 @@ export type FloatingImageSize = {
   height: number;
 };
 
-export type FloatingImageItem = {
+export interface FloatingImageItem {
   id: string;
-  src: string;
+  mediaType: FloatingMediaType;
+  src?: string;
+  vid?: string;
   alt: string;
   position: FloatingImagePosition;
   size: FloatingImageSize;
-
-  /**
-   * 0..1-ish
-   * smaller = farther (moves less)
-   * bigger  = closer (moves more)
-   */
   parallaxSpeed: number;
-};
+}
+
+export interface NavItem {
+  label: string
+  href: string
+}
+
+export interface SocialLink {
+  platform: string
+  href: string
+  icon: string
+}
