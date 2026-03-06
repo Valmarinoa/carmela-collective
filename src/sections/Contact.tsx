@@ -56,7 +56,7 @@ export default function Contact() {
             <div className="space-y-8">
               <div>
                 <h3 className="text-2xl md:text-3xl font-medium mb-4">
-                  Let's make it happen!
+                  Let&apos;s make it happen!
                 </h3>
                 <p className="text-white/60 text-sm leading-relaxed max-w-sm">
                   Fill out a quick form below to submit your design brief or email me to get started. 
