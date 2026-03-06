@@ -4,11 +4,11 @@ import { useEffect, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 
-interface KeepaLogoProps {
+interface CarmelaLogoProps {
   className?: string
 }
 
-export default function KeepaLogo({ className = '' }: KeepaLogoProps) {
+export default function CarmelaLogo({ className = '' }: CarmelaLogoProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   
   const { scrollYProgress } = useScroll({
@@ -31,26 +31,27 @@ export default function KeepaLogo({ className = '' }: KeepaLogoProps) {
       <div className="relative flex flex-col items-center">
   
         
-        {/* KEEPA Image/Animation Placeholder */}
+        {/* Carmela Image/Animation Placeholder */}
         <motion.div 
           className="relative w-[90vw] h-[400px]"
-          initial={{ opacity: 0, scale: 0.8, rotateX: 45 }}
-          animate={{ opacity: 1, scale: 1, rotateX: 0 }}
+          initial={{ opacity: 0, scale: 0.9,  }}
+          animate={{ opacity: 1, scale: 1,  }}
           transition={{ 
             delay: 0.5, 
-            duration: 1.2,
-            type: "spring",
-            stiffness: 100
+            duration: 0.5,
+            // type: "spring",
+            ease: [0.22, 1, 0.36, 1],
+            // stiffness: 100
           }}
         >
-          {/* This is where the animated KEEPA video/3D element would go */}
+          {/* This is where the animated Carmela video/3D element would go */}
           {/* Using the Carmela PNG as placeholder */}
           <div className="relative w-full h-full flex items-center justify-center md:mt-20">
             <Image
               src="/images/carmela.png"
               alt="Carmela Collective"
               fill
-              className="object-contain keepa-logo"
+              className="object-contain Carmela-logo"
               priority
             />
           <h3 className='font-funtastic text-cream/80 z-[2] md:text-6xl absolute bottom-[18%] right-[15%]'>Collective</h3>

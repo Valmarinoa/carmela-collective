@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import SocialIcons from '@/components/SocialIcons'
 import OvalButton from '@/components/OvalButton'
-import KeepaLogo from '@/components/KeepaLogo'
+import CarmelaLogo from '@/components/CarmelaLogo'
 import SpinningCircleText from '@/components/SpinningCircleText'
 
 export default function Hero() {
@@ -41,7 +41,7 @@ export default function Hero() {
         
         {/* Center Logo */}
         <div className="flex justify-center mt-8 md:mt-32">
-          <KeepaLogo />
+          <CarmelaLogo />
         </div>
         
         {/* Bottom Content */}
