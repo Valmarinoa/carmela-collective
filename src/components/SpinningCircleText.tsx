@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 type Props = {
   text: string;
@@ -22,10 +23,22 @@ export default function SpinningCircleText({
 
   return (
     <motion.div
+      className="relative flex items-center justify-center"
       animate={{ rotate: 360 }}
       transition={{ duration, ease: "linear", repeat: Infinity }}
       style={{ width: size, height: size }}
     >
+      {/* CENTER SVG */}
+      <div className="absolute w-[40%] h-[40%]">
+        <Image
+          src="/icons/carmela-figure.svg"
+          alt="Carmela figure"
+          fill
+          className="object-contain"
+        />
+      </div>
+
+      {/* TEXT CIRCLE */}
       <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
         <defs>
           <path
