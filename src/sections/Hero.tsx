@@ -67,10 +67,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
           >
-            <p className="text-xs text-white text-right mb-2">or submit a brief</p>
             <div className="flex flex-col items-end gap-3">
-              <OvalButton href="#contact">design brief</OvalButton>
-              <OvalButton href="#contact">branding brief</OvalButton>
+              <OvalButton href="#contact">Archive</OvalButton>
             </div>
           </motion.div>
         </div>

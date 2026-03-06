@@ -78,8 +78,18 @@ export default function Projects() {
   return (
     <section 
       id="projects"
-      className="relative py-20 overflow-hidden bg-cream z-[1]"
+      className="relative py-20 overflow-visible bg-cream z-[1]"
     >
+
+<div className="absolute text-xs font-myriad font-light -top-32 right-20 h-56 w-72 z-72">
+      <Image
+              src="/images/xx.png"
+              alt="Carmela Collective"
+              fill
+              className="object-contain z-20"
+              priority
+            />
+            </div>
       {/* Section Header */}
       <div  className="px-6 md:px-12 lg:px-20 mb-24">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
