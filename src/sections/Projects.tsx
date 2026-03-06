@@ -26,7 +26,7 @@ const projects = [
   {
     id: '3',
     title: 'Juliana Erazo',
-    category: 'Art Direction & Cultural Programming',
+    category: 'Filmmaker & Visual Artist',
     description: 'El Sabor - "The Flavour" Tapas Bar is a traditional Spanish restaurant and bar with a contemporary twist.',
     image: '/images/juliana.png',
      igHandle:''
