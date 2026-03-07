@@ -1,6 +1,7 @@
+// FloatingGallery.tsx
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import {
   motion,
@@ -17,14 +18,33 @@ function clamp(n: number, min: number, max: number) {
   return Math.min(max, Math.max(min, n));
 }
 
+// Hook to detect mobile viewport
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
+    
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  return isMobile;
+}
+
 function FloatingItem({
   item,
   progress,
   reduceMotion,
+  isMobile,
 }: {
   item: FloatingImageItem;
   progress: ReturnType<typeof useSpring>;
   reduceMotion: boolean;
+  isMobile: boolean;
 }) {
   const baseTravelPx = 900;
   const depth = clamp(item.parallaxSpeed, 0.1, 1.2);
@@ -32,18 +52,37 @@ function FloatingItem({
 
   const y = useTransform(progress, [0, 1], reduceMotion ? [0, 0] : [0, -travel]);
 
-  return (
-    <motion.div
-      className="absolute"
-      style={{
-        left: item.position.x,
-        top: item.position.y,
-        width: item.size.width,
-        height: item.size.height,
+  // Determine position and size based on mobile/desktop
+  const position = isMobile && item.mobile 
+    ? item.mobile.position 
+    : item.position;
+  
+  const size = isMobile && item.mobile 
+    ? item.mobile.size 
+    : item.size;
+
+  // Build style object - use left/right for mobile, x/y for desktop
+  const style: React.CSSProperties = isMobile && item.mobile?.position
+    ? {
+        ...(item.mobile.position.left !== undefined && { left: item.mobile.position.left }),
+        ...(item.mobile.position.right !== undefined && { right: item.mobile.position.right }),
+        top: item.mobile.position.y,
+        width: size.width,
+        height: size.height,
         y,
         willChange: "transform",
-      }}
-    >
+      }
+    : {
+        left: (position as { x: string }).x,
+        top: (position as { y: string }).y,
+        width: size.width,
+        height: size.height,
+        y,
+        willChange: "transform",
+      };
+
+  return (
+    <motion.div className="absolute" style={style}>
       <div
         className={[
           "relative h-full w-full",
@@ -81,6 +120,7 @@ function FloatingItem({
 export default function FloatingGallery() {
   const sectionRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
+  const isMobile = useIsMobile();
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -107,24 +147,34 @@ export default function FloatingGallery() {
   );
   const bgY = useTransform(bgP, [0, 1], reduceMotion ? [0, 0] : [20, -90]);
 
+  // Mobile-specific flower transforms
+  const mobileBgScale = useTransform(
+    bgP,
+    [0, 0.55, 1],
+    reduceMotion ? [1, 1, 1] : [0.3, 0.5, 0.6]
+  );
+  const mobileBgX = useTransform(bgP, [0, 1], [-50, -80]);
+
   return (
     <section
       ref={sectionRef}
       id="gallery"
       className="relative min-h-[150vh] pt-20 overflow-hidden"
     >
-      {/* Background flower */}
+      {/* Background flower - different positioning for mobile/desktop */}
       <motion.div
-        className="fixed top-1/4 left-1/4 -z-2 pointer-events-none"
+        className="fixed top-1/4 -z-2 pointer-events-none"
         style={{
+          left: isMobile ? "50%" : "25%",
+          x: isMobile ? mobileBgX : 0,
           opacity: bgOpacity,
-          scale: bgScale,
+          scale: isMobile ? mobileBgScale : bgScale,
           y: bgY,
           willChange: "transform, opacity",
         }}
         aria-hidden="true"
       >
-        <div className="relative h-[600px] w-[600px]">
+        <div className={isMobile ? "relative h-[400px] w-[400px]" : "relative h-[600px] w-[600px]"}>
           <Image
             src="/images/flower.png"
             alt="Carmela Collective"
@@ -144,6 +194,7 @@ export default function FloatingGallery() {
             item={item}
             progress={smooth}
             reduceMotion={Boolean(reduceMotion)}
+            isMobile={isMobile}
           />
         ))}
       </div>

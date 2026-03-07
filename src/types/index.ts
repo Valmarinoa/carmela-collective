@@ -23,13 +23,19 @@ export type FloatingImageSize = {
 
 export interface FloatingImageItem {
   id: string;
-  mediaType: FloatingMediaType;
+  mediaType: "image" | "video";
   src?: string;
   vid?: string;
   alt: string;
-  position: FloatingImagePosition;
-  size: FloatingImageSize;
+  // Desktop positioning (percentage-based)
+  position: { x: string; y: string };
+  size: { width: number; height: number };
   parallaxSpeed: number;
+  // Mobile-specific overrides
+  mobile?: {
+    position: { left?: string; right?: string; y: string };
+    size: { width: number; height: number };
+  };
 }
 
 export interface NavItem {

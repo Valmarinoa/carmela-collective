@@ -16,9 +16,9 @@ export default function Hero() {
     className="relative min-h-screen flex items-center px-6 md:px-12 lg:px-20 overflow-hidden"
   >
       {/* Main Content Container - NO fade out on scroll */}
-      <div className="relative z-10 h-[90vh] flex md:block flex-col md:flex-none justify-between items-center">
+      <div className="relative w-full z-10 h-[90vh] flex md:block flex-col md:flex-none justify-between items-center">
         {/* Top Row */}
-        <div className="flex justify-between items-start pt-8 fixed top-10 left-6 md:top-20 md:left-20 z-9999">
+        <div className="flex justify-between items-start pt-8 fixed top-10 left-6 md:top-10 md:left-20 z-9999">
           {/* Social Icons - Left */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -40,7 +40,7 @@ export default function Hero() {
         </div>
         
         {/* Center Logo */}
-        <div className="flex justify-center mt-8 md:mt-24">
+        <div className="flex justify-center items-center top-1/2 -translate-y-[50%] absolute">
           <CarmelaLogo />
         </div>
         
