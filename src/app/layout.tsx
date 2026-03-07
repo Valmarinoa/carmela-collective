@@ -8,6 +8,7 @@ import {
   myriad,
   spintee,
 } from "@/lib/fonts";
+import CurvedNavigation from "@/components/CurvedNavigation";
 
 export const metadata: Metadata = {
   title: "Carmela Collective",

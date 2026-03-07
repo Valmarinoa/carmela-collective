@@ -44,7 +44,7 @@ export default function Footer() {
   <div className='h-full w-full flex flex-col justify-end items-center pb-20'>
      
       {/* Navigation */}
-      <motion.nav 
+      {/* <motion.nav 
         className="flex flex-wrap justify-center gap-8 md:gap-16 mb-12"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -61,7 +61,7 @@ export default function Footer() {
             {item}
           </motion.a>
         ))}
-      </motion.nav>
+      </motion.nav> */}
       
       {/* Copyright */}
       <motion.div 
@@ -71,7 +71,7 @@ export default function Footer() {
         transition={{ delay: 0.5, duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <p className="text-xs text-white z-50">
+        <p className="text-xs text-black z-50">
           © {new Date().getFullYear()} Carmela Collective
         </p>
       </motion.div></div>

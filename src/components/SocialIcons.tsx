@@ -22,6 +22,25 @@ function SoundCloudIcon({ size = 20 }: { size?: number }) {
   )
 }
 
+function EmailIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect width="20" height="16" x="2" y="4" rx="2" />
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+    </svg>
+  )
+}
+
+
 export default function SocialIcons() {
   const socialLinks = [
     {
@@ -29,11 +48,11 @@ export default function SocialIcons() {
       href: 'https://instagram.com/carmela_collective',
       icon: Instagram,
     },
-    // {
-    //   name: 'LinkedIn',
-    //   href: 'https://linkedin.com/in/yourusername',
-    //   icon: Linkedin,
-    // },
+    {
+      name: 'Email',
+      href: 'mailto:your@email.com',
+      icon: EmailIcon,
+    },
     {
       name: 'SoundCloud',
       href: 'https://soundcloud.com/carmela-collective',
@@ -42,7 +61,7 @@ export default function SocialIcons() {
   ]
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 z-50">
       {socialLinks.map((social) => (
         <motion.a
           key={social.name}

@@ -78,8 +78,17 @@ export default function Projects() {
   return (
     <section 
       id="projects"
-      className="relative py-20 overflow-visible bg-cream z-[1]"
+      className="relative pb-20 overflow-visible bg-[#B2C29B] z-[1]"
     >
+        <div className="absolute inset-0 -z-10">
+        <Image
+          src="/images/projects-bg.png"
+          alt="Footer background"
+          fill
+          priority
+          className="object-cover scale-150"
+        />
+      </div>
 
 <div className="absolute text-xs font-myriad font-light -top-32 right-20 h-56 w-72 z-72">
       <Image
@@ -107,9 +116,9 @@ export default function Projects() {
           <motion.article
             key={project.id}
             className="project-card flex-shrink-0 w-[250px]  group cursor-pointer"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1, duration: 0.5 }}
+            initial={{ opacity: 0,  }}
+            whileInView={{ opacity: 1,}}
+            transition={{ delay: index * 0.1, duration: 0.3 }}
             viewport={{ once: true }}
           >
             {/* Project Image */}

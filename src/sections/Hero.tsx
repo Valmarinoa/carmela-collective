@@ -6,6 +6,7 @@ import SocialIcons from '@/components/SocialIcons'
 import OvalButton from '@/components/OvalButton'
 import CarmelaLogo from '@/components/CarmelaLogo'
 import SpinningCircleText from '@/components/SpinningCircleText'
+import CurvedNavigation from '@/components/CurvedNavigation'
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -61,16 +62,23 @@ export default function Hero() {
           </motion.div>
           
           {/* Right Side - Brief Buttons */}
-          <motion.div 
-            className="flex flex-col gap-3 mt-8 md:mt-0"
+          {/* <motion.div 
+            className="flex flex-col gap-3 mt-8 md:mt-0 fixed md:right-20"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
           >
             <div className="flex flex-col items-end gap-3">
-              <OvalButton href="#contact">Archive</OvalButton>
+              <OvalButton href="#contact">About</OvalButton>
             </div>
-          </motion.div>
+            <div className="flex flex-col items-end gap-3">
+              <OvalButton href="#archive">Archive</OvalButton>
+            </div>
+            
+            <div className="flex flex-col items-end gap-3">
+              <OvalButton href="#contact">Contact</OvalButton>
+            </div>
+          </motion.div> */}
         </div>
         
        
@@ -95,6 +103,7 @@ export default function Hero() {
           transition={{ duration: 10, repeat: Infinity }}
         />
       </div>
+    
     </section>
   )
 }

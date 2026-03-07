@@ -62,7 +62,7 @@ function FloatingItem({
     : item.size;
 
   // Build style object - use left/right for mobile, x/y for desktop
-  const style: React.CSSProperties = isMobile && item.mobile?.position
+  const style = isMobile && item.mobile?.position
     ? {
         ...(item.mobile.position.left !== undefined && { left: item.mobile.position.left }),
         ...(item.mobile.position.right !== undefined && { right: item.mobile.position.right }),
@@ -153,7 +153,7 @@ export default function FloatingGallery() {
     [0, 0.55, 1],
     reduceMotion ? [1, 1, 1] : [0.3, 0.5, 0.6]
   );
-  const mobileBgX = useTransform(bgP, [0, 1], [-50, -80]);
+  const mobileBgX = useTransform(bgP, [0, 1], [-90, -80]);
 
   return (
     <section
@@ -174,7 +174,7 @@ export default function FloatingGallery() {
         }}
         aria-hidden="true"
       >
-        <div className={isMobile ? "relative h-[400px] w-[400px]" : "relative h-[600px] w-[600px]"}>
+        <div className={isMobile ? "relative h-[600px] w-[400px]" : "relative h-[600px] w-[600px]"}>
           <Image
             src="/images/flower.png"
             alt="Carmela Collective"
