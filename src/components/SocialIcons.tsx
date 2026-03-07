@@ -3,49 +3,62 @@
 import { motion } from 'framer-motion'
 import { Instagram, Linkedin } from 'lucide-react'
 
+// Custom SoundCloud icon since lucide-react doesn't include it
+function SoundCloudIcon({ size = 20 }: { size?: number }) {
+  return (
+      
+      <svg width={size}
+      height={size} viewBox="0 0 42 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20.252 18.5557V1.32138C27.962 -2.76018 34.7651 3.58747 34.7651 7.21734C43.8358 7.21734 43.3822 17.1951 38.8469 18.5557H20.252Z" fill="white"/>
+      <path d="M1.03125 9.94141C0.84375 9.94141 0.65625 9.94141 0.46875 9.94141C0.40625 10.0623 0.35 10.1833 0.3 10.3042C0.1 10.788 0 11.2718 0 11.7555C0 13.4487 0.136111 15.1419 0.408333 16.8351C0.427778 16.9561 0.447917 17.077 0.46875 17.198C0.65625 17.198 0.84375 17.198 1.03125 17.198C1.05208 17.077 1.07222 16.9561 1.09167 16.8351C1.36389 15.1419 1.5 13.4487 1.5 11.7555C1.5 11.2718 1.4 10.788 1.2 10.3042C1.15 10.1833 1.09375 10.0623 1.03125 9.94141Z" fill="white"/>
+      <path d="M4.20508 8.12891C4.01758 8.12891 3.83008 8.12891 3.64258 8.12891C3.58008 8.2952 3.52383 8.4615 3.47383 8.62779C3.27383 9.29298 3.17383 9.95816 3.17383 10.6233C3.17383 12.9515 3.30994 15.2796 3.58216 17.6078C3.60161 17.7741 3.62174 17.9404 3.64258 18.1067C3.83008 18.1067 4.01758 18.1067 4.20508 18.1067C4.22591 17.9404 4.24605 17.7741 4.26549 17.6078C4.53772 15.2796 4.67383 12.9515 4.67383 10.6233C4.67383 9.95816 4.57383 9.29298 4.37383 8.62779C4.32383 8.4615 4.26758 8.2952 4.20508 8.12891Z" fill="white"/>
+      <path d="M6.92578 9.03125C6.73828 9.03125 6.55078 9.03125 6.36328 9.03125C6.30078 9.18243 6.24453 9.33361 6.19453 9.48478C5.99453 10.0895 5.89453 10.6942 5.89453 11.2989C5.89453 13.4154 6.03064 15.5319 6.30286 17.6484C6.32231 17.7996 6.34245 17.9508 6.36328 18.1019C6.55078 18.1019 6.73828 18.1019 6.92578 18.1019C6.94661 17.9508 6.96675 17.7996 6.9862 17.6484C7.25842 15.5319 7.39453 13.4154 7.39453 11.2989C7.39453 10.6942 7.29453 10.0895 7.09453 9.48478C7.04453 9.33361 6.98828 9.18243 6.92578 9.03125Z" fill="white"/>
+      <path d="M9.64844 5.40234C9.46094 5.40234 9.27344 5.40234 9.08594 5.40234C9.02344 5.61399 8.96719 5.82564 8.91719 6.03729C8.71719 6.88389 8.61719 7.73049 8.61719 8.57709C8.61719 11.5402 8.7533 14.5033 9.02552 17.4664C9.04497 17.678 9.0651 17.8897 9.08594 18.1013C9.27344 18.1013 9.46094 18.1013 9.64844 18.1013C9.66927 17.8897 9.68941 17.678 9.70885 17.4664C9.98108 14.5033 10.1172 11.5402 10.1172 8.57709C10.1172 7.73049 10.0172 6.88389 9.81719 6.03729C9.76719 5.82564 9.71094 5.61399 9.64844 5.40234Z" fill="white"/>
+      <path d="M13.2773 3.58984C13.0898 3.58984 12.9023 3.58984 12.7148 3.58984C12.6523 3.83173 12.5961 4.07361 12.5461 4.3155C12.3461 5.28304 12.2461 6.25058 12.2461 7.21812C12.2461 10.6045 12.3822 13.9909 12.6544 17.3773C12.6739 17.6192 12.694 17.8611 12.7148 18.103C12.9023 18.103 13.0898 18.103 13.2773 18.103C13.2982 17.8611 13.3183 17.6192 13.3378 17.3773C13.61 13.9909 13.7461 10.6045 13.7461 7.21812C13.7461 6.25058 13.6461 5.28304 13.4461 4.3155C13.3961 4.07361 13.3398 3.83173 13.2773 3.58984Z" fill="white"/>
+      <path d="M15.998 4.49609C15.8105 4.49609 15.623 4.49609 15.4355 4.49609C15.373 4.72286 15.3168 4.94963 15.2668 5.1764C15.0668 6.08347 14.9668 6.99054 14.9668 7.8976C14.9668 11.0723 15.1029 14.2471 15.3751 17.4218C15.3946 17.6486 15.4147 17.8754 15.4355 18.1021C15.623 18.1021 15.8105 18.1021 15.998 18.1021C16.0189 17.8754 16.039 17.6486 16.0585 17.4218C16.3307 14.2471 16.4668 11.0723 16.4668 7.8976C16.4668 6.99054 16.3668 6.08347 16.1668 5.1764C16.1168 4.94963 16.0605 4.72286 15.998 4.49609Z" fill="white"/>
+      <path d="M18.7188 2.67969C18.5312 2.67969 18.3438 2.67969 18.1562 2.67969C18.0938 2.93669 18.0375 3.19369 17.9875 3.4507C17.7875 4.47871 17.6875 5.50672 17.6875 6.53473C17.6875 10.1328 17.8236 13.7308 18.0958 17.3289C18.1153 17.5859 18.1354 17.8429 18.1562 18.0999C18.3438 18.0999 18.5312 18.0999 18.7188 18.0999C18.7396 17.8429 18.7597 17.5859 18.7792 17.3289C19.0514 13.7308 19.1875 10.1328 19.1875 6.53473C19.1875 5.50672 19.0875 4.47871 18.8875 3.4507C18.8375 3.19369 18.7812 2.93669 18.7188 2.67969Z" fill="white"/>
+      </svg>
+      
+  )
+}
+
 export default function SocialIcons() {
+  const socialLinks = [
+    {
+      name: 'Instagram',
+      href: 'https://instagram.com/carmela_collective',
+      icon: Instagram,
+    },
+    // {
+    //   name: 'LinkedIn',
+    //   href: 'https://linkedin.com/in/yourusername',
+    //   icon: Linkedin,
+    // },
+    {
+      name: 'SoundCloud',
+      href: 'https://soundcloud.com/carmela-collective',
+      icon: SoundCloudIcon,
+    },
+  ]
+
   return (
     <div className="flex flex-col gap-4">
-      <motion.a
-        href="https://instagram.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-10 h-10 border border-white rounded-full flex items-center justify-center
-                   text-white transition-all duration-300 
-                   hover:bg-[#70fe01] hover:text-black hover:border-black"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <Instagram size={18} />
-      </motion.a>
-
-      <motion.a
-        href="https://instagram.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-10 h-10 border border-white rounded-full flex items-center justify-center
-                   text-white transition-all duration-300 
-                   hover:bg-[#70fe01] hover:text-black hover:border-black"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-      >
-         <Linkedin size={18} />
-      </motion.a>
-
-   
-
-      {/* <motion.a
-        href="https://linkedin.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-10 h-10 border border-white rounded-full flex items-center justify-center
-                   text-white transition-all duration-300 
-                   hover:bg-[#70fe01] hover:text-black hover:border-black"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <Linkedin size={18} />
-      </motion.a> */}
+      {socialLinks.map((social) => (
+        <motion.a
+          key={social.name}
+          href={social.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={social.name}
+          className="w-10 h-10 border border-white rounded-full flex items-center justify-center
+                     text-white transition-all duration-300 
+                     hover:bg-[#70fe01] hover:text-black hover:border-black"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <social.icon size={18} />
+        </motion.a>
+      ))}
     </div>
   )
 }

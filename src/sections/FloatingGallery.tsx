@@ -165,7 +165,7 @@ export default function FloatingGallery() {
       <motion.div
         className="fixed top-1/4 -z-2 pointer-events-none"
         style={{
-          left: isMobile ? "50%" : "25%",
+          left: isMobile ? "23%" : "25%",
           x: isMobile ? mobileBgX : 0,
           opacity: bgOpacity,
           scale: isMobile ? mobileBgScale : bgScale,
