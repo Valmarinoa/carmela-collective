@@ -86,7 +86,7 @@ export default function Projects() {
           alt="Footer background"
           fill
           priority
-          className="object-cover scale-125"
+          className="object-cover"
         />
       </div>
 

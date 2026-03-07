@@ -49,7 +49,7 @@ export default function Hero() {
         <div className="flex md:absolute md:bottom-0 md:w-full flex-col md:flex-row justify-between items-end">
           {/* Left Side - Description & Email */}
           <motion.div 
-            className="max-w-lg"
+            className="max-w-lg hidden md:flex"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
@@ -60,6 +60,7 @@ export default function Hero() {
             
            
           </motion.div>
+          <CurvedNavigation />
           
           {/* Right Side - Brief Buttons */}
           {/* <motion.div 

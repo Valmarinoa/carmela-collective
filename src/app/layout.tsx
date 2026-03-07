@@ -41,7 +41,7 @@ export default function RootLayout({
         spintee.variable,
       ].join(" ")}
     >
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">{children}   </body>
     </html>
   );
 }
