@@ -11,6 +11,7 @@ import Contact from '@/sections/Contact'
 import Footer from '@/sections/Footer'
 import BackToTop from '@/components/BackToTop'
 import Calendar from '@/sections/Calendar'
+import IntroText from '@/sections/IntroText'
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
@@ -37,7 +38,7 @@ export default function Home() {
       
       {/* Hero Section - stays visible, doesn't fade */}
       <Hero />
-      
+      <IntroText />
       {/* Floating Gallery - background image fades in and scales */}
       <FloatingGallery />
 

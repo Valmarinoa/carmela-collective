@@ -161,6 +161,7 @@ export default function FloatingGallery() {
       id="gallery"
       className="relative min-h-[150vh] pt-20 overflow-hidden"
     >
+    
       {/* Background flower - different positioning for mobile/desktop */}
       <motion.div
         className="fixed top-[40%] -z-2 pointer-events-none"
