@@ -78,7 +78,7 @@ export default function Projects() {
   return (
     <section 
       id="projects"
-      className="relative py-20 overflow-hidden bg-[#B2C29B] -mt-20 md:-mt-16 z-[3]"
+      className="relative py-20  bg-[#B2C29B] -mt-20 md:-mt-16 z-[3]"
     >
         <div className="absolute inset-0 -z-10">
         <Image
@@ -90,7 +90,7 @@ export default function Projects() {
         />
       </div>
 
-<div className="absolute text-xs font-myriad font-light -top-32 right-20 h-56 w-72 z-72">
+<div className="absolute -top-32 right-20 h-56 w-72 z-10">
       <Image
               src="/images/xx.png"
               alt="Carmela Collective"
