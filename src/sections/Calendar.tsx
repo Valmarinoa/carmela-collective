@@ -43,10 +43,19 @@ export default function Calendar() {
   return (
     <section
       id="calendar"
-      className="relative py-20 overflow-hidden bg-[url('/images/calendar-bg.png')] bg-cover bg-center bg-no-repeat z-[1]"
+      className="relative pt-20 pb-28 md:pt-20 md:pb-32 overflow-hidden z-[1]"
     >
+         <div className="absolute inset-0 -z-10">
+        <Image
+          src="/images/calendar-bg.png"
+          alt="Footer background"
+          fill
+          priority
+          className="object-cover scale-150"
+        />
+      </div>
       {/* Section Header */}
-      <div className="px-6 md:px-12 md:mb-6">
+      <div className="px-6 mb-20 md:px-12 md:mb-6  z-20">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div className="flex items-center gap-4">
             <h2 className="text-4xl md:text-5xl font-bold font-funtastic">
@@ -75,8 +84,7 @@ export default function Calendar() {
 
             <div className="bg-cream px-1 text-xs flex gap-2">
               <span>{event.date}</span>
-              <span>-</span>
-              <span className="font-light font-myriad">{event.city}</span>
+              
             </div>
 
             <h3 className="font-funtastic text-3xl">

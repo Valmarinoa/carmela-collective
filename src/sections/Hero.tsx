@@ -16,9 +16,9 @@ export default function Hero() {
     className="relative min-h-screen flex items-center px-6 md:px-12 lg:px-20 overflow-hidden"
   >
       {/* Main Content Container - NO fade out on scroll */}
-      <div className="relative z-10">
+      <div className="relative z-10 h-[90vh] flex md:block flex-col md:flex-none justify-between items-center">
         {/* Top Row */}
-        <div className="flex justify-between items-start pt-8 fixed top-20 left-20 z-9999">
+        <div className="flex justify-between items-start pt-8 fixed top-10 left-6 md:top-20 md:left-20 z-9999">
           {/* Social Icons - Left */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -27,10 +27,10 @@ export default function Hero() {
           >
             <SocialIcons />
           </motion.div>
-          
         </div>
 
-        <div className="absolute top-16 right-8 z-20">
+      {/* Spinning Circle */}
+        <div className="z-20 flex justify-end w-full">
         <SpinningCircleText
             text=" LATINO-AMERICANA • LATINO-AMERICANA •"
             fontClass="font-funtastic text-xs"
@@ -40,15 +40,15 @@ export default function Hero() {
         </div>
         
         {/* Center Logo */}
-        <div className="flex justify-center mt-8 md:mt-32">
+        <div className="flex justify-center mt-8 md:mt-24">
           <CarmelaLogo />
         </div>
         
         {/* Bottom Content */}
-        <div className="flex flex-col md:flex-row justify-between items-end mt-16 md:mt-32">
+        <div className="flex md:absolute md:bottom-0 md:w-full flex-col md:flex-row justify-between items-end">
           {/* Left Side - Description & Email */}
           <motion.div 
-            className="max-w-md"
+            className="max-w-lg"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}

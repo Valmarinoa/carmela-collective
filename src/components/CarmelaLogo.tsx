@@ -33,7 +33,7 @@ export default function CarmelaLogo({ className = '' }: CarmelaLogoProps) {
         
         {/* Carmela Image/Animation Placeholder */}
         <motion.div 
-          className="relative w-[90vw] h-[400px]"
+          className="relative w-[90vw] md:h-[400px] h-20"
           initial={{ opacity: 0, scale: 0.9,  }}
           animate={{ opacity: 1, scale: 1,  }}
           transition={{ 
@@ -46,17 +46,25 @@ export default function CarmelaLogo({ className = '' }: CarmelaLogoProps) {
         >
           {/* This is where the animated Carmela video/3D element would go */}
           {/* Using the Carmela PNG as placeholder */}
-          <div className="relative w-full h-full flex items-center justify-center md:mt-20">
+          <div className="md:hidden -top-32 left-1/2 -translate-x-1/2 absolute h-36 w-36 flex items-center justify-center">
+            <Image
+              src="/images/flower.png"
+              alt="Carmela Collective"
+              fill
+              className="object-contain w-full"
+              priority
+            />
+            </div>
+          <div className="relative w-full h-28 md:h-[300px] flex items-center justify-center">
             <Image
               src="/images/carmela.png"
               alt="Carmela Collective"
               fill
-              className="object-contain Carmela-logo"
+              className="object-contain w-full"
               priority
             />
-          <h3 className='font-funtastic text-cream/80 z-[2] md:text-6xl absolute bottom-[18%] right-[15%]'>Collective</h3>
+          <h3 className='font-leakage text-cream/80 z-[2] text-2xl md:text-6xl absolute -bottom-4 right-8 md:bottom-0 md:right-[15%]'>Collective</h3>
           </div>
-        
           
           {/* Animated blob effect behind logo */}
           <motion.div

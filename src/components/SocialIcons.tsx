@@ -29,7 +29,7 @@ export default function SocialIcons() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
       >
-        <Instagram size={18} />
+         <Linkedin size={18} />
       </motion.a>
 
    
