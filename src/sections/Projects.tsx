@@ -78,7 +78,7 @@ export default function Projects() {
   return (
     <section 
       id="projects"
-      className="relative py-20 overflow-hidden bg-[#B2C29B] -mt-20 md:-mt-16 z-[2]"
+      className="relative py-20 overflow-hidden bg-[#B2C29B] -mt-20 md:-mt-16 z-[3]"
     >
         <div className="absolute inset-0 -z-10">
         <Image
