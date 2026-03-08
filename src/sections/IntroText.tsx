@@ -10,7 +10,7 @@ export default function IntroText() {
       id="introText"
       className="md:hidden relative py-10 px-6 overflow-y-visible h-screen flex justify-center items-center"
     >
-         <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 -z-10">
         <Image
           src="/images/calendar-bg.png"
           alt="Footer background"

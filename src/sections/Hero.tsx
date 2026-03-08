@@ -5,7 +5,6 @@ import { motion } from 'framer-motion'
 import SocialIcons from '@/components/SocialIcons'
 import CarmelaLogo from '@/components/CarmelaLogo'
 import SpinningCircleText from '@/components/SpinningCircleText'
-import CurvedNavigation from '@/components/CurvedNavigation'
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -59,8 +58,6 @@ export default function Hero() {
             
            
           </motion.div>
-          {/* <CurvedNavigation /> */}
-          
           {/* Right Side - Brief Buttons */}
           {/* <motion.div 
             className="flex flex-col gap-3 mt-8 md:mt-0 fixed md:right-20"

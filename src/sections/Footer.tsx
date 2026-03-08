@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <footer className="relative py-20 px-6 md:px-12 overflow-hidden h-[70vh]">
+    <footer className="relative py-20 px-6 md:px-12 overflow-hidden h-[70vh] bg-red-700">
 
       {/* BACKGROUND IMAGE */}
       <div className="absolute inset-0">
@@ -41,19 +41,19 @@ export default function Footer() {
           />
         </div>
       </motion.div>
-  <div className='h-full w-full flex flex-col justify-end items-center pb-20'>      
-      {/* Copyright */}
+    
+
       <motion.div 
-        className="text-center z-50"
+        className="text-center z-50 h-full w-full flex flex-col items-center"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <p className="text-xs text-black z-50">
+        <p className="text-xs text-black z-50 absolute bottom-4">
           © {new Date().getFullYear()} Carmela Collective
         </p>
-      </motion.div></div>
+      </motion.div>
 
     </footer>
   )

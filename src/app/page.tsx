@@ -31,7 +31,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main ref={mainRef} className="relative min-h-screen"
+    <main ref={mainRef} className="relative min-h-screen overflow-x-hidden"
 >
       {/* Marquee Header */}
       <Marquee />

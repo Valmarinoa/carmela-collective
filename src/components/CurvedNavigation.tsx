@@ -6,7 +6,7 @@ import Link from 'next/link'
 export default function CurvedNavigation() {
  
   return (
-    <nav className="fixed bottom-6 left-0 right-0 z-[50]">
+    <nav className="fixed bottom-0 left-0 right-0 z-[50]">
      <motion.nav 
         className="flex flex-wrap justify-center gap-8 md:gap-16 mb-12"
         initial={{ opacity: 0 }}

@@ -10,16 +10,19 @@ interface CarmelaLogoProps {
 
 export default function CarmelaLogo({ className = '' }: CarmelaLogoProps) {
   const containerRef = useRef<HTMLDivElement>(null)
+
+  const { scrollY } = useScroll()
   
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  })
+  // const { scrollYProgress } = useScroll({
+  //   target: containerRef,
+  //   offset: ["start start", "end start"]
+  // })
   
   // Transform values based on scroll
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.6])
-  const y = useTransform(scrollYProgress, [0, 0.5], [0, -100])
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.3])
+  const scale = useTransform(scrollY, [0, 300], [1, 0.6])
+  const y = useTransform(scrollY, [0, 300], [0, -100])
+  const opacity = useTransform(scrollY, [0, 400], [1, 0])
+
 
   return (
     <motion.div 
@@ -34,7 +37,7 @@ export default function CarmelaLogo({ className = '' }: CarmelaLogoProps) {
         {/* Carmela Image/Animation Placeholder */}
         <motion.div 
           className="relative w-[90vw] md:h-[400px] h-20"
-          initial={{ opacity: 0, scale: 0.9,  }}
+          initial={{ opacity: 0, scale: 0.7,  }}
           animate={{ opacity: 1, scale: 1,  }}
           transition={{ 
             delay: 0.5, 
@@ -46,7 +49,7 @@ export default function CarmelaLogo({ className = '' }: CarmelaLogoProps) {
         >
           {/* This is where the animated Carmela video/3D element would go */}
           {/* Using the Carmela PNG as placeholder */}
-          <div className="md:hidden -top-32 left-1/2 -translate-x-1/2 absolute h-36 w-36 flex items-center justify-center">
+          <div className="md:hidden -top-32 left-1/2 -translate-x-1/2 absolute h-44 w-44 flex items-center justify-center">
             <Image
               src="/images/flower.png"
               alt="Carmela Collective"

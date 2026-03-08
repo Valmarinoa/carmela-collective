@@ -150,10 +150,10 @@ export default function FloatingGallery() {
   // Mobile-specific flower transforms
   const mobileBgScale = useTransform(
     bgP,
-    [0, 0.55, 1],
+    [0, 0.2, 1],
     reduceMotion ? [1, 1, 1] : [0.3, 0.5, 0.6]
   );
-  const mobileBgX = useTransform(bgP, [0, 1], [-90, -80]);
+  const mobileBgX = useTransform(bgP, [0, 1], [-90, -90]);
 
   return (
     <section
