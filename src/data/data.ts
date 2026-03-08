@@ -1,6 +1,43 @@
 // data.ts
 import type { FloatingImageItem } from "@/types/index";
 
+// Calendar Events
+export const events = [
+  {
+    id: '1',
+    date: 'April 4',
+    city: 'Amsterdam',
+    title: 'Carmela x POS',
+    subtitle: 'Fundraiser Event',
+    href: '#',
+  },
+  {
+    id: '2',
+    date: 'May 4',
+    city: 'Amsterdam',
+    title: 'Vinilazo Carmela',
+    subtitle: 'Vinil Event',
+    href: '#',
+  },
+  {
+    id: '3',
+    date: 'May 19',
+    city: 'Amsterdam',
+    title: 'Carmela x SF',
+    subtitle: 'Dance Evening',
+    href: '#',
+  },
+  {
+    id: '4',
+    date: 'June 4',
+    city: 'Amsterdam',
+    title: 'Carmela en Salsa',
+    subtitle: 'Salsa Vinils',
+    href: '#',
+  },
+]
+
+
 // data.ts
 export const floatingImages: FloatingImageItem[] = [
   // Desktop values remain exactly as you originally had them

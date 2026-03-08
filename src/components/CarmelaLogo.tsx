@@ -80,17 +80,6 @@ export default function CarmelaLogo({ className = '' }: CarmelaLogoProps) {
             }}
           />
         </motion.div>
-        
-        {/* Studio Oval */}
-        {/* <motion.div 
-          className="mt-4 px-8 py-2 border-2 border-black rounded-full"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.8, duration: 0.6 }}
-          whileHover={{ scale: 1.05 }}
-        >
-          <span className="text-lg font-medium tracking-wide">Collective</span>
-        </motion.div> */}
       </div>
     </motion.div>
   )

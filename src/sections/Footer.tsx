@@ -41,28 +41,7 @@ export default function Footer() {
           />
         </div>
       </motion.div>
-  <div className='h-full w-full flex flex-col justify-end items-center pb-20'>
-     
-      {/* Navigation */}
-      {/* <motion.nav 
-        className="flex flex-wrap justify-center gap-8 md:gap-16 mb-12"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        {['Projects', 'Gallery', 'About', 'Contact'].map((item) => (
-          <motion.a
-            key={item}
-            href={`#${item.toLowerCase()}`}
-            className="text-sm font-medium text-white hover:text-[#70fe01] transition-colors  z-50"
-            whileHover={{ y: -2 }}
-          >
-            {item}
-          </motion.a>
-        ))}
-      </motion.nav> */}
-      
+  <div className='h-full w-full flex flex-col justify-end items-center pb-20'>      
       {/* Copyright */}
       <motion.div 
         className="text-center z-50"

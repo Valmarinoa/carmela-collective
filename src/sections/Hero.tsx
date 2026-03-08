@@ -3,7 +3,6 @@
 import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import SocialIcons from '@/components/SocialIcons'
-import OvalButton from '@/components/OvalButton'
 import CarmelaLogo from '@/components/CarmelaLogo'
 import SpinningCircleText from '@/components/SpinningCircleText'
 import CurvedNavigation from '@/components/CurvedNavigation'

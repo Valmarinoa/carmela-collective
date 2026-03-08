@@ -3,41 +3,7 @@
 import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
-
-const events = [
-  {
-    id: '1',
-    date: 'April 4',
-    city: 'Amsterdam',
-    title: 'Carmela x POS',
-    subtitle: 'Fundraiser Event',
-    href: '#',
-  },
-  {
-    id: '2',
-    date: 'May 4',
-    city: 'Amsterdam',
-    title: 'Vinilazo Carmela',
-    subtitle: 'Vinil Event',
-    href: '#',
-  },
-  {
-    id: '3',
-    date: 'May 19',
-    city: 'Amsterdam',
-    title: 'Carmela x SF',
-    subtitle: 'Dance Evening',
-    href: '#',
-  },
-  {
-    id: '4',
-    date: 'June 4',
-    city: 'Amsterdam',
-    title: 'Carmela en Salsa',
-    subtitle: 'Salsa Vinils',
-    href: '#',
-  },
-]
+import { events } from "@/data/data";
 
 export default function Calendar() {
   return (
