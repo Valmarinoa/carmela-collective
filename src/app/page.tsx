@@ -47,11 +47,11 @@ export default function Home() {
       {/* Calendar */}
       <Calendar />
       
+      <Archive />
+
       {/* Projects Section */}
       <Members />
-
-      <Archive />
-      
+ 
       {/* Contact Section */}
       <Contact />
       
