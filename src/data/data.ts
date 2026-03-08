@@ -1,5 +1,5 @@
 // data.ts
-import type { FloatingImageItem } from "@/types/index";
+import type { FloatingImageItem, Archive } from "@/types/index";
 
 // Calendar Events
 export const events = [
@@ -103,6 +103,59 @@ export const members = [
     image: '/images/silvia.png',
      igHandle:''
   },
+]
+
+export const archive: Archive[] = [
+  {
+    id: '0',
+    title: 'Carmela x POS',
+    category: 'Marketing, New Media & Digital Comms',
+    description: 'A refreshing hard seltzer brand with a strategic marketing approach.',
+    image: '/images/events/carmela-pos-26.png',
+    objectFit: 'contain',  // image will use object-contain
+    igHandle: ''
+  },
+  {
+    id: '1',
+    title: 'Carmela Fugaris',
+    category: 'Marketing, New Media & Digital Comms',
+    description: 'A refreshing hard seltzer brand with a strategic marketing approach.',
+    image: '/images/events/carmela-fugaris.png',
+    objectFit: 'contain',  // image will use object-contain
+    igHandle: ''
+  },
+
+  {
+    id: '2',
+    title: 'Dia de los Muertos',
+    category: 'Marketing, New Media & Digital Comms',
+    description: 'A refreshing hard seltzer brand with a strategic marketing approach.',
+    image: '/images/events/ddm-25.png',
+    objectFit: 'contain',  // image will use object-contain
+    igHandle: ''
+  }, 
+
+  {
+    id: '3',
+    title: 'Carmela x SevenEleven',
+    category: 'Events',
+    description: 'Underground nightclub experience with curated music programming.',
+    mediaType: 'video',
+    video: '/images/events/radiradio-archive.mp4',
+    objectFit: 'cover',  // video with contain
+    igHandle: ''
+  },
+ 
+   {
+    id: '4',
+    title: 'Carmela Genesis',
+    category: 'Marketing, New Media & Digital Comms',
+    description: 'A refreshing hard seltzer brand with a strategic marketing approach.',
+    image: '/images/events/carmela-sept-25.png',
+    objectFit: 'contain',  // image will use object-contain
+    igHandle: ''
+  },
+  
 ]
 
 // data.ts

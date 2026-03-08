@@ -12,6 +12,8 @@ import Footer from '@/sections/Footer'
 import BackToTop from '@/components/BackToTop'
 import Calendar from '@/sections/Calendar'
 import IntroText from '@/sections/IntroText'
+import Members from '@/sections/Members'
+import Archive from '@/sections/Archive'
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
@@ -46,7 +48,9 @@ export default function Home() {
       <Calendar />
       
       {/* Projects Section */}
-      <Projects />
+      <Members />
+
+      <Archive />
       
       {/* Contact Section */}
       <Contact />

@@ -1,10 +1,27 @@
-export interface Project {
+export interface Member {
   id: string
   title: string
   category: string
   description: string
   image: string
   href?: string
+}
+
+export interface Archive {
+  id: string
+  title: string
+  category: string
+  description: string
+  // Media options
+  mediaType?: 'image' | 'video'  // defaults to 'image' if not specified
+  image?: string                 // for images (legacy support)
+  src?: string                   // alternative image path
+  video?: string                 // for videos
+  // Display options
+  objectFit?: 'cover' | 'contain'  // defaults to 'cover' if not specified
+  // Link
+  href?: string
+  igHandle?: string
 }
 
 export type FloatingMediaType = "image" | "video";

@@ -12,7 +12,7 @@ export default function Members() {
   return (
     <section 
       id="members"
-      className="relative py-20  bg-[#B2C29B] -mt-20 md:-mt-16 z-[3]"
+      className="relative py-20  bg-[#B2C29B] -mt-20 md:-mt-16 md:pb-20 z-[3]"
     >
         <div className="absolute inset-0 -z-10">
         <Image
