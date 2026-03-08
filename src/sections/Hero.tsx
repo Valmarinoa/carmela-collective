@@ -59,7 +59,7 @@ export default function Hero() {
             
            
           </motion.div>
-          <CurvedNavigation />
+          {/* <CurvedNavigation /> */}
           
           {/* Right Side - Brief Buttons */}
           {/* <motion.div 
