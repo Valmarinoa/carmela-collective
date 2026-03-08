@@ -8,7 +8,7 @@ export default function IntroText() {
   return (
     <section
       id="introText"
-      className="md:hidden relative py-10 px-6 overflow-hidden z-[1] h-screen flex justify-center items-center"
+      className="md:hidden relative py-10 px-6 overflow-hidden h-screen flex justify-center items-center"
     >
          <div className="absolute inset-0 -z-10">
         <Image

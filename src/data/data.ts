@@ -37,6 +37,73 @@ export const events = [
   },
 ]
 
+export const members = [
+  {
+    id: '1',
+    title: 'Monse Alvarez',
+    category: 'Marketing, New Media & Digital Comms',
+    description: 'A refreshing hard seltzer brand with a strategic marketing approach and distinctive visual identity.',
+    image: '/images/monse.png',
+    igHandle:''
+  },
+  {
+    id: '2',
+    title: 'Adrian Figueroa',
+    category: 'Music & Cultural Programming',
+    description: 'Cheri (Cherry in Japanese) is a multi-level Japanese-fusion tapas dining and drinks upstairs and an underground nightclub.',
+    image: '/images/adrian.png',
+     igHandle:''
+  },
+  {
+    id: '3',
+    title: 'Juliana Erazo',
+    category: 'Filmmaker & Visual Artist',
+    description: 'El Sabor - "The Flavour" Tapas Bar is a traditional Spanish restaurant and bar with a contemporary twist.',
+    image: '/images/juliana.png',
+     igHandle:''
+  },
+  {
+    id: '4',
+    title: 'Patrick Kimber',
+    category: 'DJ & Producer',
+    description: 'Leap Frog Landscapes is a modern and fresh Landscaping company that prides themselves on being vibrant and friendly.',
+    image: '/images/patrick.png',
+     igHandle:''
+  },
+  {
+    id: '5',
+    title: 'Valentina Marino',
+    category: 'Art Direction & Developer',
+    description: 'Myles Club for Runners is a vibrant community of running enthusiasts who share a passion for fitness and social connection.',
+    image: '/images/val.png',
+     igHandle:''
+  },
+  {
+    id: '6',
+    title: 'Mike Federico',
+    category: 'DJ & Producer',
+    description: 'Back 2 Balance Counseling empowers individuals towards holistic wellness through compassionate and personalized mental health counseling.',
+    image: '/images/mike.png',
+     igHandle:''
+  },
+  {
+    id: '7',
+    title: 'Andrea Fischer',
+    category: 'Cultural Event Logistics & Coordination',
+    description: 'First Thing Coffee House is a casual cafe venue located in suburbs with a cozy and welcoming energy.',
+    image: '/images/andrea.png',
+     igHandle:''
+  },
+
+  {
+    id: '8',
+    title: 'Silvia Oviedo',
+    category: 'Artist & Researcher',
+    description: 'First Thing Coffee House is a casual cafe venue located in suburbs with a cozy and welcoming energy.',
+    image: '/images/silvia.png',
+     igHandle:''
+  },
+]
 
 // data.ts
 export const floatingImages: FloatingImageItem[] = [
