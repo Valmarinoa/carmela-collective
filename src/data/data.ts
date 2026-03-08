@@ -61,6 +61,14 @@ export const members = [
     description: 'El Sabor - "The Flavour" Tapas Bar is a traditional Spanish restaurant and bar with a contemporary twist.',
     image: '/images/juliana.png',
      igHandle:''
+  }, 
+  {
+    id: '5',
+    title: 'Valentina Marino',
+    category: 'Art Direction & Developer',
+    description: 'Myles Club for Runners is a vibrant community of running enthusiasts who share a passion for fitness and social connection.',
+    image: '/images/val.png',
+     igHandle:''
   },
   {
     id: '4',
@@ -70,14 +78,7 @@ export const members = [
     image: '/images/patrick.png',
      igHandle:''
   },
-  {
-    id: '5',
-    title: 'Valentina Marino',
-    category: 'Art Direction & Developer',
-    description: 'Myles Club for Runners is a vibrant community of running enthusiasts who share a passion for fitness and social connection.',
-    image: '/images/val.png',
-     igHandle:''
-  },
+ 
   {
     id: '6',
     title: 'Mike Federico',

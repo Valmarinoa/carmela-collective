@@ -17,7 +17,7 @@ export default function Archive() {
           alt="Footer background"
           fill
           priority
-          className="object-cover"
+          className="object-fit"
         />
       </div>
 {/* 
