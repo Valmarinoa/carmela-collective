@@ -17,19 +17,18 @@ export default function Archive() {
           alt="Footer background"
           fill
           priority
-          className="object-fit"
+          className="object-fit scale-125"
         />
       </div>
-{/* 
-      <div className="hidden md:block absolute -top-[10vh] -right-36 h-[70vh] w-[50vh] z-0">
-        <Image
-          src="/images/flower.png"
-          alt="Carmela Collective"
-          fill
-          className="object-contain z-20"
-          priority
-        />
-      </div> */}
+      <div className="absolute -top-32 right-20 h-56 w-72 z-10">
+      <Image
+              src="/images/xx.png"
+              alt="Carmela Collective"
+              fill
+              className="object-contain z-20"
+              priority
+            />
+            </div>
 
       {/* Section Header */}
       <div className="px-6 md:px-12 lg:px-20 mb-24">

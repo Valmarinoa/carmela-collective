@@ -24,7 +24,7 @@ export default function Members() {
         />
       </div>
 
-<div className="absolute -top-32 right-20 h-56 w-72 z-10">
+{/* <div className="absolute -top-32 right-20 h-56 w-72 z-10">
       <Image
               src="/images/xx.png"
               alt="Carmela Collective"
@@ -32,7 +32,7 @@ export default function Members() {
               className="object-contain z-20"
               priority
             />
-            </div>
+            </div> */}
       {/* Section Header */}
       <div  className="px-6 md:px-12 lg:px-20 mb-24">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
