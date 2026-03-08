@@ -52,7 +52,7 @@ export default function Members() {
             className="project-card flex-shrink-0 w-[250px]  group cursor-pointer"
             initial={{ opacity: 0,  }}
             whileInView={{ opacity: 1,}}
-            transition={{ delay: index * 0.1, duration: 0.3 }}
+            transition={{ delay: index * 0.01, duration: 0.3 }}
             viewport={{ once: true }}
           >
             {/* Project Image */}
