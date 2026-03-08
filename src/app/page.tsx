@@ -31,7 +31,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main ref={mainRef} className="relative min-h-screen bg-[url('/images/bg.png')] bg-cover bg-center bg-no-repeat"
+    <main ref={mainRef} className="relative min-h-screen"
 >
       {/* Marquee Header */}
       <Marquee />
