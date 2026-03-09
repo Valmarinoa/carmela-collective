@@ -12,8 +12,7 @@ import CurvedNavigation from "@/components/CurvedNavigation";
 
 export const metadata: Metadata = {
   title: "Carmela Collective",
-  description:
-    "Carmela Collective",
+  description: "Carmela Collective",
   keywords: [
     "latin america",
     "diaspora",
@@ -22,6 +21,11 @@ export const metadata: Metadata = {
     "events",
     "party",
   ],
+  icons: {
+    icon: "/images/flower.png",
+    shortcut: "/images/flower.png",
+    apple: "/images/flower.png",
+  },
 };
 
 export default function RootLayout({
