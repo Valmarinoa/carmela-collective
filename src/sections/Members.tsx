@@ -82,6 +82,8 @@ export default function Members() {
             <div className="space-y-1">
               <p className="text-[9px] text-neutral-950 uppercase tracking-wider">{member.category}</p>
               <h3 className="text-lg font-medium">{member.title}</h3>
+              <p className="text-[9px] text-neutral-950 uppercase tracking-wider">{member.nationality}</p>
+              <p className="text-[9px] text-neutral-950 tracking-wider">{member.igHandle}</p>
               <p className="text-sm text-neutral-950 line-clamp-2 font-myriad">{member.description}</p>
             </div>
           </motion.article>

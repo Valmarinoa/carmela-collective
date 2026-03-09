@@ -44,7 +44,8 @@ export const members = [
     category: 'Marketing, New Media & Digital Comms',
     description: 'A refreshing hard seltzer brand with a strategic marketing approach and distinctive visual identity.',
     image: '/images/monse.png',
-    igHandle:''
+    nationality:'México',
+    igHandle:'@pokemonse'
   },
   {
     id: '2',
@@ -52,7 +53,8 @@ export const members = [
     category: 'Music & Cultural Programming',
     description: 'Cheri (Cherry in Japanese) is a multi-level Japanese-fusion tapas dining and drinks upstairs and an underground nightclub.',
     image: '/images/adrian.png',
-     igHandle:''
+    nationality:'México',
+     igHandle:'@ukab.__dj'
   },
   {
     id: '3',
@@ -60,15 +62,17 @@ export const members = [
     category: 'Filmmaker & Visual Artist',
     description: 'El Sabor - "The Flavour" Tapas Bar is a traditional Spanish restaurant and bar with a contemporary twist.',
     image: '/images/juliana.png',
-     igHandle:''
+    nationality:'Colombia',
+     igHandle:'@julianaerazo__'
   }, 
   {
     id: '5',
     title: 'Valentina Marino',
-    category: 'Art Direction & Developer',
+    category: 'Experience Designer & Developer',
     description: 'Myles Club for Runners is a vibrant community of running enthusiasts who share a passion for fitness and social connection.',
     image: '/images/val.png',
-     igHandle:''
+    nationality:'Colombia',
+     igHandle:'@valmarino.a'
   },
   {
     id: '4',
@@ -76,7 +80,8 @@ export const members = [
     category: 'DJ & Producer',
     description: 'Leap Frog Landscapes is a modern and fresh Landscaping company that prides themselves on being vibrant and friendly.',
     image: '/images/patrick.png',
-     igHandle:''
+    nationality:'Chile',
+     igHandle:'@patrickcameron__audio'
   },
  
   {
@@ -85,7 +90,8 @@ export const members = [
     category: 'DJ & Producer',
     description: 'Back 2 Balance Counseling empowers individuals towards holistic wellness through compassionate and personalized mental health counseling.',
     image: '/images/mike.png',
-     igHandle:''
+    nationality:'Netherlands | Colombia',
+     igHandle:'@_mikefederico___'
   },
   {
     id: '7',
@@ -93,7 +99,8 @@ export const members = [
     category: 'Cultural Event Logistics & Coordination',
     description: 'First Thing Coffee House is a casual cafe venue located in suburbs with a cozy and welcoming energy.',
     image: '/images/andrea.png',
-     igHandle:''
+    nationality:'Chile',
+     igHandle:'@andreafischert'
   },
 
   {
@@ -102,7 +109,8 @@ export const members = [
     category: 'Artist & Researcher',
     description: 'First Thing Coffee House is a casual cafe venue located in suburbs with a cozy and welcoming energy.',
     image: '/images/silvia.png',
-     igHandle:''
+    nationality:'Colombia',
+     igHandle:'@silvisalvaje'
   },
 ]
 
@@ -110,7 +118,7 @@ export const archive: Archive[] = [
   {
     id: '0',
     title: 'Carmela x POS',
-    category: 'Marketing, New Media & Digital Comms',
+    category: 'APR 2026',
     description: 'A refreshing hard seltzer brand with a strategic marketing approach.',
     image: '/images/events/carmela-pos-26.png',
     objectFit: 'contain',  // image will use object-contain
@@ -119,7 +127,7 @@ export const archive: Archive[] = [
   {
     id: '1',
     title: 'Carmela Fugaris',
-    category: 'Marketing, New Media & Digital Comms',
+    category: 'DEC 2025',
     description: 'A refreshing hard seltzer brand with a strategic marketing approach.',
     image: '/images/events/carmela-fugaris.png',
     objectFit: 'contain',  // image will use object-contain
@@ -129,7 +137,7 @@ export const archive: Archive[] = [
   {
     id: '2',
     title: 'Dia de los Muertos',
-    category: 'Marketing, New Media & Digital Comms',
+    category: 'NOV 2025',
     description: 'A refreshing hard seltzer brand with a strategic marketing approach.',
     image: '/images/events/ddm-25.png',
     objectFit: 'contain',  // image will use object-contain
@@ -139,7 +147,7 @@ export const archive: Archive[] = [
   {
     id: '3',
     title: 'Carmela x SevenEleven',
-    category: 'Events',
+    category: 'OCT 2025',
     description: 'Underground nightclub experience with curated music programming.',
     mediaType: 'video',
     video: '/images/events/radiradio-archive.mp4',
@@ -150,7 +158,7 @@ export const archive: Archive[] = [
    {
     id: '4',
     title: 'Carmela Genesis',
-    category: 'Marketing, New Media & Digital Comms',
+    category: 'SEPT 2025',
     description: 'A refreshing hard seltzer brand with a strategic marketing approach.',
     image: '/images/events/carmela-sept-25.png',
     objectFit: 'contain',  // image will use object-contain
