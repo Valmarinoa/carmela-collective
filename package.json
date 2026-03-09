@@ -1,5 +1,8 @@
 {
   "name": "keepa-studio",
+  "pnpm": {
+    "onlyBuiltDependencies": ["unrs-resolver"]
+  },
   "version": "1.0.0",
   "private": true,
   "scripts": {
