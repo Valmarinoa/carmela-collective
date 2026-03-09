@@ -1,6 +1,13 @@
 'use client'
 
+// #numero del reporte:
+// 489076
+
+// #falla
+// 301842
+
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
+import { flushAllTraces } from 'next/dist/trace'
 import Image from 'next/image'
 import { useRef } from 'react'
 
@@ -46,7 +53,7 @@ export default function About() {
 
       <motion.div
         style={{ y: topY }}
-        className="absolute -top-32  -right-24 h-56 w-72 z-10"
+        className="absolute -top-32  -right-24 md:right-[30%] h-56 w-72 z-10"
       >
         <Image
           src="/images/xx.png"

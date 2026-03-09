@@ -59,16 +59,6 @@ export const members = [
     igHandle:'@ukab.__dj'
   },
   {
-    id: '3',
-    title: 'Juliana Erazo',
-    category: 'Filmmaker & Visual Artist',
-    description: 'El Sabor - "The Flavour" Tapas Bar is a traditional Spanish restaurant and bar with a contemporary twist.',
-    image: '/images/juliana.png',
-    nationality:'Colombia',
-    igLink: 'https://instagram.com/julianaerazo__',
-    igHandle:'@julianaerazo__'
-  }, 
-  {
     id: '5',
     title: 'Valentina Marino',
     category: 'Experience Designer & Developer',
@@ -78,6 +68,17 @@ export const members = [
     igLink: 'https://instagram.com/valmarino.a', 
     igHandle:'@valmarino.a'
   },
+  {
+    id: '3',
+    title: 'Juliana Erazo',
+    category: 'Filmmaker & Visual Artist',
+    description: 'El Sabor - "The Flavour" Tapas Bar is a traditional Spanish restaurant and bar with a contemporary twist.',
+    image: '/images/juliana.png',
+    nationality:'Colombia',
+    igLink: 'https://instagram.com/julianaerazo__',
+    igHandle:'@julianaerazo__'
+  }, 
+  
   {
     id: '4',
     title: 'Patrick Kimber',

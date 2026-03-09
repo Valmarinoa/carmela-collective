@@ -1,13 +1,30 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
 import { archive } from '@/data/data'
+import { useRef } from 'react'
 
 export default function Archive() {
+  const sectionRef = useRef<HTMLElement>(null)
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  })
+
+  // Top image moves a bit upward as you scroll through the section
+  const topYRaw = useTransform(scrollYProgress, [0, 1], [40, -40])
+  const topY = useSpring(topYRaw, {
+    stiffness: 60,
+    damping: 18,
+    mass: 0.8,
+  })
+  
   return (
     <section 
+    ref={sectionRef}
       id="archive"
       className="relative pt-20 pb-28 bg-cream -mt-20 md:pb-44 md:mt-0 z-[3]"
     >
@@ -20,15 +37,18 @@ export default function Archive() {
           className="object-fill scale-150"
         />
       </div>
-      <div className="absolute -top-32 right-20 h-56 w-72 z-10">
-      <Image
-              src="/images/xx.png"
-              alt="Carmela Collective"
-              fill
-              className="object-contain z-20"
-              priority
-            />
-            </div>
+      <motion.div
+        style={{ y: topY }}
+        className="absolute -top-32  -right-24 md:right-56 h-56 w-72 z-10"
+      >
+        <Image
+          src="/images/xx.png"
+          alt="Carmela Collective"
+          fill
+          className="object-contain z-20"
+          priority
+        />
+      </motion.div>
 
       {/* Section Header */}
       <div className="px-6 md:px-12 lg:px-20 mb-24">

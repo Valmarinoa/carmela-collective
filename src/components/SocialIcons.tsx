@@ -50,7 +50,7 @@ export default function SocialIcons() {
     },
     {
       name: 'Email',
-      href: 'mailto:your@email.com',
+      href: 'mailto:carmela-collective@gmail.com',
       icon: EmailIcon,
     },
     {

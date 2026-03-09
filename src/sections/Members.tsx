@@ -1,19 +1,48 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
 import { members } from '@/data/data'
+import { useRef } from 'react'
 
 // Sample members data - replace with your actual members
 
 
 export default function Members() {
+  const sectionRef = useRef<HTMLElement>(null)
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  })
+
+  // Top image moves a bit upward as you scroll through the section
+  const topYRaw = useTransform(scrollYProgress, [0, 1], [40, -40])
+  const topY = useSpring(topYRaw, {
+    stiffness: 60,
+    damping: 18,
+    mass: 0.8,
+  })
+  
   return (
     <section 
+    ref={sectionRef}
       id="members"
       className="relative py-20  bg-black md:pb-20 z-[3]"
     >
+      <motion.div
+        style={{ y: topY }}
+        className="absolute -top-12 -right-14 md:right-[10%] h-56 w-72 z-10"
+      >
+        <Image
+          src="/icons/carmela-figure.svg"
+          alt="Carmela Collective"
+          fill
+          className="object-contain z-20"
+          priority
+        />
+      </motion.div>
         <div className="absolute inset-0 -z-10">
         <Image
           src="/images/archive-bg.png"
