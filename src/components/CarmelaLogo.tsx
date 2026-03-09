@@ -70,7 +70,7 @@ export default function CarmelaLogo({ className = '' }: CarmelaLogoProps) {
       {/* Text outside animated container - prevents flicker */}
       <h3 
         className='font-leakage text-cream/80 text-2xl md:text-6xl 
-                   absolute -bottom-14 right-8 md:bottom-20 md:right-[15%] z-[2]'
+                   absolute -bottom-[64px] right-8 md:bottom-20 md:right-[15%] z-[2]'
       >
         Collective
       </h3>

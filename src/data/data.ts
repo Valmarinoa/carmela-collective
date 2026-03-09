@@ -226,19 +226,19 @@ export const floatingImages: FloatingImageItem[] = [
     },
   },
 
-  {
-    id: "3",
-    mediaType: "image",
-    src: "/images/xx.png",
-    alt: "XX",
-    position: { x: "70%", y: "50%" },        // Desktop
-    size: { width: 240, height: 320 },       // Desktop
-    parallaxSpeed: 0.4,
-    mobile: {
-      position: { right: "10%", y: "48%" },
-      size: { width: 200, height: 200 },
-    },
-  },
+  // {
+  //   id: "3",
+  //   mediaType: "image",
+  //   src: "/images/xx.png",
+  //   alt: "XX",
+  //   position: { x: "70%", y: "50%" },        // Desktop
+  //   size: { width: 240, height: 320 },       // Desktop
+  //   parallaxSpeed: 0.4,
+  //   mobile: {
+  //     position: { right: "10%", y: "48%" },
+  //     size: { width: 200, height: 200 },
+  //   },
+  // },
   {
     id: "6",
     mediaType: "image",
