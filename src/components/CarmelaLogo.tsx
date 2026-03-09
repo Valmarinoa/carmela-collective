@@ -20,20 +20,20 @@ export default function CarmelaLogo({ className = '' }: CarmelaLogoProps) {
   return (
     <div className={`relative ${className}`}>
       {/* Animated container - only images inside */}
-      <motion.div 
+      <div 
         ref={containerRef}
-        style={{ scale, y, opacity }}
+        // style={{ scale, y, opacity }}
       >
         <div className="relative flex flex-col items-center">
-          <motion.div 
+          <div 
             className="relative w-[90vw] md:h-[400px] h-20"
-            initial={{ opacity: 0, scale: 0.7 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ 
-              delay: 0.5, 
-              duration: 0.5,
-              ease: [0.22, 1, 0.36, 1],
-            }}
+            // initial={{ opacity: 0, scale: 0.7 }}
+            // animate={{ opacity: 1, scale: 1 }}
+            // transition={{ 
+            //   delay: 0.5, 
+            //   duration: 0.5,
+            //   ease: [0.22, 1, 0.36, 1],
+            // }}
           >
             {/* Mobile flower */}
             <div className="md:hidden -top-32 left-1/2 -translate-x-1/2 absolute h-44 w-44 flex items-center justify-center">
@@ -70,9 +70,9 @@ export default function CarmelaLogo({ className = '' }: CarmelaLogoProps) {
                 ease: "easeInOut"
               }}
             />
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Text outside animated container - prevents flicker */}
       <h3 
