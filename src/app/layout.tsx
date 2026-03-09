@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     title: "Carmela Collective",
     description:
       "A Latin American cultural collective showcasing music, events, and artists from the Latin American diaspora.",
-    url: "https://carmelacollective.com",
+    url: "https://carmela-collective.vercel.app",
     siteName: "Carmela Collective",
     images: [
       {
