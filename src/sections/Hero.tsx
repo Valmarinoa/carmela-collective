@@ -10,10 +10,10 @@ export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null)
 
   return (
-    <section 
-    ref={sectionRef}
-    className="relative min-h-screen flex items-center px-6 md:px-12 lg:px-20 overflow-hidden h-screen"
-  >
+    <section
+      ref={sectionRef}
+      className="relative min-h-screen flex items-center px-6 md:px-12 lg:px-20 overflow-hidden h-screen"
+    >
       {/* Main Content Container - NO fade out on scroll */}
       <div className="relative w-full z-10 h-[90vh] flex md:block flex-col md:flex-none justify-between items-center">
         {/* Top Row */}
@@ -28,80 +28,54 @@ export default function Hero() {
           </motion.div>
         </div>
 
-      {/* Spinning Circle */}
+        {/* Spinning Circle */}
         <div className="z-20 flex justify-end w-full pt-6">
-        <SpinningCircleText
+          <SpinningCircleText
             text=" LATINO-AMERICANA • LATINO-AMERICANA •"
             fontClass="font-funtastic text-xs"
             size={161}
             duration={16}
           />
         </div>
-        
+
         {/* Center Logo */}
         <div className="flex justify-center items-center top-1/2 -translate-y-[50%] absolute">
           <CarmelaLogo />
         </div>
-        
-        {/* Bottom Content */}
-        {/* <div className="flex md:absolute md:bottom-0 md:w-full flex-col md:flex-row justify-between items-end"> */}
-          {/* Left Side - Description & Email */}
-          {/* <motion.div 
-            className="max-w-lg hidden"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-          >
-            <p className="text-xl leading-tight text-white mb-24">
-            We are Carmela Collective, an Amsterdam-based collective of LatinAmerican creatives building a platform for culture, arts and community space. 
-            </p>
-            
-           
-          </motion.div> */}
-          {/* Right Side - Brief Buttons */}
-          {/* <motion.div 
-            className="flex flex-col gap-3 mt-8 md:mt-0 fixed md:right-20"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
-          >
-            <div className="flex flex-col items-end gap-3">
-              <OvalButton href="#contact">About</OvalButton>
-            </div>
-            <div className="flex flex-col items-end gap-3">
-              <OvalButton href="#archive">Archive</OvalButton>
-            </div>
-            
-            <div className="flex flex-col items-end gap-3">
-              <OvalButton href="#contact">Contact</OvalButton>
-            </div>
-          </motion.div> */}
-        {/* </div> */}
-        
-       
       </div>
-      
+
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <motion.div 
-          className="absolute top-1/4 left-1/4 w-64 h-64 bg-pink-400 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-           
+        <motion.div
+          className="absolute top-1/4 left-[20%] w-72 h-64 md:w-[450px] md:h-96 bg-pink-400 rounded-full blur-3xl"
+          animate={{
+            opacity: [0.22, 1, 0.42],
           }}
-          transition={{ duration: 8, repeat: Infinity,  delay: 1 }}
-        />
-        <motion.div 
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-600 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1.2, 1, 1.2],
-            opacity: [0.5, 0.3, 0.5]
+          transition={{
+            duration: 7.5,
+            repeat: Infinity,
+            repeatType: 'mirror',
+            ease: 'easeInOut',
+            delay: 0.8,
           }}
-          transition={{ duration: 10, repeat: Infinity,  delay: 1 }}
         />
+
+        <motion.div
+          className="absolute bottom-1/4 md:bottom-1/3 right-[20%] w-96 h-96 md:w-[450px] md:h-[350px] bg-orange-600 rounded-full blur-3xl z-[2]"
+          animate={{
+            opacity: [0.28, 1, 0.48],
+          }}
+          transition={{
+            duration: 9.5,
+            repeat: Infinity,
+            repeatType: 'mirror',
+            ease: 'easeInOut',
+            delay: .5,
+          }}
+        />
+        
+
       </div>
-    
     </section>
   )
 }
