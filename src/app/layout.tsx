@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     siteName: "Carmela Collective",
     images: [
       {
-        url: "/images/flower.png",
+        url: "/images/favicon.png",
         width: 1200,
         height: 630,
         alt: "Carmela Collective",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     title: "Carmela Collective",
     description:
       "A Latin American cultural collective showcasing music, events, and artists from the diaspora.",
-    images: ["/images/flower.png"],
+    images: ["/images/favicon.png"],
   },
 };
 
