@@ -75,7 +75,7 @@ export default function Members() {
             viewport={{ once: true }}
           >
             {/* Project Image */}
-            <div className="relative aspect-[3/4] rounded-md overflow-hidden mb-4 ">
+            <div className="relative aspect-[3/4] rounded-xl overflow-hidden mb-4 ">
               <Image
                 src={member.image}
                 alt={member.title}
@@ -104,7 +104,7 @@ export default function Members() {
               <h3 className="text-lg font-medium">{member.title}</h3>
               <p className="text-[9px] text-neutral-950 uppercase tracking-wider">{member.nationality}</p>
               <a href={`${member.igLink}`} className="text-[9px] text-neutral-950 tracking-wider">{member.igHandle}</a>
-              <p className="text-sm text-neutral-950 line-clamp-2 font-myriad">{member.description}</p>
+              <p className="text-xs text-neutral-950/70 line-clamp-2 font-myriad">{member.description}</p>
             </div>
           </motion.article>
         ))}
