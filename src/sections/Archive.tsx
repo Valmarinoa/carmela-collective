@@ -9,15 +9,15 @@ export default function Archive() {
   return (
     <section 
       id="archive"
-      className="relative py-20 bg-cream -mt-20 md:mt-0 z-[3]"
+      className="relative py-20 bg-cream -mt-20 md:pb-44 md:mt-0 z-[3]"
     >
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/images/archive-bg.png"
+          src="/images/projects-bg.png"
           alt="Footer background"
           fill
           priority
-          className="object-fit scale-125"
+          className="object-fill scale-150"
         />
       </div>
       <div className="absolute -top-32 right-20 h-56 w-72 z-10">

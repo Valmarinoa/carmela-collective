@@ -12,15 +12,15 @@ export default function Members() {
   return (
     <section 
       id="members"
-      className="relative py-20  bg-[#B2C29B] md:pb-20 z-[3]"
+      className="relative py-20  bg-black md:pb-20 z-[3]"
     >
         <div className="absolute inset-0 -z-10">
         <Image
-          src="/images/projects-bg.png"
+          src="/images/archive-bg.png"
           alt="Footer background"
           fill
           priority
-          className="object-cover"
+          className="object-cover scale-150"
         />
       </div>
 

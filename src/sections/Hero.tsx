@@ -52,7 +52,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
           >
-            <p className="text-xl leading-tight text-white">
+            <p className="text-xl leading-tight text-white mb-24">
             We are Carmela Collective, an Amsterdam-based collective of LatinAmerican creatives building a platform for culture, arts and community space. 
             </p>
             
