@@ -47,30 +47,30 @@ export default function Hero() {
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div
-          className="absolute top-1/4 left-[20%] w-72 h-64 md:w-[450px] md:h-96 bg-pink-400 rounded-full blur-3xl overflow-visible"
+          className="absolute top-1/4 left-[43%] w-72 h-64 md:w-[450px] md:h-96 bg-pink-400 rounded-full blur-3xl overflow-visible"
           animate={{
-            opacity: [0.22, 0.8, 0.42],
+            opacity: [0.22, 0.6, 0.42],
           }}
           transition={{
             duration: 7.5,
             repeat: Infinity,
             repeatType: 'mirror',
             ease: 'easeInOut',
-            delay: 0.8,
+            delay: 0.5,
           }}
         />
 
         <motion.div
-          className="absolute bottom-1/4 md:bottom-1/3 right-[20%] w-96 h-96 md:w-[450px] md:h-[350px] bg-orange-600 rounded-full blur-3xl z-[2] overflow-visible"
+          className="absolute bottom-[25%] right-[53%] w-96 h-96 md:w-[450px] md:h-[350px] bg-orange-500 rounded-full blur-3xl z-[2] overflow-visible"
           animate={{
-            opacity: [0.28, 0.8, 0.48],
+            opacity: [0.28, 0.7, 0.48],
           }}
           transition={{
             duration: 9.5,
             repeat: Infinity,
             repeatType: 'mirror',
             ease: 'easeInOut',
-            delay: .5,
+            delay: .8,
           }}
         />
         
