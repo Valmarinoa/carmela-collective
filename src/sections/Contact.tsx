@@ -40,7 +40,7 @@ export default function Contact() {
     <section 
       ref={sectionRef}
       id="contact"
-      className="relative py-20 px-6 md:px-12 lg:px-20 bg-cream z-[1]"
+      className="relative pb-20 pt-36 px-6 md:px-12 lg:px-20 bg-[#F98580] z-[1]"
     >
       <motion.div 
         className="max-w-6xl mx-auto"
@@ -60,7 +60,7 @@ export default function Contact() {
                 </h3>
                 <p className="text-white/60 text-sm leading-relaxed max-w-sm">
                   Fill out a quick form below to submit your design brief or email me to get started. 
-                  I will reply with confirmation and pricing options shortly. Look forward to hearing form you!
+                  Look forward to hearing form you!
                 </p>
                 <p className="text-white/40 text-sm mt-4">
                   Answering all enquiries :)
@@ -68,7 +68,7 @@ export default function Contact() {
               </div>
               
               {/* Brief Buttons */}
-              <div className="flex flex-col gap-3">
+              {/* <div className="flex flex-col gap-3">
                
                 <motion.button 
                   className="inline-flex items-center gap-3 px-6 py-3 border border-white/30 rounded-full 
@@ -79,7 +79,7 @@ export default function Contact() {
                   <span>Inquiries</span>
                   <MousePointer2 size={16} className="text-white/60" />
                 </motion.button>
-              </div>
+              </div> */}
             </div>
             
             {/* Right Side - Form */}
@@ -115,7 +115,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={4}
-                    className="form-input resize-none rounded-xl"
+                    className="form-input resize-none rounded-sm"
                   />
                 </div>
                 <motion.button

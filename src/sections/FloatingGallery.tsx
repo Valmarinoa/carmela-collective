@@ -145,7 +145,7 @@ export default function FloatingGallery() {
     [0, 0.55, 1],
     reduceMotion ? [1, 1, 1] : [0.6, 0.92, 1]
   );
-  const bgY = useTransform(bgP, [0, 1], reduceMotion ? [0, 0] : [20, -90]);
+  const bgY = useTransform(bgP, [0, 1], reduceMotion ? [0, 0] : [-20, -90]);
 
   // Mobile-specific flower transforms
   const mobileBgScale = useTransform(

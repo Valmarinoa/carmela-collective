@@ -45,6 +45,7 @@ export const members = [
     description: 'A refreshing hard seltzer brand with a strategic marketing approach and distinctive visual identity.',
     image: '/images/monse.png',
     nationality:'México',
+    igLink: 'https://instagram.com/pokemonse',
     igHandle:'@pokemonse'
   },
   {
@@ -54,7 +55,8 @@ export const members = [
     description: 'Cheri (Cherry in Japanese) is a multi-level Japanese-fusion tapas dining and drinks upstairs and an underground nightclub.',
     image: '/images/adrian.png',
     nationality:'México',
-     igHandle:'@ukab.__dj'
+    igLink: 'https://instagram.com/ukab.__dj',
+    igHandle:'@ukab.__dj'
   },
   {
     id: '3',
@@ -63,7 +65,8 @@ export const members = [
     description: 'El Sabor - "The Flavour" Tapas Bar is a traditional Spanish restaurant and bar with a contemporary twist.',
     image: '/images/juliana.png',
     nationality:'Colombia',
-     igHandle:'@julianaerazo__'
+    igLink: 'https://instagram.com/julianaerazo__',
+    igHandle:'@julianaerazo__'
   }, 
   {
     id: '5',
@@ -72,7 +75,8 @@ export const members = [
     description: 'Myles Club for Runners is a vibrant community of running enthusiasts who share a passion for fitness and social connection.',
     image: '/images/val.png',
     nationality:'Colombia',
-     igHandle:'@valmarino.a'
+    igLink: 'https://instagram.com/valmarino.a', 
+    igHandle:'@valmarino.a'
   },
   {
     id: '4',
@@ -81,7 +85,8 @@ export const members = [
     description: 'Leap Frog Landscapes is a modern and fresh Landscaping company that prides themselves on being vibrant and friendly.',
     image: '/images/patrick.png',
     nationality:'Chile',
-     igHandle:'@patrickcameron__audio'
+    igLink: 'https://instagram.com/patrickcameron__audio', 
+    igHandle:'@patrickcameron__audio'
   },
  
   {
@@ -91,7 +96,8 @@ export const members = [
     description: 'Back 2 Balance Counseling empowers individuals towards holistic wellness through compassionate and personalized mental health counseling.',
     image: '/images/mike.png',
     nationality:'Netherlands | Colombia',
-     igHandle:'@_mikefederico___'
+    igLink: 'https://instagram.com/_mikefederico___', 
+    igHandle:'@_mikefederico___'
   },
   {
     id: '7',
@@ -100,7 +106,8 @@ export const members = [
     description: 'First Thing Coffee House is a casual cafe venue located in suburbs with a cozy and welcoming energy.',
     image: '/images/andrea.png',
     nationality:'Chile',
-     igHandle:'@andreafischert'
+    igLink: 'https://instagram.com/andreafischert', 
+    igHandle:'@andreafischert'
   },
 
   {
@@ -110,7 +117,8 @@ export const members = [
     description: 'First Thing Coffee House is a casual cafe venue located in suburbs with a cozy and welcoming energy.',
     image: '/images/silvia.png',
     nationality:'Colombia',
-     igHandle:'@silvisalvaje'
+    igLink: 'https://instagram.com/silvisalvaje', 
+    igHandle:'@silvisalvaje'
   },
 ]
 
@@ -122,7 +130,7 @@ export const archive: Archive[] = [
     description:'',
     image: '/images/events/carmela-pos-26.png',
     objectFit: 'contain',  // image will use object-contain
-    igHandle: ''
+   igHandle: ''
   },
   {
     id: '1',
@@ -225,20 +233,6 @@ export const floatingImages: FloatingImageItem[] = [
       size: { width: 250, height: 220 },
     },
   },
-
-  // {
-  //   id: "3",
-  //   mediaType: "image",
-  //   src: "/images/xx.png",
-  //   alt: "XX",
-  //   position: { x: "70%", y: "50%" },        // Desktop
-  //   size: { width: 240, height: 320 },       // Desktop
-  //   parallaxSpeed: 0.4,
-  //   mobile: {
-  //     position: { right: "10%", y: "48%" },
-  //     size: { width: 200, height: 200 },
-  //   },
-  // },
   {
     id: "6",
     mediaType: "image",

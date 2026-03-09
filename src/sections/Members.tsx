@@ -23,16 +23,6 @@ export default function Members() {
           className="object-cover scale-150"
         />
       </div>
-
-{/* <div className="absolute -top-32 right-20 h-56 w-72 z-10">
-      <Image
-              src="/images/xx.png"
-              alt="Carmela Collective"
-              fill
-              className="object-contain z-20"
-              priority
-            />
-            </div> */}
       {/* Section Header */}
       <div  className="px-6 md:px-12 lg:px-20 mb-24">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
@@ -69,13 +59,14 @@ export default function Members() {
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
               
               {/* Arrow Icon */}
-              <motion.div 
+              <motion.a
+              href={`${member.igLink}`}
                 className="absolute top-4 right-4 w-10 h-10 bg-white rounded-full flex items-center justify-center
                            opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 whileHover={{ scale: 1.1 }}
               >
                 <ArrowUpRight size={18} />
-              </motion.div>
+              </motion.a>
             </div>
             
             {/* Project Info */}
@@ -83,7 +74,7 @@ export default function Members() {
               <p className="text-[9px] text-neutral-950 uppercase tracking-wider">{member.category}</p>
               <h3 className="text-lg font-medium">{member.title}</h3>
               <p className="text-[9px] text-neutral-950 uppercase tracking-wider">{member.nationality}</p>
-              <p className="text-[9px] text-neutral-950 tracking-wider">{member.igHandle}</p>
+              <a href={`${member.igLink}`} className="text-[9px] text-neutral-950 tracking-wider">{member.igHandle}</a>
               <p className="text-sm text-neutral-950 line-clamp-2 font-myriad">{member.description}</p>
             </div>
           </motion.article>
