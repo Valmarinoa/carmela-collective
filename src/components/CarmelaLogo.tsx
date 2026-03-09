@@ -66,7 +66,7 @@ export default function CarmelaLogo({ className = '' }: CarmelaLogoProps) {
               className="object-contain w-full"
               priority
             />
-          <h3 className='font-leakage text-cream/80 text-2xl md:text-6xl absolute -bottom-4 right-8 md:bottom-0 md:right-[15%] z-[3]'>Collective</h3>
+          <h3 className='font-leakage text-cream text-2xl md:text-6xl absolute -bottom-4 right-8 md:bottom-0 md:right-[15%] z-[3]'>Collective</h3>
           </div>
           
           {/* Animated blob effect behind logo */}
