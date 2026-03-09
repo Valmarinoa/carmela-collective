@@ -6,12 +6,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Marquee from '@/components/Marquee'
 import Hero from '@/sections/Hero'
 import FloatingGallery from '@/sections/FloatingGallery'
-import Projects from '@/sections/Members'
 import Contact from '@/sections/Contact'
 import Footer from '@/sections/Footer'
 import BackToTop from '@/components/BackToTop'
 import Calendar from '@/sections/Calendar'
-import IntroText from '@/sections/IntroText'
+import About from '@/sections/About'
 import Members from '@/sections/Members'
 import Archive from '@/sections/Archive'
 
@@ -40,7 +39,7 @@ export default function Home() {
       
       {/* Hero Section - stays visible, doesn't fade */}
       <Hero />
-      <IntroText />
+      <About />
       {/* Floating Gallery - background image fades in and scales */}
       <FloatingGallery />
 
@@ -51,7 +50,7 @@ export default function Home() {
 
       {/* Projects Section */}
       <Members />
- 
+
       {/* Contact Section */}
       <Contact />
       
