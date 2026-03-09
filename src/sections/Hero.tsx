@@ -84,12 +84,13 @@ export default function Hero() {
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div 
-          className="absolute top-1/4 left-1/4 w-64 h-64 bg-pink-300 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-64 h-64 bg-pink-400 rounded-full blur-3xl"
           animate={{ 
             scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3]
+            opacity: [0.3, 0.5, 0.3],
+           
           }}
-          transition={{ duration: 8, repeat: Infinity }}
+          transition={{ duration: 8, repeat: Infinity,  delay: 1 }}
         />
         <motion.div 
           className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-600 rounded-full blur-3xl"
@@ -97,7 +98,7 @@ export default function Hero() {
             scale: [1.2, 1, 1.2],
             opacity: [0.5, 0.3, 0.5]
           }}
-          transition={{ duration: 10, repeat: Infinity }}
+          transition={{ duration: 10, repeat: Infinity,  delay: 1 }}
         />
       </div>
     

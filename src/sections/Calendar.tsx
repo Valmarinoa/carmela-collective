@@ -24,7 +24,7 @@ export default function Calendar() {
       <div className="px-6 mb-20 md:px-12 md:mb-6  z-20">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div className="flex items-center gap-4">
-            <h2 className="text-4xl md:text-5xl font-bold font-funtastic">
+            <h2 className="text-4xl md:text-5xl font-bold font-funtastic uppercase">
               Events
             </h2>
           </div>

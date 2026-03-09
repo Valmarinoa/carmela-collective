@@ -37,7 +37,7 @@ export default function Members() {
       <div  className="px-6 md:px-12 lg:px-20 mb-24">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div className="flex items-center gap-4">
-            <h2 className="text-4xl md:text-5xl font-bold font-funtastic">Members</h2> 
+            <h2 className="text-4xl md:text-5xl font-bold font-funtastic uppercase">Members</h2> 
           </div>
         </div>
       </div>

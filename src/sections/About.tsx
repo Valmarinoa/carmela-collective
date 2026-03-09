@@ -40,7 +40,7 @@ export default function About() {
 
       {/* Section Header */}
       <div className="mb-24 md:mb-6 text-left w-full ">
-        <h2 className="text-4xl md:text-5xl font-bold font-funtastic">About</h2> 
+        <h2 className="text-4xl md:text-5xl font-bold font-funtastic uppercase">About</h2> 
       </div>
       
       <motion.div 
