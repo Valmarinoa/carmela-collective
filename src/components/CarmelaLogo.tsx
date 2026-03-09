@@ -58,7 +58,7 @@ export default function CarmelaLogo({ className = '' }: CarmelaLogoProps) {
               priority
             />
             </div>
-          <div className="relative w-full h-28 md:h-[300px] flex items-center justify-center">
+          <div className="relative w-full h-28 md:h-[300px] flex items-center justify-center md:mt-12">
             <Image
               src="/images/carmela.png"
               alt="Carmela Collective"
