@@ -63,35 +63,35 @@ export default function Members() {
       
       {/* Horizontal Scrolling members */}
       <div 
-        className="flex gap-6 px-6 md:px-12 lg:px-20 overflow-x-auto overflow-y-hidden no-scrollbar scroll-smooth [scrollbar-gutter:stable]"
+        className="flex gap-6 px-6 md:px-12 lg:px-20 overflow-x-auto overflow-y-visible md:pt-4  no-scrollbar scroll-smooth [scrollbar-gutter:stable]"
       >
         {members.map((member, index) => (
           <motion.article
             key={member.id}
-            className="project-card flex-shrink-0 w-[250px]  group cursor-pointer"
+            className="project-card flex-shrink-0 w-[250px]  group cursor-pointer "
             initial={{ opacity: 0,  }}
             whileInView={{ opacity: 1,}}
             transition={{ delay: index * 0.01, duration: 0.3 }}
             viewport={{ once: true }}
           >
             {/* Project Image */}
-            <div className="relative aspect-[3/4] rounded-xl overflow-hidden mb-4 ">
+            <div className="relative aspect-[3/4] rounded-3xl mb-4 ">
               <Image
                 src={member.image}
                 alt={member.title}
                 fill
-                className="object-cover"
+                className="object-cover rounded-3xl"
                 sizes="400px"
               />
               
               {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-pink-500/20 transition-colors duration-300 rounded-3xl" />
               
               {/* Arrow Icon */}
               <motion.a
               href={`${member.igLink}`}
-                className="absolute top-4 right-4 w-10 h-10 bg-white rounded-full flex items-center justify-center
-                           opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                className="absolute top-4 right-4 w-10 h-10 bg-bg-[#70fe01] rounded-full flex items-center justify-center
+                           opacity-0 group-hover:opacity-100  transition-opacity duration-300"
                 whileHover={{ scale: 1.1 }}
               >
                 <ArrowUpRight size={18} />
