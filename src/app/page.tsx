@@ -9,10 +9,11 @@ import FloatingGallery from '@/sections/FloatingGallery'
 import Contact from '@/sections/Contact'
 import Footer from '@/sections/Footer'
 import BackToTop from '@/components/BackToTop'
-import Calendar from '@/sections/Calendar'
+import Calendar from '@/sections/Events'
 import About from '@/sections/About'
 import Members from '@/sections/Members'
 import Archive from '@/sections/Archive'
+import Events from '@/sections/Events'
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
@@ -39,12 +40,13 @@ export default function Home() {
       
       {/* Hero Section - stays visible, doesn't fade */}
       <Hero />
+
       <About />
       {/* Floating Gallery - background image fades in and scales */}
       <FloatingGallery />
 
-      {/* Calendar */}
-      <Calendar />
+      {/* Events */}
+      <Events />
       
       <Archive />
 
@@ -58,7 +60,8 @@ export default function Home() {
       <Footer />
       
       {/* Back to Top Button */}
-      <BackToTop />
+      
+      <div className='hidden md:block'><BackToTop /></div>
     </main>
   )
 }

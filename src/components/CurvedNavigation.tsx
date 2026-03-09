@@ -13,7 +13,7 @@ export default function CurvedNavigation() {
         transition={{ delay: 0.3, duration: 0.6 }}
         viewport={{ once: true }}
       >
-        {['About', 'Archive', 'Contact'].map((item) => (
+        {['About', 'Events', 'Contact'].map((item) => (
           <motion.a
             key={item}
             href={`#${item.toLowerCase()}`}
