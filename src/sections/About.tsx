@@ -7,7 +7,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative pb-28 md:pt-20 h-[80vh] md:mt-20 px-6 md:px-12 overflow-y-visible flex flex-col justify-center md:justify-evenly items-center"
+      className="relative pb-28 md:pt-20 h-screen md:h-[80vh] md:mt-20 px-6 md:px-12 overflow-y-visible flex flex-col justify-center md:justify-evenly items-center"
     >
       <div className="absolute inset-0 -z-10">
         <Image
