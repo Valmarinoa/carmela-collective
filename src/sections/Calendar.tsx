@@ -9,7 +9,7 @@ export default function Calendar() {
   return (
     <section
       id="calendar"
-      className="relative pt-24 pb-52 md:pt-20 md:pb-44 overflow-hidden z-[1]"
+      className="relative pt-24 pb-64 md:pt-20 md:pb-44 overflow-hidden z-[1]"
     >
          <div className="absolute inset-0 -z-10">
         <Image

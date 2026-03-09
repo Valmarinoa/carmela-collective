@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <section 
     ref={sectionRef}
-    className="relative min-h-screen flex items-center px-6 md:px-12 lg:px-20 overflow-hidden"
+    className="relative min-h-screen flex items-center px-6 md:px-12 lg:px-20 overflow-hidden h-screen"
   >
       {/* Main Content Container - NO fade out on scroll */}
       <div className="relative w-full z-10 h-[90vh] flex md:block flex-col md:flex-none justify-between items-center">
@@ -29,11 +29,11 @@ export default function Hero() {
         </div>
 
       {/* Spinning Circle */}
-        <div className="z-20 flex justify-end w-full">
+        <div className="z-20 flex justify-end w-full pt-6">
         <SpinningCircleText
             text=" LATINO-AMERICANA • LATINO-AMERICANA •"
             fontClass="font-funtastic text-xs"
-            size={163}
+            size={161}
             duration={16}
           />
         </div>
@@ -44,10 +44,10 @@ export default function Hero() {
         </div>
         
         {/* Bottom Content */}
-        <div className="flex md:absolute md:bottom-0 md:w-full flex-col md:flex-row justify-between items-end">
+        {/* <div className="flex md:absolute md:bottom-0 md:w-full flex-col md:flex-row justify-between items-end"> */}
           {/* Left Side - Description & Email */}
-          <motion.div 
-            className="max-w-lg hidden md:flex"
+          {/* <motion.div 
+            className="max-w-lg hidden"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
@@ -57,7 +57,7 @@ export default function Hero() {
             </p>
             
            
-          </motion.div>
+          </motion.div> */}
           {/* Right Side - Brief Buttons */}
           {/* <motion.div 
             className="flex flex-col gap-3 mt-8 md:mt-0 fixed md:right-20"
@@ -76,7 +76,7 @@ export default function Hero() {
               <OvalButton href="#contact">Contact</OvalButton>
             </div>
           </motion.div> */}
-        </div>
+        {/* </div> */}
         
        
       </div>

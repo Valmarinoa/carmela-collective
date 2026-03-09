@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Link from 'next/link'
 
 export default function CurvedNavigation() {
  
@@ -18,7 +17,7 @@ export default function CurvedNavigation() {
           <motion.a
             key={item}
             href={`#${item.toLowerCase()}`}
-            className="text-sm font-medium font-funtastic text-cream hover:text-[#70fe01] transition-colors  z-50"
+            className="text-sm font-medium font-funtastic text-cream hover:text-[#70fe01] transition-colors z-50 "
             whileHover={{ y: -2 }}
           >
             {item}

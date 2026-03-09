@@ -119,7 +119,7 @@ export const archive: Archive[] = [
     id: '0',
     title: 'Carmela x POS',
     category: 'APR 2026',
-    description: 'A refreshing hard seltzer brand with a strategic marketing approach.',
+    description:'',
     image: '/images/events/carmela-pos-26.png',
     objectFit: 'contain',  // image will use object-contain
     igHandle: ''
@@ -128,7 +128,7 @@ export const archive: Archive[] = [
     id: '1',
     title: 'Carmela Fugaris',
     category: 'DEC 2025',
-    description: 'A refreshing hard seltzer brand with a strategic marketing approach.',
+    description:'',
     image: '/images/events/carmela-fugaris.png',
     objectFit: 'contain',  // image will use object-contain
     igHandle: ''
@@ -138,7 +138,7 @@ export const archive: Archive[] = [
     id: '2',
     title: 'Dia de los Muertos',
     category: 'NOV 2025',
-    description: 'A refreshing hard seltzer brand with a strategic marketing approach.',
+    description:'',
     image: '/images/events/ddm-25.png',
     objectFit: 'contain',  // image will use object-contain
     igHandle: ''
@@ -159,7 +159,7 @@ export const archive: Archive[] = [
     id: '4',
     title: 'Carmela Genesis',
     category: 'SEPT 2025',
-    description: 'A refreshing hard seltzer brand with a strategic marketing approach.',
+    description:'',
     image: '/images/events/carmela-sept-25.png',
     objectFit: 'contain',  // image will use object-contain
     igHandle: ''

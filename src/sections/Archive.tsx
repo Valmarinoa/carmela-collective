@@ -9,7 +9,7 @@ export default function Archive() {
   return (
     <section 
       id="archive"
-      className="relative py-20 bg-cream -mt-20 md:pb-44 md:mt-0 z-[3]"
+      className="relative pt-20 pb-28 bg-cream -mt-20 md:pb-44 md:mt-0 z-[3]"
     >
       <div className="absolute inset-0 -z-10">
         <Image
