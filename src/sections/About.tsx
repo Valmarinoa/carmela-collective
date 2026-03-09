@@ -50,7 +50,7 @@ export default function About() {
         transition={{ delay: 0.6, duration: 0.6 }}
       >
         <div className="text-xl md:text-3xl leading-tight text-black text-center">
-          <p>Carmela is a Latin American cultural and musical collective that creates spaces to celebrate the region's diversity through a contemporary, critical, and experimental lens.<br/> We bring together high-quality musical and artistic proposals that make our identities visible through our own authentic voices, free from imposed narratives or stereotypes.</p>
+          <p>Carmela is a Latin American cultural and musical collective that creates spaces to celebrate the region&apos;s diversity through a contemporary, critical, and experimental lens.<br/> We bring together high-quality musical and artistic proposals that make our identities visible through our own authentic voices, free from imposed narratives or stereotypes.</p>
         </div>
       </motion.div>
     </section>
