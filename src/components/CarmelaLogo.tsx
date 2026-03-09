@@ -27,13 +27,6 @@ export default function CarmelaLogo({ className = '' }: CarmelaLogoProps) {
         <div className="relative flex flex-col items-center">
           <div 
             className="relative w-[90vw] md:h-[400px] h-20"
-            // initial={{ opacity: 0, scale: 0.7 }}
-            // animate={{ opacity: 1, scale: 1 }}
-            // transition={{ 
-            //   delay: 0.5, 
-            //   duration: 0.5,
-            //   ease: [0.22, 1, 0.36, 1],
-            // }}
           >
             {/* Mobile flower */}
             <div className="md:hidden -top-32 left-1/2 -translate-x-1/2 absolute h-44 w-44 flex items-center justify-center">
@@ -47,7 +40,7 @@ export default function CarmelaLogo({ className = '' }: CarmelaLogoProps) {
             </div>
             
             {/* Carmela image only */}
-            <div className="relative w-full h-28 md:h-[300px] flex items-center justify-center">
+            <div className="relative w-full h-20 md:h-[300px] mt-4 flex items-center justify-center">
               <Image
                 src="/images/carmela.png"
                 alt="Carmela Collective"
@@ -77,11 +70,7 @@ export default function CarmelaLogo({ className = '' }: CarmelaLogoProps) {
       {/* Text outside animated container - prevents flicker */}
       <h3 
         className='font-leakage text-cream/80 text-2xl md:text-6xl 
-                   absolute -bottom-14 right-8 md:bottom-20 md:right-[15%] z-[3]'
-        style={{
-          transform: 'translateZ(0)',
-          WebkitTransform: 'translateZ(0)',
-        }}
+                   absolute -bottom-14 right-8 md:bottom-20 md:right-[15%] z-[2]'
       >
         Collective
       </h3>
