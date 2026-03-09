@@ -251,7 +251,7 @@ export const floatingImages: FloatingImageItem[] = [
     mediaType: "image",
     src: "/images/ceviche.png",
     alt: "ceviche",
-    position: { x: "70%", y: "60%" },        // Desktop
+    position: { x: "70%", y: "58%" },        // Desktop
     size: { width: 240, height: 320 },       // Desktop
     parallaxSpeed: 0.4,
     mobile: {
