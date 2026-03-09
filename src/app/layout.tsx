@@ -11,7 +11,7 @@ import {
 import CurvedNavigation from "@/components/CurvedNavigation";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://carmelacollective.com"),
+  metadataBase: new URL("https://carmela-collective.vercel.app"),
   title: {
     default: "Carmela Collective",
     template: "%s | Carmela Collective",
