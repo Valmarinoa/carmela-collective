@@ -46,7 +46,7 @@ export default function About() {
 
       <motion.div
         style={{ y: topY }}
-        className="absolute -top-20 right-20 h-56 w-72 z-10"
+        className="absolute -top-32  right-20 h-56 w-72 z-10"
       >
         <Image
           src="/images/xx.png"
