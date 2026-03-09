@@ -11,20 +11,53 @@ import {
 import CurvedNavigation from "@/components/CurvedNavigation";
 
 export const metadata: Metadata = {
-  title: "Carmela Collective",
-  description: "Carmela Collective",
+  metadataBase: new URL("https://carmelacollective.com"),
+  title: {
+    default: "Carmela Collective",
+    template: "%s | Carmela Collective",
+  },
+  description:
+    "Carmela Collective is a Latin American cultural collective in the Netherlands showcasing music, events, and artists from the Latin American diaspora.",
   keywords: [
-    "latin america",
-    "diaspora",
-    "music",
-    "culture",
-    "events",
-    "party",
+    "Latin American music",
+    "Latin diaspora Netherlands",
+    "Latin events Amsterdam",
+    "Latin DJs Netherlands",
+    "Carmela Collective",
+    "Latin American culture",
+    "Latin music events Europe",
   ],
+
   icons: {
     icon: "/images/flower.png",
     shortcut: "/images/flower.png",
     apple: "/images/flower.png",
+  },
+
+  openGraph: {
+    title: "Carmela Collective",
+    description:
+      "A Latin American cultural collective showcasing music, events, and artists from the Latin American diaspora.",
+    url: "https://carmelacollective.com",
+    siteName: "Carmela Collective",
+    images: [
+      {
+        url: "/images/flower.png",
+        width: 1200,
+        height: 630,
+        alt: "Carmela Collective",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Carmela Collective",
+    description:
+      "A Latin American cultural collective showcasing music, events, and artists from the diaspora.",
+    images: ["/images/flower.png"],
   },
 };
 
