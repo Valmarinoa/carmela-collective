@@ -17,16 +17,7 @@ export default function Hero() {
       {/* Main Content Container - NO fade out on scroll */}
       <div className="relative w-full z-10 h-[90vh] flex md:block flex-col md:flex-none justify-between items-center">
         {/* Top Row */}
-        <div className="flex justify-between items-start pt-8 fixed top-10 left-6 md:top-10 md:left-20 z-9999">
-          {/* Social Icons - Left */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-          >
-            <SocialIcons />
-          </motion.div>
-        </div>
+      
 
         {/* Spinning Circle */}
         <div className="z-20 flex justify-end w-full pt-6">

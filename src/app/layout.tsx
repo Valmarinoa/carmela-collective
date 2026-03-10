@@ -9,6 +9,8 @@ import {
   spintee,
 } from "@/lib/fonts";
 import CurvedNavigation from "@/components/CurvedNavigation";
+import { motion } from "framer-motion";
+import SocialIcons from "@/components/SocialIcons";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://carmela-collective.vercel.app"),
@@ -78,7 +80,10 @@ export default function RootLayout({
         spintee.variable,
       ].join(" ")}
     >
-      <body className="antialiased ">{children}   <CurvedNavigation /></body>
+      <body className="antialiased ">
+      <div className="flex justify-between items-start pt-8 fixed top-14 left-6 md:top-10 md:left-20 z-[30]">
+            <SocialIcons />
+        </div> {children}   <CurvedNavigation /></body>
     </html>
   );
 }

@@ -61,6 +61,7 @@ export default function SocialIcons() {
   ]
 
   return (
+    
     <div className="flex flex-col gap-4 z-[20]">
       {socialLinks.map((social) => (
         <motion.a
