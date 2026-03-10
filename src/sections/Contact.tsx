@@ -132,9 +132,9 @@ export default function Contact() {
               {/* Services Tags */}
               <div className="pt-4 border-t border-white/10">
                 <p className="text-xs text-white/40 mb-3">
-                  Brand Design / Print Media / Digital Media / Web Design
+                  Music Curation  /  Cultural Platform  /   Event Production
                 </p>
-                <div className="flex flex-wrap gap-2">
+                {/* <div className="flex flex-wrap gap-2">
                   {['Brand Identities', 'One off Jobs', 'Designer on call'].map((service) => (
                     <span 
                       key={service}
@@ -143,7 +143,7 @@ export default function Contact() {
                       {service}
                     </span>
                   ))}
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
