@@ -9,8 +9,8 @@ import {
   spintee,
 } from "@/lib/fonts";
 import CurvedNavigation from "@/components/CurvedNavigation";
-import { motion } from "framer-motion";
 import SocialIcons from "@/components/SocialIcons";
+import Granient from "@/components/Granient";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://carmela-collective.vercel.app"),
@@ -80,10 +80,29 @@ export default function RootLayout({
         spintee.variable,
       ].join(" ")}
     >
-      <body className="antialiased ">
-      <div className="flex justify-between items-start pt-8 fixed top-14 left-6 md:top-10 md:left-20 z-[30]">
-            <SocialIcons />
-        </div> {children}   <CurvedNavigation /></body>
+      <body className="antialiased relative min-h-screen">
+        {/* Animated WebGL Background - Fixed behind everything */}
+        <Granient 
+          color1="#7A8472"      // Pink/Lavender
+          color2="#5F625B"      // Deep Purple
+          color3="#879180"      // Light Purple
+          grainAmount={0.08}    // Subtle grain
+          timeSpeed={0.15}      // Slow, elegant movement
+          warpStrength={0.8}    // Gentle warping
+          contrast={1.3}
+        />
+        
+        {/* Fixed Social Icons */}
+        <div className="flex justify-between items-start pt-8 fixed top-14 left-6 md:top-10 md:left-20 z-[30]">
+          <SocialIcons />
+        </div>
+        
+        {/* Main Content */}
+        {children}
+        
+        {/* Navigation */}
+        <CurvedNavigation />
+      </body>
     </html>
   );
 }
