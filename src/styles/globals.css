@@ -24,8 +24,8 @@ html {
 body {
   background: linear-gradient(
     to bottom,
-    #6D7269 0%,
-    #5F625B 20%,
+    /* #6D7269 0%, */
+    #5F625B 0%,
     #7F7F7B 40%,
     #879180 60%,
     #7A8472 80%,
@@ -183,6 +183,20 @@ html {
 
 .parallax-image:hover {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+@supports (content-visibility: auto) {
+  .grainient-bg {
+    content-visibility: auto;
+    contain: strict;
+  }
+} 
+
+@supports (-webkit-touch-callout: none) {
+  .grainient-bg {
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+  }
 }
 
 /* Ensure smooth parallax */

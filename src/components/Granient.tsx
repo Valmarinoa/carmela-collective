@@ -361,9 +361,15 @@ const Grainient: React.FC<GrainientProps> = ({
 
   return (
     <div
-      ref={containerRef}
-      className={`fixed inset-0 -z-50 ${className}`.trim()}
-    />
+    ref={containerRef}
+    className={`fixed inset-0 -z-50 ${className}`.trim()}
+    style={{
+      transform: 'translateZ(0)', // Force GPU layer
+      willChange: 'transform',    // Hint to browser
+      backfaceVisibility: 'hidden',
+      WebkitBackfaceVisibility: 'hidden',
+    }}
+  />
   )
 }
 
