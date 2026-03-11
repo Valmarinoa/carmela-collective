@@ -92,7 +92,6 @@ export default function Members() {
               href={`${member.igLink}`}
                 className="absolute top-4 right-4 w-10 h-10 bg-[#70fe01] rounded-full flex items-center justify-center
                            opacity-0 group-hover:opacity-100  transition-opacity duration-300"
-                whileHover={{ scale: 1.1 }}
               >
                 <ArrowUpRight size={18} />
               </motion.a>
