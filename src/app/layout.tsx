@@ -89,7 +89,7 @@ export default function RootLayout({
   color4="#F08C43"   // Yellow spots
   color5="#f472b6"   // Pink spots
   accentSpread={0.35} // Very concentrated
-  timeSpeed={0.2}
+  timeSpeed={0.25}
 />
         
         {/* Fixed Social Icons */}
