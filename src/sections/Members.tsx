@@ -123,10 +123,10 @@ export default function Members() {
     >
       <motion.div
         style={{ y: topY }}
-        className="absolute -top-12 -right-12 md:right-[2%] w-56 h-56 md:h-56 md:w-72 z-10"
+        className="absolute -top-10 -right-12 md:right-[2%] w-56 h-56 md:h-56 md:w-72 z-10"
       >
-        <FlowerSilhoutte fillColor="#F08C43" width={180} 
-  height={227}/>
+        <FlowerSilhoutte fillColor="#F08C43" width={160} 
+  height={217}/>
        
       </motion.div>
 
