@@ -86,9 +86,9 @@ export default function RootLayout({
   color1="#5F625B"   // Coral
   color2="#6D7269"   // Teal
   color3="#879180"   // Blue
-  color4="#FFD93D"   // Yellow spots
-  color5="#FF6B9D"   // Pink spots
-  accentSpread={0.2} // Very concentrated
+  color4="#F08C43"   // Yellow spots
+  color5="#f472b6"   // Pink spots
+  accentSpread={0.35} // Very concentrated
   timeSpeed={0.2}
 />
         
