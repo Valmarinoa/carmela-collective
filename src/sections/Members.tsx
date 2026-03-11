@@ -24,13 +24,13 @@ function MemberCard({
 
   return (
     <motion.article
-      className="project-card flex-shrink-0 w-[250px] group cursor-pointer"
+      className="project-card flex-shrink-0 w-[250px] group cursor-pointer overflow-y-visible"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ delay: index * 0.01, duration: 0.3 }}
     >
       {/* Project Image */}
-      <div className="relative aspect-[3/4] rounded-3xl mb-4">
+      <div className="relative aspect-[3/4] rounded-3xl mb-4 overflow-visible">
         <Image
           src={member.image}
           alt={member.title}
@@ -40,7 +40,7 @@ function MemberCard({
         />
 
         {/* Hover Overlay */}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-pink-500/20 transition-colors duration-300 rounded-3xl" />
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-pink-500/20 transition-colors duration-300 rounded-3xl overflow-visible" />
 
         {/* Arrow Icon */}
         <motion.a
@@ -125,7 +125,7 @@ export default function Members() {
     <section
       ref={sectionRef}
       id="members"
-      className="relative py-20 bg-black md:pb-20 z-[3]"
+      className="relative py-20 md:pb-20 z-[3]"
     >
       <motion.div
         style={{ y: topY }}
