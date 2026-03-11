@@ -28,7 +28,6 @@ function MemberCard({
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ delay: index * 0.01, duration: 0.3 }}
-      viewport={{ once: true }}
     >
       {/* Project Image */}
       <div className="relative aspect-[3/4] rounded-3xl mb-4">
@@ -55,42 +54,49 @@ function MemberCard({
         </motion.a>
       </div>
 
-      {/* Project Info */}
+       {/* Project Info */}
       <div className="space-y-1">
-        <p className="text-[9px] text-neutral-950 uppercase tracking-wider">
+        <p className="text-[9px] text-neutral-950 uppercase tracking-wider font-medium">
           {member.category}
         </p>
-        <h3 className="text-lg font-medium">{member.title}</h3>
+        <h3 className="text-lg font-medium leading-tight">{member.title}</h3>
         <p className="text-[9px] text-neutral-950 uppercase tracking-wider">
           {member.nationality}
         </p>
         <a
           href={member.igLink}
-          className="text-[9px] text-neutral-950 tracking-wider"
+          className="text-[9px] text-neutral-950 tracking-wider block hover:underline"
         >
           {member.igHandle}
         </a>
 
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.p
-            key={expanded ? 'expanded' : 'collapsed'}
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className={`text-xs text-neutral-950/70 font-myriad overflow-hidden ${
-              expanded ? '' : 'line-clamp-2'
-            }`}
-          >
-            {member.description}
-          </motion.p>
-        </AnimatePresence>
+        {/* Description with smooth expand */}
+        <div className="overflow-hidden">
+          <AnimatePresence initial={false}>
+            {expanded ? (
+              <motion.p
+                key="expanded"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="text-xs text-neutral-950/70 font-myriad pt-2"
+              >
+                {member.description}
+              </motion.p>
+            ) : (
+              <p className="text-xs text-neutral-950/70 font-myriad line-clamp-2 pt-1">
+                {member.description}
+              </p>
+            )}
+          </AnimatePresence>
+        </div>
 
         {member.description && member.description.length > 90 && (
           <button
             type="button"
             onClick={() => setExpanded((prev) => !prev)}
-            className="mt-1 text-[10px] uppercase tracking-wider text-neutral-950/80 hover:text-neutral-950 transition-colors duration-300"
+            className="mt-2 text-[10px] uppercase tracking-wider text-neutral-950/80 hover:text-neutral-950 transition-colors duration-300 font-medium"
           >
             {expanded ? 'Read less' : 'Read more'}
           </button>
