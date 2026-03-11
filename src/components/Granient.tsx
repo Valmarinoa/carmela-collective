@@ -360,16 +360,24 @@ const Grainient: React.FC<GrainientProps> = ({
   ])
 
   return (
-    <div
-    ref={containerRef}
-    className={`fixed inset-0 -z-50 ${className}`.trim()}
-    style={{
-      transform: 'translateZ(0)', // Force GPU layer
-      willChange: 'transform',    // Hint to browser
-      backfaceVisibility: 'hidden',
-      WebkitBackfaceVisibility: 'hidden',
-    }}
-  />
+    <div 
+      className="fixed inset-0 -z-50 overflow-hidden"
+      style={{
+        transform: 'translateZ(0)',
+        willChange: 'transform',
+        backfaceVisibility: 'hidden',
+        WebkitBackfaceVisibility: 'hidden',
+        perspective: '1000px',
+      }}
+    >
+      <div
+        ref={containerRef}
+        className={`absolute inset-0 h-[100vh] w-full ${className}`.trim()}
+        style={{
+          transform: 'translateZ(0)',
+        }}
+      />
+    </div>
   )
 }
 
