@@ -162,7 +162,7 @@ void mainImage(out vec4 o, vec2 C) {
     float accentMask4 = pow(accentNoise4, 2.0 / uAccentSpread);
     // Add subtle movement
     accentMask4 *= 0.5 + 0.5 * sin(t * 0.5 + tuv.x * 10.0);
-    col = mix(col, uColor4, accentMask4 * 0.6 * uUseColor4);
+    col = mix(col, uColor4, accentMask4 * 0.7 * uUseColor4);
   }
 
   // Accent color 5 - even more concentrated, offset pattern
