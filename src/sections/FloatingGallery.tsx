@@ -159,7 +159,7 @@ export default function FloatingGallery() {
     <section
       ref={sectionRef}
       id="gallery"
-      className="relative min-h-[150vh] pt-20 overflow-hidden"
+      className="relative min-h-[190vh] pt-20 overflow-hidden"
     >
     
       {/* Background flower - different positioning for mobile/desktop */}
