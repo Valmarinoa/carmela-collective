@@ -116,34 +116,53 @@ export default function CalendarPage() {
                   month: 'short',
                 })
                 return (
-                  <motion.button
+                  <motion.div
                     key={event.id}
                     onClick={() => handleEventClick(event)}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0}}
+                    animate={{ opacity: 1 }}
                     transition={{ delay: i * 0.05, duration: 0.3 }}
-                    className="flex items-start gap-4 p-4 border border-white/[0.09] bg-[#1a1714]/50 hover:bg-[#231e18]/60 hover:border-[#c4713a]/30 transition-all duration-200 text-left group"
+                    className="flex gap-4 w-full p-4  bg-[#1a1714]/50 hover:bg-[#231e18]/60 hover:border-[#c4713a]/30 transition-all duration-200 text-left group"
                   >
-                    <div className="flex-shrink-0 w-14">
-                      <p className="text-[10px] tracking-[0.1em] uppercase text-cream/30 font-inter leading-tight">
+                    <div className='w-full flex flex-col'>
+                    <div className='flex justify-between w-full'>
+                    <div className="flex-1 min-w-0">
+                    <p className="text-[10px] tracking-[0.1em] uppercase text-white font-inter leading-tight">
                         {day}
                       </p>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-base text-cream font-leakage leading-tight group-hover:text-[#e8955a] transition-colors duration-150">
+                      <p className="text-base text-cream leading-tight group-hover:text-[#e8955a] transition-colors duration-150">
                         {event.title}
                       </p>
-                      <p className="text-[11px] text-cream/35 font-inter mt-0.5 truncate">
+                      <p className="text-[11px] text-white font-inter mt-0.5 truncate">
                         {event.venue}
                       </p>
-                      <p className="text-[11px] text-cream/25 font-inter mt-1 truncate">
+                      <p className="text-[11px] text-white font-inter mt-1 truncate">
                         {event.lineup.map(a => a.name).join(', ')}
                       </p>
                     </div>
-                    <span className="text-cream/15 group-hover:text-cream/40 transition-colors text-sm mt-0.5">
+                        {event.flyer && (
+                            <img
+                              src={event.flyer}
+                              alt={event.title}
+                              className="w-fit h-28 object-contain"
+                            />
+                        )}
+                    </div>
+                    {/* <span className="text-cream/15 group-hover:text-cream/40 transition-colors text-sm mt-0.5">
                       →
-                    </span>
-                  </motion.button>
+                    </span> */}
+                     <div className="mt-5 pt-4 border-t border-white/15">
+          <span className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-inter text-white/70 group-hover:text-white transition-colors duration-150">
+            Buy Tickets
+            <span className="transition-transform duration-150 group-hover:translate-x-1">→</span>
+          </span>
+        </div>
+                    </div>
+                    
+                
+       
+     
+                  </motion.div>
                 )
               })}
             </motion.div>
