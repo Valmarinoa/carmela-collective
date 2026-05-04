@@ -2,7 +2,6 @@
 
 import { useRef, useState, useEffect } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
-import SocialIcons from '@/components/SocialIcons'
 import CarmelaLogo from '@/components/CarmelaLogo'
 import SpinningCircleText from '@/components/SpinningCircleText'
 

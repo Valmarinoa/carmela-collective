@@ -108,7 +108,7 @@ export default function EventModal({ event, onClose }: EventModalProps) {
 
             {/* Hero area */}
             <motion.div
-              className="w-full h-28 md:h-44 bg-[#181410] relative overflow-hidden flex-shrink-0"
+              className="w-full h-56 bg-[#181410] relative overflow-hidden flex-shrink-0"
               initial={{ y: -16, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.08, duration: 0.5 }}
@@ -131,7 +131,7 @@ export default function EventModal({ event, onClose }: EventModalProps) {
               )}
             </motion.div>
             <motion.div
-              className="md:absolute right-28 top-28 w-fit h-28 md:h-56 overflow-hidden flex-shrink-0"
+              className="absolute right-6 md:right-28 top-14 md:top-28 w-fit h-56 overflow-hidden flex-shrink-0"
               initial={{ y: -16, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.08, duration: 0.5 }}
