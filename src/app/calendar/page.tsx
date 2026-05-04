@@ -122,18 +122,26 @@ export default function CalendarPage() {
                     initial={{ opacity: 0}}
                     animate={{ opacity: 1 }}
                     transition={{ delay: i * 0.05, duration: 0.3 }}
-                    className="flex gap-4 w-full p-4  bg-[#1a1714]/50 hover:bg-[#231e18]/60 hover:border-[#c4713a]/30 transition-all duration-200 text-left group"
+                    className="flex gap-4 w-full p-4  bg-[#1a1714]/50 hover:bg-[#231e18]/60 hover:border-[#c4713a]/30 transition-all duration-200 text-left group relative overflow-hidden"
                   >
-                    <div className='w-full flex flex-col'>
+                    <div className='w-full h-full absolute inset-0 z-0'>
+                    <img
+                  src={event.flyer}
+                  alt={event.title}
+                  className="w-full h-full object-cover blur-lg"
+                />
+                <div className='w-full h-full absolute inset-0 z-0 bg-[#231e18]/30' />
+                    </div>
+                    <div className='w-full flex flex-col z-[20]'>
                     <div className='flex justify-between w-full'>
                     <div className="flex-1 min-w-0">
                     <p className="text-[10px] tracking-[0.1em] uppercase text-white font-inter leading-tight">
                         {day}
                       </p>
-                      <p className="text-base text-cream leading-tight group-hover:text-[#e8955a] transition-colors duration-150">
+                      <p className="text-xl py-1 text-cream leading-tight group-hover:text-[#e8955a] transition-colors duration-150">
                         {event.title}
                       </p>
-                      <p className="text-[11px] text-white font-inter mt-0.5 truncate">
+                      <p className="text-[11px] text-white mt-0.5 truncate">
                         {event.venue}
                       </p>
                       <p className="text-[11px] text-white font-inter mt-1 truncate">
