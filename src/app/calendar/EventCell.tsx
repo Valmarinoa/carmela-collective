@@ -46,7 +46,7 @@ export default function EventCell({ event, col, row, onClick, onHover, onHoverEn
       onMouseEnter={() => onHover(event)}
       onMouseLeave={() => onHoverEnd()}
       className={[
-        'group relative flex flex-col p-5 md:p-7 hover:bg-black/90 transition-colors  text-white text-left',
+        'group relative flex flex-col p-5 md:p-7 hover:bg-black/90 transition-colors  text-white text-left md:h-72',
         'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white',
         borderR,
         borderB,

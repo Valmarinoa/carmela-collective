@@ -13,16 +13,31 @@ export default function CurvedNavigation() {
         transition={{ delay: 0.3, duration: 0.6 }}
         viewport={{ once: true }}
       >
-        {['About', 'Calendar', 'Contact'].map((item) => (
+       
           <motion.a
-            key={item}
-            href={`#${item.toLowerCase()}`}
+            key={'about'}
+            href={`#about`}
             className="text-sm font-medium font-funtastic text-cream hover:text-[#70fe01] transition-colors z-50"
             whileHover={{ y: -2 }}
           >
-            {item}
+            About
           </motion.a>
-        ))}
+          <motion.a
+            key='about'
+            href='/calendar'
+            className="text-sm font-medium font-funtastic text-cream hover:text-[#70fe01] transition-colors z-50"
+            whileHover={{ y: -2 }}
+          >
+            Calendar
+          </motion.a>
+          <motion.a
+            key='contact'
+            href='#contact'
+            className="text-sm font-medium font-funtastic text-cream hover:text-[#70fe01] transition-colors z-50"
+            whileHover={{ y: -2 }}
+          >
+            Contact
+          </motion.a>
       </motion.nav>
     </nav>
   )

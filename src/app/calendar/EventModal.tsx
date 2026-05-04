@@ -87,7 +87,7 @@ export default function EventModal({ event, onClose }: EventModalProps) {
             role="dialog"
             aria-modal="true"
             aria-label={event.title}
-            className="relative w-full max-w-4xl md:mx-20 max-h-[96dvh] md:max-h-[96dvh] bg-[#0f0d0b] border border-white/[0.09] overflow-hidden flex flex-col md:rounded-sm"
+            className="relative w-full max-w-4xl md:mx-20 max-h-[96dvh] md:max-h-[96dvh] bg-[#0f0d0b]  overflow-hidden flex flex-col md:rounded-sm"
             initial={{ opacity: 0, scale: 0.96, y: 24 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 24 }}
@@ -98,6 +98,13 @@ export default function EventModal({ event, onClose }: EventModalProps) {
               artist={selectedArtist}
               onClose={() => setSelectedArtist(null)}
             />
+             <button
+                    onClick={onClose}
+                    className="absolute right-3 top-3 z-[20] flex-shrink-0 mt-1 text-white transition-colors duration-150"
+                    aria-label="Close event"
+                  >
+                    <X size={18} />
+                  </button>
 
             {/* Hero area */}
             <motion.div
@@ -110,7 +117,7 @@ export default function EventModal({ event, onClose }: EventModalProps) {
                 <img
                   src={event.flyer}
                   alt={event.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover blur-lg"
                 />
               ) : (
                 <>
@@ -123,6 +130,30 @@ export default function EventModal({ event, onClose }: EventModalProps) {
                 </>
               )}
             </motion.div>
+            <motion.div
+              className="md:absolute right-28 top-28 w-fit h-28 md:h-56 overflow-hidden flex-shrink-0"
+              initial={{ y: -16, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.08, duration: 0.5 }}
+            >
+              {event.flyer ? (
+                <img
+                  src={event.flyer}
+                  alt={event.title}
+                  className="w-full h-full object-contain"
+                />
+              ) : (
+                <>
+                  <div className="absolute inset-0 flex items-end p-6">
+                    <span className="text-[7rem] md:text-[9rem] leading-none text-cream/[0.04] select-none">
+                      {event.title.charAt(0)}
+                    </span>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0f0d0b]/70" />
+                </>
+              )}
+            </motion.div>
+
 
             {/* Scrollable body */}
             <div className="overflow-y-auto flex-1 no-scrollbar">
@@ -140,19 +171,13 @@ export default function EventModal({ event, onClose }: EventModalProps) {
                   <h2 className="text-2xl md:text-3xl text-cream leading-tight">
                     {event.title}
                   </h2>
-                  <button
-                    onClick={onClose}
-                    className="flex-shrink-0 mt-1 text-cream/30 hover:text-cream transition-colors duration-150"
-                    aria-label="Close event"
-                  >
-                    <X size={18} />
-                  </button>
+                 
                 </motion.div>
 
                 {/* Date + Venue */}
                 <motion.div variants={lineVariants} className="flex flex-col gap-0.5">
-                  <p className="text-sm text-cream/45 font-inter">{formatDate(event.date)}</p>
-                  <p className="text-sm text-cream/45 font-inter">{event.venue}</p>
+                  <p className="text-sm text-cream/45 ">{formatDate(event.date)}</p>
+                  <p className="text-sm text-cream/45 ">{event.venue}</p>
                 </motion.div>
 
                 {/* Tags */}
@@ -161,7 +186,7 @@ export default function EventModal({ event, onClose }: EventModalProps) {
                     {event.tags.map(tag => (
                       <span
                         key={tag}
-                        className="px-2.5 py-0.5 text-[10px] tracking-[0.15em] uppercase border border-white/[0.12] text-cream/40 font-inter"
+                        className="px-2.5 py-0.5 text-[10px] tracking-[0.15em] uppercase border border-white/[0.12] text-cream/40 "
                       >
                         {tag}
                       </span>
@@ -172,44 +197,40 @@ export default function EventModal({ event, onClose }: EventModalProps) {
                 {/* Description */}
                 <motion.p
                   variants={lineVariants}
-                  className="text-sm text-cream/60 font-inter leading-relaxed"
+                  className="text-sm text-cream/60  leading-relaxed"
                 >
                   {event.description}
                 </motion.p>
 
                 {/* Lineup */}
-                <motion.div variants={lineVariants} className="flex flex-col gap-3">
+                <motion.div variants={lineVariants} className="flex flex-col">
                   <h3 className="text-[10px] tracking-[0.25em] uppercase text-cream/25 font-inter">
                     Lineup
                   </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <div className="flex flex-col gap-0">
                     {event.lineup.map((artist, i) => (
                       <motion.button
                         key={artist.id}
                         onClick={() => setSelectedArtist(artist)}
-                        className="flex items-center gap-3 p-3 border border-white/[0.09] bg-white/[0.025] hover:bg-white/[0.06] hover:border-white/[0.18] transition-all duration-200 text-left group"
+                        className="flex items-center px-3 pb-3 transition-all duration-200 text-left group"
                         initial={{ opacity: 0, y: 6 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.32 + i * 0.07, duration: 0.32 }}
                         whileHover={{ x: 2 }}
                       >
                         {/* Avatar */}
-                        <div className="w-8 h-8 rounded-full bg-[#231e1a] flex items-center justify-center flex-shrink-0 border border-white/[0.08]">
-                          <span className="text-[11px] text-cream/35 font-inter">
-                            {artist.name.charAt(0)}
-                          </span>
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-sm text-cream font-inter group-hover:underline underline-offset-4 truncate">
+                       
+                        <div className="">
+                          <p className="text-sm text-cream  group-hover:underline underline-offset-4 truncate">
                             {artist.name}
                           </p>
-                          <p className="text-[11px] text-cream/35 font-inter truncate">
+                          <p className="text-[11px] text-cream/35  truncate">
                             {artist.origin}
                           </p>
                         </div>
-                        <span className="text-cream/15 group-hover:text-cream/40 transition-colors text-xs">
+                        {/* <span className="text-cream/85 group-hover:text-cream/40 transition-colors text-xs border rounded-full h-8 w-8">
                           →
-                        </span>
+                        </span> */}
                       </motion.button>
                     ))}
                   </div>
@@ -222,7 +243,7 @@ export default function EventModal({ event, onClose }: EventModalProps) {
                       href={event.ticketUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-cream text-[#0f0d0b] text-[11px] tracking-[0.2em] uppercase font-inter hover:bg-cream-dark transition-colors duration-150"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-cream text-[#0f0d0b] text-[11px] tracking-[0.2em] uppercase  hover:bg-cream-dark transition-colors duration-150"
                     >
                       Get Tickets
                       <ExternalLink size={12} />

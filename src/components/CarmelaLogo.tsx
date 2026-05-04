@@ -26,7 +26,7 @@ export default function CarmelaLogo({ className = '' }: CarmelaLogoProps) {
       >
         <div className="relative flex flex-col items-center">
           <div 
-            className="relative w-[90vw] md:h-[400px] h-20"
+            className="relative w-[90vw] md:w-[80vw] md:h-[400px] h-20"
           >
             {/* Mobile flower */}
             <div className="md:hidden -top-32 left-1/2 -translate-x-1/2 absolute h-44 w-44 flex items-center justify-center">

@@ -94,7 +94,7 @@ export default function RootLayout({
 />
         
         {/* Fixed Social Icons */}
-        <div className="flex justify-between items-start pt-8 fixed top-14 left-6 md:top-10 md:left-10 z-[30]">
+        <div className="flex justify-between items-start pt-8 md:top-1/2 fixed top-14 left-6 md:-translate-y-1/2 md:left-10 z-[30]">
           <SocialIcons />
         </div>
 
