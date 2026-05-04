@@ -3,12 +3,12 @@
 import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
-import { events } from "@/data/data";
+import { calendar } from "@/data/data";
 
-export default function Events() {
+export default function Calendar() {
   return (
     <section
-      id="events"
+      id="calendar"
       className="relative pt-24 pb-64 md:pt-20 md:pb-56 overflow-hidden z-[1]"
     >
          <div className="absolute inset-0 -z-10">
@@ -25,15 +25,15 @@ export default function Events() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div className="flex items-center gap-4">
             <h2 className="text-4xl md:text-5xl font-bold font-funtastic uppercase">
-              Events
+              Calendar
             </h2>
           </div>
         </div>
       </div>
 
-      {/* Events */}
+      {/* Calendar */}
       <div className="flex flex-col gap-9 w-full justify-center items-center px-6">
-        {events.map((event, index) => (
+        {calendar.map((event, index) => (
           <motion.a
             key={event.id}
             href={event.href}

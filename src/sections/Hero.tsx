@@ -117,7 +117,7 @@ export default function Hero() {
       {/* Background Layer - Renders first, triggers content after */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Pink Glow */}
-        {/* <motion.div
+        <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={isLoaded ? { 
             opacity: [0.22, 0.7, 0.42],
@@ -131,7 +131,7 @@ export default function Hero() {
             // Optional: Could trigger additional effects when background settles
           }}
           className="absolute top-1/4 left-[33%] md:left-[43%] w-72 h-64 md:w-[450px] md:h-96 bg-pink-400 rounded-full blur-3xl overflow-visible"
-        /> */}
+        />
         
         {/* Orange Glow */}
         {/* <motion.div

@@ -9,11 +9,11 @@ import FloatingGallery from '@/sections/FloatingGallery'
 import Contact from '@/sections/Contact'
 import Footer from '@/sections/Footer'
 import BackToTop from '@/components/BackToTop'
-import Calendar from '@/sections/Events'
+import Calendar from '@/sections/Calendar'
 import About from '@/sections/About'
 import Members from '@/sections/Members'
 import Archive from '@/sections/Archive'
-import Events from '@/sections/Events'
+import CALENDAR from '@/sections/Calendar'
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
@@ -45,8 +45,8 @@ export default function Home() {
       {/* Floating Gallery - background image fades in and scales */}
       <FloatingGallery />
 
-      {/* Events */}
-      <Events />
+      {/* CALENDAR */}
+      <CALENDAR />
       
       <Archive />
 

@@ -11,6 +11,7 @@ import {
 import CurvedNavigation from "@/components/CurvedNavigation";
 import SocialIcons from "@/components/SocialIcons";
 import Granient from "@/components/Granient";
+import StickyLogo from "@/components/StickyLogo";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://carmela-collective.vercel.app"),
@@ -93,10 +94,13 @@ export default function RootLayout({
 />
         
         {/* Fixed Social Icons */}
-        <div className="flex justify-between items-start pt-8 fixed top-14 left-6 md:top-10 md:left-20 z-[30]">
+        <div className="flex justify-between items-start pt-8 fixed top-14 left-6 md:top-10 md:left-10 z-[30]">
           <SocialIcons />
         </div>
-        
+
+        {/* Sticky logo — large in hero, small fixed top-center everywhere else */}
+        <StickyLogo />
+
         {/* Main Content */}
         {children}
         

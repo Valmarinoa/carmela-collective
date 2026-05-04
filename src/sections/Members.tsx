@@ -24,7 +24,7 @@ function MemberCard({
 
   return (
     <motion.article
-      className="project-card flex-shrink-0 w-[250px] group cursor-pointer overflow-y-visible"
+      className="project-card flex-shrink-0 w-[250px] group overflow-y-visible"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ delay: index * 0.01, duration: 0.3 }}

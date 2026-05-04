@@ -2,7 +2,7 @@
 import type { FloatingImageItem, Archive } from "@/types/index";
 
 // Calendar Events
-export const events = [
+export const calendar = [
   {
     id: '1',
     date: 'April 4',
