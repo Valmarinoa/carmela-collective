@@ -15,6 +15,10 @@ function formatDate(iso: string): string {
 }
 
 export default function Calendar() {
+  const sortedCalendar = [...CALENDAR].sort(
+    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+  )
+
   return (
     <section
       id="calendar"
@@ -46,7 +50,7 @@ export default function Calendar() {
 
       {/* Calendar */}
       <div className="flex flex-col gap-9 w-full justify-center items-center px-6">
-        {CALENDAR.map((event, index) => (
+        {sortedCalendar.map((event, index) => (
           <motion.a
             key={event.id}
             href={event.ticketUrl || '/calendar'}
