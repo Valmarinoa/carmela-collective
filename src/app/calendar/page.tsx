@@ -55,7 +55,7 @@ export default function CalendarPage() {
       {/* Page content */}
       <div className="relative z-[2] flex-1 flex flex-col px-4 md:px-10 lg:px-16 pt-24 md:pt-28 pb-28">
         {/* ── Header ──────────────────────────────────────────────── */}
-        <header className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16 flex-shrink-0">
+        <header className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 md:md-16 flex-shrink-0">
           <div>
          
             <h1 className="text-4xl md:text-5xl text-cream font-funtastic leading-none">
@@ -122,7 +122,7 @@ export default function CalendarPage() {
                     initial={{ opacity: 0}}
                     animate={{ opacity: 1 }}
                     transition={{ delay: i * 0.05, duration: 0.3 }}
-                    className="flex gap-4 w-full p-4  bg-[#1a1714]/50 hover:bg-[#231e18]/60 hover:border-[#c4713a]/30 transition-all duration-200 text-left group relative overflow-hidden"
+                    className="flex gap-4 w-full p-4 bg-[#1a1714]/50 hover:bg-[#231e18]/60 hover:border-[#c4713a]/30 transition-all duration-200 text-left group relative overflow-hidden"
                   >
                     <div className='w-full h-full absolute inset-0 z-0'>
                     <img
@@ -149,11 +149,13 @@ export default function CalendarPage() {
                       </p>
                     </div>
                         {event.flyer && (
+                         <div className='w-20 h-28'>
                             <img
                               src={event.flyer}
                               alt={event.title}
-                              className="w-fit h-28 object-contain"
+                              className="w-full h-full object-contain"
                             />
+                            </div>
                         )}
                     </div>
                     {/* <span className="text-cream/15 group-hover:text-cream/40 transition-colors text-sm mt-0.5">
