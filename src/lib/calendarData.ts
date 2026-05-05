@@ -127,7 +127,7 @@ export const CALENDAR: Event[] = [
         bio: "Rio de Janeiro-based multi-instrumentalist and DJ. Brings live percussion into club sets, blending candomblé rhythms with contemporary dance music. His live-hybrid format — two turntables and a kit — is completely his own.",
         instagram: "@axesantos",
         soundcloudUrl: "https://soundcloud.com/axesantos",
-        imageUrl: "/images/artists/axe-santos.jpg",
+        imageUrl: "/images/artists/patrick.png",
       },
       {
         id: "petra-sf",

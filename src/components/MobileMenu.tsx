@@ -101,7 +101,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           role="dialog"
           aria-modal="true"
           aria-label="Navigation menu"
-          className="fixed h-full z-[100] w-full bottom-0  bg-[#1a1a1a] flex flex-col justify-between px-8 py-8"
+          className="fixed h-full z-[90] w-full bottom-0  bg-[#1a1a1a] flex flex-col justify-between px-8 py-8"
           initial={{ opacity: 0, y: 40  }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20  }}
@@ -120,7 +120,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 <Link
                   href={link.href}
                   onClick={onClose}
-                  className="block py-6 text-3xl font-bold font-funtastic text-[#F5F5F0]
+                  className="block py-6 text-3xl font-bold font-funtastic text-[#F5F5F0] outline-none
                              border-b border-white/10 hover:text-[#70fe01] hover:translate-x-2
                              transition-all duration-200"
                 >

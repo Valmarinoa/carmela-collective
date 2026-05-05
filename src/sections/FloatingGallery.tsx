@@ -164,7 +164,7 @@ export default function FloatingGallery() {
     
       {/* Background flower - different positioning for mobile/desktop */}
       <motion.div
-        className="fixed top-[40%] -z-2 pointer-events-none"
+        className="fixed top-[30%] -z-2 pointer-events-none"
         style={{
           left: isMobile ? "20%" : "25%",
           x: isMobile ? mobileBgX : 0,

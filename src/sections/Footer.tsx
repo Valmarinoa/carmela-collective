@@ -50,7 +50,7 @@ export default function Footer() {
         transition={{ delay: 0.5, duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <p className="text-xs text-black z-50 absolute bottom-4">
+        <p className="text-xs text-black z-50 absolute bottom-12">
           © {new Date().getFullYear()} Carmela Collective
         </p>
       </motion.div>

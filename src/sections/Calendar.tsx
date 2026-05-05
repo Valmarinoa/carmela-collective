@@ -29,7 +29,7 @@ export default function Calendar() {
         />
       </div>
       {/* Section Header */}
-      <div className="px-6 mb-20 md:px-12 md:mb-6  z-20">
+      <div className="px-6 mb-20 md:px-12 md:mb-6  z-20 flex">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div className="flex items-center gap-4">
             <h2 className="text-4xl md:text-5xl font-bold font-funtastic uppercase">
@@ -37,6 +37,12 @@ export default function Calendar() {
             </h2>
           </div>
         </div>
+        <div
+              className="w-9 h-9 border border-black rounded-full flex items-center justify-center opacity-0 hover:bg-[#70fe01] group-hover:opacity-100 transition-opacity duration-300"
+           
+            >
+              <ArrowUpRight size={16} />
+            </div>
       </div>
 
       {/* Calendar */}
@@ -66,12 +72,7 @@ export default function Calendar() {
 
             <p className="text-xs">{event.venue}</p>
 
-            <motion.div
-              className="absolute -right-12 w-9 h-9 border border-black rounded-full flex items-center justify-center opacity-0 hover:bg-[#70fe01] group-hover:opacity-100 transition-opacity duration-300"
-              whileHover={{ scale: 1.08 }}
-            >
-              <ArrowUpRight size={16} />
-            </motion.div>
+          
           </motion.a>
         ))}
       </div>

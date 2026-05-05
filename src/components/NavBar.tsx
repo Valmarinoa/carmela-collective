@@ -16,7 +16,7 @@ export default function NavBar() {
       </div>
 
       {/* Mobile hamburger — top-right, hidden on desktop */}
-      <div className="fixed top-5 right-5 z-[110] md:hidden">
+      <div className="fixed top-5 right-5 z-[700] md:hidden">
         <HamburgerButton
           isOpen={isOpen}
           onClick={() => setIsOpen((prev) => !prev)}

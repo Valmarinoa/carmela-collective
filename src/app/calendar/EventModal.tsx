@@ -87,7 +87,7 @@ export default function EventModal({ event, onClose }: EventModalProps) {
             role="dialog"
             aria-modal="true"
             aria-label={event.title}
-            className="relative w-full max-w-4xl md:mx-20 max-h-[96dvh] md:max-h-[96dvh] bg-[#0f0d0b]  overflow-hidden flex flex-col md:rounded-sm"
+            className="relative w-full max-w-4xl md:mx-20 max-h-[91dvh] md:max-h-[96dvh] bg-[#0f0d0b]  overflow-hidden flex flex-col md:rounded-sm"
             initial={{ opacity: 0, scale: 0.96, y: 24 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 24 }}
@@ -100,10 +100,10 @@ export default function EventModal({ event, onClose }: EventModalProps) {
             />
              <button
                     onClick={onClose}
-                    className="absolute right-3 top-3 z-[20] flex-shrink-0 mt-1 text-white transition-colors duration-150"
+                    className="absolute right-5 top-3 z-[20] flex-shrink-0 mt-1 text-white transition-colors duration-150"
                     aria-label="Close event"
                   >
-                    <X size={18} />
+                    <X size={28} />
                   </button>
 
             {/* Hero area */}
@@ -131,7 +131,7 @@ export default function EventModal({ event, onClose }: EventModalProps) {
               )}
             </motion.div>
             <motion.div
-              className="absolute right-0 md:right-28 top-4 md:top-28 w-fit h-48 md:h-56 overflow-hidden flex-shrink-0"
+              className="absolute right-0 md:right-20 top-4 md:top-20 w-fit h-48 md:h-60 overflow-hidden flex-shrink-0"
               initial={{ y: -16, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.08, duration: 0.5 }}
