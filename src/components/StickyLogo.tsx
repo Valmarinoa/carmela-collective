@@ -40,10 +40,10 @@ export default function StickyLogo() {
 
   return (
     <AnimatePresence>
-      {visible && (
+      {/* {visible && ( */}
         <motion.div
           key="sticky-logo"
-          className="fixed top-0 left-[38%] md:left-[45%] -translate-x-1/2 z-[40]"
+          className="fixed top-0 left-[36%] md:left-[45%] -translate-x-1/2 z-[40]"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
@@ -51,12 +51,12 @@ export default function StickyLogo() {
         >
           <Link
             href="/"
-            className="pointer-events-auto flex items-center justify-center pt-8"
+            className="pointer-events-auto flex items-center justify-center pt-5"
             aria-label="Carmela Collective — home"
           >
             <div className="relative w-28 md:w-36 h-7 md:h-16">
               <Image
-                src="/images/carmela.png"
+                src="/images/carmela-menu.png"
                 alt="Carmela Collective"
                 fill
                 className="object-contain"
@@ -65,7 +65,7 @@ export default function StickyLogo() {
             </div>
           </Link>
         </motion.div>
-      )}
+      {/* )} */}
     </AnimatePresence>
   )
 }

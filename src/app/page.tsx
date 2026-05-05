@@ -3,17 +3,16 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Marquee from '@/components/Marquee'
 import Hero from '@/sections/Hero'
 import FloatingGallery from '@/sections/FloatingGallery'
 import Contact from '@/sections/Contact'
 import Footer from '@/sections/Footer'
 import BackToTop from '@/components/BackToTop'
-import Calendar from '@/sections/Calendar'
 import About from '@/sections/About'
 import Members from '@/sections/Members'
 import Archive from '@/sections/Archive'
 import CALENDAR from '@/sections/Calendar'
+import SpinningCircleText from '@/components/SpinningCircleText'
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
@@ -35,11 +34,12 @@ export default function Home() {
   return (
     <main ref={mainRef} className="relative min-h-screen overflow-x-hidden"
 >
-      {/* Marquee Header */}
-      <Marquee />
+      
       
       {/* Hero Section - stays visible, doesn't fade */}
       <Hero />
+
+      
 
       <About />
       {/* Floating Gallery - background image fades in and scales */}

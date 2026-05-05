@@ -28,7 +28,7 @@ export default function Marquee() {
   const duplicatedItems = [...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems]
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-[#70fe01] border-b border-black/10 overflow-hidden py-2">
+    <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#70fe01] border-b border-black/10 overflow-hidden py-2">
       <div className="flex will-change-transform">
         <motion.div
           ref={containerRef}

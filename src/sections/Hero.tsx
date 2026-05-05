@@ -163,7 +163,7 @@ export default function Hero() {
 
           {/* Spinning Circle - Elastic scale + rotate entrance */}
           <motion.div 
-            className="flex justify-end"
+            className="md:fixed md:top-5 md:right-5 flex justify-end"
             variants={spinningCircleVariants}
           >
             <SpinningCircleText 
@@ -177,7 +177,7 @@ export default function Hero() {
 
         {/* Center Logo - Dramatic blur-to-focus entrance */}
         <motion.div 
-          className="flex justify-center items-center top-[45%] md:top-1/3 -translate-y-[50%] absolute w-full left-0"
+          className="flex justify-center items-center top-[43%] md:top-[28%] md:-translate-y-[50%] absolute w-full left-0"
           variants={logoVariants}
         >
           <CarmelaLogo />

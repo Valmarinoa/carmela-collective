@@ -51,7 +51,7 @@ export default function Archive() {
       </motion.div>
 
       {/* Section Header */}
-      <div className="px-6 md:px-12 lg:px-20 mb-24">
+      <div className="px-6 mb-24 md:px-12">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div className="flex items-center gap-4">
             <h2 className="text-4xl md:text-5xl font-bold font-funtastic uppercase">Archive</h2> 
@@ -61,7 +61,7 @@ export default function Archive() {
       
       {/* Horizontal Scrolling members */}
       <div 
-        className="flex gap-6 px-6 md:px-12 lg:px-20 overflow-x-auto overflow-y-hidden no-scrollbar scroll-smooth [scrollbar-gutter:stable]"
+        className="flex gap-6 px-6 md:px-12 overflow-x-auto overflow-y-hidden no-scrollbar scroll-smooth [scrollbar-gutter:stable]"
       >
         {archive.map((event, index) => (
           <motion.article

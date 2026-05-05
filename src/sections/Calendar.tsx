@@ -60,7 +60,7 @@ export default function Calendar() {
               <span>{formatDate(event.date)}</span>
             </div>
 
-            <h3 className="font-funtastic text-3xl">
+            <h3 className="text-3xl">
               {event.title}
             </h3>
 

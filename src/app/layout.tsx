@@ -8,10 +8,11 @@ import {
   myriad,
   spintee,
 } from "@/lib/fonts";
-import CurvedNavigation from "@/components/CurvedNavigation";
 import Granient from "@/components/Granient";
 import StickyLogo from "@/components/StickyLogo";
 import SocialIconsWrapper from "@/components/SocialIconsWrapper";
+import NavBar from "@/components/NavBar"
+import Marquee from "@/components/Marquee";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://carmela-collective.vercel.app"),
@@ -93,17 +94,21 @@ export default function RootLayout({
   timeSpeed={0.3}
 />
         
-        {/* Fixed Social Icons — hidden on mobile for /calendar */}
+        {/* Fixed Social Icons — hidden on  for /calendar */}
         <SocialIconsWrapper />
 
         {/* Sticky logo — large in hero, small fixed top-center everywhere else */}
         <StickyLogo />
 
+        {/*  hamburger + full-screen overlay — md and above is hidden */}
+        <NavBar />
+
+        {/* Marquee Header */}
+      <Marquee />
+
         {/* Main Content */}
         {children}
-        
-        {/* Navigation */}
-        <CurvedNavigation />
+
       </body>
     </html>
   );
