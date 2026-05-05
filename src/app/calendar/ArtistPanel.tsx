@@ -77,7 +77,7 @@ export default function ArtistPanel({ artist, onClose }: ArtistPanelProps) {
                 )}
               </div>
 
-            <div className='flex justify-between px-6 pb-6'>
+            <div className='flex flex-col px-6 pb-6'>
               <div className="">
                 <h2 className="text-xl text-cream leading-tight mb-1">
                   {artist.name}
@@ -88,7 +88,7 @@ export default function ArtistPanel({ artist, onClose }: ArtistPanelProps) {
                
               </div>
               {(artist.instagram || artist.soundcloudUrl) && (
-              <div className="flex-shrink-0 flex flex-col gap-2 px-6 bg-[#0c0b09]">
+              <div className="flex-shrink-0 flex flex-col gap-2 pt-4 bg-[#0c0b09]">
                 {artist.instagram && (
                   <a
                     href={`https://instagram.com/${artist.instagram.replace('@', '')}`}

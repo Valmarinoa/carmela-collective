@@ -66,7 +66,7 @@ export default function Archive() {
         {archive.map((event, index) => (
           <motion.article
             key={event.id}
-            className="project-card flex-shrink-0 w-[250px] group cursor-pointer"
+            className="project-card flex-shrink-0 w-[250px] group pointer-events-none"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: index * 0.01, duration: 0.3 }}
@@ -97,15 +97,6 @@ export default function Archive() {
               
               {/* Hover Overlay */}
               <div className="absolute inset-0 bg-black/0 transition-colors duration-300" />
-              
-              {/* Arrow Icon */}
-              <motion.div 
-                className="absolute top-4 right-4 w-10 h-10 bg-white rounded-full flex items-center justify-center
-                           opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                whileHover={{ scale: 1.1 }}
-              >
-                <ArrowUpRight size={18} />
-              </motion.div>
             </div>
             
             {/* Project Info */}
