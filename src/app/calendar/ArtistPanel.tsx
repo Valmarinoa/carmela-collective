@@ -37,7 +37,7 @@ export default function ArtistPanel({ artist, onClose }: ArtistPanelProps) {
             role="dialog"
             aria-modal="true"
             aria-label={`Artist: ${artist.name}`}
-            className="fixed top-0 right-0 h-[91vh] w-full md:w-[360px] bg-[#0c0b09] border-l border-white/[0.08] z-[9999] flex flex-col"
+            className="fixed top-0 right-0 h-screen w-full md:w-[360px] bg-[#0c0b09] border-l border-white/[0.08] z-[9999] flex flex-col"
             initial={{ x: 60, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 60, opacity: 0 }}
