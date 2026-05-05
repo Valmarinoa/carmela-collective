@@ -18,6 +18,8 @@ export default function Calendar() {
   const sortedCalendar = [...CALENDAR].sort(
     (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
   )
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
 
   return (
     <section
@@ -50,17 +52,22 @@ export default function Calendar() {
 
       {/* Calendar */}
       <div className="flex flex-col gap-9 w-full justify-center items-center px-6">
-        {sortedCalendar.map((event, index) => (
-          <motion.a
-            key={event.id}
-            href={event.ticketUrl || '/calendar'}
-            className="group relative flex flex-col justify-center items-center text-center"
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: index * 0.08 }}
-            viewport={{ once: true, amount: 0.4 }}
-            whileHover={{ y: -2 }}
-          >
+        {sortedCalendar.map((event, index) => {
+          const isPastEvent = new Date(`${event.date}T00:00:00`).getTime() < today.getTime()
+
+          return (
+            <motion.a
+              key={event.id}
+              href={event.ticketUrl || '/calendar'}
+              className={`group relative flex flex-col justify-center items-center text-center transition-opacity ${
+                isPastEvent ? 'opacity-60' : 'opacity-100'
+              }`}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: index * 0.08 }}
+              viewport={{ once: true, amount: 0.4 }}
+              whileHover={{ y: -2 }}
+            >
             <p className="absolute text-xs font-myriad font-light top-0 -left-2">
               {index + 1}
             </p>
@@ -75,9 +82,10 @@ export default function Calendar() {
 
             <p className="text-xs">{event.venue}</p>
 
-          
-          </motion.a>
-        ))}
+            
+            </motion.a>
+          )
+        })}
       </div>
      
     </section>
