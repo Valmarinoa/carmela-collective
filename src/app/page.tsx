@@ -32,7 +32,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main ref={mainRef} className="relative min-h-screen overflow-x-hidden"
+    <main ref={mainRef} className="relative min-h-screen overflow-hidden"
 >
       
       

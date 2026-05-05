@@ -44,7 +44,7 @@ export default function ArtistPanel({ artist, onClose }: ArtistPanelProps) {
             transition={{ type: 'spring', stiffness: 340, damping: 32 }}
           >
             {/* Header — flex-shrink-0, no fixed inside transformed element */}
-            <div className="flex-shrink-0 flex items-center justify-between px-6 py-4  border-b border-white/[0.08] bg-[#0c0b09]">
+            <div className="w-full flex-shrink-0 flex items-center justify-between px-6 py-4 z-[60] border-b border-white/[0.08] bg-[#0c0b09]">
               <span className="text-xs tracking-[0.25em] uppercase text-cream/55 font-inter">
                 Artist
               </span>
@@ -58,8 +58,8 @@ export default function ArtistPanel({ artist, onClose }: ArtistPanelProps) {
             </div>
 
             {/* Scrollable content */}
-            <div className="flex flex-col flex-1 overflow-y-auto no-scrollbar gap-4">
-              <div className="w-full aspect-[3/4] bg-[#161210] relative overflow-hidden flex-shrink-0 -mt-10">
+            <div className="flex flex-col flex-1 overflow-scroll no-scrollbar gap-4">
+              <div className="w-full aspect-[3/4] bg-[#161210] relative flex-shrink-0 -mt-16 md:mt-0 overflow-hidden">
                 {artist.imageUrl ? (
                   <Image
                     src={artist.imageUrl}
@@ -77,22 +77,55 @@ export default function ArtistPanel({ artist, onClose }: ArtistPanelProps) {
                 )}
               </div>
 
-              <div className="px-6 pb-6">
+            <div className='flex justify-between px-6 pb-6'>
+              <div className="">
                 <h2 className="text-xl text-cream leading-tight mb-1">
                   {artist.name}
                 </h2>
                 <p className="text-xs tracking-[0.18em] uppercase text-cream/35 font-inter">
                   {artist.origin}
                 </p>
-                <p className="text-sm text-cream/60 font-inter leading-relaxed pt-6">
+               
+              </div>
+              {(artist.instagram || artist.soundcloudUrl) && (
+              <div className="flex-shrink-0 flex flex-col gap-2 px-6 bg-[#0c0b09]">
+                {artist.instagram && (
+                  <a
+                    href={`https://instagram.com/${artist.instagram.replace('@', '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-[12px] text-cream/40 hover:text-cream transition-colors duration-150 group"
+                  >
+                    <Instagram size={13} />
+                    <span className="group-hover:underline underline-offset-4">
+                      {artist.instagram}
+                    </span>
+                  </a>
+                )}
+                {artist.soundcloudUrl && (
+                  <a
+                    href={artist.soundcloudUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-[12px] text-cream/40 hover:text-cream transition-colors duration-150 group"
+                  >
+                    <Music2 size={13} />
+                    <span className="group-hover:underline underline-offset-4">
+                      SoundCloud
+                    </span>
+                  </a>
+                )}
+              </div>
+            )}
+            </div>
+             <p className="text-xs text-cream/60 px-6 pb-56 md:pb-0 ">
                   {artist.bio}
                 </p>
-              </div>
             </div>
 
             {/* Footer — flex-shrink-0, no fixed inside transformed element */}
-            {(artist.instagram || artist.soundcloudUrl) && (
-              <div className="flex-shrink-0 flex flex-col gap-2 py-4 px-6 border-t border-white/[0.08] bg-[#0c0b09]">
+            {/* {(artist.instagram || artist.soundcloudUrl) && (
+              <div className=" fixed w-full bottom-0 flex-shrink-0 flex flex-col gap-2 pt-6 pb-6 px-6 border-t border-white/[0.08] bg-[#0c0b09]">
                 {artist.instagram && (
                   <a
                     href={`https://instagram.com/${artist.instagram.replace('@', '')}`}
@@ -120,7 +153,7 @@ export default function ArtistPanel({ artist, onClose }: ArtistPanelProps) {
                   </a>
                 )}
               </div>
-            )}
+            )} */}
           </motion.aside>
         </>
       )}

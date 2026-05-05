@@ -30,17 +30,17 @@ function MemberCard({
       transition={{ delay: index * 0.01, duration: 0.3 }}
     >
       {/* Project Image */}
-      <div className="relative aspect-[3/4] rounded-3xl mb-4 overflow-visible">
+      <div className="relative aspect-[3/4] rounded-md mb-4 overflow-visible">
         <Image
           src={member.image}
           alt={member.title}
           fill
-          className="object-cover rounded-3xl"
+          className="object-cover rounded-md"
           sizes="400px"
         />
 
         {/* Hover Overlay */}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-pink-500/20 transition-colors duration-300 rounded-3xl overflow-visible" />
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-pink-500/20 transition-colors duration-300 rounded-md overflow-visible" />
 
         {/* Arrow Icon */}
         <motion.a
