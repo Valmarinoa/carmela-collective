@@ -81,10 +81,10 @@ export const CALENDAR: Event[] = [
     tags: ["Cumbia", "Live DJ sets", "Live Music"],
     lineup: [
       {
-        id: "nina-verde",
-        name: "Niña Verde",
-        origin: "Venezuela",
-        bio: "Caracas-born crate digger and radio host. Specialises in 70s Venezuelan folk, salsa dura, and tropical exotica. Her weekly show on Red Light Radio has built a loyal following across Europe. She approaches DJing as an act of cultural preservation.",
+        id: "conjunto-medialuna",
+        name: "Conjunto Medialuna",
+        origin: "Colombia",
+        bio: "Colombia-born crate digger and radio host. Specialises in 70s Venezuelan folk, salsa dura, and tropical exotica. Her weekly show on Red Light Radio has built a loyal following across Europe. She approaches DJing as an act of cultural preservation.",
         instagram: "@ninaverde.sounds",
         soundcloudUrl: "https://soundcloud.com/ninaverdesounds",
         imageUrl: "/images/artists/nina-verde.jpg",

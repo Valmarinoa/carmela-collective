@@ -131,7 +131,7 @@ export default function EventModal({ event, onClose }: EventModalProps) {
               )}
             </motion.div>
             <motion.div
-              className="absolute right-6 md:right-28 top-14 md:top-28 w-fit h-56 overflow-hidden flex-shrink-0"
+              className="absolute right-0 md:right-28 top-4 md:top-28 w-fit h-48 md:h-56 overflow-hidden flex-shrink-0"
               initial={{ y: -16, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.08, duration: 0.5 }}
@@ -158,7 +158,7 @@ export default function EventModal({ event, onClose }: EventModalProps) {
             {/* Scrollable body */}
             <div className="overflow-y-auto flex-1 no-scrollbar">
               <motion.div
-                className="p-6 md:p-8 flex flex-col gap-5"
+                className="py-6 px-3 md:p-8 flex flex-col gap-5"
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
@@ -168,7 +168,7 @@ export default function EventModal({ event, onClose }: EventModalProps) {
                   variants={lineVariants}
                   className="flex items-start justify-between gap-4"
                 >
-                  <h2 className="text-2xl md:text-3xl text-cream leading-tight">
+                  <h2 className="text-3xl md:text-3xl text-cream leading-tight">
                     {event.title}
                   </h2>
                  
@@ -204,7 +204,7 @@ export default function EventModal({ event, onClose }: EventModalProps) {
 
                 {/* Lineup */}
                 <motion.div variants={lineVariants} className="flex flex-col">
-                  <h3 className="text-[10px] tracking-[0.25em] uppercase text-cream/25 font-inter">
+                  <h3 className="text-[10px] tracking-[0.25em] uppercase text-cream/25 font-inter py-4">
                     Lineup
                   </h3>
                   <div className="flex flex-col gap-0">
@@ -212,7 +212,7 @@ export default function EventModal({ event, onClose }: EventModalProps) {
                       <motion.button
                         key={artist.id}
                         onClick={() => setSelectedArtist(artist)}
-                        className="flex items-center px-3 pb-3 transition-all duration-200 text-left group"
+                        className="flex items-center pb-3 transition-all duration-200 text-left group"
                         initial={{ opacity: 0, y: 6 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.32 + i * 0.07, duration: 0.32 }}

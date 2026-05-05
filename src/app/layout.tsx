@@ -9,9 +9,9 @@ import {
   spintee,
 } from "@/lib/fonts";
 import CurvedNavigation from "@/components/CurvedNavigation";
-import SocialIcons from "@/components/SocialIcons";
 import Granient from "@/components/Granient";
 import StickyLogo from "@/components/StickyLogo";
+import SocialIconsWrapper from "@/components/SocialIconsWrapper";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://carmela-collective.vercel.app"),
@@ -93,10 +93,8 @@ export default function RootLayout({
   timeSpeed={0.3}
 />
         
-        {/* Fixed Social Icons */}
-        <div className="flex justify-between items-start pt-8 md:top-1/2 fixed top-14 left-4 md:-translate-y-1/2 md:left-10 z-[30]">
-          <SocialIcons />
-        </div>
+        {/* Fixed Social Icons — hidden on mobile for /calendar */}
+        <SocialIconsWrapper />
 
         {/* Sticky logo — large in hero, small fixed top-center everywhere else */}
         <StickyLogo />
