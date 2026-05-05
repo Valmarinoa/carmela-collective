@@ -49,20 +49,7 @@ export default function CarmelaLogo({ className = '' }: CarmelaLogoProps) {
                 priority
               />
             </div>
-            
-            {/* Animated blob */}
-            <motion.div
-              className="absolute inset-0 -z-10"
-              animate={{
-                scale: [1, 1.05, 1],
-                rotate: [0, 2, -2, 0],
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
+          
           </div>
         </div>
       </div>
