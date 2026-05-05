@@ -37,15 +37,15 @@ export default function ArtistPanel({ artist, onClose }: ArtistPanelProps) {
             role="dialog"
             aria-modal="true"
             aria-label={`Artist: ${artist.name}`}
-            className="fixed top-0 right-0 h-screen w-full md:w-[360px] bg-[#0c0b09] border-l border-white/[0.08] z-[9999] flex flex-col"
+            className="fixed top-0 right-0 h-screen w-full md:w-[360px] mt-[60px] md:mt-0 bg-[#0c0b09] border-l border-white/[0.08] z-[9999] flex flex-col"
             initial={{ x: 60, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 60, opacity: 0 }}
             transition={{ type: 'spring', stiffness: 340, damping: 32 }}
           >
             {/* Header — flex-shrink-0, no fixed inside transformed element */}
-            <div className="flex-shrink-0 flex items-center justify-between px-6 py-4 border-b border-white/[0.08] bg-[#0c0b09]">
-              <span className="text-[10px] tracking-[0.25em] uppercase text-cream/55 font-inter">
+            <div className="flex-shrink-0 flex items-center justify-between px-6 py-4  border-b border-white/[0.08] bg-[#0c0b09]">
+              <span className="text-xs tracking-[0.25em] uppercase text-cream/55 font-inter">
                 Artist
               </span>
               <button
@@ -53,13 +53,13 @@ export default function ArtistPanel({ artist, onClose }: ArtistPanelProps) {
                 className="text-cream/50 hover:text-cream transition-colors duration-150"
                 aria-label="Close artist panel"
               >
-                <X size={16} />
+                <X size={28} />
               </button>
             </div>
 
             {/* Scrollable content */}
             <div className="flex flex-col flex-1 overflow-y-auto no-scrollbar gap-4">
-              <div className="w-full aspect-[3/4] bg-[#161210] relative overflow-hidden flex-shrink-0">
+              <div className="w-full aspect-[3/4] bg-[#161210] relative overflow-hidden flex-shrink-0 -mt-10">
                 {artist.imageUrl ? (
                   <Image
                     src={artist.imageUrl}
@@ -81,7 +81,7 @@ export default function ArtistPanel({ artist, onClose }: ArtistPanelProps) {
                 <h2 className="text-xl text-cream leading-tight mb-1">
                   {artist.name}
                 </h2>
-                <p className="text-[11px] tracking-[0.18em] uppercase text-cream/35 font-inter">
+                <p className="text-xs tracking-[0.18em] uppercase text-cream/35 font-inter">
                   {artist.origin}
                 </p>
                 <p className="text-sm text-cream/60 font-inter leading-relaxed pt-6">
