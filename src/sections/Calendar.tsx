@@ -3,7 +3,15 @@
 import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
-import { calendar } from "@/data/data";
+import { CALENDAR } from "@/lib/calendarData";
+
+function formatDate(iso: string): string {
+  const d = new Date(`${iso}T00:00:00`)
+  const day = String(d.getDate()).padStart(2, '0')
+  const month = d.toLocaleString('en-US', { month: 'short' }).toUpperCase()
+  const year = d.getFullYear()
+  return `${day} ${month} ${year}`
+}
 
 export default function Calendar() {
   return (
@@ -33,10 +41,10 @@ export default function Calendar() {
 
       {/* Calendar */}
       <div className="flex flex-col gap-9 w-full justify-center items-center px-6">
-        {calendar.map((event, index) => (
+        {CALENDAR.map((event, index) => (
           <motion.a
             key={event.id}
-            href={event.href}
+            href={event.ticketUrl || '/calendar'}
             className="group relative flex flex-col justify-center items-center text-center"
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -45,22 +53,21 @@ export default function Calendar() {
             whileHover={{ y: -2 }}
           >
             <p className="absolute text-xs font-myriad font-light top-0 -left-2">
-              {event.id}
+              {index + 1}
             </p>
 
             <div className="bg-cream px-1 text-xs flex gap-2">
-              <span>{event.date}</span>
-              
+              <span>{formatDate(event.date)}</span>
             </div>
 
             <h3 className="font-funtastic text-3xl">
               {event.title}
             </h3>
 
-            <p className="text-xs">{event.subtitle}</p>
+            <p className="text-xs">{event.venue}</p>
 
             <motion.div
-              className="absolute -right-12  w-9 h-9 border border-black rounded-full flex items-center justify-center opacity-0 hover:bg-[#70fe01] group-hover:opacity-100 transition-opacity duration-300"
+              className="absolute -right-12 w-9 h-9 border border-black rounded-full flex items-center justify-center opacity-0 hover:bg-[#70fe01] group-hover:opacity-100 transition-opacity duration-300"
               whileHover={{ scale: 1.08 }}
             >
               <ArrowUpRight size={16} />
