@@ -2,6 +2,8 @@
 
 import { useMemo, useState, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
+import FlowerSilhoutte from '@/components/FlowerSilhouette'
 import { Event } from '@/lib/calendarData'
 import { getGridCells } from '@/lib/calendarUtils'
 import EventCell from './EventCell'
@@ -15,40 +17,27 @@ function FlyerCard({ event }: { event: Event | null }) {
       style={{ width: 'calc(30.33% - 2rem)', aspectRatio: '2 / 3' }}
     >
       <AnimatePresence mode="wait">
-        {event && (
-          <motion.div
-            key={event.id}
-            className="absolute inset-0 "
-            // style={{transformOrigin: 'bottom right' }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0 }}
-          >
-            {event.flyer ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={event.flyer}
-                alt={`${event.title} flyer`}
-                className="w-full h-full object-contain"
-              />
-            ) : (
-              <div className="w-full h-full bg-gradient-to-br from-[#c4713a] via-[#7a3518] to-[#1a0a04] flex flex-col justify-between p-5">
-                <span className="text-[9px] tracking-[0.25em] uppercase text-white/40 font-inter">
-                  {event.venue}
-                </span>
-                <div>
-                  <p className="font-leakage text-white text-xl leading-tight mb-1">
-                    {event.title}
-                  </p>
-                  <p className="text-[10px] text-white/50 font-inter">
-                    {event.lineup.map(a => a.name).join(', ')}
-                  </p>
-                </div>
-              </div>
-            )}
-          </motion.div>
-        )}
+        <motion.div
+          key={event?.id ?? 'default-flyer'}
+          className="absolute inset-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.15 }}
+        >
+          {event?.flyer ? (
+            <Image
+              src={event.flyer}
+              alt={`${event.title} flyer`}
+              fill
+              className="w-full h-full object-contain"
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center">
+              <FlowerSilhoutte fillColor="#F08C43" width={360} height={617} />
+            </div>
+          )}
+        </motion.div>
       </AnimatePresence>
     </div>
   )

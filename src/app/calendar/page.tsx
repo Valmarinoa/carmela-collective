@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useMemo } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import Image from 'next/image'
 import { CALENDAR, Event } from '@/lib/calendarData'
 import { getMonthsWithEvents } from '@/lib/calendarUtils'
 import MonthFilter from './MonthFilter'
@@ -150,9 +151,11 @@ export default function CalendarPage() {
                     </div>
                         {event.flyer && (
                          <div className='w-20 h-28'>
-                            <img
+                            <Image
                               src={event.flyer}
                               alt={event.title}
+                              width={80}
+                              height={112}
                               className="w-full h-full object-contain"
                             />
                             </div>
