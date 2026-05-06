@@ -52,7 +52,7 @@ export const members = [
     id: '2',
     title: 'Adrian Figueroa',
     category: 'Music & Cultural Programming',
-    description: 'Event production and project processes manager, ensuring that each programme is executed with intention, clarity, and strong organizational flow.',
+    description: 'Event production and project processes manager, guiding each programme with intention, clarity, and a strong organizational flow, while leading artist bookings and thoughtfully curating the musical identity of Carmela, shaping lineups and sonic direction in a way that reflects the collective’s vision, atmosphere, and evolving creative language.',
     image: '/images/adrian.png',
     nationality:'México',
     igLink: 'https://instagram.com/ukab.__dj',
@@ -130,11 +130,20 @@ export const archive: Archive[] = [
     category: 'APR 2026',
     description:'',
     image: '/images/events/carmela-pos-26.png',
-    objectFit: 'contain',  // image will use object-contain
+    objectFit: 'cover',  // image will use object-contain
    igHandle: ''
   },
   {
     id: '1',
+    title: 'Mestizaund x Echobox',
+    category: 'MAR 2026',
+    description:'Mestizaund by Carmela Collective is a show exploring Latin American rhythms: their origins, migrations, and transformations. Blending cumbia, salsa, bolero and electronic sounds into a danceable sonic journey through culture, history, and diaspora.',
+    image: '/images/events/mestizaund-ed1.png',
+    objectFit: 'cover',  // image will use object-contain
+   igHandle: ''
+  },
+  {
+    id: '2',
     title: 'Carmela Fugaris',
     category: 'DEC 2025',
     description:'',
@@ -144,7 +153,7 @@ export const archive: Archive[] = [
   },
 
   {
-    id: '2',
+    id: '3',
     title: 'Dia de los Muertos',
     category: 'NOV 2025',
     description:'',
@@ -154,7 +163,7 @@ export const archive: Archive[] = [
   }, 
 
   {
-    id: '3',
+    id: '4',
     title: 'Carmela x SevenEleven',
     category: 'OCT 2025',
     description: 'Underground nightclub experience with curated music programming.',
@@ -165,7 +174,7 @@ export const archive: Archive[] = [
   },
  
    {
-    id: '4',
+    id: '5',
     title: 'Carmela Genesis',
     category: 'SEPT 2025',
     description:'',

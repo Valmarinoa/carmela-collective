@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useCallback, useMemo } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { useState, useCallback, useMemo, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { CALENDAR, Event } from '@/lib/calendarData'
 import { getMonthsWithEvents } from '@/lib/calendarUtils'
@@ -12,12 +13,50 @@ import EventModal from './EventModal'
 // ─── SVG grain data URI ───────────────────────────────────────────────────────
 const GRAIN_URL = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`
 
+const mobileListVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.06,
+      delayChildren: 0.04,
+    },
+  },
+}
+
+const mobileItemVariants = {
+  hidden: { opacity: 0, y: 8 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.28, ease: [0.25, 0.1, 0.25, 1] },
+  },
+}
+
 export default function CalendarPage() {
   const months = useMemo(() => getMonthsWithEvents(CALENDAR), [])
+  const searchParams = useSearchParams()
 
-  const [activeYear, setActiveYear] = useState<number>(months[0]?.year ?? 2026)
-  const [activeMonth, setActiveMonth] = useState<number>(months[0]?.month ?? 4)
+  const requestedYear = Number(searchParams.get('year'))
+  const requestedMonth = Number(searchParams.get('month')) - 1 // incoming month is 1-indexed
+  const requestedEventId = searchParams.get('event')
+  const hasRequestedMonth = months.some(
+    (item) => item.year === requestedYear && item.month === requestedMonth
+  )
+
+  const [activeYear, setActiveYear] = useState<number>(
+    hasRequestedMonth ? requestedYear : (months[0]?.year ?? 2026)
+  )
+  const [activeMonth, setActiveMonth] = useState<number>(
+    hasRequestedMonth ? requestedMonth : (months[0]?.month ?? 4)
+  )
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
+
+  useEffect(() => {
+    if (!hasRequestedMonth) return
+    setActiveYear(requestedYear)
+    setActiveMonth(requestedMonth)
+  }, [hasRequestedMonth, requestedYear, requestedMonth])
 
   const handleMonthSelect = useCallback((year: number, month: number) => {
     setActiveYear(year)
@@ -78,49 +117,51 @@ export default function CalendarPage() {
               month={activeMonth}
               events={CALENDAR}
               onEventClick={handleEventClick}
+              selectedEventId={requestedEventId}
             />
           </div>
         </div>
 
         {/* ── Mobile list (<768px) ─────────────────────────────────── */}
         <div className="md:hidden flex-1">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`${activeYear}-${activeMonth}`}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-              className="flex flex-col gap-2"
-            >
-              {mobileEvents.length === 0 && (
-                <p className="text-sm text-cream/25 font-inter py-8 text-center">
-                  No events this month.
-                </p>
-              )}
-              {mobileEvents.map((event, i) => {
-                const d = new Date(`${event.date}T00:00:00`)
-                const day = d.toLocaleDateString('en-GB', {
-                  weekday: 'short',
-                  day: 'numeric',
-                  month: 'short',
-                })
-                return (
-                  <motion.div
+          <motion.div
+            key={`${activeYear}-${activeMonth}`}
+            variants={mobileListVariants}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col gap-2"
+          >
+            {mobileEvents.length === 0 && (
+              <p className="text-sm text-cream/25 font-inter py-8 text-center">
+                No events this month.
+              </p>
+            )}
+            {mobileEvents.map(event => {
+              const d = new Date(`${event.date}T00:00:00`)
+              const day = d.toLocaleDateString('en-GB', {
+                weekday: 'short',
+                day: 'numeric',
+                month: 'short',
+              })
+              return (
+                  <motion.button
                     key={event.id}
                     onClick={() => handleEventClick(event)}
-                    initial={{ opacity: 0}}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: i * 0.05, duration: 0.3 }}
-                    className="flex gap-4 w-full p-4 bg-[#1a1714]/50 hover:bg-[#231e18]/60 hover:border-[#c4713a]/30 transition-all duration-200 text-left group relative overflow-hidden"
+                    className="flex gap-4 w-full p-4 bg-[#1a1714]/50 active:bg-[#231e18]/60 transition-colors duration-150 text-left group relative overflow-hidden"
+                    type="button"
+                    variants={mobileItemVariants}
                   >
                     <div className='w-full h-full absolute inset-0 z-0'>
-                    <img
-                  src={event.flyer}
-                  alt={event.title}
-                  className="w-full h-full object-cover blur-lg"
-                />
-                <div className='w-full h-full absolute inset-0 z-0 bg-[#231e18]/30' />
+                      {event.flyer && (
+                        <Image
+                          src={event.flyer}
+                          alt={event.title}
+                          fill
+                          sizes="100vw"
+                          className="object-cover blur-lg"
+                        />
+                      )}
+                      <div className='w-full h-full absolute inset-0 z-0 bg-[#231e18]/30' />
                     </div>
                     <div className='w-full flex flex-col z-[20]'>
                     <div className='flex justify-between w-full'>
@@ -164,11 +205,10 @@ export default function CalendarPage() {
                 
        
      
-                  </motion.div>
+                  </motion.button>
                 )
               })}
-            </motion.div>
-          </AnimatePresence>
+          </motion.div>
         </div>
       </div>
 

@@ -38,6 +38,7 @@ interface CalendarGridProps {
   month: number
   events: Event[]
   onEventClick: (event: Event) => void
+  selectedEventId?: string | null
 }
 
 export default function CalendarGrid({
@@ -45,6 +46,7 @@ export default function CalendarGrid({
   month,
   events,
   onEventClick,
+  selectedEventId,
 }: CalendarGridProps) {
   const cells = useMemo(
     () => getGridCells(events, month, year),
@@ -52,6 +54,7 @@ export default function CalendarGrid({
   )
 
   const [hoveredEvent, setHoveredEvent] = useState<Event | null>(null)
+  const [activeEvent, setActiveEvent] = useState<Event | null>(null)
 
   const handleHover = useCallback((event: Event) => {
     setHoveredEvent(event)
@@ -64,6 +67,17 @@ export default function CalendarGrid({
   useEffect(() => {
     setHoveredEvent(null)
   }, [month, year])
+
+  useEffect(() => {
+    if (!selectedEventId) {
+      setActiveEvent(null)
+      return
+    }
+    const selectedCellEvent = cells.find((cell) => cell?.id === selectedEventId) ?? null
+    setActiveEvent(selectedCellEvent)
+  }, [cells, selectedEventId])
+
+  const displayedFlyerEvent = hoveredEvent ?? activeEvent
 
   return (
     <div className="relative h-full w-full max-w-6xl mx-auto">
@@ -81,13 +95,14 @@ export default function CalendarGrid({
               onClick={onEventClick}
               onHover={handleHover}
               onHoverEnd={handleHoverEnd}
+              isActive={cell?.id === displayedFlyerEvent?.id}
             />
           )
         })}
       </div>
 
       {/* Floating flyer — appears on hover, keyed so it cross-fades per event */}
-      <FlyerCard event={hoveredEvent} />
+      <FlyerCard event={displayedFlyerEvent} />
     </div>
   )
 }

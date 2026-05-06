@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 import { X, ExternalLink } from 'lucide-react'
 import { Event, Artist } from '@/lib/calendarData'
 import ArtistPanel from './ArtistPanel'
@@ -114,10 +115,12 @@ export default function EventModal({ event, onClose }: EventModalProps) {
               transition={{ delay: 0.08, duration: 0.5 }}
             >
               {event.flyer ? (
-                <img
+                <Image
                   src={event.flyer}
                   alt={event.title}
-                  className="w-full h-full object-cover blur-lg"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 896px"
+                  className="object-cover blur-lg"
                 />
               ) : (
                 <>
@@ -131,16 +134,18 @@ export default function EventModal({ event, onClose }: EventModalProps) {
               )}
             </motion.div>
             <motion.div
-              className="absolute right-0 md:right-20 top-4 md:top-20 w-fit h-48 md:h-60 overflow-hidden flex-shrink-0"
+              className="absolute right-0 md:right-20 top-4 md:top-20 h-48 md:h-60 aspect-[2/3] overflow-hidden flex-shrink-0"
               initial={{ y: -16, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.08, duration: 0.5 }}
             >
               {event.flyer ? (
-                <img
+                <Image
                   src={event.flyer}
                   alt={event.title}
-                  className="w-full h-full object-contain"
+                  fill
+                  sizes="(max-width: 768px) 128px, 160px"
+                  className="object-contain"
                 />
               ) : (
                 <>
@@ -177,7 +182,18 @@ export default function EventModal({ event, onClose }: EventModalProps) {
                 {/* Date + Venue */}
                 <motion.div variants={lineVariants} className="flex flex-col gap-0.5">
                   <p className="text-sm text-cream/45 ">{formatDate(event.date)}</p>
-                  <p className="text-sm text-cream/45 ">{event.venue}</p>
+                  {event.venueUrl ? (
+                    <a
+                      href={event.venueUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-cream/45 hover:text-cream transition-colors duration-150 underline decoration-transparent hover:decoration-current w-fit"
+                    >
+                      {event.venue}
+                    </a>
+                  ) : (
+                    <p className="text-sm text-cream/45 ">{event.venue}</p>
+                  )}
                 </motion.div>
 
                 {/* Tags */}

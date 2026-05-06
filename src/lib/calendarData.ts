@@ -13,6 +13,7 @@ export type Event = {
   title: string
   date: string // ISO: "2026-05-04"
   venue: string
+  venueUrl?: string
   description: string
   flyer?: string
   ticketUrl?: string
@@ -26,6 +27,7 @@ export const CALENDAR: Event[] = [
     title: "Carmela × POS",
     date: "2026-05-04",
     venue: "POS",
+    venueUrl: "https://www.posamsterdam.nl",
     description:
       "Carmela Collective joins forces with POS for a night of Latin underground sounds. Expect a journey through cumbia sonidera, tropicalia, and contemporary electronic beats from both sides of the Atlantic.",
     flyer: "/images/events/carmela-pos-26.png",
@@ -75,6 +77,7 @@ export const CALENDAR: Event[] = [
     title: "Cumbia Libre",
     date: "2026-06-20",
     venue: "Toekomstmuziek Amsterdam",
+    venueUrl: "https://www.toekomstmuziek.com",
     description:
       "An unprecedented collaboration between Carmela and Conjunto Medialuna, a clubnight fulfilled with echoes of cumbia, accordion and percussion. ",
     flyer: "/images/events/carmela-fugaris.png",
@@ -114,6 +117,7 @@ export const CALENDAR: Event[] = [
     title: "Carmela × SF",
     date: "2026-06-04",
     venue: "San Francisco Bar",
+    venueUrl: "https://www.sanfranciscobar.nl",
     description:
       "Carmela Collective and San Francisco Bar present a night of Afro-Latin sounds, bringing together the Rotterdam and Amsterdam underground scenes. A meeting point between diaspora histories and club futures.",
     flyer: "/images/events/ddm-25.png",
@@ -163,6 +167,7 @@ export const CALENDAR: Event[] = [
     title: "Carmela en Salsa",
     date: "2026-07-12",
     venue: "Paradiso Amsterdam",
+    venueUrl: "https://www.paradiso.nl",
     description:
       "An afternoon dedicated to the golden era of salsa. Live band, dance workshops on the main floor, and a long table feast. A gathering for dancers and listeners alike — bring your best shoes and your appetite.",
     flyer: "/images/events/carmela-sept-25.png",
@@ -203,6 +208,7 @@ export const CALENDAR: Event[] = [
     title: "Noche Tropical",
     date: "2026-07-26",
     venue: "OT301 Amsterdam",
+    venueUrl: "https://ot301.nl",
     description:
       "Carmela's summer night — six hours of tropical rhythms, cold drinks, and the kind of warmth that only comes when the music is right. A celebration of everything that brought us here.",
     flyer: "/images/events/ddm-25.png",

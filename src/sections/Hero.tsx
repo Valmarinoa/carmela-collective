@@ -55,9 +55,9 @@ export default function Hero() {
   const logoVariants = {
     hidden: { 
       opacity: 0, 
-      scale: prefersReducedMotion ? 1 : 0.8,
-      y: prefersReducedMotion ? 0 : 30,
-      filter: "blur(15px)"
+      scale: prefersReducedMotion ? 1 : 0.9,
+      y: prefersReducedMotion ? 0 : 10,
+      filter: "blur(3px)"
     },
     visible: {
       opacity: 1,
@@ -65,9 +65,9 @@ export default function Hero() {
       y: 0,
       filter: "blur(0px)",
       transition: {
-        duration: 1.2,
-        ease: [0.16, 1, 0.3, 1], // Spring-like ease out
-        delay: 0.3
+        duration: .2,
+        ease: [0.16, 1, 0.8, 1], // Spring-like ease out
+        delay: 0.1
       }
     }
   }

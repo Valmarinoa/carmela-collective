@@ -12,6 +12,7 @@ interface EventCellProps {
   onClick: (event: Event) => void
   onHover: (event: Event) => void
   onHoverEnd: () => void
+  isActive?: boolean
 }
 
 function formatCellDate(dateStr: string): string {
@@ -22,7 +23,7 @@ function formatCellDate(dateStr: string): string {
   return `${day} ${month} ${year}`
 }
 
-export default function EventCell({ event, col, row, onClick, onHover, onHoverEnd }: EventCellProps) {
+export default function EventCell({ event, col, row, onClick, onHover, onHoverEnd, isActive = false }: EventCellProps) {
   // Border logic: inner lines only (outer border lives on the container)
   const borderR = col < 2 ? 'border-r' : ''
   const borderB = row < 1 ? 'border-b' : ''
@@ -48,7 +49,8 @@ export default function EventCell({ event, col, row, onClick, onHover, onHoverEn
       initial={{ opacity: 0 }}
       animate={{ opacity: 1}}
       className={[
-        'group relative flex flex-col p-5 md:p-7 hover:bg-black/90 transition-colors  text-white text-left md:h-72',
+        'group relative flex flex-col p-5 md:p-7 transition-colors text-white text-left md:h-72',
+        isActive ? 'bg-black/90' : 'hover:bg-black/90',
         'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white',
         borderR,
         borderB,

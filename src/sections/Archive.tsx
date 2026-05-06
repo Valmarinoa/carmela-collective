@@ -103,7 +103,7 @@ export default function Archive() {
             <div className="space-y-1">
               <p className="text-[9px] text-neutral-950 uppercase tracking-wider">{event.category}</p>
               <h3 className="text-lg font-medium">{event.title}</h3>
-              <p className="text-sm text-neutral-950 line-clamp-2 font-myriad">{event.description}</p>
+              <p className="text-xs text-neutral-950/70 font-myriad line-clamp-2 pt-1">{event.description}</p>
             </div>
           </motion.article>
         ))}

@@ -5,6 +5,7 @@ import { ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
 import { CALENDAR } from "@/lib/calendarData";
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 function formatDate(iso: string): string {
   const d = new Date(`${iso}T00:00:00`)
@@ -15,6 +16,7 @@ function formatDate(iso: string): string {
 }
 
 export default function Calendar() {
+  const router = useRouter()
   const sortedCalendar = [...CALENDAR].sort(
     (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
   )
@@ -54,12 +56,22 @@ export default function Calendar() {
       <div className="flex flex-col gap-9 w-full justify-center items-center px-6">
         {sortedCalendar.map((event, index) => {
           const isPastEvent = new Date(`${event.date}T00:00:00`).getTime() < today.getTime()
+          const [year, month] = event.date.split('-')
+          const monthLink = `/calendar?year=${year}&month=${month}&event=${event.id}`
 
           return (
-            <motion.a
+            <motion.div
               key={event.id}
-              href={event.ticketUrl || '/calendar'}
-              className={`group relative flex flex-col justify-center items-center text-center transition-opacity ${
+              role="link"
+              tabIndex={0}
+              onClick={() => router.push(monthLink)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  router.push(monthLink)
+                }
+              }}
+              className={`group cursor-pointer relative flex flex-col justify-center items-center text-center transition-opacity ${
                 isPastEvent ? 'opacity-60' : 'opacity-100'
               }`}
               initial={{ opacity: 0, y: 18 }}
@@ -80,10 +92,22 @@ export default function Calendar() {
               {event.title}
             </h3>
 
-            <p className="text-xs">{event.venue}</p>
+            {event.venueUrl ? (
+              <a
+                href={event.venueUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs underline decoration-transparent hover:decoration-current transition"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {event.venue}
+              </a>
+            ) : (
+              <p className="text-xs">{event.venue}</p>
+            )}
 
             
-            </motion.a>
+            </motion.div>
           )
         })}
       </div>
