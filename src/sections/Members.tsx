@@ -40,7 +40,7 @@ function MemberCard({
         />
 
         {/* Hover Overlay */}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-pink-500/20 transition-colors duration-300 rounded-md overflow-visible" />
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-pink-500/20 transition-colors duration-100 rounded-md overflow-visible" />
 
         {/* Arrow Icon */}
         <motion.a

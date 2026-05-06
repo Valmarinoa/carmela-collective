@@ -45,6 +45,8 @@ export default function EventCell({ event, col, row, onClick, onHover, onHoverEn
       onClick={() => onClick(event)}
       onMouseEnter={() => onHover(event)}
       onMouseLeave={() => onHoverEnd()}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1}}
       className={[
         'group relative flex flex-col p-5 md:p-7 hover:bg-black/90 transition-colors  text-white text-left md:h-72',
         'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white',
@@ -52,7 +54,7 @@ export default function EventCell({ event, col, row, onClick, onHover, onHoverEn
         borderB,
         'border-white',
       ].join(' ')}
-      transition={{ duration: 0.15 }}
+      transition={{ duration: 0.22, ease: 'easeOut' }}
     >
       {/* Date */}
       <span className="text-[10px] md:text-xs tracking-[0.18em] uppercase text-white/50 font-inter mb-3">

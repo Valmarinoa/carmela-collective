@@ -1,7 +1,6 @@
 'use client'
 
-import { useMemo, useState, useCallback } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useMemo, useState, useCallback, useEffect } from 'react'
 import Image from 'next/image'
 import FlowerSilhoutte from '@/components/FlowerSilhouette'
 import { Event } from '@/lib/calendarData'
@@ -16,29 +15,18 @@ function FlyerCard({ event }: { event: Event | null }) {
       className="absolute z-10 -bottom-20 -right-16 pointer-events-none aspect-2/3  max-h-[600px] w-fit"
       style={{ width: 'calc(30.33% - 2rem)', aspectRatio: '2 / 3' }}
     >
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={event?.id ?? 'default-flyer'}
-          className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.15 }}
-        >
-          {event?.flyer ? (
-            <Image
-              src={event.flyer}
-              alt={`${event.title} flyer`}
-              fill
-              className="w-full h-full object-contain"
-            />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center">
-              <FlowerSilhoutte fillColor="#F08C43" width={360} height={617} />
-            </div>
-          )}
-        </motion.div>
-      </AnimatePresence>
+      {event?.flyer ? (
+        <Image
+          src={event.flyer}
+          alt={`${event.title} flyer`}
+          fill
+          className="w-full h-full object-contain"
+        />
+      ) : (
+        <div className="w-full h-full flex items-center justify-center">
+          <FlowerSilhoutte fillColor="#F08C43" width={360} height={617} />
+        </div>
+      )}
     </div>
   )
 }
@@ -73,6 +61,10 @@ export default function CalendarGrid({
     setHoveredEvent(null)
   }, [])
 
+  useEffect(() => {
+    setHoveredEvent(null)
+  }, [month, year])
+
   return (
     <div className="relative h-full w-full max-w-6xl mx-auto">
       {/* 2 × 3 grid — outer border on container, inner dividers on cells */}
@@ -82,7 +74,7 @@ export default function CalendarGrid({
           const row = Math.floor(i / 3)
           return (
             <EventCell
-              key={i}
+              key={cell?.id ?? `empty-${year}-${month}-${i}`}
               event={cell}
               col={col}
               row={row}

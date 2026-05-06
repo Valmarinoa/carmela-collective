@@ -32,8 +32,6 @@ export default function CalendarPage() {
     setSelectedEvent(null)
   }, [])
 
-  const activeKey = `${activeYear}-${activeMonth}`
-
   // Mobile: filter events for the active month
   const mobileEvents = useMemo(
     () =>
@@ -74,30 +72,21 @@ export default function CalendarPage() {
 
         {/* ── Desktop grid (≥768px) ────────────────────────────────── */}
         <div className="hidden md:block flex-1 h-0">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeKey}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
-              className="h-full"
-            >
-              <CalendarGrid
-                year={activeYear}
-                month={activeMonth}
-                events={CALENDAR}
-                onEventClick={handleEventClick}
-              />
-            </motion.div>
-          </AnimatePresence>
+          <div className="h-full">
+            <CalendarGrid
+              year={activeYear}
+              month={activeMonth}
+              events={CALENDAR}
+              onEventClick={handleEventClick}
+            />
+          </div>
         </div>
 
         {/* ── Mobile list (<768px) ─────────────────────────────────── */}
         <div className="md:hidden flex-1">
           <AnimatePresence mode="wait">
             <motion.div
-              key={activeKey}
+              key={`${activeYear}-${activeMonth}`}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
