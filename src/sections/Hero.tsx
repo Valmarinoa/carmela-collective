@@ -113,41 +113,7 @@ export default function Hero() {
       ref={sectionRef} 
       className="relative min-h-screen flex items-center px-6 md:px-12 lg:px-20 overflow-hidden h-screen"
     >
-      {/* Background Layer - Renders first, triggers content after */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Pink Glow */}
-        {/* <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={isLoaded ? { 
-            opacity: [0.22, 0.7, 0.42],
-            scale: 1 
-          } : { opacity: 0, scale: 0.8 }}
-          transition={{
-            opacity: { duration: 7.5, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut', delay: 0.5 },
-            scale: { duration: 1.5, ease: "easeOut" }
-          }}
-          onAnimationComplete={() => {
-            // Optional: Could trigger additional effects when background settles
-          }}
-          className="absolute top-1/4 left-[33%] md:left-[43%] w-72 h-64 md:w-[450px] md:h-96 bg-pink-400 rounded-full blur-3xl overflow-visible"
-        /> */}
-        
-        {/* Orange Glow */}
-        {/* <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={isLoaded ? { 
-            opacity: [0.28, 0.6, 0.48],
-            scale: 1 
-          } : { opacity: 0, scale: 0.8 }}
-          transition={{
-            opacity: { duration: 9.5, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut', delay: 0.8 },
-            scale: { duration: 1.8, ease: "easeOut", delay: 0.2 }
-          }}
-          className="absolute bottom-[25%] right-[40%] md:right-[53%] w-96 h-96 md:w-[450px] md:h-[350px] bg-orange-500 rounded-full blur-3xl z-[2] overflow-visible"
-        /> */}
-      </div>
-
-      {/* Main Content Container - Animates in after background */}
+      {/* Main Content Container */}
       <motion.div 
         className="relative w-full z-10 h-[90vh] flex md:block flex-col md:flex-none justify-between items-center"
         variants={containerVariants}
@@ -157,9 +123,7 @@ export default function Hero() {
         {/* Top Row - Social Icons + Spinning Circle */}
         <div className="z-20 flex justify-between items-start w-full pt-6">
           {/* Social Icons - Slide in from left */}
-          <motion.div variants={socialIconsVariants}>
-            {/* <SocialIcons /> */}
-          </motion.div>
+          <motion.div variants={socialIconsVariants} />
 
           {/* Spinning Circle - Elastic scale + rotate entrance */}
           <motion.div 

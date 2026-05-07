@@ -12,6 +12,7 @@ import { ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
 import { members } from '@/data/data'
 import FlowerSilhoutte from '@/components/FlowerSilhouette'
+import { SPRING_PARALLAX } from '@/lib/animations'
 
 function MemberCard({
   member,
@@ -80,12 +81,12 @@ function MemberCard({
                 animate={{ height: 'auto', opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="text-xs text-neutral-950/70 font-myriad pt-2"
+                className="text-xs text-neutral-950/70 font-inter pt-2"
               >
                 {member.description}
               </motion.p>
             ) : (
-              <p className="text-xs text-neutral-950/70 font-myriad line-clamp-2 pt-1">
+              <p className="text-xs text-neutral-950/70 font-inter line-clamp-2 pt-1">
                 {member.description}
               </p>
             )}
@@ -114,12 +115,7 @@ export default function Members() {
     offset: ['start end', 'end start'],
   })
 
-  const topYRaw = useTransform(scrollYProgress, [0, 1], [40, -40])
-  const topY = useSpring(topYRaw, {
-    stiffness: 60,
-    damping: 18,
-    mass: 0.8,
-  })
+  const topY = useSpring(useTransform(scrollYProgress, [0, 1], [40, -40]), SPRING_PARALLAX)
 
   return (
     <section

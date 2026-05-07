@@ -38,20 +38,18 @@ export default function Calendar() {
         />
       </div>
       {/* Section Header */}
-      <div className="px-6 mb-20 md:px-12 md:mb-6  z-20 flex">
+      <Link href="/calendar" className="px-6 mb-20 md:px-12 md:mb-6  z-20 flex">
         <div className="flex md:flex-row md:items-end md:justify-between gap-6">
           <div className="flex items-center gap-4">
             <h2 className="text-4xl md:text-5xl font-bold font-funtastic uppercase">
               Calendar
             </h2>
           </div>
-          <Link href="/calendar" className="w-9 h-9 border border-black rounded-full flex items-center justify-center hover:bg-[#70fe01] transition-opacity duration-300"> 
+          <div className="w-9 h-9 border border-black rounded-full flex items-center justify-center hover:bg-[#70fe01] transition-opacity duration-300"> 
             <ArrowUpRight size={16} />
-          </Link>
+          </div >
         </div>
-        
-      </div>
-
+      </Link>
       {/* Calendar */}
       <div className="flex flex-col gap-9 w-full justify-center items-center px-6">
         {sortedCalendar.map((event, index) => {
@@ -80,7 +78,7 @@ export default function Calendar() {
               viewport={{ once: true, amount: 0.4 }}
               whileHover={{ y: -2 }}
             >
-            <p className="absolute text-xs font-myriad font-light top-0 -left-2">
+            <p className="absolute text-xs font-inter font-light top-0 -left-2">
               {index + 1}
             </p>
 

@@ -2,7 +2,6 @@
 
 import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import { MousePointer2 } from 'lucide-react'
 
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -67,19 +66,6 @@ export default function Contact() {
                 </p>
               </div>
               
-              {/* Brief Buttons */}
-              {/* <div className="flex flex-col gap-3">
-               
-                <motion.button 
-                  className="inline-flex items-center gap-3 px-6 py-3 border border-white/30 rounded-full 
-                             text-sm font-medium transition-all duration-300 hover:bg-white hover:text-black w-fit"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span>Inquiries</span>
-                  <MousePointer2 size={16} className="text-white/60" />
-                </motion.button>
-              </div> */}
             </div>
             
             {/* Right Side - Form */}
@@ -134,16 +120,6 @@ export default function Contact() {
                 <p className="text-xs text-white/40 mb-3">
                   Music Curation  /  Cultural Platform  /   Event Production
                 </p>
-                {/* <div className="flex flex-wrap gap-2">
-                  {['Brand Identities', 'One off Jobs', 'Designer on call'].map((service) => (
-                    <span 
-                      key={service}
-                      className="px-3 py-1 text-xs text-white/60 border border-white/20 rounded-full"
-                    >
-                      {service}
-                    </span>
-                  ))}
-                </div> */}
               </div>
             </div>
           </div>

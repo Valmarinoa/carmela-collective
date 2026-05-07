@@ -2,14 +2,9 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { navLinks } from '@/data/site'
 
 const MotionLink = motion.create(Link)
-
-const links = [
-  { label: 'About',    href: '/#about' },
-  { label: 'Calendar', href: '/calendar' },
-  { label: 'Contact',  href: '/#contact' },
-]
 
 export default function CurvedNavigation() {
   return (
@@ -20,7 +15,7 @@ export default function CurvedNavigation() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.6 }}
       >
-        {links.map(({ label, href }) => (
+        {navLinks.map(({ label, href }) => (
           <MotionLink
             key={label}
             href={href}

@@ -1,0 +1,139 @@
+'use client'
+
+import { useMemo, useState, useCallback } from 'react'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+import { archive } from '@/data/data'
+import type { Archive } from '@/types/index'
+import ArchiveModal from './ArchiveModal'
+
+const GRID_SIZE = 6
+const cells: (Archive | null)[] = Array.from(
+  { length: GRID_SIZE },
+  (_, i) => archive[i] ?? null
+)
+
+export default function ArchivePage() {
+  const [selectedItem, setSelectedItem] = useState<Archive | null>(null)
+
+  const handleItemClick = useCallback((item: Archive) => {
+    setSelectedItem(item)
+  }, [])
+
+  const handleModalClose = useCallback(() => {
+    setSelectedItem(null)
+  }, [])
+
+  // Generate a stable random stagger order for the visible items on initial mount.
+  // Keeps the "random" order consistent across re-renders (e.g. when the modal opens).
+  const delayRankById = useMemo(() => {
+    const presentItems = cells.filter((c): c is Archive => Boolean(c))
+
+    // Fisher-Yates shuffle on indexes.
+    const order = presentItems.map((_, idx) => idx)
+    for (let i = order.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[order[i], order[j]] = [order[j], order[i]]
+    }
+
+    const rankById = new Map<string, number>()
+    order.forEach((originalIdx, rank) => {
+      rankById.set(presentItems[originalIdx].id, rank)
+    })
+    return rankById
+  }, [])
+
+  return (
+    <main className="relative h-dvh flex flex-col overflow-y-auto overflow-x-hidden">
+      {/* Page content */}
+      <div className="relative z-[2] flex-1 min-h-0 flex flex-col px-4 md:px-10 pt-24 md:pt-28 pb-4">
+        {/* ── Header ──────────────────────────────────────────────── */}
+        <header className="flex-shrink-0 mb-10">
+          <h1 className="text-4xl md:text-5xl text-cream font-funtastic leading-none uppercase">
+            Archive
+          </h1>
+        </header>
+
+        {/* ── Grid ─────────────────────────────────────────────────── */}
+        <motion.div
+          className="flex-1 min-h-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="gap-4 flex flex-wrap items-start">
+            {cells.map((item, index) =>
+              item ? (
+                <motion.button
+                  key={item.id}
+                  type="button"
+                  onClick={() => handleItemClick(item)}
+                  className="relative h-72 w-56 overflow-hidden"
+                  whileHover="hover"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.45,
+                    ease: [0.25, 0.1, 0.25, 1],
+                    delay: (delayRankById.get(item.id) ?? index) * 0.08,
+                  }}
+                >
+                  {/* Background media */}
+                  {item.mediaType === 'video' && item.video ? (
+                    <video
+                      src={item.video}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  ) : (item.image || item.src) ? (
+                    <motion.div
+                      className="absolute inset-0"
+                      variants={{ hover: { scale: 1.05 } }}
+                      transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+                    >
+                      <Image
+                        src={item.image || item.src || ''}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 368px) 13vw, 13vw"
+                        className="object-contain"
+                      />
+                    </motion.div>
+                  ) : null}
+
+                  {/* Dark overlay */}
+                  {/* <motion.div
+                    className="absolute inset-0 bg-black/50"
+                    variants={{ hover: { backgroundColor: 'rgba(0,0,0,0.25)' } }}
+                    transition={{ duration: 0.3 }}
+                  /> */}
+
+                  {/* Text */}
+                  <div className="absolute bottom-0 left-0 p-4 text-left">
+                    <p className="text-[9px] tracking-[0.15em] uppercase text-white/60 font-inter mb-1">
+                      {item.category}
+                    </p>
+                    <p className="text-sm md:text-base text-cream leading-tight">
+                      {item.title}
+                    </p>
+                  </div>
+                </motion.button>
+              ) : (
+                <div
+                  key={`empty-${index}`}
+                  className="border-r border-b border-white/20"
+                />
+              )
+            )}
+          </div>
+        </motion.div>
+      </div>
+
+      {/* ── Archive modal ─────────────────────────────────────────── */}
+      <ArchiveModal item={selectedItem} onClose={handleModalClose} />
+    </main>
+  )
+}

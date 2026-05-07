@@ -26,7 +26,7 @@ export const leakage = localFont({
 
 export const myriad = localFont({
   src: "../fonts/MyriadPro-Regular.ttf",
-  variable: "--font-myriad",
+  variable: "--font-inter",
   display: "swap",
 });
 

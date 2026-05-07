@@ -57,8 +57,12 @@ export default function CalendarGrid({
   const [activeEvent, setActiveEvent] = useState<Event | null>(null)
 
   const handleHover = useCallback((event: Event) => {
+    // Any hover on a different event clears the initial preselection.
+    if (activeEvent && activeEvent.id !== event.id) {
+      setActiveEvent(null)
+    }
     setHoveredEvent(event)
-  }, [])
+  }, [activeEvent])
 
   const handleHoverEnd = useCallback(() => {
     setHoveredEvent(null)
@@ -66,6 +70,8 @@ export default function CalendarGrid({
 
   useEffect(() => {
     setHoveredEvent(null)
+    // Changing month/year should reset any preselected event.
+    setActiveEvent(null)
   }, [month, year])
 
   useEffect(() => {
@@ -75,7 +81,7 @@ export default function CalendarGrid({
     }
     const selectedCellEvent = cells.find((cell) => cell?.id === selectedEventId) ?? null
     setActiveEvent(selectedCellEvent)
-  }, [cells, selectedEventId])
+  }, [selectedEventId, cells])
 
   const displayedFlyerEvent = hoveredEvent ?? activeEvent
 

@@ -1,7 +1,7 @@
 // FloatingGallery.tsx
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 import {
   motion,
@@ -13,26 +13,11 @@ import {
 
 import { floatingImages } from "@/data/data";
 import type { FloatingImageItem } from "@/types/index";
+import { useIsMobile } from "@/hooks/useIsMobile";
+import { SPRING_GALLERY } from "@/lib/animations";
 
 function clamp(n: number, min: number, max: number) {
   return Math.min(max, Math.max(min, n));
-}
-
-// Hook to detect mobile viewport
-function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768); // md breakpoint
-    };
-    
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  return isMobile;
 }
 
 function FloatingItem({
@@ -126,11 +111,7 @@ export default function FloatingGallery() {
     offset: ["start end", "end start"],
   });
 
-  const smooth = useSpring(scrollYProgress, {
-    stiffness: 90,
-    damping: 24,
-    mass: 0.7,
-  });
+  const smooth = useSpring(scrollYProgress, SPRING_GALLERY);
 
   const bgP = useTransform(smooth, [0.1, 0.28], [0, 1]);
 

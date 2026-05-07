@@ -3,34 +3,8 @@
 import { useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
-
-const navLinks = [
-  { label: 'About', href: '/#about' },
-  { label: 'Calendar', href: '/calendar' },
-  { label: 'Contact', href: '/#contact' },
-]
-
-const socialLinks = [
-  { name: 'Instagram', href: 'https://instagram.com/carmela_collective' },
-  { name: 'SoundCloud', href: 'https://soundcloud.com/carmela-collective' },
-  { name: 'Email', href: 'mailto:carmelacollective@gmail.com' },
-]
-
-const containerVariants = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.08, delayChildren: 0.15 } },
-  exit: { transition: { staggerChildren: 0.04, staggerDirection: -1 as const } },
-}
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 40 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] as const },
-  },
-  exit: { opacity: 0, y: 20, transition: { duration: 0.2 } },
-}
+import { navLinks, socialLinks } from '@/data/site'
+import { containerVariants, itemVariants } from '@/lib/animations'
 
 interface MobileMenuProps {
   isOpen: boolean

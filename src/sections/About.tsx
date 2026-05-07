@@ -1,15 +1,9 @@
 'use client'
 
-// #numero del reporte:
-// 489076
-
-// #falla
-// 301842
-
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
-import { flushAllTraces } from 'next/dist/trace'
 import Image from 'next/image'
 import { useRef } from 'react'
+import { SPRING_PARALLAX } from '@/lib/animations'
 
 export default function About() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -19,21 +13,8 @@ export default function About() {
     offset: ['start end', 'end start'],
   })
 
-  // Top image moves a bit upward as you scroll through the section
-  const topYRaw = useTransform(scrollYProgress, [0, 1], [40, -40])
-  const topY = useSpring(topYRaw, {
-    stiffness: 60,
-    damping: 18,
-    mass: 0.8,
-  })
-
-  // Bottom image moves in the opposite direction, slightly slower
-  const bottomYRaw = useTransform(scrollYProgress, [0, 1], [-30, 30])
-  const bottomY = useSpring(bottomYRaw, {
-    stiffness: 60,
-    damping: 18,
-    mass: 0.8,
-  })
+  const topY = useSpring(useTransform(scrollYProgress, [0, 1], [40, -40]), SPRING_PARALLAX)
+  const bottomY = useSpring(useTransform(scrollYProgress, [0, 1], [-30, 30]), SPRING_PARALLAX)
 
   return (
     <section
@@ -53,7 +34,7 @@ export default function About() {
 
       <motion.div
         style={{ y: topY }}
-        className="absolute -top-32  -right-24 md:right-[30%] h-56 w-72 z-10"
+        className="absolute -top-32 -right-24 md:right-[30%] h-56 w-72 z-10"
       >
         <Image
           src="/images/xx.png"

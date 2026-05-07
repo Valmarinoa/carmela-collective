@@ -8,7 +8,7 @@ import {
   myriad,
   spintee,
 } from "@/lib/fonts";
-import Granient from "@/components/Granient";
+import AppGradient from "@/components/AppGradient";
 import StickyLogo from "@/components/StickyLogo";
 import SocialIconsWrapper from "@/components/SocialIconsWrapper";
 import NavBar from "@/components/NavBar"
@@ -84,15 +84,7 @@ export default function RootLayout({
     >
       <body className="antialiased relative min-h-screen">
         {/* Animated WebGL Background - Fixed behind everything */}
-        <Granient 
-  color1="#5F625B"   // Coral
-  color2="#6D7269"   // Teal
-  color3="#879180"   // Blue
-  color4="#F08C43"   // Yellow spots
-  color5="#f472b6"   // Pink spots
-  accentSpread={0.35} // Very concentrated
-  timeSpeed={0.3}
-/>
+        <AppGradient />
         
         {/* Fixed Social Icons — hidden on  for /calendar */}
         <SocialIconsWrapper />

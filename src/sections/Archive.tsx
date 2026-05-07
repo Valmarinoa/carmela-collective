@@ -1,10 +1,10 @@
 'use client'
 
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
-import { ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
 import { archive } from '@/data/data'
 import { useRef } from 'react'
+import { SPRING_PARALLAX } from '@/lib/animations'
 
 export default function Archive() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -14,13 +14,7 @@ export default function Archive() {
     offset: ['start end', 'end start'],
   })
 
-  // Top image moves a bit upward as you scroll through the section
-  const topYRaw = useTransform(scrollYProgress, [0, 1], [40, -40])
-  const topY = useSpring(topYRaw, {
-    stiffness: 60,
-    damping: 18,
-    mass: 0.8,
-  })
+  const topY = useSpring(useTransform(scrollYProgress, [0, 1], [40, -40]), SPRING_PARALLAX)
   
   return (
     <section 
@@ -103,7 +97,7 @@ export default function Archive() {
             <div className="space-y-1">
               <p className="text-[9px] text-neutral-950 uppercase tracking-wider">{event.category}</p>
               <h3 className="text-lg font-medium">{event.title}</h3>
-              <p className="text-xs text-neutral-950/70 font-myriad line-clamp-2 pt-1">{event.description}</p>
+              <p className="text-xs text-neutral-950/70 font-inter line-clamp-2 pt-1">{event.description}</p>
             </div>
           </motion.article>
         ))}

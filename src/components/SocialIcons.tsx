@@ -70,7 +70,7 @@ export default function SocialIcons() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={social.name}
-          className="w-10 h-10 border border-white rounded-full flex items-center justify-center
+          className="w-10 backdrop-blur-lg h-10 border border-white rounded-full flex items-center justify-center
                      text-white transition-all duration-300 
                      hover:bg-[#70fe01] hover:text-black hover:border-black"
           whileHover={{ scale: 1.1 }}
