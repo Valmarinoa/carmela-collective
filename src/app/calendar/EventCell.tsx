@@ -84,7 +84,7 @@ export default function EventCell({ event, col, row, onClick, onHover, onHoverEn
             href={event.ticketUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-inter text-white/70 hover:text-white transition-colors duration-150"
+            className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-inter text-white/70 hover:text-[#70fe01] transition-colors duration-150"
           >
             Buy Tickets
             <span className="transition-transform duration-150 hover:translate-x-1">→</span>
@@ -93,7 +93,7 @@ export default function EventCell({ event, col, row, onClick, onHover, onHoverEn
         <button
           type="button"
           onClick={() => onClick(event)}
-          className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-inter text-white/70 hover:text-white transition-colors duration-150"
+          className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-inter text-white/70 hover:text-[#70fe01] transition-colors duration-150"
         >
           Info
           <span className="transition-transform duration-150 group-hover:translate-x-1">→</span>

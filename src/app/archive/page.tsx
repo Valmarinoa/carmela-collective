@@ -104,7 +104,7 @@ export default function ArchivePage() {
                   key={item.id}
                   type="button"
                   onClick={() => handleItemClick(item)}
-                  className="relative h-72 w-56 overflow-hidden rounded-lg"
+                  className="relative h-72 w-48 overflow-hidden rounded-lg"
                   whileHover="hover"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -114,6 +114,7 @@ export default function ArchivePage() {
                     delay: (delayRankById.get(item.id) ?? index) * 0.08,
                   }}
                 >
+                  <div className='h-1/2 w-full bg-gradient-to-t from-[#010300]/70 to-transparent z-[50] absolute bottom-0 left-0'/>
                   {/* Background media */}
                   {item.mediaType === 'video' && item.video ? (
                     <video
@@ -148,7 +149,7 @@ export default function ArchivePage() {
                   /> */}
 
                   {/* Text */}
-                  <div className="absolute bottom-0 left-0 p-4 text-left">
+                  <div className="absolute bottom-0 left-0 p-4 text-left z-[60]">
                     <p className="text-[9px] tracking-[0.15em] uppercase text-white/60 font-inter mb-1">
                       {item.category}
                     </p>
