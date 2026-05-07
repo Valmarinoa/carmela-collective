@@ -68,14 +68,7 @@ function FloatingItem({
 
   return (
     <motion.div className="absolute" style={style}>
-      <div
-        className={[
-          "relative h-full w-full",
-          "transition-transform duration-300 ease-out",
-          "motion-reduce:transition-none",
-        ].join(" ")}
-        style={{ willChange: "transform" }}
-      >
+      <div className="relative h-full w-full">
         {item.mediaType === "video" && item.vid ? (
           <video
             src={item.vid}
@@ -151,7 +144,6 @@ export default function FloatingGallery() {
           opacity: bgOpacity,
           scale: isMobile ? mobileBgScale : bgScale,
           y: bgY,
-          willChange: "transform, opacity",
         }}
         aria-hidden="true"
       >

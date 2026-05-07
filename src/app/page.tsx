@@ -1,8 +1,9 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { motion } from 'framer-motion'
 import Hero from '@/sections/Hero'
 import FloatingGallery from '@/sections/FloatingGallery'
 import Contact from '@/sections/Contact'
@@ -12,7 +13,7 @@ import About from '@/sections/About'
 import Members from '@/sections/Members'
 import Archive from '@/sections/Archive'
 import CALENDAR from '@/sections/Calendar'
-import SpinningCircleText from '@/components/SpinningCircleText'
+import PageLoader from '@/components/PageLoader'
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
@@ -21,21 +22,26 @@ if (typeof window !== 'undefined') {
 
 export default function Home() {
   const mainRef = useRef<HTMLElement>(null)
+  const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
-    // Refresh ScrollTrigger on load
     ScrollTrigger.refresh()
-    
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
     }
   }, [])
 
   return (
-    <main ref={mainRef} className="relative min-h-screen overflow-hidden"
->
-      
-      
+    <>
+      <PageLoader onDone={() => setLoaded(true)} />
+
+      <motion.main
+        ref={mainRef}
+        className="relative min-h-screen overflow-hidden"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: loaded ? 1 : 0 }}
+        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+      >
       {/* Hero Section - stays visible, doesn't fade */}
       <Hero />
 
@@ -62,6 +68,7 @@ export default function Home() {
       {/* Back to Top Button */}
       
       <div className='hidden md:block'><BackToTop /></div>
-    </main>
+      </motion.main>
+    </>
   )
 }

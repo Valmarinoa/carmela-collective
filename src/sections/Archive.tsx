@@ -5,6 +5,8 @@ import Image from 'next/image'
 import { archive } from '@/data/data'
 import { useRef } from 'react'
 import { SPRING_PARALLAX } from '@/lib/animations'
+import Link from 'next/link'
+import { ArrowUpRight } from 'lucide-react'
 
 export default function Archive() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -45,13 +47,18 @@ export default function Archive() {
       </motion.div>
 
       {/* Section Header */}
-      <div className="px-6 mb-24 md:px-12">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <Link href="/archive" className="px-6 mb-20 md:px-12 md:mb-6  z-20 flex">
+        <div className="flex md:flex-row md:items-end md:justify-between gap-6">
           <div className="flex items-center gap-4">
-            <h2 className="text-4xl md:text-5xl font-bold font-funtastic uppercase">Archive</h2> 
+            <h2 className="text-4xl md:text-5xl font-bold font-funtastic uppercase">
+              Archive
+            </h2>
           </div>
+          <div className="w-9 h-9 border border-black rounded-full flex items-center justify-center hover:bg-[#70fe01] transition-opacity duration-300"> 
+            <ArrowUpRight size={16} />
+          </div >
         </div>
-      </div>
+      </Link>
       
       {/* Horizontal Scrolling members */}
       <div 

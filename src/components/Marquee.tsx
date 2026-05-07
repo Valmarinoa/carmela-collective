@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useRef, useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 const marqueeItems = [
   "Let's chat :)",
@@ -15,6 +16,8 @@ const marqueeItems = [
 export default function Marquee() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [contentWidth, setContentWidth] = useState(0)
+  const pathname = usePathname()
+  const delay = pathname === '/' ? 3 : 0
 
   // Measure actual content width for precise animation
   useEffect(() => {
@@ -28,7 +31,12 @@ export default function Marquee() {
   const duplicatedItems = [...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems]
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#70fe01] border-b border-black/10 overflow-hidden py-2">
+    <motion.div
+      className="fixed bottom-0 left-0 right-0 z-50 bg-[#70fe01] border-b border-black/10 overflow-hidden py-2"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
+    >
       <div className="flex will-change-transform">
         <motion.div
           ref={containerRef}
@@ -58,6 +66,6 @@ export default function Marquee() {
           ))}
         </motion.div>
       </div>
-    </div>
+    </motion.div>
   )
 }

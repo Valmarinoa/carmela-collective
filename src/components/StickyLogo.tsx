@@ -38,6 +38,8 @@ export default function StickyLogo() {
     }
   }, [isHome])
 
+  const delay = isHome ? 3 : 0
+
   return (
     <AnimatePresence>
       {/* {visible && ( */}
@@ -47,7 +49,7 @@ export default function StickyLogo() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+          transition={{ duration: 0.4, delay, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <Link
             href="/"

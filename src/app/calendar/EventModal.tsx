@@ -136,7 +136,7 @@ export default function EventModal({ event, onClose, isArchive = false }: EventM
               )}
             </motion.div>
             <motion.div
-              className="absolute right-0 md:right-20 top-4 md:top-20 h-48 md:h-60 aspect-[2/3] overflow-hidden flex-shrink-0"
+              className="absolute right-[5%] top-[52px] md:right-20 md:top-20 h-52 md:h-64 aspect-[2/3] overflow-hidden flex-shrink-0"
               initial={{ y: -16, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.08, duration: 0.5 }}

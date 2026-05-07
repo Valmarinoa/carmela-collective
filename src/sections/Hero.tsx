@@ -34,78 +34,35 @@ export default function Hero() {
   }
 
   const itemVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: prefersReducedMotion ? 0 : 40,
-      scale: prefersReducedMotion ? 1 : 0.95,
-      filter: "blur(10px)"
-    },
+    hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 40, scale: prefersReducedMotion ? 1 : 0.95 },
     visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      filter: "blur(0px)",
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic-bezier for elegance
-      }
-    }
+      opacity: 1, y: 0, scale: 1,
+      transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
+    },
   }
 
   const logoVariants = {
-    hidden: { 
-      opacity: 0, 
-      scale: prefersReducedMotion ? 1 : 0.9,
-      y: prefersReducedMotion ? 0 : 10,
-      filter: "blur(3px)"
-    },
+    hidden: { opacity: 0, scale: prefersReducedMotion ? 1 : 0.9, y: prefersReducedMotion ? 0 : 10 },
     visible: {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-      filter: "blur(0px)",
-      transition: {
-        duration: .2,
-        ease: [0.16, 1, 0.8, 1], // Spring-like ease out
-        delay: 0.1
-      }
-    }
+      opacity: 1, scale: 1, y: 0,
+      transition: { duration: 0.4, ease: [0.16, 1, 0.8, 1], delay: 0.1 },
+    },
   }
 
   const spinningCircleVariants = {
-    hidden: { 
-      opacity: 0, 
-      scale: prefersReducedMotion ? 1 : 0,
-      rotate: prefersReducedMotion ? 0 : -180
-    },
+    hidden: { opacity: 0, scale: prefersReducedMotion ? 1 : 0.8 },
     visible: {
-      opacity: 1,
-      scale: 1,
-      rotate: 0,
-      transition: {
-        duration: 1.4,
-        ease: [0.34, 1.56, 0.64, 1], // Elastic bounce
-        delay: 0.5
-      }
-    }
+      opacity: 1, scale: 1,
+      transition: { duration: 0.8, ease: [0.34, 1.56, 0.64, 1], delay: 0.4 },
+    },
   }
 
   const socialIconsVariants = {
-    hidden: { 
-      opacity: 0, 
-      x: prefersReducedMotion ? 0 : -30,
-      filter: "blur(8px)"
-    },
+    hidden: { opacity: 0, x: prefersReducedMotion ? 0 : -20 },
     visible: {
-      opacity: 1,
-      x: 0,
-      filter: "blur(0px)",
-      transition: {
-        duration: 0.9,
-        ease: [0.25, 0.46, 0.45, 0.94],
-        delay: 0.8
-      }
-    }
+      opacity: 1, x: 0,
+      transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.6 },
+    },
   }
 
   return (
