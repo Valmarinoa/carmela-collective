@@ -6,10 +6,12 @@ import Image from 'next/image'
 import { X, ExternalLink } from 'lucide-react'
 import { Event, Artist } from '@/lib/calendarData'
 import ArtistPanel from './ArtistPanel'
+import Masonry from './Masonry'
 
 interface EventModalProps {
   event: Event | null
   onClose: () => void
+  isArchive?: boolean
 }
 
 const containerVariants = {
@@ -40,7 +42,7 @@ function formatDate(dateStr: string): string {
   })
 }
 
-export default function EventModal({ event, onClose }: EventModalProps) {
+export default function EventModal({ event, onClose, isArchive = false }: EventModalProps) {
   const [selectedArtist, setSelectedArtist] = useState<Artist | null>(null)
 
   // ESC: close artist panel first, then modal
@@ -219,38 +221,40 @@ export default function EventModal({ event, onClose }: EventModalProps) {
                 </motion.p>
 
                 {/* Lineup */}
-                <motion.div variants={lineVariants} className="flex flex-col">
-                  <h3 className="text-[10px] tracking-[0.25em] uppercase text-cream/25 font-inter py-4">
-                    Lineup
-                  </h3>
-                  <div className="flex flex-col gap-0">
-                    {event.lineup.map((artist, i) => (
-                      <motion.button
-                        key={artist.id}
-                        onClick={() => setSelectedArtist(artist)}
-                        className="flex items-center pb-3 transition-all duration-200 text-left group"
-                        initial={{ opacity: 0, y: 6 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.32 + i * 0.07, duration: 0.32 }}
-                        whileHover={{ x: 2 }}
-                      >
-                        {/* Avatar */}
-                       
-                        <div className="">
-                          <p className="text-sm text-cream  group-hover:underline underline-offset-4 truncate">
-                            {artist.name}
-                          </p>
-                          <p className="text-[11px] text-cream/35  truncate">
-                            {artist.origin}
-                          </p>
-                        </div>
-                        {/* <span className="text-cream/85 group-hover:text-cream/40 transition-colors text-xs border rounded-full h-8 w-8">
-                          →
-                        </span> */}
-                      </motion.button>
-                    ))}
-                  </div>
-                </motion.div>
+                {event.lineup.length > 0 && (
+                  <motion.div variants={lineVariants} className="flex flex-col">
+                    <h3 className="text-[10px] tracking-[0.25em] uppercase text-cream/25 font-inter py-4">
+                      Lineup
+                    </h3>
+                    <div className="flex flex-col gap-0">
+                      {event.lineup.map((artist, i) => (
+                        <motion.button
+                          key={artist.id}
+                          onClick={() => setSelectedArtist(artist)}
+                          className="flex items-center pb-3 transition-all duration-200 text-left group"
+                          initial={{ opacity: 0, y: 6 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.32 + i * 0.07, duration: 0.32 }}
+                          whileHover={{ x: 2 }}
+                        >
+                          {/* Avatar */}
+                         
+                          <div className="">
+                            <p className="text-sm text-cream  group-hover:underline underline-offset-4 truncate">
+                              {artist.name}
+                            </p>
+                            <p className="text-[11px] text-cream/35  truncate">
+                              {artist.origin}
+                            </p>
+                          </div>
+                          {/* <span className="text-cream/85 group-hover:text-cream/40 transition-colors text-xs border rounded-full h-8 w-8">
+                            →
+                          </span> */}
+                        </motion.button>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
 
                 {/* Ticket CTA */}
                 {event.ticketUrl && (
@@ -264,6 +268,26 @@ export default function EventModal({ event, onClose }: EventModalProps) {
                       Get Tickets
                       <ExternalLink size={12} />
                     </a>
+                  </motion.div>
+                )}
+
+                {/* Footage gallery — archive only */}
+                {isArchive && event.footage && event.footage.length > 0 && (
+                  <motion.div variants={lineVariants} className="flex flex-col pt-2">
+                    <h3 className="text-[10px] tracking-[0.25em] uppercase text-cream/25 font-inter py-4">
+                      Footage
+                    </h3>
+                    <Masonry
+                      items={event.footage}
+                      ease="power3.out"
+                      duration={0.6}
+                      stagger={0.05}
+                      animateFrom="bottom"
+                      scaleOnHover
+                      hoverScale={0.95}
+                      blurToFocus
+                      colorShiftOnHover={false}
+                    />
                   </motion.div>
                 )}
               </motion.div>

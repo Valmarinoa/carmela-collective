@@ -7,6 +7,14 @@ export interface Member {
   href?: string
 }
 
+export interface FootageItem {
+  id: string
+  type?: 'image' | 'video'
+  img: string  // image URL, or video URL when type === 'video'
+  url?: string
+  height: number
+}
+
 export interface Archive {
   id: string
   title: string
@@ -22,6 +30,8 @@ export interface Archive {
   // Link
   href?: string
   igHandle?: string
+  // Post-event footage for the archive modal gallery
+  footage?: FootageItem[]
 }
 
 export type FloatingMediaType = "image" | "video";

@@ -42,8 +42,7 @@ export default function EventCell({ event, col, row, onClick, onHover, onHoverEn
   const lineupNames = event.lineup.map(a => a.name).join(', ')
 
   return (
-    <motion.button
-      onClick={() => onClick(event)}
+    <motion.article
       onMouseEnter={() => onHover(event)}
       onMouseLeave={() => onHoverEnd()}
       initial={{ opacity: 0 }}
@@ -78,15 +77,28 @@ export default function EventCell({ event, col, row, onClick, onHover, onHoverEn
         {lineupNames}
       </p>
 
-      {/* Ticket button — pinned to bottom-left */}
-      {event.ticketUrl && (
-        <div className="mt-5 pt-4 border-t border-white/15">
-          <span className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-inter text-white/70 group-hover:text-white transition-colors duration-150">
+      {/* CTAs */}
+      <div className="mt-5 pt-4 border-t border-white/15 flex items-center gap-4">
+        {event.ticketUrl && (
+          <a
+            href={event.ticketUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-inter text-white/70 hover:text-white transition-colors duration-150"
+          >
             Buy Tickets
-            <span className="transition-transform duration-150 group-hover:translate-x-1">→</span>
-          </span>
-        </div>
-      )}
-    </motion.button>
+            <span className="transition-transform duration-150 hover:translate-x-1">→</span>
+          </a>
+        )}
+        <button
+          type="button"
+          onClick={() => onClick(event)}
+          className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-inter text-white/70 hover:text-white transition-colors duration-150"
+        >
+          Info
+          <span className="transition-transform duration-150 group-hover:translate-x-1">→</span>
+        </button>
+      </div>
+    </motion.article>
   )
 }

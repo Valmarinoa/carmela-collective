@@ -123,33 +123,54 @@ export const members = [
   },
 ]
 
+const placeholder = (slug: string, ext: 'png' | 'mp4' = 'png') =>
+  ext === 'mp4'
+    ? `/events/${slug}/footage/video.mp4`
+    : `/events/${slug}/flyer.png`
+
+const makePlaceholderFootage = (
+  prefix: string,
+  src: string,
+  type: 'image' | 'video' = 'image',
+  count = 8
+): Archive['footage'] =>
+  Array.from({ length: count }, (_, i) => ({
+    id: `${prefix}-${i + 1}`,
+    type,
+    img: src,
+    height: [340, 480, 300, 520, 380, 440, 310, 460, 350, 500, 290, 420, 370, 490, 320, 450, 400][i % 17],
+  }))
+
 export const archive: Archive[] = [
   {
     id: '0',
     title: 'Carmela x POS',
     category: 'APR 2026',
     description:'',
-    image: '/images/events/carmela-pos-26.png',
-    objectFit: 'cover',  // image will use object-contain
-   igHandle: ''
+    image: '/events/carmela-pos-26/flyer.png',
+    objectFit: 'cover',
+    igHandle: '',
+    footage: makePlaceholderFootage('pos-26', placeholder('carmela-pos-26')),
   },
   {
     id: '1',
     title: 'Mestizaund x Echobox',
     category: 'MAR 2026',
     description:'Mestizaund by Carmela Collective is a show exploring Latin American rhythms: their origins, migrations, and transformations. Blending cumbia, salsa, bolero and electronic sounds into a danceable sonic journey through culture, history, and diaspora.',
-    image: '/images/events/mestizaund-ed1.png',
-    objectFit: 'cover',  // image will use object-contain
-   igHandle: ''
+    image: '/events/mestizaund-ed1/flyer.png',
+    objectFit: 'cover',
+    igHandle: '',
+    footage: makePlaceholderFootage('mestizaund', placeholder('mestizaund-ed1')),
   },
   {
     id: '2',
     title: 'Carmela Fugaris',
     category: 'DEC 2025',
     description:'',
-    image: '/images/events/carmela-fugaris.png',
-    objectFit: 'contain',  // image will use object-contain
-    igHandle: ''
+    image: '/events/carmela-fugaris/flyer.png',
+    objectFit: 'contain',
+    igHandle: '',
+    footage: makePlaceholderFootage('fugaris', placeholder('carmela-fugaris')),
   },
 
   {
@@ -157,10 +178,11 @@ export const archive: Archive[] = [
     title: 'Dia de los Muertos',
     category: 'NOV 2025',
     description:'',
-    image: '/images/events/ddm-25.png',
-    objectFit: 'contain',  // image will use object-contain
-    igHandle: ''
-  }, 
+    image: '/events/ddm-25/flyer.png',
+    objectFit: 'contain',
+    igHandle: '',
+    footage: makePlaceholderFootage('ddm-25', placeholder('ddm-25')),
+  },
 
   {
     id: '4',
@@ -168,19 +190,21 @@ export const archive: Archive[] = [
     category: 'OCT 2025',
     description: 'Underground nightclub experience with curated music programming.',
     mediaType: 'video',
-    video: '/images/events/radiradio-archive.mp4',
-    objectFit: 'cover',  // video with contain
-    igHandle: ''
+    video: '/events/carmela-seven-eleven/footage/video.mp4',
+    objectFit: 'cover',
+    igHandle: '',
+    footage: makePlaceholderFootage('seven-eleven', placeholder('carmela-seven-eleven', 'mp4'), 'video'),
   },
  
-   {
+  {
     id: '5',
     title: 'Carmela Genesis',
     category: 'SEPT 2025',
     description:'',
-    image: '/images/events/carmela-sept-25.png',
-    objectFit: 'contain',  // image will use object-contain
-    igHandle: ''
+    image: '/events/carmela-sept-25/flyer.png',
+    objectFit: 'contain',
+    igHandle: '',
+    footage: makePlaceholderFootage('sept-25', placeholder('carmela-sept-25')),
   },
   
 ]

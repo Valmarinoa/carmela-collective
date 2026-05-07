@@ -5,7 +5,8 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { archive } from '@/data/data'
 import type { Archive } from '@/types/index'
-import ArchiveModal from './ArchiveModal'
+import type { Event } from '@/lib/calendarData'
+import EventModal from '@/app/calendar/EventModal'
 
 const GRID_SIZE = 6
 const cells: (Archive | null)[] = Array.from(
@@ -14,14 +15,49 @@ const cells: (Archive | null)[] = Array.from(
 )
 
 export default function ArchivePage() {
-  const [selectedItem, setSelectedItem] = useState<Archive | null>(null)
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
 
-  const handleItemClick = useCallback((item: Archive) => {
-    setSelectedItem(item)
+  const monthMap: Record<string, number> = {
+    JAN: 1,
+    FEB: 2,
+    MAR: 3,
+    APR: 4,
+    MAY: 5,
+    JUN: 6,
+    JUL: 7,
+    AUG: 8,
+    SEP: 9,
+    OCT: 10,
+    NOV: 11,
+    DEC: 12,
+  }
+
+  const toArchiveEvent = useCallback((item: Archive): Event => {
+    const [rawMonth = 'JAN', rawYear = '2026'] = item.category.split(' ')
+    const month = monthMap[rawMonth.toUpperCase()] ?? 1
+    const year = Number(rawYear) || 2026
+    const monthPadded = String(month).padStart(2, '0')
+
+    return {
+      id: `archive-${item.id}`,
+      title: item.title,
+      date: `${year}-${monthPadded}-01`,
+      venue: 'Carmela Collective Archive',
+      description: item.description || 'Archive event highlight.',
+      flyer: item.image || item.src,
+      ticketUrl: item.href,
+      tags: [item.category],
+      lineup: [],
+      footage: item.footage,
+    }
   }, [])
 
+  const handleItemClick = useCallback((item: Archive) => {
+    setSelectedEvent(toArchiveEvent(item))
+  }, [toArchiveEvent])
+
   const handleModalClose = useCallback(() => {
-    setSelectedItem(null)
+    setSelectedEvent(null)
   }, [])
 
   // Generate a stable random stagger order for the visible items on initial mount.
@@ -68,7 +104,7 @@ export default function ArchivePage() {
                   key={item.id}
                   type="button"
                   onClick={() => handleItemClick(item)}
-                  className="relative h-72 w-56 overflow-hidden"
+                  className="relative h-72 w-56 overflow-hidden rounded-lg"
                   whileHover="hover"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -86,7 +122,7 @@ export default function ArchivePage() {
                       loop
                       muted
                       playsInline
-                      className="absolute inset-0 w-full h-full object-cover"
+                      className="absolute inset-0 w-full h-full object-cover rounded-lg"
                     />
                   ) : (item.image || item.src) ? (
                     <motion.div
@@ -98,8 +134,8 @@ export default function ArchivePage() {
                         src={item.image || item.src || ''}
                         alt={item.title}
                         fill
-                        sizes="(max-width: 368px) 13vw, 13vw"
-                        className="object-contain"
+                        sizes="(max-width: 368px) 12vw, 12vw"
+                        className="object-cover rounded-lg"
                       />
                     </motion.div>
                   ) : null}
@@ -132,8 +168,8 @@ export default function ArchivePage() {
         </motion.div>
       </div>
 
-      {/* ── Archive modal ─────────────────────────────────────────── */}
-      <ArchiveModal item={selectedItem} onClose={handleModalClose} />
+      {/* ── Shared event modal ───────────────────────────────────────── */}
+      <EventModal event={selectedEvent} onClose={handleModalClose} isArchive />
     </main>
   )
 }

@@ -143,12 +143,10 @@ export default function CalendarPage() {
                 day: 'numeric',
                 month: 'short',
               })
-              return (
-                  <motion.button
+                return (
+                  <motion.article
                     key={event.id}
-                    onClick={() => handleEventClick(event)}
-                    className="flex gap-4 w-full p-4 bg-[#1a1714]/50 active:bg-[#231e18]/60 transition-colors duration-150 text-left group relative overflow-hidden"
-                    type="button"
+                    className="flex gap-4 w-full p-4 bg-[#1a1714]/50 transition-colors duration-150 text-left group relative overflow-hidden"
                     variants={mobileItemVariants}
                   >
                     <div className='w-full h-full absolute inset-0 z-0'>
@@ -194,18 +192,33 @@ export default function CalendarPage() {
                     {/* <span className="text-cream/15 group-hover:text-cream/40 transition-colors text-sm mt-0.5">
                       →
                     </span> */}
-                     <div className="mt-5 pt-4 border-t border-white/15">
-          <span className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-inter text-white/70 group-hover:text-white transition-colors duration-150">
-            Buy Tickets
-            <span className="transition-transform duration-150 group-hover:translate-x-1">→</span>
-          </span>
-        </div>
+                     <div className="mt-5 pt-4 border-t border-white/15 flex items-center gap-4">
+                      {event.ticketUrl && (
+                        <a
+                          href={event.ticketUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-inter text-white/70 hover:text-white transition-colors duration-150"
+                        >
+                          Buy Tickets
+                          <span className="transition-transform duration-150 hover:translate-x-1">→</span>
+                        </a>
+                      )}
+                      <button
+                        type="button"
+                        onClick={() => handleEventClick(event)}
+                        className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-inter text-white/70 hover:text-white transition-colors duration-150"
+                      >
+                        Info
+                        <span className="transition-transform duration-150 group-hover:translate-x-1">→</span>
+                      </button>
+                    </div>
                     </div>
                     
                 
        
      
-                  </motion.button>
+                  </motion.article>
                 )
               })}
           </motion.div>

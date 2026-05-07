@@ -1,3 +1,7 @@
+import type { FootageItem } from '@/types/index'
+
+export type { FootageItem }
+
 export type Artist = {
   id: string
   name: string
@@ -19,6 +23,7 @@ export type Event = {
   ticketUrl?: string
   lineup: Artist[]
   tags?: string[]
+  footage?: FootageItem[]
 }
 
 export const CALENDAR: Event[] = [
@@ -30,7 +35,7 @@ export const CALENDAR: Event[] = [
     venueUrl: "https://www.posamsterdam.nl",
     description:
       "Carmela Collective joins forces with POS for a night of Latin underground sounds. Expect a journey through cumbia sonidera, tropicalia, and contemporary electronic beats from both sides of the Atlantic.",
-    flyer: "/images/events/carmela-pos-26.png",
+    flyer: "/events/carmela-pos-26/flyer.png",
     ticketUrl: "",
     tags: ["DJ set", "Live"],
     lineup: [
@@ -80,7 +85,7 @@ export const CALENDAR: Event[] = [
     venueUrl: "https://www.toekomstmuziek.com",
     description:
       "An unprecedented collaboration between Carmela and Conjunto Medialuna, a clubnight fulfilled with echoes of cumbia, accordion and percussion. ",
-    flyer: "/images/events/carmela-fugaris.png",
+    flyer: "/events/carmela-fugaris/flyer.png",
     tags: ["Cumbia", "Live DJ sets", "Live Music"],
     lineup: [
       {
@@ -120,7 +125,7 @@ export const CALENDAR: Event[] = [
     venueUrl: "https://www.sanfranciscobar.nl",
     description:
       "Carmela Collective and San Francisco Bar present a night of Afro-Latin sounds, bringing together the Rotterdam and Amsterdam underground scenes. A meeting point between diaspora histories and club futures.",
-    flyer: "/images/events/ddm-25.png",
+    flyer: "/events/ddm-25/flyer.png",
     ticketUrl: "https://shelter.nl",
     tags: ["Live DJ set", "Collaboration"],
     lineup: [
