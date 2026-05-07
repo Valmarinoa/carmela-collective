@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback, useMemo, useEffect } from 'react'
+import { useState, useCallback, useMemo, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
@@ -33,7 +33,7 @@ const mobileItemVariants = {
   },
 }
 
-export default function CalendarPage() {
+function CalendarContent() {
   const months = useMemo(() => getMonthsWithEvents(CALENDAR), [])
   const searchParams = useSearchParams()
 
@@ -228,5 +228,13 @@ export default function CalendarPage() {
       {/* ── Event modal ─────────────────────────────────────────────── */}
       <EventModal event={selectedEvent} onClose={handleModalClose} />
     </main>
+  )
+}
+
+export default function CalendarPage() {
+  return (
+    <Suspense>
+      <CalendarContent />
+    </Suspense>
   )
 }
