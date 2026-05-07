@@ -94,7 +94,7 @@ export default function ArchivePage() {
                   key={item.id}
                   type="button"
                   onClick={() => handleItemClick(item)}
-                  className="relative h-56 w-[43.5vw] md:h-72 md:w-48 overflow-hidden rounded-lg"
+                  className="relative h-56 w-[43.5vw] md:h-72 md:w-52 overflow-hidden rounded-lg"
                   whileHover="hover"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}

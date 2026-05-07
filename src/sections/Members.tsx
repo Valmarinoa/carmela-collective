@@ -14,21 +14,38 @@ import { members } from '@/data/data'
 import FlowerSilhoutte from '@/components/FlowerSilhouette'
 import { SPRING_PARALLAX } from '@/lib/animations'
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 10 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.45,
+      ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
+    },
+  },
+}
+
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+}
+
 function MemberCard({
   member,
-  index,
 }: {
   member: (typeof members)[number]
-  index: number
 }) {
   const [expanded, setExpanded] = useState(false)
 
   return (
-    <motion.article
+    <article
       className="project-card flex-shrink-0 w-[250px] group overflow-y-visible"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ delay: index * 0.01, duration: 0.3 }}
+      // variants={cardVariants}
     >
       {/* Project Image */}
       <div className="relative aspect-[3/4] rounded-md mb-4 overflow-visible">
@@ -103,7 +120,7 @@ function MemberCard({
           </button>
         )}
       </div>
-    </motion.article>
+    </article>
   )
 }
 
@@ -155,11 +172,17 @@ export default function Members() {
       </div>
 
       {/* Horizontal Scrolling members */}
-      <div className="flex gap-6 px-6 md:px-12 overflow-x-auto overflow-y-visible md:pt-4 no-scrollbar scroll-smooth [scrollbar-gutter:stable]">
-        {members.map((member, index) => (
-          <MemberCard key={member.id} member={member} index={index} />
+      <motion.div
+        className="flex gap-6 px-6 md:px-12 overflow-x-auto overflow-y-visible md:pt-4 no-scrollbar scroll-smooth [scrollbar-gutter:stable]"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        {members.map((member) => (
+          <MemberCard key={member.id} member={member} />
         ))}
-      </div>
+      </motion.div>
     </section>
   )
 }
