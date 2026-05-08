@@ -18,9 +18,13 @@ export type Event = {
   date: string // ISO: "2026-05-04"
   venue: string
   venueUrl?: string
+  venueAddress?: string
   description: string
   flyer?: string
+  type?: 'event' | 'radio'
   ticketUrl?: string
+  listenUrl?: string
+  isFree?: boolean
   lineup: Artist[]
   tags?: string[]
   footage?: FootageItem[]

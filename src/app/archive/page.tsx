@@ -36,6 +36,8 @@ export default function ArchivePage() {
       description: item.description || 'Archive event highlight.',
       flyer: item.image || item.src,
       ticketUrl: item.href,
+      type: item.type,
+      listenUrl: item.listenUrl,
       tags: [item.category],
       lineup: [],
       footage: item.footage,

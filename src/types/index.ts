@@ -30,6 +30,9 @@ export interface Archive {
   // Link
   href?: string
   igHandle?: string
+  // Event type for modal CTA
+  type?: 'event' | 'radio'
+  listenUrl?: string
   // Post-event footage for the archive modal gallery
   footage?: FootageItem[]
 }

@@ -196,6 +196,9 @@ export default function EventModal({ event, onClose, isArchive = false }: EventM
                   ) : (
                     <p className="text-sm text-cream/45 ">{event.venue}</p>
                   )}
+                  {event.venueAddress && (
+                    <p className="text-xs text-cream/30">{event.venueAddress}</p>
+                  )}
                 </motion.div>
 
                 {/* Tags */}
@@ -256,20 +259,51 @@ export default function EventModal({ event, onClose, isArchive = false }: EventM
                   </motion.div>
                 )}
 
-                {/* Ticket CTA */}
-                {event.ticketUrl && (
-                  <motion.div variants={lineVariants} className="pt-1">
-                    <a
-                      href={event.ticketUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-cream text-[#0f0d0b] text-[11px] tracking-[0.2em] uppercase  hover:bg-cream-dark transition-colors duration-150"
-                    >
-                      Get Tickets
-                      <ExternalLink size={12} />
-                    </a>
-                  </motion.div>
-                )}
+                {/* CTA */}
+                {(() => {
+                  const isPast = new Date(`${event.date}T00:00:00`) < new Date()
+                  if (event.type === 'radio' && event.listenUrl) {
+                    return (
+                      <motion.div variants={lineVariants} className="pt-1">
+                        <a
+                          href={event.listenUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-6 py-3 bg-cream text-[#0f0d0b] text-[11px] tracking-[0.2em] uppercase hover:bg-cream-dark transition-colors duration-150"
+                        >
+                          Listen
+                          <ExternalLink size={12} />
+                        </a>
+                      </motion.div>
+                    )
+                  }
+                  if (isPast) return null
+                  if (event.isFree) {
+                    return (
+                      <motion.div variants={lineVariants} className="pt-1">
+                        <span className="inline-flex items-center px-6 py-3 border border-cream/30 text-cream/70 text-[11px] tracking-[0.2em] uppercase">
+                          Free Entrance
+                        </span>
+                      </motion.div>
+                    )
+                  }
+                  if (event.ticketUrl) {
+                    return (
+                      <motion.div variants={lineVariants} className="pt-1">
+                        <a
+                          href={event.ticketUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-6 py-3 bg-cream text-[#0f0d0b] text-[11px] tracking-[0.2em] uppercase hover:bg-cream-dark transition-colors duration-150"
+                        >
+                          Buy Tickets
+                          <ExternalLink size={12} />
+                        </a>
+                      </motion.div>
+                    )
+                  }
+                  return null
+                })()}
 
                 {/* Footage gallery — archive only */}
                 {isArchive && event.footage && event.footage.length > 0 && (

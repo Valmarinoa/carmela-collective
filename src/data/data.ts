@@ -155,12 +155,14 @@ export const archive: Archive[] = [
   {
     id: '1',
     title: 'Mestizaund x Echobox',
-    category: 'MAR 2026',
+    category: 'Radio Show Episode',
     description:'Mestizaund by Carmela Collective is a show exploring Latin American rhythms: their origins, migrations, and transformations. Blending cumbia, salsa, bolero and electronic sounds into a danceable sonic journey through culture, history, and diaspora.',
     image: '/events/mestizaund-ed1/flyer.png',
     objectFit: 'cover',
     igHandle: '',
-    footage: makePlaceholderFootage('mestizaund', placeholder('mestizaund-ed1')),
+    type: 'radio' as const,
+    listenUrl: 'https://www.echobox.radio/shows/mestizaund?episode=2026-03-26%2021:00:00',
+    // footage: makePlaceholderFootage('mestizaund', placeholder('mestizaund-ed1')),
   },
   {
     id: '2',
