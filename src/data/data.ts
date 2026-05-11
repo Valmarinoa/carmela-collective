@@ -150,7 +150,6 @@ export const archive: Archive[] = [
     image: '/events/carmela-pos-26/flyer.png',
     objectFit: 'cover',
     igHandle: '',
-    footage: makePlaceholderFootage('pos-26', placeholder('carmela-pos-26')),
   },
   {
     id: '1',
@@ -162,7 +161,6 @@ export const archive: Archive[] = [
     igHandle: '',
     type: 'radio' as const,
     listenUrl: 'https://www.echobox.radio/shows/mestizaund?episode=2026-03-26%2021:00:00',
-    // footage: makePlaceholderFootage('mestizaund', placeholder('mestizaund-ed1')),
   },
   {
     id: '2',
@@ -172,7 +170,22 @@ export const archive: Archive[] = [
     image: '/events/carmela-fugaris/flyer.png',
     objectFit: 'contain',
     igHandle: '',
-    footage: makePlaceholderFootage('fugaris', placeholder('carmela-fugaris')),
+    footage: [
+      { id: 'fugaris-0', type: 'image', img: '/events/carmela-fugaris/fulgaris.png', height: 380 },
+      { id: 'fugaris-1', type: 'image', img: '/events/carmela-fugaris/01.png', height: 480 },
+      { id: 'fugaris-2', type: 'image', img: '/events/carmela-fugaris/02.png', height: 340 },
+      { id: 'fugaris-3', type: 'image', img: '/events/carmela-fugaris/03.png', height: 520 },
+      { id: 'fugaris-4', type: 'image', img: '/events/carmela-fugaris/04.png', height: 300 },
+      { id: 'fugaris-5', type: 'image', img: '/events/carmela-fugaris/05.png', height: 460 },
+      { id: 'fugaris-6', type: 'image', img: '/events/carmela-fugaris/06.png', height: 350 },
+      { id: 'fugaris-7', type: 'image', img: '/events/carmela-fugaris/07.png', height: 500 },
+      { id: 'fugaris-8', type: 'image', img: '/events/carmela-fugaris/08.png', height: 420 },
+      { id: 'fugaris-9', type: 'image', img: '/events/carmela-fugaris/09.png', height: 310 },
+      { id: 'fugaris-10', type: 'image', img: '/events/carmela-fugaris/10.png', height: 440 },
+      { id: 'fugaris-11', type: 'image', img: '/events/carmela-fugaris/11.png', height: 370 },
+      { id: 'fugaris-12', type: 'image', img: '/events/carmela-fugaris/12.png', height: 490 },
+      { id: 'fugaris-13', type: 'image', img: '/events/carmela-fugaris/13.png', height: 320 },
+    ],
   },
 
   {
@@ -183,7 +196,20 @@ export const archive: Archive[] = [
     image: '/events/ddm-25/flyer.png',
     objectFit: 'contain',
     igHandle: '',
-    footage: makePlaceholderFootage('ddm-25', placeholder('ddm-25')),
+    footage: [
+      { id: 'ddm-1', type: 'image', img: '/events/ddm-25/01.png', height: 480 },
+      { id: 'ddm-2', type: 'image', img: '/events/ddm-25/02.png', height: 340 },
+      { id: 'ddm-3', type: 'image', img: '/events/ddm-25/03.png', height: 520 },
+      { id: 'ddm-4', type: 'image', img: '/events/ddm-25/04.png', height: 380 },
+      { id: 'ddm-5', type: 'image', img: '/events/ddm-25/05.png', height: 300 },
+      { id: 'ddm-6', type: 'image', img: '/events/ddm-25/06.png', height: 460 },
+      { id: 'ddm-7', type: 'image', img: '/events/ddm-25/07.png', height: 440 },
+      { id: 'ddm-8', type: 'image', img: '/events/ddm-25/08.png', height: 310 },
+      { id: 'ddm-9', type: 'image', img: '/events/ddm-25/09.png', height: 500 },
+      { id: 'ddm-10', type: 'image', img: '/events/ddm-25/10.png', height: 420 },
+      { id: 'ddm-11', type: 'image', img: '/events/ddm-25/11.png', height: 350 },
+      { id: 'ddm-12', type: 'image', img: '/events/ddm-25/12.png', height: 470 },
+    ],
   },
 
   {
@@ -195,9 +221,13 @@ export const archive: Archive[] = [
     video: '/events/carmela-seven-eleven/footage/video.mp4',
     objectFit: 'cover',
     igHandle: '',
-    footage: makePlaceholderFootage('seven-eleven', placeholder('carmela-seven-eleven', 'mp4'), 'video'),
+    footage: [
+      { id: 'seven-eleven-1', type: 'video', img: '/events/carmela-seven-eleven/footage/video.mp4', height: 440 },
+      { id: 'seven-eleven-2', type: 'image', img: '/events/carmela-seven-eleven/footage/virgen.png', height: 480 },
+      { id: 'seven-eleven-3', type: 'image', img: '/events/carmela-seven-eleven/footage/poster-radioradio.png', height: 380 },
+    ],
   },
- 
+
   {
     id: '5',
     title: 'Carmela Genesis',
@@ -206,9 +236,23 @@ export const archive: Archive[] = [
     image: '/events/carmela-sept-25/flyer.png',
     objectFit: 'contain',
     igHandle: '',
-    footage: makePlaceholderFootage('sept-25', placeholder('carmela-sept-25')),
+    footage: [
+      { id: 'sept-25-1', type: 'image', img: '/events/carmela-sept-25/01.png', height: 480 },
+      { id: 'sept-25-2', type: 'image', img: '/events/carmela-sept-25/02.png', height: 340 },
+      { id: 'sept-25-3', type: 'image', img: '/events/carmela-sept-25/03.png', height: 520 },
+      { id: 'sept-25-4', type: 'image', img: '/events/carmela-sept-25/04.png', height: 380 },
+      { id: 'sept-25-5', type: 'image', img: '/events/carmela-sept-25/05.png', height: 300 },
+      { id: 'sept-25-6', type: 'image', img: '/events/carmela-sept-25/06.png', height: 460 },
+      { id: 'sept-25-7', type: 'image', img: '/events/carmela-sept-25/07.png', height: 440 },
+      { id: 'sept-25-8', type: 'image', img: '/events/carmela-sept-25/08.png', height: 310 },
+      { id: 'sept-25-9', type: 'image', img: '/events/carmela-sept-25/09.png', height: 500 },
+      { id: 'sept-25-10', type: 'image', img: '/events/carmela-sept-25/10.png', height: 420 },
+      { id: 'sept-25-11', type: 'image', img: '/events/carmela-sept-25/11.png', height: 350 },
+      { id: 'sept-25-12', type: 'image', img: '/events/carmela-sept-25/12.png', height: 470 },
+      { id: 'sept-25-ceviche', type: 'image', img: '/events/carmela-sept-25/ceviche.png', height: 420 },
+    ],
   },
-  
+
 ]
 
 // data.ts

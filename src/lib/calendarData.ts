@@ -129,7 +129,7 @@ export const CALENDAR: Event[] = [
     venueUrl: "https://www.sanfranciscobar.nl",
     description:
       "Carmela Collective and San Francisco Bar present a night of Afro-Latin sounds, bringing together the Rotterdam and Amsterdam underground scenes. A meeting point between diaspora histories and club futures.",
-    flyer: "/events/ddm-25/flyer.png",
+    flyer: "/events/carmela-sf/footage/flyer.png",
     ticketUrl: "https://shelter.nl",
     tags: ["Live DJ set", "Collaboration"],
     lineup: [
