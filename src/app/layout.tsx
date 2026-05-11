@@ -12,7 +12,7 @@ import AppGradient from "@/components/AppGradient";
 import StickyLogo from "@/components/StickyLogo";
 import SocialIconsWrapper from "@/components/SocialIconsWrapper";
 import NavBar from "@/components/NavBar"
-import Marquee from "@/components/Marquee";
+import ClientProviders from "@/components/ClientProviders"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://carmela-collective.vercel.app"),
@@ -82,24 +82,23 @@ export default function RootLayout({
         spintee.variable,
       ].join(" ")}
     >
-      <body className="antialiased relative min-h-screen">
+      <body className="antialiased relative min-h-screen pb-16">
         {/* Animated WebGL Background - Fixed behind everything */}
         <AppGradient />
-        
-        {/* Fixed Social Icons — hidden on  for /calendar */}
+
+        {/* Fixed Social Icons — hidden on /calendar */}
         <SocialIconsWrapper />
 
         {/* Sticky logo — large in hero, small fixed top-center everywhere else */}
         <StickyLogo />
 
-        {/*  hamburger + full-screen overlay — md and above is hidden */}
+        {/* Hamburger + full-screen overlay — md and above is hidden */}
         <NavBar />
 
-        {/* Marquee Header */}
-      <Marquee />
-
-        {/* Main Content */}
-        {children}
+        {/* SoundCloud context + fixed bottom player (replaces Marquee) */}
+        <ClientProviders>
+          {children}
+        </ClientProviders>
 
       </body>
     </html>

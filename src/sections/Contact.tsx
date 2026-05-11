@@ -49,7 +49,7 @@ export default function Contact() {
         viewport={{ once: true, margin: "-100px" }}
       >
         {/* Dark Contact Card */}
-        <div className="bg-[#1a1a1a] rounded-[2rem] p-8 md:p-12 lg:p-16 text-white overflow-hidden relative">
+        <div className="bg-[#1a1a1a] rounded-xl p-8 md:p-12 lg:p-16 text-white overflow-hidden relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Left Side - Info */}
             <div className="space-y-8">
