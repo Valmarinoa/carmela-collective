@@ -82,7 +82,7 @@ export default function RootLayout({
         spintee.variable,
       ].join(" ")}
     >
-      <body className="antialiased relative min-h-screen pb-16">
+      <body className="antialiased relative min-h-screen">
         {/* Animated WebGL Background - Fixed behind everything */}
         <AppGradient />
 

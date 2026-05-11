@@ -66,10 +66,10 @@ export default function Home() {
 
       {/* Contact Section */}
       <Contact />
-      
+       <Marquee/>
       {/* Footer */}
       <Footer />
-      <Marquee/>
+     
       
       {/* Back to Top Button */}
       
