@@ -17,11 +17,11 @@ function formatDate(iso: string): string {
 
 export default function Calendar() {
   const router = useRouter()
-  const sortedCalendar = [...CALENDAR].sort(
-    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
-  )
   const today = new Date()
   today.setHours(0, 0, 0, 0)
+  const sortedCalendar = [...CALENDAR]
+    .filter(e => new Date(`${e.date}T00:00:00`) >= today)
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 
   return (
     <section
@@ -53,7 +53,6 @@ export default function Calendar() {
       {/* Calendar */}
       <div className="flex flex-col gap-9 w-full justify-center items-center px-6">
         {sortedCalendar.map((event, index) => {
-          const isPastEvent = new Date(`${event.date}T00:00:00`).getTime() < today.getTime()
           const [year, month] = event.date.split('-')
           const monthLink = `/calendar?year=${year}&month=${month}&event=${event.id}`
 
@@ -69,9 +68,7 @@ export default function Calendar() {
                   router.push(monthLink)
                 }
               }}
-              className={`group cursor-pointer relative flex flex-col justify-center items-center text-center transition-opacity ${
-                isPastEvent ? 'opacity-60' : 'opacity-100'
-              }`}
+              className="group cursor-pointer relative flex flex-col justify-center items-center text-center transition-opacity opacity-100"
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: index * 0.08 }}

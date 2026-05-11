@@ -220,10 +220,6 @@ function CalendarContent() {
                       </button>
                     </div>
                     </div>
-                    
-                
-       
-     
                   </motion.article>
                 )
               })}
