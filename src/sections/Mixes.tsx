@@ -241,7 +241,7 @@ export default function Mixes() {
         <div className="bg-[#0d0d0d]/60 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/[0.06] shadow-2xl">
 
           {/* ── Card header ── */}
-          <div className="px-5 md:px-6 py-3.5 border-b border-white/[0.06] flex items-center justify-between">
+          <div className="hidden md:block px-5 md:px-6 py-3.5 border-b border-white/[0.06] flex items-center justify-between">
             <span className="text-[9px] font-inter tracking-[0.25em] text-white/30 uppercase">
               Carmela Collective · Mixes
             </span>
@@ -264,7 +264,7 @@ export default function Mixes() {
             <div className="flex flex-col p-5 md:p-6 gap-5">
 
               {/* Artwork */}
-              <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-white/[0.04]">
+              <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-white/[0.04] hidden md:block">
                 {ready && current?.artwork_url ? (
                   <img
                     src={art(current.artwork_url, 't500x500') ?? ''}

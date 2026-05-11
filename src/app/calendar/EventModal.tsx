@@ -122,7 +122,7 @@ export default function EventModal({ event, onClose, isArchive = false }: EventM
                   alt={event.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 896px"
-                  className="object-cover blur-lg"
+                  className="object-cover blur-lg z-[60]"
                 />
               ) : (
                 <>
