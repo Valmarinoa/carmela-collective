@@ -15,6 +15,7 @@ import Archive from '@/sections/Archive'
 import CALENDAR from '@/sections/Calendar'
 import Mixes from '@/sections/Mixes'
 import PageLoader from '@/components/PageLoader'
+import Marquee from '@/components/Marquee'
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
@@ -68,6 +69,7 @@ export default function Home() {
       
       {/* Footer */}
       <Footer />
+      <Marquee/>
       
       {/* Back to Top Button */}
       

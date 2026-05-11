@@ -51,7 +51,10 @@ export function SoundCloudProvider({ children }: { children: React.ReactNode }) 
   const [ready, setReady] = useState(false)
 
   const initWidget = useCallback(() => {
+    // Guard: don't initialize twice
+    if (widgetRef.current) return
     if (!iframeRef.current || !window.SC) return
+
     const widget = window.SC.Widget(iframeRef.current)
     widgetRef.current = widget
 
@@ -77,15 +80,20 @@ export function SoundCloudProvider({ children }: { children: React.ReactNode }) 
     })
   }, [])
 
+  // Load the SC Widget API script and initialize once it's ready
   useEffect(() => {
     const existing = document.getElementById('sc-api-script')
-    if (existing && window.SC) { initWidget(); return }
-    if (existing) return
-    const script = document.createElement('script')
-    script.id = 'sc-api-script'
-    script.src = 'https://w.soundcloud.com/player/api.js'
-    script.onload = initWidget
-    document.head.appendChild(script)
+    if (!existing) {
+      const script = document.createElement('script')
+      script.id = 'sc-api-script'
+      script.src = 'https://w.soundcloud.com/player/api.js'
+      script.onload = initWidget
+      document.head.appendChild(script)
+    } else if (window.SC) {
+      // Script was already loaded by a previous render
+      initWidget()
+    }
+    // else: script tag exists but is still loading — the onload set above will fire
   }, [initWidget])
 
   const playTrack = useCallback((index: number) => {
@@ -105,17 +113,27 @@ export function SoundCloudProvider({ children }: { children: React.ReactNode }) 
     <SoundCloudContext.Provider
       value={{ tracks, currentIndex, isPlaying, progress, position, ready, playTrack, togglePlay, seekTo }}
     >
-      {/* Hidden SC iframe — single source of truth for audio */}
+      {/*
+        Hidden SC iframe — must have real dimensions so SoundCloud's player JS
+        initializes correctly. Positioned far off-screen so it is never visible.
+      */}
       <iframe
         ref={iframeRef}
         title="SoundCloud audio engine"
         src={IFRAME_SRC}
-        width="1"
-        height="1"
+        width="300"
+        height="150"
         allow="autoplay"
         aria-hidden="true"
         tabIndex={-1}
-        style={{ position: 'fixed', opacity: 0, pointerEvents: 'none', zIndex: -1 }}
+        onLoad={initWidget}
+        style={{
+          position: 'fixed',
+          left: '-9999px',
+          top: '-9999px',
+          border: 'none',
+          pointerEvents: 'none',
+        }}
       />
       {children}
     </SoundCloudContext.Provider>
