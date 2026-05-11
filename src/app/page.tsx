@@ -13,6 +13,7 @@ import About from '@/sections/About'
 import Members from '@/sections/Members'
 import Archive from '@/sections/Archive'
 import CALENDAR from '@/sections/Calendar'
+import Mixes from '@/sections/Mixes'
 import PageLoader from '@/components/PageLoader'
 
 // Register GSAP plugins
@@ -50,11 +51,14 @@ export default function Home() {
       <About />
       {/* Floating Gallery - background image fades in and scales */}
       <FloatingGallery />
-
+ <Mixes />
       {/* CALENDAR */}
       <CALENDAR />
       
       <Archive />
+
+      {/* Mixes Section */}
+     
 
       {/* Projects Section */}
       <Members />
