@@ -34,7 +34,13 @@ const mobileItemVariants = {
 }
 
 function CalendarContent() {
-  const months = useMemo(() => getMonthsWithEvents(CALENDAR), [])
+  const upcomingEvents = useMemo(() => {
+    const today = new Date()
+    today.setHours(0, 0, 0, 0)
+    return CALENDAR.filter(e => new Date(`${e.date}T00:00:00`) >= today)
+  }, [])
+
+  const months = useMemo(() => getMonthsWithEvents(upcomingEvents), [upcomingEvents])
   const searchParams = useSearchParams()
 
   const requestedYear = Number(searchParams.get('year'))
@@ -74,11 +80,11 @@ function CalendarContent() {
   // Mobile: filter events for the active month
   const mobileEvents = useMemo(
     () =>
-      CALENDAR.filter(e => {
+      upcomingEvents.filter(e => {
         const [y, m] = e.date.split('-').map(Number)
         return y === activeYear && m - 1 === activeMonth
       }).sort((a, b) => a.date.localeCompare(b.date)),
-    [activeYear, activeMonth]
+    [upcomingEvents, activeYear, activeMonth]
   )
 
   return (
@@ -115,7 +121,7 @@ function CalendarContent() {
             <CalendarGrid
               year={activeYear}
               month={activeMonth}
-              events={CALENDAR}
+              events={upcomingEvents}
               onEventClick={handleEventClick}
               selectedEventId={requestedEventId}
             />
@@ -132,8 +138,8 @@ function CalendarContent() {
             className="flex flex-col gap-2"
           >
             {mobileEvents.length === 0 && (
-              <p className="text-sm text-cream/25 font-inter py-8 text-center">
-                No events this month.
+              <p className="text-sm text-cream/30 font-inter py-8 text-center tracking-[0.2em] uppercase">
+                We are planning our next events!
               </p>
             )}
             {mobileEvents.map(event => {

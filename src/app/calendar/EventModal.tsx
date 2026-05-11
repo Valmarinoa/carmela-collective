@@ -290,15 +290,15 @@ export default function EventModal({ event, onClose, isArchive = false }: EventM
                   if (event.ticketUrl) {
                     return (
                       <motion.div variants={lineVariants} className="pt-1">
-                        <a
-                          href={event.ticketUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-6 py-3 bg-cream text-[#0f0d0b] text-[11px] tracking-[0.2em] uppercase hover:bg-cream-dark transition-colors duration-150"
-                        >
-                          Buy Tickets
-                          <ExternalLink size={12} />
-                        </a>
+                         <a
+          href={event.ticketUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex font-inter items-center border border-cream hover:border-[#70fe01] gap-2 px-6 py-3 bg-cream text-[#0f0d0b] text-[11px] tracking-[0.2em] uppercase hover:bg-[#70fe01] transition-colors duration-150"
+        >
+          Buy Tickets
+          <ExternalLink size={12} />
+        </a>
                       </motion.div>
                     )
                   }

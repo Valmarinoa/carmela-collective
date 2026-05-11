@@ -21,9 +21,26 @@ export function getMonthsWithEvents(
     }
   }
 
-  return result.sort((a, b) =>
+  result.sort((a, b) =>
     a.year !== b.year ? a.year - b.year : a.month - b.month
   )
+
+  // Append up to 2 placeholder months after the last event month
+  if (result.length > 0) {
+    const last = result[result.length - 1]
+    for (let i = 1; i <= 2; i++) {
+      let m = last.month + i
+      let y = last.year
+      if (m > 11) { m -= 12; y += 1 }
+      result.push({
+        year: y,
+        month: m,
+        label: new Date(y, m, 1).toLocaleString('en-US', { month: 'short' }),
+      })
+    }
+  }
+
+  return result
 }
 
 // ─── Grid cell builder ────────────────────────────────────────────────────────

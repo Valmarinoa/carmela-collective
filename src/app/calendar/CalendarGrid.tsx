@@ -84,11 +84,12 @@ export default function CalendarGrid({
   }, [selectedEventId, cells])
 
   const displayedFlyerEvent = hoveredEvent ?? activeEvent
+  const isEmpty = cells.every(c => c === null)
 
   return (
     <div className="relative h-full w-full max-w-6xl mx-auto">
       {/* 2 × 3 grid — outer border on container, inner dividers on cells */}
-      <div className="grid grid-cols-3 grid-rows-2 h-full w-full border border-white">
+      <div className="relative grid grid-cols-3 grid-rows-2 h-full w-full border border-cream">
         {cells.map((cell, i) => {
           const col = i % 3
           const row = Math.floor(i / 3)
@@ -102,9 +103,17 @@ export default function CalendarGrid({
               onHover={handleHover}
               onHoverEnd={handleHoverEnd}
               isActive={cell?.id === displayedFlyerEvent?.id}
+              dimmed={isEmpty}
             />
           )
         })}
+        {isEmpty && (
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <p className="text-cream/30 text-sm tracking-[0.2em] uppercase">
+              We are planning our next events!
+            </p>
+          </div>
+        )}
       </div>
 
       {/* Floating flyer — appears on hover, keyed so it cross-fades per event */}
