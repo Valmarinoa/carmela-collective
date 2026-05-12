@@ -87,7 +87,7 @@ export default function RootLayout({
         <AppGradient />
 
         {/* Fixed Social Icons — hidden on /calendar */}
-        <SocialIconsWrapper />
+        {/* <SocialIconsWrapper /> */}
 
         {/* Sticky logo — large in hero, small fixed top-center everywhere else */}
         <StickyLogo />

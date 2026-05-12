@@ -26,7 +26,7 @@ export default function Calendar() {
   return (
     <section
       id="calendar"
-      className="relative pt-24 pb-64 md:pt-20 md:pb-56 overflow-hidden z-[1]"
+      className="relative pt-24 pb-64 md:pt-28 md:pb-56 overflow-hidden z-[1]"
     >
          <div className="absolute inset-0 -z-10">
         <Image
@@ -38,20 +38,18 @@ export default function Calendar() {
         />
       </div>
       {/* Section Header */}
-      <Link href="/calendar" className="px-6 mb-20 md:px-12 md:mb-6  z-20 flex">
+      <Link href="/calendar" className="px-6 mb-20 md:px-12 md:mb-20 z-20 flex">
         <div className="flex md:flex-row md:items-end md:justify-between gap-6">
           <div className="flex items-center gap-4">
             <h2 className="text-4xl md:text-5xl font-bold font-funtastic uppercase">
               Calendar
             </h2>
           </div>
-          <div className="w-9 h-9 border border-black rounded-full flex items-center justify-center hover:bg-[#70fe01] transition-opacity duration-300"> 
-            <ArrowUpRight size={16} />
-          </div >
+        
         </div>
       </Link>
       {/* Calendar */}
-      <div className="flex flex-col gap-9 w-full justify-center items-center px-6">
+      <div className="flex flex-col gap-6 w-full justify-between items-center px-4 md:px-6 divide divide-y-[1px] divide-black ">
         {sortedCalendar.map((event, index) => {
           const [year, month] = event.date.split('-')
           const monthLink = `/calendar?year=${year}&month=${month}&event=${event.id}`
@@ -68,44 +66,83 @@ export default function Calendar() {
                   router.push(monthLink)
                 }
               }}
-              className="group cursor-pointer relative flex flex-col justify-center items-center text-center transition-opacity opacity-100"
+              className="group cursor-pointer relative flex justify-between items-center gap-4 text-left transition-opacity opacity-100 pt-6 w-full md:w-1/2"
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
-              viewport={{ once: true, amount: 0.4 }}
-              whileHover={{ y: -2 }}
-            >
-            <p className="absolute text-xs font-inter font-light top-0 -left-2">
+              viewport={{ once: true}}
+             
+            > 
+            <div className='flex gap-4'>
+            <div  className='flex gap-1'>
+            <p className="text-xs font-inter font-light top-4 -left-2">
               {index + 1}
             </p>
-
-            <div className="bg-cream px-1 text-xs flex gap-2">
-              <span>{formatDate(event.date)}</span>
+              <div className='h-28 w-24 relative'>
+              {event.flyer ? (
+                <Image
+                  src={event.flyer}
+                  alt={event.title}
+                  fill
+                  sizes="(max-width: 768px) 128px, 160px"
+                  className="object-cover"
+                />
+              ) : (
+                <>
+                  <div className="absolute inset-0 flex items-end p-6">
+                    <span className="text-[7rem] md:text-[9rem] leading-none text-cream/[0.04] select-none">
+                      {event.title.charAt(0)}
+                    </span>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0f0d0b]/70" />
+                </>
+              )}
+              </div>
             </div>
+              {/* CONTENT */}
+            <div className=''>
+                  <div className="text-black px-1 text-xs flex gap-2">
+                    <span>{formatDate(event.date)}</span>
+                  </div>
 
-            <h3 className="text-3xl">
-              {event.title}
-            </h3>
+                  <h3 className="text-3xl">
+                    {event.title}
+                  </h3>
 
-            {event.venueUrl ? (
-              <a
-                href={event.venueUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs underline decoration-transparent hover:decoration-current transition"
-                onClick={(e) => e.stopPropagation()}
-              >
-                {event.venue}
-              </a>
-            ) : (
-              <p className="text-xs">{event.venue}</p>
-            )}
-
+                  {event.venueUrl ? (
+                    <a
+                      href={event.venueUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm underline decoration-transparent hover:decoration-current transition"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {event.venue}
+                    </a>
+                  ) : (
+                    <p className="text-xs">{event.venue}</p>
+                  )}
+                  <Link href="" className="text-black text-xs flex gap-2 underline pt-[18px]">
+                    Tickets
+                  </Link>
+            </div>
+            </div>
+            <div className="hidden md:flex w-9 h-9 border border-black rounded-full items-center justify-center hover:bg-[#70fe01] transition-opacity duration-300"> 
+            <ArrowUpRight size={16} />
+            </div >
+              </motion.div>
+              )
+            })}
             
-            </motion.div>
-          )
-        })}
+       
       </div>
+      <div className='w-full mt-20 inline-flex justify-center items-center '>
+        <Link href='/calendar'           
+                className=" mx-auto font-inter border border-black gap-2 px-6 py-5 bg-transparent backdrop-blur-xl text-black hover:text-black hover:border-black text-[11px] tracking-[0.2em] uppercase hover:bg-cream transition-colors duration-150">
+                See full Calendar
+      </Link>
+      </div>
+      
      
     </section>
   )

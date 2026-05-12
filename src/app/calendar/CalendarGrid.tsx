@@ -12,7 +12,7 @@ import EventCell from './EventCell'
 function FlyerCard({ event }: { event: Event | null }) {
   return (
     <div
-      className="absolute z-10 -bottom-20 -right-16 pointer-events-none aspect-2/3  max-h-[600px] w-fit"
+      className="absolute z-10 -bottom-6 -right-6 pointer-events-none aspect-2/3  max-h-[600px] w-fit"
       style={{ width: 'calc(30.33% - 2rem)', aspectRatio: '2 / 3' }}
     >
       {event?.flyer ? (

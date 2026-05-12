@@ -56,9 +56,9 @@ export default function Archive() {
               Archive
             </h2>
           </div>
-          <div className="w-9 h-9 border border-black rounded-full flex items-center justify-center hover:bg-[#70fe01] transition-opacity duration-300"> 
+          {/* <div className="w-9 h-9 border border-black rounded-full flex items-center justify-center hover:bg-[#70fe01] transition-opacity duration-300"> 
             <ArrowUpRight size={16} />
-          </div >
+          </div > */}
         </div>
       </Link>
       

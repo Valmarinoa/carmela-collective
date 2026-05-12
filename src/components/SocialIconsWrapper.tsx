@@ -15,7 +15,7 @@ export default function SocialIconsWrapper() {
   return (
     <motion.div
       className={[
-        'flex justify-between items-start pt-8 fixed left-4 top-1/4 md:top-1/2  md:-translate-y-1/2 md:left-8 z-[30]',
+        'justify-between items-start pt-8 fixed left-4 top-1/4 md:top-1/2  md:-translate-y-1/2 md:left-8 z-[30] hidden md:flex',
         isCalendar || isArchive ? 'hidden md:flex' : 'flex',
       ].join(' ')}
       initial={{ opacity: 0 }}

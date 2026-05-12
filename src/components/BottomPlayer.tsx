@@ -243,7 +243,7 @@ export default function BottomPlayer() {
               onClick={() => setQueueOpen((v) => !v)}
               disabled={!ready}
               aria-label="Up next"
-              className={`relative w-8 h-8 min-w-16 flex items-center justify-center rounded-lg transition-colors disabled:opacity-20 ${
+              className={`relative w-8 h-8 md:min-w-16 flex items-center justify-center rounded-lg transition-colors disabled:opacity-20 ${
                 queueOpen ? 'text-[#70fe01] bg-black/70' : 'text-black/70 hover:text-black/70 hover:bg-black/70'
               }`}
             >

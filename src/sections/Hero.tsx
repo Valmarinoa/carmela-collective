@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import CarmelaLogo from '@/components/CarmelaLogo'
 import SpinningCircleText from '@/components/SpinningCircleText'
+import Link from 'next/link'
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -72,45 +73,46 @@ export default function Hero() {
     >
       {/* Main Content Container */}
       <motion.div 
-        className="relative w-full z-10 h-[90vh] flex md:block flex-col md:flex-none justify-between items-center"
+        className="relative w-full z-10 h-[75vh] flex flex-col justify-center"
         variants={containerVariants}
         initial="hidden"
         animate={isLoaded ? "visible" : "hidden"}
       >
-        {/* Top Row - Social Icons + Spinning Circle */}
-        <div className="z-20 flex justify-between items-start w-full pt-6">
-          {/* Social Icons - Slide in from left */}
-          <motion.div variants={socialIconsVariants} />
-
-          {/* Spinning Circle - Elastic scale + rotate entrance */}
-          <motion.div 
-            className="md:fixed md:top-5 md:right-5 flex justify-end"
+        <motion.div 
+            className="absolute -top-10 right-0 md:fixed md:top-5 md:right-5 flex justify-end"
             variants={spinningCircleVariants}
           >
             <SpinningCircleText 
-              text=" LATINO-AMERICANA • LATINO-AMERICANA •" 
+              text="LATINO-AMERICANA LATINO-AMERICANA" 
               fontClass="font-funtastic text-xs" 
               size={161} 
               duration={16} 
             />
           </motion.div>
+        {/* Top Row - Social Icons + Spinning Circle */}
+        <div className="z-20 flex justify-between items-start w-full pt-6 fixed">
+          <motion.div variants={socialIconsVariants} />
         </div>
-
         {/* Center Logo - Dramatic blur-to-focus entrance */}
         <motion.div 
-          className="flex justify-center items-center top-[45%] md:top-[28%] md:-translate-y-[50%] absolute w-full left-0"
+          className="flex justify-center items-center w-full h-full -mt-10 md:mt-0"
           variants={logoVariants}
         >
           <CarmelaLogo />
         </motion.div>
-
-        {/* Bottom Row - Optional additional content */}
         <motion.div 
-          className="absolute bottom-8 left-0 w-full flex justify-center"
+          className="absolute bottom-24 md:bottom-0 left-0 w-full flex justify-center "
           variants={itemVariants}
-        >
+            >
+              <Link href='/calendar'           
+                className="inline-flex font-inter items-center border border-cream gap-2 px-6 py-5 bg-transparent backdrop-blur-xl text-white hover:text-black hover:border-black text-[11px] tracking-[0.2em] uppercase hover:bg-[#70fe01] transition-colors duration-150">
+                Upcoming Events
+              </Link>
           {/* Add any bottom content here */}
         </motion.div>
+
+        {/* Bottom Row - Optional additional content */}
+        
       </motion.div>
     </section>
   )
