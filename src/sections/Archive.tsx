@@ -99,7 +99,7 @@ export default function Archive() {
               )}
 
               {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+              {/* <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" /> */}
             </div>
 
             {/* Project Info */}
