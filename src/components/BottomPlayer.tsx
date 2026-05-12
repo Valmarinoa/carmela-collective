@@ -160,7 +160,7 @@ export default function BottomPlayer() {
       </AnimatePresence>
 
       {/* ── Bar ── */}
-      <div className="h-fit py-2 bg-[#70fe01] items-center border-t border-white/[0.07]">
+      <div className="h-fit py-2 bg-[#70fe01] items-center border-t border-white/[0.07] relative">
         {/* Progress line — sits flush at the very top of the bar */}
        
 
@@ -215,9 +215,9 @@ export default function BottomPlayer() {
         </div>
 
           {/* ZONE 3 — Track info + queue button */}
-          <div className="flex items-center gap-2 md:gap-3 w-1/4 min-w-0 justify-between">
+          <div className="flex items-center gap-2 md:gap-3 min-w-0 justify-between">
             {/* Artwork */}
-            <div className='flex gap-3'>
+            <div className='flex flex-1 gap-3'>
             <div className="w-9 h-9 rounded-md overflow-hidden flex-shrink-0 bg-white/[0.06]">
               {ready && current?.artwork_url && (
                 <img
@@ -229,21 +229,21 @@ export default function BottomPlayer() {
             </div>
 
             {/* Title */}
-            <div className="min-w-0 hidden md:block">
+            <div className=" hidden md:block max-w-[200px]">
               <p className="text-[10px] text-black/70 font-inter uppercase tracking-widest">
                 Carmela Collective
               </p>
-              <p className="text-[12px] text-black/70 font-medium truncate leading-tight max-w-[130px]">
+              <p className="text-[12px] text-black/70 font-medium truncate leading-tight">
                 {ready && current ? current.title : 'Loading…'}
               </p>
             </div>
-</div>
+          </div>
             {/* Queue toggle */}
             <button
               onClick={() => setQueueOpen((v) => !v)}
               disabled={!ready}
               aria-label="Up next"
-              className={`relative w-8 h-8 flex items-center justify-center rounded-lg transition-colors disabled:opacity-20 ${
+              className={`relative w-8 h-8 min-w-16 flex items-center justify-center rounded-lg transition-colors disabled:opacity-20 ${
                 queueOpen ? 'text-[#70fe01] bg-black/70' : 'text-black/70 hover:text-black/70 hover:bg-black/70'
               }`}
             >
