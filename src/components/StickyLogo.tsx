@@ -45,7 +45,7 @@ export default function StickyLogo() {
       {/* {visible && ( */}
         <motion.div
           key="sticky-logo"
-          className="fixed top-0 left-[36%] md:left-[45%] -translate-x-1/2 z-[40]"
+          className="fixed top-0 left-4 md:left-[45%] -translate-x-1/2 z-[40]"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}

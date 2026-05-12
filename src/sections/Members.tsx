@@ -58,7 +58,7 @@ function MemberCard({
         />
 
         {/* Hover Overlay */}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-pink-500/20 transition-colors duration-100 rounded-md overflow-visible" />
+        {/* <div className="absolute inset-0 bg-black/0 group-hover:bg-pink-500/20 transition-colors duration-100 rounded-md overflow-visible" /> */}
 
         {/* Arrow Icon */}
         <motion.a
@@ -173,7 +173,7 @@ export default function Members() {
 
       {/* Horizontal Scrolling members */}
       <motion.div
-        className="flex gap-6 px-6 md:px-12 overflow-x-auto overflow-y-visible md:pt-4 no-scrollbar scroll-smooth [scrollbar-gutter:stable]"
+        className="flex gap-6 pl-16 pr-6 md:pl-20 md:pr-12  overflow-x-auto overflow-y-visible md:pt-4 no-scrollbar scroll-smooth [scrollbar-gutter:stable]"
         variants={containerVariants}
         initial="hidden"
         whileInView="show"

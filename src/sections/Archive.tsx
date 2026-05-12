@@ -8,6 +8,8 @@ import { SPRING_PARALLAX } from '@/lib/animations'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 
+const MotionLink = motion(Link)
+
 export default function Archive() {
   const sectionRef = useRef<HTMLElement>(null)
 
@@ -60,14 +62,15 @@ export default function Archive() {
         </div>
       </Link>
       
-      {/* Horizontal Scrolling members */}
+      {/* Horizontal Scrolling archive */}
       <div 
-        className="flex gap-6 px-6 md:px-12 overflow-x-auto overflow-y-hidden no-scrollbar scroll-smooth [scrollbar-gutter:stable]"
+        className="flex gap-6 pl-16 pr-6 md:pl-20 md:pr-12 overflow-x-auto overflow-y-hidden no-scrollbar scroll-smooth [scrollbar-gutter:stable]"
       >
         {archive.map((event, index) => (
-          <motion.article
+          <MotionLink
             key={event.id}
-            className="project-card flex-shrink-0 w-[250px] group pointer-events-none"
+            href={`/archive?event=${event.id}`}
+            className="project-card flex-shrink-0 w-[250px] group cursor-pointer"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: index * 0.01, duration: 0.3 }}
@@ -75,7 +78,6 @@ export default function Archive() {
           >
             {/* Project Media */}
             <div className="relative aspect-[3/4] rounded-md overflow-hidden mb-4">
-              {/* Render Video or Image based on mediaType */}
               {event.mediaType === 'video' && event.video ? (
                 <video
                   src={event.video}
@@ -95,18 +97,18 @@ export default function Archive() {
                   sizes="400px"
                 />
               )}
-              
+
               {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-black/0 transition-colors duration-300" />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
             </div>
-            
+
             {/* Project Info */}
             <div className="space-y-1">
               <p className="text-[9px] text-neutral-950 uppercase tracking-wider">{event.category}</p>
               <h3 className="text-lg font-medium">{event.title}</h3>
               <p className="text-xs text-neutral-950/70 font-inter line-clamp-2 pt-1">{event.description}</p>
             </div>
-          </motion.article>
+          </MotionLink>
         ))}
       </div>
     </section>

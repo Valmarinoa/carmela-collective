@@ -132,7 +132,8 @@ export default function BottomPlayer() {
   const current = tracks[currentIndex]
   const duration = current?.duration ?? 0
   const remaining = duration - position
-  const hidden = pathname === '/calendar' || pathname === '/archive'
+  const hidden = !ready || tracks.length === 0 || pathname === '/calendar' || pathname === '/archive'
+  const delay = pathname === '/' ? 3 : 0
 
   function handleSeek(ratio: number) {
     seekTo(ratio * duration)
@@ -143,7 +144,7 @@ export default function BottomPlayer() {
       className={`fixed bottom-0 left-0 right-0 z-50 ${hidden ? 'pointer-events-none' : ''}`}
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: hidden ? 0 : 1, y: hidden ? 8 : 0 }}
-      transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+      transition={{ duration: 0.4, delay: hidden ? 0 : delay, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       {/* Queue dialog — rendered inside fixed container so it sits above the bar */}
       <AnimatePresence>
@@ -171,7 +172,7 @@ export default function BottomPlayer() {
             <button
               onClick={() => playTrack(Math.max(0, currentIndex - 1))}
               disabled={!ready || currentIndex === 0}
-              className="w-8 h-8 flex items-center justify-center text-black/70 hover:text-white disabled:opacity-20 transition-colors"
+              className="w-8 h-8 flex items-center justify-center text-black/70 hover:text-black disabled:opacity-20 transition-colors"
               aria-label="Previous"
             >
               <SkipBack size={15} />
@@ -191,7 +192,7 @@ export default function BottomPlayer() {
             <button
               onClick={() => playTrack(Math.min(tracks.length - 1, currentIndex + 1))}
               disabled={!ready || currentIndex === tracks.length - 1}
-              className="w-8 h-8 flex items-center justify-center text-black/70 hover:text-white disabled:opacity-20 transition-colors"
+              className="w-8 h-8 flex items-center justify-center text-black/70 hover:text-black disabled:opacity-20 transition-colors"
               aria-label="Next"
             >
               <SkipForward size={15} />

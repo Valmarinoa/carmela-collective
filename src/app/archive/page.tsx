@@ -1,12 +1,13 @@
 'use client'
 
-import { useMemo, useState, useCallback } from 'react'
+import { useMemo, useState, useCallback, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { archive } from '@/data/data'
 import type { Archive } from '@/types/index'
 import type { Event } from '@/lib/calendarData'
 import EventModal from '@/app/calendar/EventModal'
+import { useRouter } from 'next/navigation'
 
 const GRID_SIZE = 6
 const cells: (Archive | null)[] = Array.from(
@@ -21,6 +22,7 @@ const monthMap: Record<string, number> = {
 
 export default function ArchivePage() {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
+  const router = useRouter()
 
   const toArchiveEvent = useCallback((item: Archive): Event => {
     const [rawMonth = 'JAN', rawYear = '2026'] = item.category.split(' ')
@@ -47,6 +49,16 @@ export default function ArchivePage() {
   const handleItemClick = useCallback((item: Archive) => {
     setSelectedEvent(toArchiveEvent(item))
   }, [toArchiveEvent])
+
+  // On mount: if ?event=<id> is present, open that modal and clean the URL
+  useEffect(() => {
+    const id = new URLSearchParams(window.location.search).get('event')
+    if (!id) return
+    const item = archive.find((a) => a.id === id)
+    if (item) setSelectedEvent(toArchiveEvent(item))
+    router.replace('/archive', { scroll: false })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const handleModalClose = useCallback(() => {
     setSelectedEvent(null)

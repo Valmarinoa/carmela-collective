@@ -40,7 +40,7 @@ export default function CarmelaLogo({ className = '' }: CarmelaLogoProps) {
             </div>
             
             {/* Carmela image only */}
-            <div className="relative w-full h-20 md:h-[300px] mt-4 flex items-center justify-center">
+            <div className="relative w-full h-20 md:h-[300px] mt-4 flex items-start md:items-center md:justify-center">
               <Image
                 src="/images/carmela.png"
                 alt="Carmela Collective"

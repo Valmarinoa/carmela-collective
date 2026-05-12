@@ -51,19 +51,27 @@ export function SoundCloudProvider({ children }: { children: React.ReactNode }) 
   const [ready, setReady] = useState(false)
 
   const initWidget = useCallback(() => {
-    // Guard: don't initialize twice
     if (widgetRef.current) return
     if (!iframeRef.current || !window.SC) return
 
     const widget = window.SC.Widget(iframeRef.current)
     widgetRef.current = widget
 
+    const loadTracks = (sounds: SCSound[]) => {
+      if (!sounds?.length) return
+      setTracks(sounds.slice(0, MAX_TRACKS))
+      setReady(true)
+    }
+
+    // Bind 'ready' for the normal case where the SC player isn't initialized yet
     widget.bind('ready', () => {
-      widget.getSounds((sounds) => {
-        setTracks(sounds.slice(0, MAX_TRACKS))
-        setReady(true)
-      })
+      widget.getSounds(loadTracks)
     })
+
+    // Also call getSounds immediately — if the SC player is already ready
+    // (race condition in production where 'ready' fires before our listener is bound),
+    // this call will return data right away.
+    widget.getSounds(loadTracks)
 
     widget.bind('play', () => {
       setIsPlaying(true)
@@ -114,25 +122,25 @@ export function SoundCloudProvider({ children }: { children: React.ReactNode }) 
       value={{ tracks, currentIndex, isPlaying, progress, position, ready, playTrack, togglePlay, seekTo }}
     >
       {/*
-        Hidden SC iframe — must have real dimensions so SoundCloud's player JS
-        initializes correctly. Positioned far off-screen so it is never visible.
+        Hidden SC iframe — must have real dimensions and be within the document
+        so the browser doesn't throttle it. Positioned at 1×1 with opacity:0
+        so it is invisible but not off-screen.
       */}
       <iframe
         ref={iframeRef}
         title="SoundCloud audio engine"
         src={IFRAME_SRC}
-        width="300"
-        height="150"
+        width="1"
+        height="1"
         allow="autoplay"
         aria-hidden="true"
         tabIndex={-1}
         onLoad={initWidget}
         style={{
-          position: 'fixed',
-          left: '-9999px',
-          top: '-9999px',
-          border: 'none',
+          position: 'absolute',
+          opacity: 0,
           pointerEvents: 'none',
+          border: 'none',
         }}
       />
       {children}
