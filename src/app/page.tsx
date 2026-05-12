@@ -52,7 +52,7 @@ export default function Home() {
       <About />
       {/* Floating Gallery - background image fades in and scales */}
       <FloatingGallery />
- <Mixes />
+ {/* <Mixes /> */}
       {/* CALENDAR */}
       <CALENDAR />
       

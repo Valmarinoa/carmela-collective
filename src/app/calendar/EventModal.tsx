@@ -103,7 +103,7 @@ export default function EventModal({ event, onClose, isArchive = false }: EventM
             />
              <button
                     onClick={onClose}
-                    className="absolute right-5 top-3 z-[20] flex-shrink-0 mt-1 text-white transition-colors duration-150"
+                    className="absolute right-5 top-3 z-[70] flex-shrink-0 mt-1 text-white transition-colors duration-150"
                     aria-label="Close event"
                   >
                     <X size={28} />
@@ -136,7 +136,7 @@ export default function EventModal({ event, onClose, isArchive = false }: EventM
               )}
             </motion.div>
             <motion.div
-              className="absolute right-[5%] top-[52px] md:right-20 md:top-20 h-52 md:h-64 aspect-[2/3] overflow-hidden flex-shrink-0"
+              className="absolute right-[5%] top-[48px] z-[70] md:right-20 md:top-20 h-52 md:h-64 aspect-[2/3] overflow-hidden flex-shrink-0"
               initial={{ y: -16, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.08, duration: 0.5 }}

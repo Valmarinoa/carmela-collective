@@ -98,7 +98,7 @@ export default function Hero() {
 
         {/* Center Logo - Dramatic blur-to-focus entrance */}
         <motion.div 
-          className="flex justify-center items-center top-[43%] md:top-[28%] md:-translate-y-[50%] absolute w-full left-0"
+          className="flex justify-center items-center top-[45%] md:top-[28%] md:-translate-y-[50%] absolute w-full left-0"
           variants={logoVariants}
         >
           <CarmelaLogo />

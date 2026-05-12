@@ -7,7 +7,7 @@ export default function ClientProviders({ children }: { children: React.ReactNod
   return (
     <SoundCloudProvider>
       {children}
-      {/* <BottomPlayer /> */}
+      <BottomPlayer />
     </SoundCloudProvider>
   )
 }

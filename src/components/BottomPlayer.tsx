@@ -17,16 +17,16 @@ function ProgressBar({ progress, onSeek }: { progress: number; onSeek: (ratio: n
 
   return (
     <div
-      className="relative h-[3px] w-full rounded-full bg-white/10 cursor-pointer group"
+      className="relative h-[3px] w-full rounded-full bg-black/40 cursor-pointer group"
       onClick={handleClick}
     >
       <div
-        className="h-full rounded-full bg-white/70 transition-[width] duration-150"
+        className="h-full rounded-full bg-black/70 transition-[width] duration-150"
         style={{ width: `${progress * 100}%` }}
       />
       {/* Scrubber thumb — appears on hover */}
       <div
-        className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white shadow opacity-0 group-hover:opacity-100 transition-opacity"
+        className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-black shadow opacity-0 group-hover:opacity-100 transition-opacity"
         style={{ left: `${progress * 100}%` }}
       />
     </div>
@@ -159,7 +159,7 @@ export default function BottomPlayer() {
       </AnimatePresence>
 
       {/* ── Bar ── */}
-      <div className="h-fit py-2 bg-black items-center border-t border-white/[0.07]">
+      <div className="h-fit py-2 bg-[#70fe01] items-center border-t border-white/[0.07]">
         {/* Progress line — sits flush at the very top of the bar */}
        
 
@@ -171,7 +171,7 @@ export default function BottomPlayer() {
             <button
               onClick={() => playTrack(Math.max(0, currentIndex - 1))}
               disabled={!ready || currentIndex === 0}
-              className="w-8 h-8 flex items-center justify-center text-white/40 hover:text-white disabled:opacity-20 transition-colors"
+              className="w-8 h-8 flex items-center justify-center text-black/70 hover:text-white disabled:opacity-20 transition-colors"
               aria-label="Previous"
             >
               <SkipBack size={15} />
@@ -180,18 +180,18 @@ export default function BottomPlayer() {
             <button
               onClick={togglePlay}
               disabled={!ready}
-              className="w-9 h-9 rounded-full bg-white flex items-center justify-center hover:bg-white/80 disabled:opacity-30 transition-opacity flex-shrink-0"
+              className="w-9 h-9 rounded-full  flex items-center justify-center bg-black/70 disabled:opacity-30 text-black transition-opacity flex-shrink-0"
               aria-label={isPlaying ? 'Pause' : 'Play'}
             >
               {isPlaying
-                ? <Pause size={14} className="text-black" />
-                : <Play size={14} className="text-black translate-x-[1px]" />}
+                ? <Pause size={14} className="text-[#70fe01]" />
+                : <Play size={14} className="text-[#70fe01] translate-x-[1px]" />}
             </button>
 
             <button
               onClick={() => playTrack(Math.min(tracks.length - 1, currentIndex + 1))}
               disabled={!ready || currentIndex === tracks.length - 1}
-              className="w-8 h-8 flex items-center justify-center text-white/40 hover:text-white disabled:opacity-20 transition-colors"
+              className="w-8 h-8 flex items-center justify-center text-black/70 hover:text-white disabled:opacity-20 transition-colors"
               aria-label="Next"
             >
               <SkipForward size={15} />
@@ -200,11 +200,11 @@ export default function BottomPlayer() {
 
           {/* ZONE 2 — Times (hidden on small mobile) */}
           <div className="hidden sm:flex items-center gap-3">
-            <span className="text-[10px] tabular-nums text-white/30 font-inter flex-shrink-0 w-8 text-right">
+            <span className="text-[10px] tabular-nums text-black/70 font-inter flex-shrink-0 w-8 text-right">
               {fmt(position)}
             </span>
             <div className="flex-1" /> {/* spacer — progress bar is above the grid */}
-            <span className="text-[10px] tabular-nums text-white/30 font-inter flex-shrink-0 w-10">
+            <span className="text-[10px] tabular-nums text-black/70 font-inter flex-shrink-0 w-10">
               -{fmt(remaining)}
             </span>
           </div>
@@ -229,10 +229,10 @@ export default function BottomPlayer() {
 
             {/* Title */}
             <div className="min-w-0 hidden md:block">
-              <p className="text-[10px] text-white/25 font-inter uppercase tracking-widest">
+              <p className="text-[10px] text-black/70 font-inter uppercase tracking-widest">
                 Carmela Collective
               </p>
-              <p className="text-[12px] text-white/75 font-medium truncate leading-tight max-w-[130px]">
+              <p className="text-[12px] text-black/70 font-medium truncate leading-tight max-w-[130px]">
                 {ready && current ? current.title : 'Loading…'}
               </p>
             </div>
@@ -243,7 +243,7 @@ export default function BottomPlayer() {
               disabled={!ready}
               aria-label="Up next"
               className={`relative w-8 h-8 flex items-center justify-center rounded-lg transition-colors disabled:opacity-20 ${
-                queueOpen ? 'text-[#70fe01] bg-white/[0.06]' : 'text-white/35 hover:text-white hover:bg-white/[0.04]'
+                queueOpen ? 'text-[#70fe01] bg-black/70' : 'text-black/70 hover:text-black/70 hover:bg-black/70'
               }`}
             >
               <ListMusic size={15} />
