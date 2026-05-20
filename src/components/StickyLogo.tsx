@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useNavTheme } from '@/context/NavThemeContext'
 
 export default function StickyLogo() {
   const pathname = usePathname()
@@ -39,6 +40,7 @@ export default function StickyLogo() {
   }, [isHome])
 
   const delay = isHome ? 3 : 0
+  const isDark = useNavTheme()
 
   return (
     <AnimatePresence>
@@ -61,7 +63,8 @@ export default function StickyLogo() {
                 src="/images/carmela-menu.png"
                 alt="Carmela Collective"
                 fill
-                className="object-contain"
+                className="object-contain transition-all duration-300"
+                style={{ filter: isDark ? 'invert(1)' : 'none' }}
                 priority
               />
             </div>

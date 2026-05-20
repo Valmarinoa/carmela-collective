@@ -138,7 +138,8 @@ export default function Members() {
     <section
       ref={sectionRef}
       id="members"
-      className="relative py-20 md:pb-20 z-[3]"
+      data-nav-dark
+      className="relative pt-10 md:pt-4 md:pb-20 z-[3]"
     >
       <motion.div
         style={{ y: topY }}
@@ -161,7 +162,7 @@ export default function Members() {
       </div>
 
       {/* Section Header */}
-      <div className="px-6 md:px-12  mb-24">
+      <div className="px-6 mb-20 md:px-12 md:mb-6 mt-24">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div className="flex items-center gap-4">
             <h2 className="text-4xl md:text-5xl font-bold font-funtastic uppercase">

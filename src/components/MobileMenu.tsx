@@ -1,8 +1,9 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { navLinks, socialLinks } from '@/data/site'
 import { containerVariants, itemVariants } from '@/lib/animations'
 
@@ -13,6 +14,8 @@ interface MobileMenuProps {
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const overlayRef = useRef<HTMLDivElement>(null)
+  const pathname = usePathname()
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null)
 
   // Lock body scroll when menu is open
   useEffect(() => {
@@ -89,19 +92,26 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             exit="exit"
             className="flex flex-col"
           >
-            {navLinks.map((link) => (
-              <motion.div key={link.label} variants={itemVariants}>
-                <Link
-                  href={link.href}
-                  onClick={onClose}
-                  className="block py-6 text-3xl font-bold font-funtastic text-[#F5F5F0] outline-none
-                             border-b border-white/10 hover:text-[#70fe01] hover:translate-x-2
-                             transition-all duration-200"
-                >
-                  {link.label}
-                </Link>
-              </motion.div>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = link.href.startsWith('/') && !link.href.includes('#') && pathname === link.href
+              const isHovered = hoveredLink === link.label
+              return (
+                <motion.div key={link.label} variants={itemVariants}>
+                  <Link
+                    href={link.href}
+                    onClick={onClose}
+                    onMouseEnter={() => setHoveredLink(link.label)}
+                    onMouseLeave={() => setHoveredLink(null)}
+                    className="block py-6 text-3xl font-bold font-funtastic outline-none
+                               border-b border-white/10 hover:translate-x-2
+                               transition-all duration-200"
+                    style={{ color: isActive || isHovered ? '#70fe01' : '#F5F5F0' }}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              )
+            })}
           </motion.nav>
 
           {/* Bottom: Social + Copyright */}

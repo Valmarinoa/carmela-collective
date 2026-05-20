@@ -6,11 +6,13 @@ import { motion } from 'framer-motion'
 import HamburgerButton from './HamburgerButton'
 import MobileMenu from './MobileMenu'
 import CurvedNavigation from './CurvedNavigation'
+import { useNavTheme } from '@/context/NavThemeContext'
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
   const delay = pathname === '/' ? 3 : 0
+  const isDark = useNavTheme()
 
   return (
     <motion.div
@@ -28,6 +30,7 @@ export default function NavBar() {
         <HamburgerButton
           isOpen={isOpen}
           onClick={() => setIsOpen((prev) => !prev)}
+          isDark={isDark}
         />
       </div>
 

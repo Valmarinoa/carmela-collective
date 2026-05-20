@@ -66,7 +66,7 @@ export default function Calendar() {
                   router.push(monthLink)
                 }
               }}
-              className="group cursor-pointer relative flex justify-between items-center gap-4 text-left transition-opacity opacity-100 pt-6 w-full md:w-1/2"
+              className="group cursor-pointer relative flex justify-between items-center gap-4 text-left pt-6 w-full md:w-1/2"
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: index * 0.08 }}

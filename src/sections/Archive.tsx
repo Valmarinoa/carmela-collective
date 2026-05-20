@@ -21,9 +21,10 @@ export default function Archive() {
   const topY = useSpring(useTransform(scrollYProgress, [0, 1], [40, -40]), SPRING_PARALLAX)
   
   return (
-    <section 
-    ref={sectionRef}
+    <section
+      ref={sectionRef}
       id="archive"
+      data-nav-dark
       className="relative pt-20 pb-28 bg-cream -mt-20 md:pb-44 md:mt-0 z-[3]"
     >
       <div className="absolute inset-0 -z-10">
