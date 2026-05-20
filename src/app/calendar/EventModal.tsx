@@ -63,6 +63,18 @@ export default function EventModal({ event, onClose, isArchive = false }: EventM
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [handleKeyDown])
 
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (event) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [event])
+
   // Reset artist panel when modal is dismissed
   useEffect(() => {
     if (!event) setSelectedArtist(null)
@@ -90,7 +102,7 @@ export default function EventModal({ event, onClose, isArchive = false }: EventM
             role="dialog"
             aria-modal="true"
             aria-label={event.title}
-            className="relative w-full max-w-4xl md:mx-20 max-h-[91dvh] md:max-h-[96dvh] bg-[#0f0d0b]  overflow-hidden flex flex-col md:rounded-sm"
+            className="relative w-full max-w-4xl md:mx-20 max-h-[91dvh] md:max-h-[96dvh] bg-[#0f0d0b] overflow-hidden flex flex-col md:rounded-sm md:pb-10"
             initial={{ opacity: 0, scale: 0.96, y: 24 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 24 }}
@@ -111,7 +123,7 @@ export default function EventModal({ event, onClose, isArchive = false }: EventM
 
             {/* Hero area */}
             <motion.div
-              className="w-full h-56 bg-[#181410] relative overflow-hidden flex-shrink-0"
+              className="w-full h-56 bg-[#181410] relative overflow-hidden flex-shrink-0 "
               initial={{ y: -16, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.08, duration: 0.5 }}
@@ -163,9 +175,9 @@ export default function EventModal({ event, onClose, isArchive = false }: EventM
 
 
             {/* Scrollable body */}
-            <div className="overflow-y-auto flex-1 no-scrollbar">
+            <div className="overflow-y-auto flex-1 no-scrollbar relative">
               <motion.div
-                className="py-6 px-3 md:p-8 flex flex-col gap-5"
+                className="pt-6 px-3 md:p-8 flex flex-col gap-5"
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
@@ -260,50 +272,7 @@ export default function EventModal({ event, onClose, isArchive = false }: EventM
                 )}
 
                 {/* CTA */}
-                {(() => {
-                  const isPast = new Date(`${event.date}T00:00:00`) < new Date()
-                  if (event.type === 'radio' && event.listenUrl) {
-                    return (
-                      <motion.div variants={lineVariants} className="pt-1">
-                        <a
-                          href={event.listenUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-6 py-3 bg-cream text-[#0f0d0b] text-[11px] tracking-[0.2em] uppercase hover:bg-cream-dark transition-colors duration-150"
-                        >
-                          Listen
-                          <ExternalLink size={12} />
-                        </a>
-                      </motion.div>
-                    )
-                  }
-                  if (isPast) return null
-                  if (event.isFree) {
-                    return (
-                      <motion.div variants={lineVariants} className="pt-1">
-                        <span className="inline-flex items-center px-6 py-3 border border-cream/30 text-cream/70 text-[11px] tracking-[0.2em] uppercase">
-                          Free Entrance
-                        </span>
-                      </motion.div>
-                    )
-                  }
-                  if (event.ticketUrl) {
-                    return (
-                      <motion.div variants={lineVariants} className="pt-1">
-                         <a
-          href={event.ticketUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex font-inter items-center border border-cream hover:border-[#70fe01] gap-2 px-6 py-3 bg-cream text-[#0f0d0b] text-[11px] tracking-[0.2em] uppercase hover:bg-[#70fe01] transition-colors duration-150"
-        >
-          Buy Tickets
-          <ExternalLink size={12} />
-        </a>
-                      </motion.div>
-                    )
-                  }
-                  return null
-                })()}
+                
 
                 {/* Footage gallery — archive only */}
                 {isArchive && event.footage && event.footage.length > 0 && (
@@ -326,6 +295,50 @@ export default function EventModal({ event, onClose, isArchive = false }: EventM
                 )}
               </motion.div>
             </div>
+            {(() => {
+                  const isPast = new Date(`${event.date}T00:00:00`) < new Date()
+                  if (event.type === 'radio' && event.listenUrl) {
+                    return (
+                      <motion.div variants={lineVariants} className="py-6 pl-3 md:pt-10 md:pl-8 fixed bottom-0 left-10 bg-gradient-to-b from-transparent to-[#0f0d0b]">
+                        <a
+                          href={event.listenUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-6 py-3 bg-cream text-[#0f0d0b] text-[11px] tracking-[0.2em] uppercase hover:bg-cream-dark transition-colors duration-150"
+                        >
+                          Listen
+                          <ExternalLink size={12} />
+                        </a>
+                      </motion.div>
+                    )
+                  }
+                  if (isPast) return null
+                  if (event.isFree) {
+                    return (
+                      <motion.div variants={lineVariants} className="pt-1 py-6 pl-3 md:pt-10 md:pl-8 fixed bottom-0 left-10 bg-gradient-to-b from-transparent to-[#0f0d0b]">
+                        <span className="inline-flex items-center px-6 py-3 border border-cream/30 text-cream/70 text-[11px] tracking-[0.2em] uppercase">
+                          Free Entrance
+                        </span>
+                      </motion.div>
+                    )
+                  }
+                  if (event.ticketUrl) {
+                    return (
+                      <motion.div variants={lineVariants} className="pt-1 py-6 pl-3 md:pt-10 md:pl-8 sticky bottom-0 left-0 bg-gradient-to-b from-transparent to-[#0f0d0b] ">
+                         <a
+          href={event.ticketUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex font-inter items-center border border-cream hover:border-[#70fe01] gap-2 px-6 py-3 bg-cream text-[#0f0d0b] text-[11px] tracking-[0.2em] uppercase hover:bg-[#70fe01] transition-colors duration-150"
+        >
+          Buy Tickets
+          <ExternalLink size={12} />
+        </a>
+                      </motion.div>
+                    )
+                  }
+                  return null
+                })()}
           </motion.div>
         </motion.div>
       )}
