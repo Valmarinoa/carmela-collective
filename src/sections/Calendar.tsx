@@ -122,9 +122,17 @@ export default function Calendar() {
                   ) : (
                     <p className="text-xs">{event.venue}</p>
                   )}
+
+                  {event.ticketUrl ? (
                   <Link href="" className="text-black text-xs flex gap-2 underline pt-[18px]">
                     Tickets
                   </Link>
+                  )
+                  :
+                  (<p className="text-black text-xs flex gap-2 pt-[18px]">Free Entrance</p>)
+
+                  }
+                  
             </div>
             </div>
             <div className="hidden md:flex w-9 h-9 border border-black rounded-full items-center justify-center hover:bg-[#70fe01] transition-opacity duration-300"> 
