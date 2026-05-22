@@ -1,5 +1,6 @@
 // data.ts
 import type { FloatingImageItem, Archive } from "@/types/index";
+import { a } from './artists'
 
 // Calendar Events
 export const calendar = [
@@ -145,16 +146,20 @@ export const archive: Archive[] = [
   {
     id: '0',
     title: 'Carmela x POS',
-    category: 'APR 2026',
-    description:'',
+    date: '04.04.26',
+    category: 'Fundraiser',
+    description: 'On April 4th we gathered once more at possibilities open studio for a very special edition — a fundraiser to support and give visibility to the Venezuelan and Mexican communities. Las Patronas are a group of volunteer women who have fed migrants traveling aboard La Bestia for over 30 years. Zona De Descarg is a cultural and urban activism platform in Petare, Caracas. During the night we showcased projects from Roba Cámara and Café Petare Blu, alongside works from Venezuelan and Latin American artists, and the screening programme "Hints of Hogar" in collaboration with Latin Quarter.',
     image: '/events/carmela-pos-26/flyer.png',
     objectFit: 'cover',
     igHandle: '',
+    venue: 'Possibilities Open Studio',
+    venueAddress: 'Centrale Groothandelsmarkt 186, 1051 LJ Amsterdam',
   },
   {
     id: '1',
     title: 'Mestizaund x Echobox',
-    category: 'Radio Show Episode',
+    date: '26.03.26',
+    category: 'Radio Show',
     description:'Mestizaund by Carmela Collective is a show exploring Latin American rhythms: their origins, migrations, and transformations. Blending cumbia, salsa, bolero and electronic sounds into a danceable sonic journey through culture, history, and diaspora.',
     image: '/events/mestizaund-ed1/flyer.png',
     objectFit: 'cover',
@@ -165,11 +170,22 @@ export const archive: Archive[] = [
   {
     id: '2',
     title: 'Carmela Fugaris',
-    category: 'DEC 2025',
-    description:'',
+    date: '29.11.25',
+    description: 'We returned to where it all started, possibilities open studio, on Saturday November 29, for another amazing party. Carmela Cocina was present again, bringing authentic Venezuelan arepas, and our highly praised Palomas.',
     image: '/events/carmela-fugaris/flyer.png',
     objectFit: 'contain',
     igHandle: '',
+    venue: 'possibilities open studio',
+    venueAddress: 'Centrale Groothandelsmarkt 186, 1051 LJ Amsterdam',
+    lineup: [
+      { id: 'fugaris-alexia',    isB2B: false, artists: [a('alexiacalderon')], note: 'Performance' },
+      { id: 'fugaris-raices',    isB2B: false, artists: [a('raices')] },
+      { id: 'fugaris-thy',       isB2B: false, artists: [a('thydamore')] },
+      { id: 'fugaris-licuadito', isB2B: false, artists: [a('djlicuaditomix')] },
+      { id: 'fugaris-faedro',    isB2B: false, artists: [a('faedro')] },
+      { id: 'fugaris-hm',        isB2B: false, artists: [a('hiddenmemory')] },
+      { id: 'fugaris-pico',      isB2B: false, artists: [a('picosoundsystem')] },
+    ],
     footage: [
       { id: 'fugaris-0', type: 'image', img: '/events/carmela-fugaris/fulgaris.png', height: 380 },
       { id: 'fugaris-1', type: 'image', img: '/events/carmela-fugaris/01.png', height: 480 },
@@ -190,12 +206,24 @@ export const archive: Archive[] = [
 
   {
     id: '3',
-    title: 'Dia de los Muertos',
-    category: 'NOV 2025',
-    description:'',
+    title: 'Carmela Presents: Día de Muertos',
+    date: '02.11.25',
+    category: 'Cultural Event',
+    description: 'Carmela celebrated a very special night; Día de Muertos, presented at Noordspace. On November 2nd, we celebrated the very special Mexican tradition of honouring the lives of those who came before us and our roots through remembrance, art, and sound. We showcased audiovisual art, DJ sets, and a listening session, and we invited the audience to participate in the creation of a traditional Día de Muertos altar. We had delicious Pan de Muerto (traditional sweet bread) and Mexican hot chocolate. Soundsystem provided by Sol Systems.',
     image: '/events/ddm-25/flyer.png',
     objectFit: 'contain',
     igHandle: '',
+    venue: 'Noordspace',
+    venueAddress: 'Gedempt Hamerkanaal 96, 1021 KR Amsterdam',
+    lineup: [
+      { id: 'ddm-tresde',   isB2B: false, artists: [a('tresde')] },
+      { id: 'ddm-marianrosas',  isB2B: false, artists: [a('marianrosas')] },
+      { id: 'ddm-sebvc',        isB2B: false, artists: [a('sebastianvasquezcipriani')] },
+      { id: 'ddm-juliand',      isB2B: false, artists: [a('juliant')] },
+      { id: 'ddm-cameron',      isB2B: false, artists: [a('cameronaudio')] },
+      { id: 'ddm-nicoba',       isB2B: false, artists: [a('nicoba')] },
+      { id: 'ddm-ukab',         isB2B: false, artists: [a('ukab')] },
+    ],
     footage: [
       { id: 'ddm-1', type: 'image', img: '/events/ddm-25/01.png', height: 480 },
       { id: 'ddm-2', type: 'image', img: '/events/ddm-25/02.png', height: 340 },
@@ -215,12 +243,20 @@ export const archive: Archive[] = [
   {
     id: '4',
     title: 'Carmela x SevenEleven',
-    category: 'OCT 2025',
-    description: 'Underground nightclub experience with curated music programming.',
+    date: '17.10.25',
+    category: 'Guest Set',
+    description: 'Carmela took over the SevenEleven Radio Bar on Friday October 17th, setting the mood before the RadioRadio club night. From 19 to 23, we brought our blend of sounds, boleros, brasilidades, salsa, cumbia dub, latin club, latin bass and other tropical sound waves, slowly taking their space into the Amsterdam nightlife.',
     mediaType: 'video',
     video: '/events/carmela-seven-eleven/footage/video.mp4',
     objectFit: 'cover',
     igHandle: '',
+    venue: 'SevenEleven',
+    venueAddress: 'Pazzanistraat 3, 1014 DB Amsterdam',
+    lineup: [
+      { id: 'se-marianrosas',    isB2B: false, artists: [a('marianrosas')] },
+      { id: 'se-faedro-cameron', isB2B: true,  artists: [a('faedro'), a('cameronaudio')] },
+      { id: 'se-ukab',           isB2B: false, artists: [a('ukab')] },
+    ],
     footage: [
       { id: 'seven-eleven-1', type: 'video', img: '/events/carmela-seven-eleven/footage/video.mp4', height: 440 },
       { id: 'seven-eleven-2', type: 'image', img: '/events/carmela-seven-eleven/footage/virgen.png', height: 480 },
@@ -230,12 +266,23 @@ export const archive: Archive[] = [
 
   {
     id: '5',
-    title: 'Carmela Genesis',
-    category: 'SEPT 2025',
-    description:'',
+    title: 'Carmela Collective @ POS',
+    date: '20.09.25',
+    category: 'Launch Party',
+    description: 'Where it all started. We introduced Carmela, a new collective bringing Latin American culture, diversity and creativity. Showcasing contemporary and rooted sounds, flavors, music, and community through the vision of the Latam diaspora in new, experimental ways. On the first gathering at POS we shared music from boleros to eclectic cumbia, latincore, and live performances. And of course, there is no Latin party without delicious food and drinks provided by La Cocina de Carmela. We enjoyed authentic Ceviche with a Pisco Sour.',
     image: '/events/carmela-sept-25/flyer.png',
     objectFit: 'contain',
     igHandle: '',
+    venue: 'possibilities open studio',
+    venueAddress: 'Centrale Groothandelsmarkt 186, 1051 LJ Amsterdam',
+    lineup: [
+      { id: 'gen-marian-faedro',    isB2B: true,  artists: [a('marianrosas'), a('faedro')],                           note: 'Boleros & Brasilidades' },
+      { id: 'gen-lagrima',          isB2B: false, artists: [a('lagrima')],                                            note: 'Paling Cumbia live' },
+      { id: 'gen-silvia',           isB2B: false, artists: [a('silviaoviedo')],                                       note: 'Poetry' },
+      { id: 'gen-nene',             isB2B: false, artists: [a('nenemone')],                                           note: 'Percussion live' },
+      { id: 'gen-jonathan-marian',  isB2B: true,  artists: [a('jonathancastro'), a('marianrosas')],                   note: 'Lo-Fi Eclectic Cumbia & Salsa Dura' },
+      { id: 'gen-ukab-faedro-tres', isB2B: true,  artists: [a('ukab'), a('faedro'), a('tresde')],                 note: 'Bass/Tribal/Latincore' },
+    ],
     footage: [
       { id: 'sept-25-1', type: 'image', img: '/events/carmela-sept-25/01.png', height: 480 },
       { id: 'sept-25-2', type: 'image', img: '/events/carmela-sept-25/02.png', height: 340 },

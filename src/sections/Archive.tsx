@@ -105,9 +105,10 @@ export default function Archive() {
 
             {/* Project Info */}
             <div className="space-y-1">
-              <p className="text-[9px] text-neutral-950 uppercase tracking-wider">{event.category}</p>
+              <p className="text-[9px] text-neutral-950 uppercase tracking-wider">
+                {event.date ?? event.category}
+              </p>
               <h3 className="text-lg font-medium">{event.title}</h3>
-              <p className="text-xs text-neutral-950/70 font-inter line-clamp-2 pt-1">{event.description}</p>
             </div>
           </MotionLink>
         ))}

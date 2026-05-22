@@ -15,9 +15,10 @@ const cells: (Archive | null)[] = Array.from(
   (_, i) => archive[i] ?? null
 )
 
-const monthMap: Record<string, number> = {
-  JAN: 1, FEB: 2, MAR: 3, APR: 4, MAY: 5, JUN: 6,
-  JUL: 7, AUG: 8, SEP: 9, OCT: 10, NOV: 11, DEC: 12,
+/** Converts "DD.MM.YY" → "YYYY-MM-DD" for use with Date APIs */
+function toISODate(dateStr: string): string {
+  const [dd, mm, yy] = dateStr.split('.')
+  return `20${yy}-${mm}-${dd}`
 }
 
 export default function ArchivePage() {
@@ -25,23 +26,19 @@ export default function ArchivePage() {
   const router = useRouter()
 
   const toArchiveEvent = useCallback((item: Archive): Event => {
-    const [rawMonth = 'JAN', rawYear = '2026'] = item.category.split(' ')
-    const month = monthMap[rawMonth.toUpperCase()] ?? 1
-    const year = Number(rawYear) || 2026
-    const monthPadded = String(month).padStart(2, '0')
-
     return {
       id: `archive-${item.id}`,
       title: item.title,
-      date: `${year}-${monthPadded}-01`,
-      venue: 'Carmela Collective Archive',
+      date: item.date ? toISODate(item.date) : '2026-01-01',
+      venue: item.venue ?? 'Carmela Collective Archive',
+      venueAddress: item.venueAddress,
       description: item.description || 'Archive event highlight.',
       flyer: item.image || item.src,
       ticketUrl: item.href,
       type: item.type,
       listenUrl: item.listenUrl,
-      tags: [item.category],
-      lineup: [],
+      tags: item.category ? [item.category] : [],
+      lineup: item.lineup ?? [],
       footage: item.footage,
     }
   }, [])
@@ -155,7 +152,7 @@ export default function ArchivePage() {
                   {/* Text */}
                   <div className="absolute bottom-0 left-0 p-4 text-left z-[60]">
                     <p className="text-[9px] tracking-[0.15em] uppercase text-white/60 font-inter mb-1">
-                      {item.category}
+                      {item.date ?? item.category}
                     </p>
                     <p className="text-sm md:text-base text-cream leading-tight">
                       {item.title}

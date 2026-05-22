@@ -15,10 +15,28 @@ export interface FootageItem {
   height: number
 }
 
+export type Artist = {
+  id: string
+  name: string
+  origin: string
+  bio: string
+  instagram?: string
+  soundcloudUrl?: string
+  imageUrl?: string
+}
+
+export type LineupSlot = {
+  id: string
+  artists: Artist[]
+  isB2B: boolean
+  note?: string
+}
+
 export interface Archive {
   id: string
   title: string
-  category: string
+  date?: string        // DD.MM.YY: "20.09.25"
+  category?: string    // event type, e.g. "Radio Show", "Party"
   description: string
   // Media options
   mediaType?: 'image' | 'video'  // defaults to 'image' if not specified
@@ -35,6 +53,9 @@ export interface Archive {
   listenUrl?: string
   // Post-event footage for the archive modal gallery
   footage?: FootageItem[]
+  venue?: string
+  venueAddress?: string
+  lineup?: LineupSlot[]
 }
 
 export type FloatingMediaType = "image" | "video";

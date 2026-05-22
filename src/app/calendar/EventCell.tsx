@@ -41,7 +41,7 @@ export default function EventCell({ event, col, row, onClick, onHover, onHoverEn
   }
 
   // ── Event cell ──────────────────────────────────────────────────────────────
-  const lineupNames = event.lineup.map(a => a.name).join(', ')
+  const lineupNames = event.lineup.map(slot => slot.isB2B ? slot.artists.map(a => a.name).join(' B2B ') : slot.artists[0]?.name ?? '').join(', ')
 
   return (
     <motion.article

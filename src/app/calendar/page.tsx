@@ -180,7 +180,7 @@ function CalendarContent() {
                         {event.venue}
                       </p>
                       <p className="text-[11px] text-white font-inter mt-1 truncate">
-                        {event.lineup.map(a => a.name).join(', ')}
+                        {event.lineup.map(slot => slot.isB2B ? slot.artists.map(a => a.name).join(' B2B ') : slot.artists[0]?.name ?? '').join(', ')}
                       </p>
                     </div>
                         {event.flyer && (

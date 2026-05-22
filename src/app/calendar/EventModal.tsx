@@ -195,7 +195,7 @@ export default function EventModal({ event, onClose, isArchive = false }: EventM
 
                 {/* Date + Venue */}
                 <motion.div variants={lineVariants} className="flex flex-col gap-0.5">
-                  <p className="text-sm text-cream/45 ">{formatDate(event.date)}</p>
+                  <p className="text-sm text-cream/45 ">{event.date}</p>
                   {event.venueUrl ? (
                     <a
                       href={event.venueUrl}
@@ -242,31 +242,67 @@ export default function EventModal({ event, onClose, isArchive = false }: EventM
                       Lineup
                     </h3>
                     <div className="flex flex-col gap-0">
-                      {event.lineup.map((artist, i) => (
-                        <motion.button
-                          key={artist.id}
-                          onClick={() => setSelectedArtist(artist)}
-                          className="flex items-center pb-3 transition-all duration-200 text-left group"
-                          initial={{ opacity: 0, y: 6 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.32 + i * 0.07, duration: 0.32 }}
-                          whileHover={{ x: 2 }}
-                        >
-                          {/* Avatar */}
-                         
-                          <div className="">
-                            <p className="text-sm text-cream  group-hover:underline underline-offset-4 truncate">
-                              {artist.name}
-                            </p>
-                            <p className="text-[11px] text-cream/35  truncate">
-                              {artist.origin}
-                            </p>
-                          </div>
-                          {/* <span className="text-cream/85 group-hover:text-cream/40 transition-colors text-xs border rounded-full h-8 w-8">
-                            →
-                          </span> */}
-                        </motion.button>
-                      ))}
+                      {event.lineup.map((slot, i) => {
+                        const isClickable = !isArchive && !slot.isB2B && slot.artists.length === 1
+
+                        if (slot.isB2B) {
+                          return (
+                            <motion.div
+                              key={slot.id}
+                              className="flex flex-col pb-3"
+                              initial={{ opacity: 0, y: 6 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.32 + i * 0.07, duration: 0.32 }}
+                            >
+                              <p className="text-sm text-cream">
+                                {slot.artists.map(a => a.name).join(' B2B ')}
+                              </p>
+                              {slot.note && (
+                                <p className="text-[11px] text-cream/35">{slot.note}</p>
+                              )}
+                            </motion.div>
+                          )
+                        }
+
+                        const artist = slot.artists[0]
+                        return isClickable ? (
+                          <motion.button
+                            key={slot.id}
+                            onClick={() => setSelectedArtist(artist)}
+                            className="flex items-center pb-3 transition-all duration-200 text-left group"
+                            initial={{ opacity: 0, y: 6 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.32 + i * 0.07, duration: 0.32 }}
+                            whileHover={{ x: 2 }}
+                          >
+                            <div className="">
+                              <p className="text-sm text-cream group-hover:underline underline-offset-4 truncate">
+                                {artist.name}
+                              </p>
+                              {slot.note ? (
+                                <p className="text-[11px] text-cream/35 truncate">{slot.note}</p>
+                              ) : (
+                                <p className="text-[11px] text-cream/35 truncate">{artist.origin}</p>
+                              )}
+                            </div>
+                          </motion.button>
+                        ) : (
+                          <motion.div
+                            key={slot.id}
+                            className="flex flex-col pb-3"
+                            initial={{ opacity: 0, y: 6 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.32 + i * 0.07, duration: 0.32 }}
+                          >
+                            <p className="text-sm text-cream">{artist.name}</p>
+                            {slot.note ? (
+                              <p className="text-[11px] text-cream/35">{slot.note}</p>
+                            ) : artist.origin ? (
+                              <p className="text-[11px] text-cream/35">{artist.origin}</p>
+                            ) : null}
+                          </motion.div>
+                        )
+                      })}
                     </div>
                   </motion.div>
                 )}
