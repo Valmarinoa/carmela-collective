@@ -160,7 +160,10 @@ export default function BottomPlayer() {
       </AnimatePresence>
 
       {/* ── Bar ── */}
-      <div className="h-fit py-2 bg-[#70fe01] items-center border-t border-white/[0.07] relative">
+      <div
+        className="h-fit py-2 bg-[#70fe01] items-center border-t border-white/[0.07] relative"
+        style={{ paddingBottom: 'max(env(safe-area-inset-bottom), 8px)' }}
+      >
         {/* Progress line — sits flush at the very top of the bar */}
        
 

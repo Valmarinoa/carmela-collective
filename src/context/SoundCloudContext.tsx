@@ -105,12 +105,24 @@ export function SoundCloudProvider({ children }: { children: React.ReactNode }) 
   }, [initWidget])
 
   const playTrack = useCallback((index: number) => {
-    widgetRef.current?.skip(index)
+    const w = widgetRef.current
+    if (!w) return
+    w.skip(index)
+    w.play()
+    setCurrentIndex(index)
+    setIsPlaying(true)
   }, [])
 
   const togglePlay = useCallback(() => {
-    if (!widgetRef.current) return
-    isPlaying ? widgetRef.current.pause() : widgetRef.current.play()
+    const w = widgetRef.current
+    if (!w) return
+    if (isPlaying) {
+      w.pause()
+      setIsPlaying(false)
+    } else {
+      w.play()
+      setIsPlaying(true)
+    }
   }, [isPlaying])
 
   const seekTo = useCallback((ms: number) => {

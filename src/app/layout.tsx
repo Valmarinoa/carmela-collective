@@ -14,6 +14,8 @@ import SocialIconsWrapper from "@/components/SocialIconsWrapper";
 import NavBar from "@/components/NavBar"
 import ClientProviders from "@/components/ClientProviders"
 
+export { viewport } from '@/lib/viewport'
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://carmela-collective.vercel.app"),
   title: {
