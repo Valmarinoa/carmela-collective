@@ -93,7 +93,7 @@ export default function EventCell({ event, col, row, onClick, onHover, onHoverEn
             href={event.ticketUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex font-inter items-center border border-cream hover:border-[#70fe01] gap-2 px-6 py-3 bg-cream text-[#0f0d0b] text-[11px] tracking-[0.2em] uppercase hover:bg-[#70fe01] transition-colors duration-150"
+            className="inline-flex font-inter items-center border border-cream hover:border-[#70fe01] gap-2 px-6 py-3 bg-cream text-[#0f0d0b] text-[11px] tracking-[0.2em] uppercase hover:bg-[#70fe01] transition-colors duration-150 rounded-full"
           >
             Buy Tickets
             <ExternalLink size={12} />
@@ -102,7 +102,7 @@ export default function EventCell({ event, col, row, onClick, onHover, onHoverEn
         <button
           type="button"
           onClick={() => onClick(event)}
-          className="inline-flex items-center gap-2 text-[11px] border px-5 py-3 hover:bg-[#70fe01] hover:border-transparent text-black backdrop-blur-lg border-cream tracking-[0.18em] uppercase font-inter text-cream/70 hover:text-black/90 transition-colors duration-150"
+          className="inline-flex items-center gap-2 text-[11px] border px-5 py-3 hover:bg-[#70fe01] hover:border-transparent text-black backdrop-blur-lg border-cream tracking-[0.18em] uppercase font-inter text-cream/70 hover:text-black/90 transition-colors duration-150 rounded-full"
         >
           Info
         </button>

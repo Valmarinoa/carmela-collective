@@ -105,7 +105,7 @@ export default function Hero() {
           variants={itemVariants}
             >
               <Link href='/calendar'           
-                className="inline-flex font-inter items-center border border-cream gap-2 px-6 py-5 bg-transparent backdrop-blur-xl text-white hover:text-black hover:border-black text-[11px] tracking-[0.2em] uppercase hover:bg-[#70fe01] transition-colors duration-150">
+                className="inline-flex font-inter items-center border border-cream gap-2 px-6 py-5 bg-transparent backdrop-blur-xl text-white hover:text-black hover:border-black text-[11px] tracking-[0.2em] uppercase hover:bg-[#70fe01] transition-colors duration-150 rounded-full">
                 Upcoming Events
               </Link>
           {/* Add any bottom content here */}

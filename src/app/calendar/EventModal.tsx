@@ -352,7 +352,7 @@ export default function EventModal({ event, onClose, isArchive = false }: EventM
                   if (event.isFree) {
                     return (
                       <motion.div variants={lineVariants} className="pt-1 py-6 pl-3 md:pt-10 md:pl-8 fixed bottom-0 left-10 bg-gradient-to-b from-transparent to-[#0f0d0b]">
-                        <span className="inline-flex items-center px-6 py-3 border border-cream/30 text-cream/70 text-[11px] tracking-[0.2em] uppercase">
+                        <span className="inline-flex items-center px-6 py-3 border border-cream/30 text-cream/70 text-[11px] tracking-[0.2em] uppercase rounded-full">
                           Free Entrance
                         </span>
                       </motion.div>
@@ -365,7 +365,7 @@ export default function EventModal({ event, onClose, isArchive = false }: EventM
           href={event.ticketUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex font-inter items-center border border-cream hover:border-[#70fe01] gap-2 px-6 py-3 bg-cream text-[#0f0d0b] text-[11px] tracking-[0.2em] uppercase hover:bg-[#70fe01] transition-colors duration-150"
+          className="inline-flex font-inter items-center border border-cream hover:border-[#70fe01] gap-2 px-6 py-3 bg-cream text-[#0f0d0b] text-[11px] tracking-[0.2em] uppercase hover:bg-[#70fe01] transition-colors duration-150 rounded-full"
         >
           Buy Tickets
           <ExternalLink size={12} />
