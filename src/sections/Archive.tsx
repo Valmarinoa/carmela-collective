@@ -4,9 +4,8 @@ import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import { archive } from '@/data/data'
 import { useRef } from 'react'
-import { SPRING_PARALLAX } from '@/lib/animations'
+import { SPRING_PARALLAX, cardContainerVariants, cardItemVariants } from '@/lib/animations'
 import Link from 'next/link'
-import { ArrowUpRight } from 'lucide-react'
 
 const MotionLink = motion(Link)
 
@@ -64,18 +63,19 @@ export default function Archive() {
       </Link>
       
       {/* Horizontal Scrolling archive */}
-      <div 
+      <motion.div
         className="flex gap-6 pl-16 pr-6 md:pl-20 md:pr-12 overflow-x-auto overflow-y-hidden no-scrollbar scroll-smooth [scrollbar-gutter:stable]"
+        variants={cardContainerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
       >
-        {archive.map((event, index) => (
+        {archive.map((event) => (
           <MotionLink
             key={event.id}
             href={`/archive?event=${event.id}`}
             className="project-card flex-shrink-0 w-[250px] group cursor-pointer"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: index * 0.01, duration: 0.3 }}
-            viewport={{ once: true }}
+            variants={cardItemVariants}
           >
             {/* Project Media */}
             <div className="relative aspect-[3/4] rounded-md overflow-hidden mb-4">
@@ -112,7 +112,7 @@ export default function Archive() {
             </div>
           </MotionLink>
         ))}
-      </div>
+      </motion.div>
     </section>
   )
 }

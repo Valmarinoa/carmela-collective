@@ -40,7 +40,7 @@ export default function Contact() {
       ref={sectionRef}
       id="contact"
       data-nav-dark
-      className="relative pb-20 pt-36 px-6 md:px-12 lg:px-20 bg-[#F98580] z-[1]"
+      className="relative pb-20 pt-36 md:pt-56 md:pb-28 px-6 md:px-12 lg:px-20 bg-[#F98580] z-[1]"
     >
       <motion.div 
         className="max-w-6xl mx-auto"

@@ -45,9 +45,13 @@ export function getMonthsWithEvents(
 
 // ─── Grid cell builder ────────────────────────────────────────────────────────
 
+// Cell index 2 (3rd cell) is always kept empty; events skip to cell 3 onwards.
+const SKIPPED_CELLS = new Set([2])
+
 /**
  * Returns exactly 6 slots (2 rows × 3 columns) for the selected month.
- * Events are sorted chronologically and placed left-to-right, top-to-bottom.
+ * Events are sorted chronologically and placed left-to-right, top-to-bottom,
+ * skipping any cell indices listed in SKIPPED_CELLS.
  * Empty slots are null.
  */
 export function getGridCells(
@@ -61,12 +65,14 @@ export function getGridCells(
       return y === year && m - 1 === month
     })
     .sort((a, b) => a.date.localeCompare(b.date))
-    .slice(0, 6)
+    .slice(0, 5) // max 5 events (6 cells − 1 skipped)
 
   const cells: (Event | null)[] = Array(6).fill(null)
-  filtered.forEach((event, i) => {
-    cells[i] = event
-  })
+  let eventIdx = 0
+  for (let cellIdx = 0; cellIdx < 6 && eventIdx < filtered.length; cellIdx++) {
+    if (SKIPPED_CELLS.has(cellIdx)) continue
+    cells[cellIdx] = filtered[eventIdx++]
+  }
   return cells
 }
 

@@ -126,7 +126,6 @@ export default function FloatingGallery() {
     [0, 0.2, 1],
     reduceMotion ? [1, 1, 1] : [0.3, 0.5, 0.6]
   );
-  const mobileBgX = useTransform(bgP, [0, 1], [-90, -90]);
 
   return (
     <section
@@ -139,8 +138,8 @@ export default function FloatingGallery() {
       <motion.div
         className="fixed top-[30%] -z-2 pointer-events-none"
         style={{
-          left: isMobile ? "20%" : "25%",
-          x: isMobile ? mobileBgX : 0,
+          left: "50%",
+          x: "-50%",
           opacity: bgOpacity,
           scale: isMobile ? mobileBgScale : bgScale,
           y: bgY,

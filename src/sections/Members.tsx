@@ -12,28 +12,7 @@ import { ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
 import { members } from '@/data/data'
 import FlowerSilhoutte from '@/components/FlowerSilhouette'
-import { SPRING_PARALLAX } from '@/lib/animations'
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 10 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.45,
-      ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
-    },
-  },
-}
-
-const containerVariants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.08,
-    },
-  },
-}
+import { SPRING_PARALLAX, cardContainerVariants, cardItemVariants } from '@/lib/animations'
 
 function MemberCard({
   member,
@@ -63,6 +42,8 @@ function MemberCard({
         {/* Arrow Icon */}
         <motion.a
           href={member.igLink}
+          target="_blank"
+          rel="noopener noreferrer"
           className="absolute top-4 right-4 w-10 h-10 bg-[#70fe01] rounded-full flex items-center justify-center
                      opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           whileHover={{ scale: 1.04 }}
@@ -175,13 +156,15 @@ export default function Members() {
       {/* Horizontal Scrolling members */}
       <motion.div
         className="flex gap-6 pl-16 pr-6 md:pl-20 md:pr-12  overflow-x-auto overflow-y-visible md:pt-4 no-scrollbar scroll-smooth [scrollbar-gutter:stable]"
-        variants={containerVariants}
+        variants={cardContainerVariants}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
       >
         {members.map((member) => (
-          <MemberCard key={member.id} member={member} />
+          <motion.div key={member.id} variants={cardItemVariants}>
+            <MemberCard member={member} />
+          </motion.div>
         ))}
       </motion.div>
     </section>

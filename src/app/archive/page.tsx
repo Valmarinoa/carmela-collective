@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { archive } from '@/data/data'
@@ -61,25 +61,6 @@ export default function ArchivePage() {
     setSelectedEvent(null)
   }, [])
 
-  // Generate a stable random stagger order for the visible items on initial mount.
-  // Keeps the "random" order consistent across re-renders (e.g. when the modal opens).
-  const delayRankById = useMemo(() => {
-    const presentItems = cells.filter((c): c is Archive => Boolean(c))
-
-    // Fisher-Yates shuffle on indexes.
-    const order = presentItems.map((_, idx) => idx)
-    for (let i = order.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1))
-      ;[order[i], order[j]] = [order[j], order[i]]
-    }
-
-    const rankById = new Map<string, number>()
-    order.forEach((originalIdx, rank) => {
-      rankById.set(presentItems[originalIdx].id, rank)
-    })
-    return rankById
-  }, [])
-
   return (
     <main className="relative h-dvh flex flex-col overflow-y-auto overflow-x-hidden">
       {/* Page content */}
@@ -92,12 +73,7 @@ export default function ArchivePage() {
         </header>
 
         {/* ── Grid ─────────────────────────────────────────────────── */}
-        <motion.div
-          className="flex-1 min-h-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
+        <div className="flex-1 min-h-0">
           <div className="gap-4 flex flex-wrap items-center">
             {cells.map((item, index) =>
               item ? (
@@ -106,14 +82,9 @@ export default function ArchivePage() {
                   type="button"
                   onClick={() => handleItemClick(item)}
                   className="relative h-56 w-[43.5vw] md:h-72 md:w-52 overflow-hidden rounded-lg"
-                  whileHover="hover"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.45,
-                    ease: [0.25, 0.1, 0.25, 1],
-                    delay: (delayRankById.get(item.id) ?? index) * 0.08,
-                  }}
+                  transition={{ duration: 0.45, ease: [0.25, 0.1, 0.25, 1], delay: index * 0.08 }}
                 >
                   <div className='h-1/2 w-full bg-gradient-to-t from-[#010300]/70 to-transparent z-[50] absolute bottom-0 left-0'/>
                   {/* Background media */}
@@ -167,7 +138,7 @@ export default function ArchivePage() {
               )
             )}
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* ── Shared event modal ───────────────────────────────────────── */}

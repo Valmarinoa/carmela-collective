@@ -37,7 +37,7 @@ export default function BackToTop() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
           onClick={scrollToTop}
-          className="fixed bottom-9 right-8 z-50 w-12 h-12 border border-black rounded-full 
+          className="fixed bottom-9 md:bottom-16 right-8 z-50 w-12 h-12 border border-black rounded-full 
                      flex items-center justify-center bg-cream transition-all duration-300
                      hover:bg-black hover:text-white"
           whileHover={{ scale: 1.1 }}
