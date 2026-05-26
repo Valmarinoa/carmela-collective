@@ -31,6 +31,7 @@ function MemberCard({
           src={member.image}
           alt={member.title}
           fill
+          loading="eager"
           className="object-cover rounded-md"
           sizes="400px"
         />
@@ -158,7 +159,7 @@ export default function Members() {
         variants={cardContainerVariants}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
       >
         {members.map((member) => (
           <motion.div key={member.id} variants={cardItemVariants}>

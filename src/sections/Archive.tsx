@@ -94,6 +94,7 @@ export default function Archive() {
                   src={event.image || event.src || ''}
                   alt={event.title}
                   fill
+                  loading="eager"
                   className={event.objectFit === 'contain' ? 'object-contain' : 'object-cover'}
                   sizes="400px"
                 />
