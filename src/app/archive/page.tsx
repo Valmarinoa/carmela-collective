@@ -64,7 +64,7 @@ export default function ArchivePage() {
   return (
     <main className="relative h-dvh flex flex-col overflow-y-auto overflow-x-hidden">
       {/* Page content */}
-      <div className="relative z-[2] flex-1 min-h-0 flex flex-col px-4 md:px-10 pt-24 md:pt-28 pb-4">
+      <div className="relative z-[2] flex-1 min-h-screen flex flex-col px-4 md:px-10 py-24 md:py-28 pb-4 ">
         {/* ── Header ──────────────────────────────────────────────── */}
         <header className="flex-shrink-0 mb-10">
           <h1 className="text-4xl md:text-5xl text-cream font-funtastic leading-none uppercase">

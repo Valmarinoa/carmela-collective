@@ -360,7 +360,7 @@ const Grainient: React.FC<GrainientProps> = ({
   ])
 
   return (
-    <div 
+    <div
       className="fixed inset-0 -z-50 overflow-hidden"
       style={{
         transform: 'translateZ(0)',
@@ -372,7 +372,7 @@ const Grainient: React.FC<GrainientProps> = ({
     >
       <div
         ref={containerRef}
-        className={`absolute inset-0 h-[100vh] w-full ${className}`.trim()}
+        className={`absolute inset-0 w-full h-full ${className}`.trim()}
         style={{
           transform: 'translateZ(0)',
         }}
