@@ -15,7 +15,7 @@ type Props = {
 export function OutlineTraceLoader({
   size = 64,
   className,
-  duration = 2,
+  duration = 2.1,
   strokeWidth = 3,
 }: Props) {
   const uid = useId().replace(/:/g, "")
