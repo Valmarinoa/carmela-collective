@@ -297,19 +297,25 @@ const Grainient: React.FC<GrainientProps> = ({
 
     const mesh = new Mesh(gl, { geometry, program })
 
+    let resizeTimer: ReturnType<typeof setTimeout> | null = null
     const setSize = () => {
-      const rect = container.getBoundingClientRect()
-      const width = Math.max(1, Math.floor(rect.width))
-      const height = Math.max(1, Math.floor(rect.height))
+      // offsetWidth/offsetHeight are stable during iOS scroll (no micro-changes)
+      const width = Math.max(1, container.offsetWidth)
+      const height = Math.max(1, container.offsetHeight)
       renderer.setSize(width, height)
       const res = (program.uniforms.iResolution as { value: Float32Array }).value
       res[0] = gl.drawingBufferWidth
       res[1] = gl.drawingBufferHeight
     }
 
-    const ro = new ResizeObserver(setSize)
+    const setSizeDebounced = () => {
+      if (resizeTimer) clearTimeout(resizeTimer)
+      resizeTimer = setTimeout(setSize, 150)
+    }
+
+    const ro = new ResizeObserver(setSizeDebounced)
     ro.observe(container)
-    setSize()
+    setSize() // run immediately on mount without debounce
 
     let raf = 0
     const t0 = performance.now()
@@ -323,6 +329,7 @@ const Grainient: React.FC<GrainientProps> = ({
     return () => {
       cancelAnimationFrame(raf)
       ro.disconnect()
+      if (resizeTimer) clearTimeout(resizeTimer)
       try {
         container.removeChild(canvas)
       } catch {
