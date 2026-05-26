@@ -62,9 +62,9 @@ export default function ArchivePage() {
   }, [])
 
   return (
-    <main className="relative h-dvh flex flex-col overflow-y-auto overflow-x-hidden">
+    <main className="relative flex flex-col overflow-x-hidden min-h-screen">
       {/* Page content */}
-      <div className="relative z-[2] flex-1 min-h-screen flex flex-col px-4 md:px-10 py-24 md:py-28 pb-4 ">
+      <div className="relative z-[2] flex-1  flex flex-col px-4 md:px-10 py-24 md:py-28 pb-4">
         {/* ── Header ──────────────────────────────────────────────── */}
         <header className="flex-shrink-0 mb-10">
           <h1 className="text-4xl md:text-5xl text-cream font-funtastic leading-none uppercase">
@@ -73,7 +73,7 @@ export default function ArchivePage() {
         </header>
 
         {/* ── Grid ─────────────────────────────────────────────────── */}
-        <div className="flex-1 min-h-0">
+        
           <div className="gap-4 flex flex-wrap items-center">
             {cells.map((item, index) =>
               item ? (
@@ -138,7 +138,7 @@ export default function ArchivePage() {
               )
             )}
           </div>
-        </div>
+       
       </div>
 
       {/* ── Shared event modal ───────────────────────────────────────── */}
