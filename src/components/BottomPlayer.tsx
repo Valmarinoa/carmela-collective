@@ -147,8 +147,8 @@ export default function BottomPlayer() {
   const player = (
     <motion.div
       className={`fixed bottom-0 left-0 right-0 z-50 ${hidden ? 'pointer-events-none' : ''}`}
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: hidden ? 0 : 1, y: hidden ? 8 : 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: hidden ? 0 : 1 }}
       transition={{ duration: 0.4, delay: hidden ? 0 : delay, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       {/* Queue dialog — rendered inside fixed container so it sits above the bar */}
