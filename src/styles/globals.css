@@ -35,7 +35,9 @@ body {
   min-height: 100vh;
   color: #1a1a1a;
   font-family: var(--font-arial), system-ui, sans-serif;
-  overflow-x: hidden;
+  /* clip instead of hidden — prevents horizontal overflow without turning body
+     into a scroll container, which breaks position:fixed on iOS Safari */
+  overflow-x: clip;
 }
 
 .font-arial {

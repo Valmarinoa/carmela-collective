@@ -15,7 +15,6 @@ import Archive from '@/sections/Archive'
 import CALENDAR from '@/sections/Calendar'
 import Mixes from '@/sections/Mixes'
 import PageLoader from '@/components/PageLoader'
-import Marquee from '@/components/Marquee'
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
@@ -39,7 +38,7 @@ export default function Home() {
 
       <motion.main
         ref={mainRef}
-        className="relative min-h-screen overflow-hidden"
+        className="relative min-h-screen overflow-x-clip"
         initial={{ opacity: 0 }}
         animate={{ opacity: loaded ? 1 : 0 }}
         transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -66,7 +65,7 @@ export default function Home() {
 
       {/* Contact Section */}
       <Contact />
-       <Marquee/>
+       {/* <Marquee/> */}
       {/* Footer */}
       <Footer />
      

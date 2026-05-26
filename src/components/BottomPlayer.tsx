@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Play, Pause, SkipBack, SkipForward, ListMusic } from 'lucide-react'
 import { usePathname } from 'next/navigation'
@@ -128,18 +129,21 @@ export default function BottomPlayer() {
   const { tracks, currentIndex, isPlaying, progress, position, ready, playTrack, togglePlay, seekTo } =
     useSoundCloud()
   const [queueOpen, setQueueOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => { setMounted(true) }, [])
 
   const current = tracks[currentIndex]
   const duration = current?.duration ?? 0
   const remaining = duration - position
-  const hidden = !ready || tracks.length === 0 || pathname === '/calendar' || pathname === '/archive'
+  const hidden = !ready || tracks.length === 0
   const delay = pathname === '/' ? 3 : 0
 
   function handleSeek(ratio: number) {
     seekTo(ratio * duration)
   }
 
-  return (
+  const player = (
     <motion.div
       className={`fixed bottom-0 left-0 right-0 z-50 ${hidden ? 'pointer-events-none' : ''}`}
       initial={{ opacity: 0, y: 8 }}
@@ -258,4 +262,7 @@ export default function BottomPlayer() {
       </div>
     </motion.div>
   )
+
+  if (!mounted) return null
+  return createPortal(player, document.body)
 }

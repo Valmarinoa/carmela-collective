@@ -297,25 +297,22 @@ const Grainient: React.FC<GrainientProps> = ({
 
     const mesh = new Mesh(gl, { geometry, program })
 
-    let resizeTimer: ReturnType<typeof setTimeout> | null = null
     const setSize = () => {
-      // offsetWidth/offsetHeight are stable during iOS scroll (no micro-changes)
-      const width = Math.max(1, container.offsetWidth)
-      const height = Math.max(1, container.offsetHeight)
+      // Use window dimensions directly — stable during iOS scroll,
+      // unlike container.getBoundingClientRect() or ResizeObserver which
+      // fire on every visual-viewport micro-change as browser chrome hides/shows
+      const width = Math.max(1, window.innerWidth)
+      const height = Math.max(1, window.innerHeight)
       renderer.setSize(width, height)
       const res = (program.uniforms.iResolution as { value: Float32Array }).value
       res[0] = gl.drawingBufferWidth
       res[1] = gl.drawingBufferHeight
     }
 
-    const setSizeDebounced = () => {
-      if (resizeTimer) clearTimeout(resizeTimer)
-      resizeTimer = setTimeout(setSize, 150)
-    }
-
-    const ro = new ResizeObserver(setSizeDebounced)
-    ro.observe(container)
-    setSize() // run immediately on mount without debounce
+    // window 'resize' only fires on real resizes (orientation change, desktop resize)
+    // — never on iOS scroll-triggered viewport height micro-changes
+    window.addEventListener('resize', setSize)
+    setSize()
 
     let raf = 0
     const t0 = performance.now()
@@ -328,8 +325,7 @@ const Grainient: React.FC<GrainientProps> = ({
 
     return () => {
       cancelAnimationFrame(raf)
-      ro.disconnect()
-      if (resizeTimer) clearTimeout(resizeTimer)
+      window.removeEventListener('resize', setSize)
       try {
         container.removeChild(canvas)
       } catch {

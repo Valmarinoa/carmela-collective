@@ -13,7 +13,6 @@ import StickyLogo from "@/components/StickyLogo";
 import SocialIconsWrapper from "@/components/SocialIconsWrapper";
 import NavBar from "@/components/NavBar"
 import ClientProviders from "@/components/ClientProviders"
-import { LoaderProvider } from "@/context/LoaderContext"
 
 export { viewport } from '@/lib/viewport'
 
@@ -86,24 +85,22 @@ export default function RootLayout({
       ].join(" ")}
     >
       <body className="antialiased relative min-h-screen">
-        <LoaderProvider>
-          {/* Animated WebGL Background - Fixed behind everything */}
-          <AppGradient />
+        {/* Animated WebGL Background - Fixed behind everything */}
+        <AppGradient />
 
-          {/* Fixed Social Icons — hidden on /calendar */}
-          {/* <SocialIconsWrapper /> */}
+        {/* Fixed Social Icons — hidden on /calendar */}
+        {/* <SocialIconsWrapper /> */}
 
-          {/* Sticky logo — large in hero, small fixed top-center everywhere else */}
-          <StickyLogo />
+        {/* Sticky logo — large in hero, small fixed top-center everywhere else */}
+        <StickyLogo />
 
-          {/* Hamburger + full-screen overlay — md and above is hidden */}
-          <NavBar />
+        {/* Hamburger + full-screen overlay — md and above is hidden */}
+        <NavBar />
 
-          {/* SoundCloud context + fixed bottom player (replaces Marquee) */}
-          <ClientProviders>
-            {children}
-          </ClientProviders>
-        </LoaderProvider>
+        {/* SoundCloud context + fixed bottom player (replaces Marquee) */}
+        <ClientProviders>
+          {children}
+        </ClientProviders>
       </body>
     </html>
   );
