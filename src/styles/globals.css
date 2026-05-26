@@ -19,24 +19,15 @@
 
 html {
   scroll-behavior: smooth;
+  /* Covers iOS overscroll/safe-area gaps below the fixed WebGL canvas */
+  background-color: #5F625B;
 }
 
 body {
-  background: linear-gradient(
-    to bottom,
-    /* #6D7269 0%, */
-    #5F625B 0%,
-    #7F7F7B 40%,
-    #879180 60%,
-    #7A8472 80%,
-    #7A8472 100%
-  );
-  background-attachment: fixed;
+  background: transparent;
   min-height: 100vh;
   color: #1a1a1a;
   font-family: var(--font-arial), system-ui, sans-serif;
-  /* clip instead of hidden — prevents horizontal overflow without turning body
-     into a scroll container, which breaks position:fixed on iOS Safari */
   overflow-x: clip;
 }
 
@@ -165,11 +156,6 @@ body {
 .submit-btn {
   @apply w-full py-3 bg-[#70fe01] text-black font-medium rounded-full 
          transition-all duration-300 hover:bg-[#70fe01] hover:scale-[1.02];
-}
-
-/* Smooth scroll snap for sections */
-html {
-  scroll-behavior: smooth;
 }
 
 /* Gallery background image smooth transition */
