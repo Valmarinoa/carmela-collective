@@ -1,10 +1,10 @@
 'use client'
 
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import { archive } from '@/data/data'
 import { useRef } from 'react'
-import { SPRING_PARALLAX, cardContainerVariants, cardItemVariants } from '@/lib/animations'
+import { cardContainerVariants, cardItemVariants } from '@/lib/animations'
 import Link from 'next/link'
 
 const MotionLink = motion(Link)
@@ -17,7 +17,7 @@ export default function Archive() {
     offset: ['start end', 'end start'],
   })
 
-  const topY = useSpring(useTransform(scrollYProgress, [0, 1], [40, -40]), SPRING_PARALLAX)
+  const topY = useTransform(scrollYProgress, [0, 1], [40, -40])
   
   return (
     <section

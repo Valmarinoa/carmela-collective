@@ -14,7 +14,6 @@ import {
 import { floatingImages } from "@/data/data";
 import type { FloatingImageItem } from "@/types/index";
 import { useIsMobile } from "@/hooks/useIsMobile";
-import { SPRING_GALLERY } from "@/lib/animations";
 
 function clamp(n: number, min: number, max: number) {
   return Math.min(max, Math.max(min, n));
@@ -55,7 +54,6 @@ function FloatingItem({
         width: size.width,
         height: size.height,
         y,
-        willChange: "transform",
       }
     : {
         left: (position as { x: string }).x,
@@ -63,7 +61,6 @@ function FloatingItem({
         width: size.width,
         height: size.height,
         y,
-        willChange: "transform",
       };
 
   return (
@@ -104,7 +101,10 @@ export default function FloatingGallery() {
     offset: ["start end", "end start"],
   });
 
-  const smooth = useSpring(scrollYProgress, SPRING_GALLERY);
+  // Spring smooths out discrete scroll steps into a continuous animation —
+  // critical for scale transforms and large-travel parallax items.
+  // Tighter values (vs original) so it settles in ~6 frames instead of ~20.
+  const smooth = useSpring(scrollYProgress, { stiffness: 120, damping: 28, mass: 0.5 })
 
   const bgP = useTransform(smooth, [0.1, 0.28], [0, 1]);
 

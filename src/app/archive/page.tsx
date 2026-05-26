@@ -74,7 +74,7 @@ export default function ArchivePage() {
 
         {/* ── Grid ─────────────────────────────────────────────────── */}
         
-          <div className="gap-4 flex flex-wrap items-center">
+          <div className="gap-4 flex flex-wrap items-center pb-24 md:pb-0">
             {cells.map((item, index) =>
               item ? (
                 <motion.button

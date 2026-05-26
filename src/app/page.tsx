@@ -1,8 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import Hero from '@/sections/Hero'
 import FloatingGallery from '@/sections/FloatingGallery'
@@ -13,24 +11,11 @@ import About from '@/sections/About'
 import Members from '@/sections/Members'
 import Archive from '@/sections/Archive'
 import CALENDAR from '@/sections/Calendar'
-import Mixes from '@/sections/Mixes'
 import PageLoader from '@/components/PageLoader'
-
-// Register GSAP plugins
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger)
-}
 
 export default function Home() {
   const mainRef = useRef<HTMLElement>(null)
   const [loaded, setLoaded] = useState(false)
-
-  useEffect(() => {
-    ScrollTrigger.refresh()
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-    }
-  }, [])
 
   return (
     <>

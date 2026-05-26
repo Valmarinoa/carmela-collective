@@ -54,6 +54,7 @@ function QueueDialog({
   useEffect(() => {
     function onPointerDown(e: PointerEvent) {
       if (ref.current && !ref.current.contains(e.target as Node)) onClose()
+      else e.stopPropagation()
     }
     document.addEventListener('pointerdown', onPointerDown)
     return () => document.removeEventListener('pointerdown', onPointerDown)
@@ -81,7 +82,7 @@ function QueueDialog({
           return (
             <button
               key={track.id}
-              onClick={() => { onPlay(i); onClose() }}
+              onClick={(e) => { e.stopPropagation(); onPlay(i); onClose() }}
               className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors border-l-2 ${
                 active
                   ? 'bg-white/[0.05] border-[#70fe01]'

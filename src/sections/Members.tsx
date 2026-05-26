@@ -5,14 +5,13 @@ import {
   motion,
   AnimatePresence,
   useScroll,
-  useSpring,
   useTransform,
 } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
 import { members } from '@/data/data'
 import FlowerSilhoutte from '@/components/FlowerSilhouette'
-import { SPRING_PARALLAX, cardContainerVariants, cardItemVariants } from '@/lib/animations'
+import { cardContainerVariants, cardItemVariants } from '@/lib/animations'
 
 function MemberCard({
   member,
@@ -113,7 +112,7 @@ export default function Members() {
     offset: ['start end', 'end start'],
   })
 
-  const topY = useSpring(useTransform(scrollYProgress, [0, 1], [40, -40]), SPRING_PARALLAX)
+  const topY = useTransform(scrollYProgress, [0, 1], [40, -40])
 
   return (
     <section

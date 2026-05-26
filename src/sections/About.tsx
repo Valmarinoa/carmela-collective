@@ -1,9 +1,8 @@
 'use client'
 
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import { useRef } from 'react'
-import { SPRING_PARALLAX } from '@/lib/animations'
 
 export default function About() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -13,8 +12,8 @@ export default function About() {
     offset: ['start end', 'end start'],
   })
 
-  const topY = useSpring(useTransform(scrollYProgress, [0, 1], [40, -40]), SPRING_PARALLAX)
-  const bottomY = useSpring(useTransform(scrollYProgress, [0, 1], [-30, 30]), SPRING_PARALLAX)
+  const topY = useTransform(scrollYProgress, [0, 1], [40, -40])
+  const bottomY = useTransform(scrollYProgress, [0, 1], [-30, 30])
 
   return (
     <section
