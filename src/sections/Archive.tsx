@@ -105,6 +105,18 @@ export default function Archive() {
             </div>
           </MotionLink>
         ))}
+
+        <motion.div
+          className="flex-shrink-0 self-center pr-6 md:pr-12"
+          variants={cardItemVariants}
+        >
+          <Link
+            href="/archive"
+            className="font-inter border border-black gap-2 px-6 py-5 bg-transparent backdrop-blur-xl text-black hover:text-black hover:border-black text-[11px] tracking-[0.2em] uppercase hover:bg-cream transition-colors duration-150 rounded-full inline-flex"
+          >
+            See Archive
+          </Link>
+        </motion.div>
       </motion.div>
     </section>
   )

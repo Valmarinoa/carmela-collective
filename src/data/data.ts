@@ -114,7 +114,7 @@ export const events: Event[] = [
   },
   {
     id: 'carmela-chenin',
-    title: 'Carmela Collective X CheninChenin',
+    title: 'Carmela X CheninChenin',
     date: '2026-06-27',
     venue: 'Chenin Chenin',
     venueUrl: 'https://cheninchenin.com/',
