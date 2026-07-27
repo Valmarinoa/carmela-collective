@@ -2,15 +2,17 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
-import { archive } from '@/data/data'
+import { getArchivePreview, formatShortDate } from '@/lib/calendarData'
 import { useRef } from 'react'
 import { cardContainerVariants, cardItemVariants } from '@/lib/animations'
 import Link from 'next/link'
 
 const MotionLink = motion(Link)
+const LANDING_ARCHIVE_LIMIT = 7
 
 export default function Archive() {
   const sectionRef = useRef<HTMLElement>(null)
+  const archive = getArchivePreview(LANDING_ARCHIVE_LIMIT)
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -18,7 +20,7 @@ export default function Archive() {
   })
 
   const topY = useTransform(scrollYProgress, [0, 1], [40, -40])
-  
+
   return (
     <section
       ref={sectionRef}
@@ -48,7 +50,6 @@ export default function Archive() {
         />
       </motion.div>
 
-      {/* Section Header */}
       <Link href="/archive" className="px-6 mb-20 md:px-12 md:mb-6  z-20 flex">
         <div className="flex md:flex-row md:items-end md:justify-between gap-6">
           <div className="flex items-center gap-4">
@@ -56,13 +57,9 @@ export default function Archive() {
               Archive
             </h2>
           </div>
-          {/* <div className="w-9 h-9 border border-black rounded-full flex items-center justify-center hover:bg-[#70fe01] transition-opacity duration-300"> 
-            <ArrowUpRight size={16} />
-          </div > */}
         </div>
       </Link>
-      
-      {/* Horizontal Scrolling archive */}
+
       <motion.div
         className="flex gap-6 pl-16 pr-6 md:pl-20 md:pr-12 overflow-x-auto overflow-y-hidden no-scrollbar scroll-smooth [scrollbar-gutter:stable]"
         variants={cardContainerVariants}
@@ -77,7 +74,6 @@ export default function Archive() {
             className="project-card flex-shrink-0 w-[250px] group cursor-pointer"
             variants={cardItemVariants}
           >
-            {/* Project Media */}
             <div className="relative aspect-[3/4] rounded-md overflow-hidden mb-4">
               {event.mediaType === 'video' && event.video ? (
                 <video
@@ -91,7 +87,7 @@ export default function Archive() {
                 />
               ) : (
                 <Image
-                  src={event.image || event.src || ''}
+                  src={event.flyer || ''}
                   alt={event.title}
                   fill
                   loading="eager"
@@ -99,15 +95,11 @@ export default function Archive() {
                   sizes="400px"
                 />
               )}
-
-              {/* Hover Overlay */}
-              {/* <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" /> */}
             </div>
 
-            {/* Project Info */}
             <div className="space-y-1">
               <p className="text-[9px] text-neutral-950 uppercase tracking-wider">
-                {event.date ?? event.category}
+                {formatShortDate(event.date)}
               </p>
               <h3 className="text-lg font-medium">{event.title}</h3>
             </div>

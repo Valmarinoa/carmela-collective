@@ -4,7 +4,7 @@ import { useState, useCallback, useMemo, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { CALENDAR, Event } from '@/lib/calendarData'
+import { getUpcomingEvents, Event } from '@/lib/calendarData'
 import { getMonthsWithEvents } from '@/lib/calendarUtils'
 import MonthFilter from './MonthFilter'
 import CalendarGrid from './CalendarGrid'
@@ -34,11 +34,7 @@ const mobileItemVariants = {
 }
 
 function CalendarContent() {
-  const upcomingEvents = useMemo(() => {
-    const today = new Date()
-    today.setHours(0, 0, 0, 0)
-    return CALENDAR.filter(e => new Date(`${e.date}T00:00:00`) >= today)
-  }, [])
+  const upcomingEvents = useMemo(() => getUpcomingEvents(), [])
 
   const months = useMemo(() => getMonthsWithEvents(upcomingEvents), [upcomingEvents])
   const searchParams = useSearchParams()

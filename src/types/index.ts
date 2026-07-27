@@ -32,30 +32,26 @@ export type LineupSlot = {
   note?: string
 }
 
-export interface Archive {
+/** Single event model used by both Calendar (upcoming) and Archive (past). */
+export type Event = {
   id: string
   title: string
-  date?: string        // DD.MM.YY: "20.09.25"
-  category?: string    // event type, e.g. "Radio Show", "Party"
-  description: string
-  // Media options
-  mediaType?: 'image' | 'video'  // defaults to 'image' if not specified
-  image?: string                 // for images (legacy support)
-  src?: string                   // alternative image path
-  video?: string                 // for videos
-  // Display options
-  objectFit?: 'cover' | 'contain'  // defaults to 'cover' if not specified
-  // Link
-  href?: string
-  igHandle?: string
-  // Event type for modal CTA
-  type?: 'event' | 'radio'
-  listenUrl?: string
-  // Post-event footage for the archive modal gallery
-  footage?: FootageItem[]
-  venue?: string
+  date: string // ISO: "2026-05-04"
+  venue: string
+  venueUrl?: string
   venueAddress?: string
-  lineup?: LineupSlot[]
+  description: string
+  flyer?: string
+  mediaType?: 'image' | 'video'
+  video?: string
+  objectFit?: 'cover' | 'contain'
+  type?: 'event' | 'radio'
+  ticketUrl?: string
+  listenUrl?: string
+  isFree?: boolean
+  lineup: LineupSlot[]
+  tags?: string[]
+  footage?: FootageItem[]
 }
 
 export type FloatingMediaType = "image" | "video";

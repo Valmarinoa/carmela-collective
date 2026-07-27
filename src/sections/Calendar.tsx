@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
-import { CALENDAR } from "@/lib/calendarData";
+import { getUpcomingEvents } from "@/lib/calendarData";
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -17,11 +17,7 @@ function formatDate(iso: string): string {
 
 export default function Calendar() {
   const router = useRouter()
-  const today = new Date()
-  today.setHours(0, 0, 0, 0)
-  const sortedCalendar = [...CALENDAR]
-    .filter(e => new Date(`${e.date}T00:00:00`) >= today)
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+  const sortedCalendar = getUpcomingEvents()
 
   return (
     <section

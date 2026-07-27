@@ -1,4 +1,4 @@
-import { Event } from './calendarData'
+import type { Event } from '@/types/index'
 
 // ─── Month filter helpers ─────────────────────────────────────────────────────
 
