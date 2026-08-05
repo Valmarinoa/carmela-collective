@@ -26,7 +26,7 @@ function MemberCard({
       // variants={cardVariants}
     >
       {/* Project Image */}
-      <div className="relative aspect-[3/4] rounded-md mb-4 overflow-visible">
+      <div className="relative aspect-[3/4] rounded-md mb-4 overflow-visible ">
         <Image
           src={member.image}
           alt={member.title}
@@ -117,19 +117,17 @@ export default function Members() {
 
   return (
     <section
-      ref={sectionRef}
-      id="members"
-      data-nav-dark
-      className="relative pt-10 md:pt-4 md:pb-20 z-[3]"
+    ref={sectionRef}
+    id="members"
+    data-nav-dark
+    className="relative pt-10 md:pt-4 md:pb-20 z-[3] h-screen bg-green-500 flex flex-col justify-center"
+  >
+    <motion.div
+      style={{ y: topY }}
+      className="absolute top-20 md:top-0 -right-12 md:right-[2%] w-56 h-56 md:h-56 md:w-72 z-50"
     >
-      <motion.div
-        style={{ y: topY }}
-        className="absolute -top-10 -right-12 md:right-[2%] w-56 h-56 md:h-56 md:w-72 z-10"
-      >
-        <FlowerSilhoutte fillColor="#F08C43" width={160} 
-  height={217}/>
-       
-      </motion.div>
+      <FlowerSilhoutte fillColor="#F08C43" width={180} height={247} />
+    </motion.div>
 
       <div className="absolute inset-0 -z-10">
         <Image
@@ -139,11 +137,10 @@ export default function Members() {
           priority
           className="object-cover scale-150"
         />
-        
       </div>
 
       {/* Section Header */}
-      <div className="px-6 mb-20 md:px-12 md:mb-6 mt-24">
+      <div className="px-6 mb-20 md:px-12 md:mb-20 mt-24 md:mt-12 ">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div className="flex items-center gap-4">
             <h2 className="text-4xl md:text-5xl font-bold font-funtastic uppercase">
@@ -155,7 +152,7 @@ export default function Members() {
 
       {/* Horizontal Scrolling members */}
       <motion.div
-        className="flex gap-6 pl-16 pr-6 md:pl-20 md:pr-12  overflow-x-auto overflow-y-visible md:pt-4 no-scrollbar scroll-smooth [scrollbar-gutter:stable]"
+        className="flex gap-6 pl-16 pr-6 md:pl-20 md:pr-12 overflow-x-auto overflow-y-visible md:pt-4 no-scrollbar scroll-smooth [scrollbar-gutter:stable]"
         variants={cardContainerVariants}
         initial="hidden"
         whileInView="show"

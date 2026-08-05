@@ -26,9 +26,9 @@ export default function Archive() {
       ref={sectionRef}
       id="archive"
       data-nav-dark
-      className="relative pt-20 pb-28 bg-cream -mt-20 md:pb-44 md:mt-0 z-[3]"
+      className="relative md:pt-4 md:pb-20 z-[6] h-screen flex flex-col bg-red-700 justify-center"
     >
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-10 ">
         <Image
           src="/images/projects-bg.png"
           alt="Footer background"
@@ -50,7 +50,8 @@ export default function Archive() {
         />
       </motion.div>
 
-      <Link href="/archive" className="px-6 mb-20 md:px-12 md:mb-6  z-20 flex">
+{/* ARCHIVE TITLE */}
+      <Link href="/archive" className="px-6 mb-20 md:px-12  z-20 flex">
         <div className="flex md:flex-row md:items-end md:justify-between gap-6">
           <div className="flex items-center gap-4">
             <h2 className="text-4xl md:text-5xl font-bold font-funtastic uppercase">
