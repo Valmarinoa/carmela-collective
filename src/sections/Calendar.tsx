@@ -19,7 +19,10 @@ function formatDate(iso: string): string {
 
 export default function Calendar() {
   const router = useRouter()
-  const sortedCalendar = getUpcomingEvents().slice(0, MAX_LANDING_EVENTS)
+  const sortedCalendar = getUpcomingEvents()
+  .slice()
+  .sort((a, b) => b.date.localeCompare(a.date))
+  .slice(0, MAX_LANDING_EVENTS)
 
   return (
     <section
