@@ -38,7 +38,7 @@ export type Event = {
   title: string
   date: string // ISO: "2026-05-04"
   venue: string
-  venueUrl?: string
+  venueUrl?: string | string[]
   venueAddress?: string
   description: string
   flyer?: string

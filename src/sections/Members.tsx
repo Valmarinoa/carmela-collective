@@ -144,7 +144,7 @@ export default function Members() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div className="flex items-center gap-4">
             <h2 className="text-4xl md:text-5xl font-bold font-funtastic uppercase">
-              Members
+              Contributors
             </h2>
           </div>
         </div>

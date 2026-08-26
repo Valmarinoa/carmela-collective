@@ -198,7 +198,7 @@ export default function EventModal({ event, onClose, isArchive = false }: EventM
                   <p className="text-sm text-cream/45 ">{event.date}</p>
                   {event.venueUrl ? (
                     <a
-                      href={event.venueUrl}
+                      href={Array.isArray(event.venueUrl) ? event.venueUrl[0] : event.venueUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm text-cream/45 hover:text-cream transition-colors duration-150 underline decoration-transparent hover:decoration-current w-fit"

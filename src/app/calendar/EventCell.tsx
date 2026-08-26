@@ -50,7 +50,7 @@ export default function EventCell({ event, col, row, onClick, onHover, onHoverEn
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className={[
-        'group relative flex flex-col p-5 md:p-7 transition-colors text-cream text-left md:h-72',
+        'group relative flex flex-col p-5 md:p-5 transition-colors text-cream text-left md:h-72',
         isActive ? 'bg-black/90' : 'hover:bg-black/90',
         borderR,
         borderB,
@@ -72,7 +72,7 @@ export default function EventCell({ event, col, row, onClick, onHover, onHoverEn
       </span>
 
       {/* Event title */}
-      <h2 className="relative z-0 text-2xl md:text-3xl lg:text-4xl leading-tight text-cream mb-2 group-hover:text-cream transition-colors duration-150">
+      <h2 className="relative z-0 text-2xl md:text-3xl lg:text-3xl md:leading-none leading-tight text-cream mb-2 group-hover:text-cream transition-colors duration-150">
         {event.title}
       </h2>
 
@@ -87,7 +87,7 @@ export default function EventCell({ event, col, row, onClick, onHover, onHoverEn
       </p>
 
       {/* CTAs — z-20 so they sit above the overlay */}
-      <div className="relative z-20 mt-5 pt-4 flex items-center gap-4">
+      <div className="relative z-20 flex items-center gap-4 pt-4">
         {event.ticketUrl && (
           <a
             href={event.ticketUrl}

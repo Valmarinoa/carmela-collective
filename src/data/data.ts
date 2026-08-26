@@ -68,8 +68,8 @@ export const members = [
   {
     id: '7',
     title: 'Andrea Fischer',
-    category: 'Cultural Event Logistics & Coordination',
-    description: 'Responsible for event logistics, coordinating food, drinks, and essential operational tasks to ensure each event runs smoothly. She plays a key role in creating welcoming, safe, and well-organized community spaces.',
+    category: 'Finance & Cultural Event Operations',
+    description: 'She oversees the collective’s finances, managing budgets and financial planning to support sustainable growth and successful events. In addition, she is responsible for event logistics and essential operational tasks to ensure each event runs smoothly. She plays a key role in creating welcoming, safe, and well-organized community spaces.',
     image: '/images/andrea.png',
     nationality:'Chile',
     igLink: 'https://instagram.com/andreafischert', 
@@ -95,6 +95,46 @@ export const members = [
  * - date < today  → Archive
  */
 export const events: Event[] = [
+  {
+    id: 'carmela-hinter',
+    title: 'Carmela x Radio Hinter x Subs&Dubs',
+    date: '2026-09-19',
+    venue: 'Filth Amsterdam Noord',
+    venueUrl: [
+      'https://www.instagram.com/radio.hinter',
+      'https://www.instagram.com/subs&dubs',
+      'https://www.instagram.com/filthamsterdamnoord',
+    ],
+    venueAddress: 'Noord, Amsterdam',
+    description: 'We invite you to the collaborative Cumbia Dub event by Carmela Collective x Radio Hinter x Subs&Dubs, taking place at Filth Amsterdam Noord on September 19, from 16h – 23h This is not just another party, this is the result of a creative collaboration between many grassroots communities. Initiated by Kray Atief, DJ and community builder, brought people together through his experience with radio events and curation on his project Subs & Dubs. On this special occasion, we will showcase the effortless merge of deep bass music, taking listeners on a journey from listening into dancing, moving from dub into cumbia. We will be joined by Elijah Minnelli, who will bridge both sounds on his NL debut. The sound system will be provided by none other than The Mighty Dread Warrior Machine. To top it off, we will serve delicious mezcal by Maria Dolores Mezcal',
+    flyer: '/events/carmela-hinter/flyer.png',
+    objectFit: 'contain',
+    ticketUrl: 'https://unlisted.to/o/filth/events/listening-session-dub-and-cumbia',
+    tags: ['Live DJ set'],
+    lineup: [
+      { id: 'hinter-marianrosas', isB2B: false, artists: [a('marianrosas')], note: 'Cumbia Origen' },
+      { id: 'hinter-apushii', isB2B: false, artists: [a('apushii')], note: 'Cumbia Dub' },
+      { id: 'hinter-ukab', isB2B: false, artists: [a('ukab')],  note: 'Cumbia Dub'},
+    ],
+  },
+  {
+    id: 'carmela-lowlands',
+    title: 'Carmela @LowLands Festival 2026',
+    date: '2026-08-22',
+    venue: 'LowLands Festival',
+    venueUrl: 'https://www.instagram.com/lowlands_fest',
+    venueAddress: 'Biddinghuizen',
+    description: 'Carmela Collective is joining the ArmadiLLo stage at Lowlands 2026! As radio residents with our show Mestizaund (link), we have been invited by Echobox to join their takeover, easing festival-goers into the party vibe from 14:00–16:00 with sounds from Ukab and MarianRosas. No livestream, no replay. Just a one-off moment in the field.',
+    mediaType: 'video',
+    video: '/events/carmela-lowlands/video.mp4',
+    flyer: '/events/carmela-lowlands/flyer.png',
+    objectFit: 'contain',
+    tags: ['Live DJ set', 'Festival', 'Radio'],
+    lineup: [
+      { id: 'lowlands-marianrosas', isB2B: false, artists: [a('marianrosas')] },
+      { id: 'lowlands-ukab', isB2B: false, artists: [a('ukab')] },
+    ],
+  },
   {
     id: 'carmela-boogieBos',
     title: 'Carmela at Boogie Bos',
