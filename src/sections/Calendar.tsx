@@ -7,6 +7,8 @@ import { getUpcomingEvents } from "@/lib/calendarData";
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
+const MAX_LANDING_EVENTS = 3
+
 function formatDate(iso: string): string {
   const d = new Date(`${iso}T00:00:00`)
   const day = String(d.getDate()).padStart(2, '0')
@@ -17,7 +19,7 @@ function formatDate(iso: string): string {
 
 export default function Calendar() {
   const router = useRouter()
-  const sortedCalendar = getUpcomingEvents()
+  const sortedCalendar = getUpcomingEvents().slice(0, MAX_LANDING_EVENTS)
 
   return (
     <section
@@ -110,7 +112,7 @@ export default function Calendar() {
 
                       {event.venueUrl ? (
                         <a
-                        href={Array.isArray(event.venueUrl) ? event.venueUrl[0] : event.venueUrl}
+                          href={Array.isArray(event.venueUrl) ? event.venueUrl[0] : event.venueUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-sm underline decoration-transparent hover:decoration-current transition"

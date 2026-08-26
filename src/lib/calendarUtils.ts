@@ -8,36 +8,51 @@ export function getMonthsWithEvents(
   const seen = new Set<string>()
   const result: { year: number; month: number; label: string }[] = []
 
+  const addMonth = (y: number, m: number) => {
+    const key = `${y}-${m}`
+    if (seen.has(key)) return
+    seen.add(key)
+    result.push({
+      year: y,
+      month: m, // 0-indexed
+      label: new Date(y, m, 1).toLocaleString('en-US', { month: 'short' }),
+    })
+  }
+
+  // Always anchor the filter on [current - 2, current] regardless of whether
+  // those months have events, so the tabs don't collapse when a month is empty.
+  const now = new Date()
+  for (let i = -2; i <= 0; i++) {
+    let m = now.getMonth() + i
+    let y = now.getFullYear()
+    if (m < 0) { m += 12; y -= 1 }
+    addMonth(y, m)
+  }
+
+  // Then layer in any months that actually contain events (covers future
+  // months further out than the current one, e.g. a show booked 4 months out).
   for (const event of events) {
     const [y, m] = event.date.split('-').map(Number)
-    const key = `${y}-${m}`
-    if (!seen.has(key)) {
-      seen.add(key)
-      result.push({
-        year: y,
-        month: m - 1, // 0-indexed
-        label: new Date(y, m - 1, 1).toLocaleString('en-US', { month: 'short' }),
-      })
-    }
+    addMonth(y, m - 1) // 0-indexed
   }
 
   result.sort((a, b) =>
     a.year !== b.year ? a.year - b.year : a.month - b.month
   )
 
-  // Append up to 2 placeholder months after the last event month
+  // Append up to 2 placeholder months after the last month currently in the list
   if (result.length > 0) {
     const last = result[result.length - 1]
     for (let i = 1; i <= 2; i++) {
       let m = last.month + i
       let y = last.year
       if (m > 11) { m -= 12; y += 1 }
-      result.push({
-        year: y,
-        month: m,
-        label: new Date(y, m, 1).toLocaleString('en-US', { month: 'short' }),
-      })
+      addMonth(y, m)
     }
+    // re-sort since placeholders were appended after the events loop above
+    result.sort((a, b) =>
+      a.year !== b.year ? a.year - b.year : a.month - b.month
+    )
   }
 
   return result

@@ -46,11 +46,18 @@ function CalendarContent() {
     (item) => item.year === requestedYear && item.month === requestedMonth
   )
 
+  // Default to the current real-world month/year, not months[0] — since the
+  // list now starts 2 months in the past, months[0] would otherwise land
+  // someone on an old month when they open /calendar with no query params.
+  const now = new Date()
+  const currentYear = now.getFullYear()
+  const currentMonth = now.getMonth() // 0-indexed
+
   const [activeYear, setActiveYear] = useState<number>(
-    hasRequestedMonth ? requestedYear : (months[0]?.year ?? 2026)
+    hasRequestedMonth ? requestedYear : currentYear
   )
   const [activeMonth, setActiveMonth] = useState<number>(
-    hasRequestedMonth ? requestedMonth : (months[0]?.month ?? 4)
+    hasRequestedMonth ? requestedMonth : currentMonth
   )
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
 
