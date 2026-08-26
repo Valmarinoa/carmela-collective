@@ -110,7 +110,7 @@ export default function Calendar() {
 
                       {event.venueUrl ? (
                         <a
-                          href={event.venueUrl}
+                        href={Array.isArray(event.venueUrl) ? event.venueUrl[0] : event.venueUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-sm underline decoration-transparent hover:decoration-current transition"
