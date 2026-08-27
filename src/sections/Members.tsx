@@ -120,14 +120,14 @@ export default function Members() {
     ref={sectionRef}
     id="members"
     data-nav-dark
-    className="relative pt-10 md:pt-4 md:pb-20 z-[3] h-screen bg-green-500 flex flex-col justify-center"
+    className="relative pt-10 md:pt-4 md:pb-20 z-[3] md:h-screen bg-green-500 flex flex-col justify-center"
   >
-    <motion.div
+    {/* <motion.div
       style={{ y: topY }}
-      className="absolute top-20 md:top-0 -right-12 md:right-[2%] w-56 h-56 md:h-56 md:w-72 z-50"
+      className="absolute top-20 md:top-0 -right-12 md:right-[2%] w-56 h-56 md:h-56 md:w-72 z-[9999]"
     >
       <FlowerSilhoutte fillColor="#F08C43" width={180} height={247} />
-    </motion.div>
+    </motion.div> */}
 
       <div className="absolute inset-0 -z-10">
         <Image

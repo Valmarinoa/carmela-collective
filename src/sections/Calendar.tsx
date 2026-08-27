@@ -133,7 +133,8 @@ export default function Calendar() {
                       </Link>
                       )
                       :
-                      (<p className="text-black text-xs flex gap-2 pt-[18px]">Free Entrance</p>)
+                      ""
+                      // (<p className="text-black text-xs flex gap-2 pt-[18px]">Free Entrance</p>)
 
                       }
 

@@ -6,6 +6,7 @@ import { getArchivePreview, formatShortDate } from '@/lib/calendarData'
 import { useRef } from 'react'
 import { cardContainerVariants, cardItemVariants } from '@/lib/animations'
 import Link from 'next/link'
+import FlowerSilhoutte from '@/components/FlowerSilhouette'
 
 const MotionLink = motion(Link)
 const LANDING_ARCHIVE_LIMIT = 7
@@ -26,7 +27,7 @@ export default function Archive() {
       ref={sectionRef}
       id="archive"
       data-nav-dark
-      className="relative md:pt-4 md:pb-20 z-[6] h-screen flex flex-col bg-red-700 justify-center"
+      className="relative md:pt-4 md:pb-20 z-[6] md:h-screen flex flex-col bg-red-700 justify-center"
     >
       <div className="absolute inset-0 -z-10 ">
         <Image
@@ -49,6 +50,12 @@ export default function Archive() {
           priority
         />
       </motion.div>
+      <motion.div
+      style={{ y: topY }}
+      className="absolute -bottom-52 md:-bottom-48 -right-12 md:right-[2%] w-56 h-56 md:h-56 md:w-72 z-[9999]"
+    >
+      <FlowerSilhoutte fillColor="#F08C43" width={180} height={247} />
+    </motion.div>
 
 {/* ARCHIVE TITLE */}
       <Link href="/archive" className="px-6 mb-20 md:px-12  z-20 flex">
