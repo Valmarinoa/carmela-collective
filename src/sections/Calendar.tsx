@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { getUpcomingEvents } from "@/lib/calendarData";
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { track } from '@vercel/analytics';
 
 const MAX_LANDING_EVENTS = 3
 
@@ -128,7 +129,12 @@ export default function Calendar() {
                       )}
 
                       {event.ticketUrl ? (
-                      <Link href="" className="text-black text-xs flex gap-2 underline pt-[18px]">
+                      <Link href={event.ticketUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-black text-xs flex gap-2 underline pt-[18px]"
+                      onClick={() => track('ticket_click', { event: event.title, partner: event.venue ?? 'unknown' })}
+                   >
                         Tickets
                       </Link>
                       )

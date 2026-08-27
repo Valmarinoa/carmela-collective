@@ -13,6 +13,7 @@ import StickyLogo from "@/components/StickyLogo";
 import SocialIconsWrapper from "@/components/SocialIconsWrapper";
 import NavBar from "@/components/NavBar"
 import ClientProviders from "@/components/ClientProviders"
+import { Analytics } from '@vercel/analytics/next';
 
 export { viewport } from '@/lib/viewport'
 
@@ -100,6 +101,7 @@ export default function RootLayout({
         {/* SoundCloud context + fixed bottom player (replaces Marquee) */}
         <ClientProviders>
           {children}
+          <Analytics />
         </ClientProviders>
       </body>
     </html>
