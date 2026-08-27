@@ -12,6 +12,7 @@ import Members from '@/sections/Members'
 import Archive from '@/sections/Archive'
 import CALENDAR from '@/sections/Calendar'
 import PageLoader from '@/components/PageLoader'
+import SocialIconsWrapper from '@/components/SocialIconsWrapper'
 
 export default function Home() {
   const mainRef = useRef<HTMLElement>(null)
@@ -31,7 +32,7 @@ export default function Home() {
       {/* Hero Section - stays visible, doesn't fade */}
       <Hero />
 
-      
+      <SocialIconsWrapper />
 
       <About />
       {/* Floating Gallery - background image fades in and scales */}

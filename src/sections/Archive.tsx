@@ -40,7 +40,7 @@ export default function Archive() {
       </div>
       <motion.div
         style={{ y: topY }}
-        className="absolute -top-32  -right-24 md:right-56 h-56 w-72 z-10"
+        className="absolute -top-64  -right-28 md:right-56 h-56 w-72 z-10"
       >
         <Image
           src="/images/xx.png"

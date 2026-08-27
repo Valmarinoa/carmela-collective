@@ -14,10 +14,11 @@ export default function SocialIconsWrapper() {
 
   return (
     <motion.div
-      className={[
-        'justify-between items-start pt-8 fixed left-4 top-1/4 md:top-1/2  md:-translate-y-1/2 md:left-8 z-[30] hidden md:flex',
-        isCalendar || isArchive ? 'hidden md:flex' : 'flex',
-      ].join(' ')}
+      // className={[
+      //   'justify-between items-start pt-8 fixed left-4 top-1/4 md:top-1/2  md:-translate-y-1/2 md:left-8 z-[30] hidden md:flex',
+      //   isCalendar || isArchive ? 'hidden md:flex' : 'flex',
+      // ].join(' ')}
+      className='justify-between items-start pt-8 fixed left-4 top-1/4 md:top-1/2  md:-translate-y-1/2 md:left-8 z-[30] hidden md:flex'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
