@@ -75,17 +75,6 @@ export const members = [
     igLink: 'https://instagram.com/andreafischert', 
     igHandle:'@andreafischert'
   },
-
-  {
-    id: '8',
-    title: 'Silvia Oviedo',
-    category: 'Artist & Researcher',
-    description: 'Supports all aspects of event logistics, including hospitality, onsite coordination, and material preparation. Her work ensures operational efficiency and helps create warm, culturally rooted environments for participants and audiences.',
-    image: '/images/silvia.png',
-    nationality:'Colombia',
-    igLink: 'https://instagram.com/silvisalvaje', 
-    igHandle:'@silvisalvaje'
-  },
 ]
 
 /**
@@ -95,6 +84,32 @@ export const members = [
  * - date < today  → Archive
  */
 export const events: Event[] = [
+  {
+    id: 'carmela-bday',
+    title: 'Carmela 1st Anniversary X POS',
+    date: '2026-09-26',
+    venue: 'POS',
+    venueUrl: [
+      'https://www.instagram.com/possibilities.open.studio',
+    ],
+    venueAddress: 'Centrale Groothandelsmarkt 186, 1051 LJ Amsterdam',
+    description: "It's time to dance with Carmela once more! And this round means a little extra: we're turning one year old, and we're celebrating right back where the whole story began, the wonderful @possibilities.open.studio , this coming Saturday September 26, from 15h to 23h!  Now for the good stuff. To mark a full year of Carmela, we've put together our biggest crew of talent so far. Cue the drum roll:",
+    flyer: '/events/carmela-bday/flyer.png',
+    objectFit: 'contain',
+    ticketUrl: 'https://carmela-collective.weticket.io/un-a-o-de-carmela-collective?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRleAUPmzNwZG9mAmZkaWQWUOLEwftkE4Uw0afiRiqmNXH2upt5H2V4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABp5LCh4KmlcFeyWOEx-AucEVwXbgd5RjGasjrWMllALyaO6KIc_gAntqsO_HI_aem_dx317A8Hvmnls01J076iYw',
+    tags: ['Live DJ set', 'Food & Drinks', 'Exhibition'],
+    lineup: [
+      { id: 'marianrosas', isB2B: false, artists: [a('marianrosas')], note: 'Tropical Balear' },
+      { id: 'apushii', isB2B: false, artists: [a('apushii')] },
+      { id: 'julian', isB2B: false, artists: [a('julian')] },
+      { id: 'cameronaudio', isB2B: false, artists: [a('cameronaudio')] },
+      { id: 'donalirio', isB2B: false, artists: [a('donalirio')] },
+      { id: 'chelita', isB2B: false, artists: [a('chelita')] },
+      { id: 'macthenarco', isB2B: false, artists: [a('macthenarco')] },
+      { id: 'calamidadesLola', isB2B: false, artists: [a('calamidadesLola')] },
+      { id: 'maki', isB2B: false, artists: [a('maki')] },
+    ],
+  },
   {
     id: 'carmela-hinter',
     title: 'Carmela x Radio Hinter x Subs&Dubs',
@@ -283,7 +298,7 @@ export const events: Event[] = [
       { id: 'ddm-tresde', isB2B: false, artists: [a('tresde')] },
       { id: 'ddm-marianrosas', isB2B: false, artists: [a('marianrosas')] },
       { id: 'ddm-sebvc', isB2B: false, artists: [a('sebastianvasquezcipriani')] },
-      { id: 'ddm-juliand', isB2B: false, artists: [a('juliant')] },
+      { id: 'ddm-juliand', isB2B: false, artists: [a('julian')] },
       { id: 'ddm-cameron', isB2B: false, artists: [a('cameronaudio')] },
       { id: 'ddm-nicoba', isB2B: false, artists: [a('nicoba')] },
       { id: 'ddm-ukab', isB2B: false, artists: [a('ukab')] },
@@ -340,7 +355,6 @@ export const events: Event[] = [
     lineup: [
       { id: 'gen-marian-faedro', isB2B: true, artists: [a('marianrosas'), a('faedro')], note: 'Boleros & Brasilidades' },
       { id: 'gen-lagrima', isB2B: false, artists: [a('lagrima')], note: 'Paling Cumbia live' },
-      { id: 'gen-silvia', isB2B: false, artists: [a('silviaoviedo')], note: 'Poetry' },
       { id: 'gen-nene', isB2B: false, artists: [a('nenemone')], note: 'Percussion live' },
       { id: 'gen-jonathan-marian', isB2B: true, artists: [a('jonathancastro'), a('marianrosas')], note: 'Lo-Fi Eclectic Cumbia & Salsa Dura' },
       { id: 'gen-ukab-faedro-tres', isB2B: true, artists: [a('ukab'), a('faedro'), a('tresde')], note: 'Bass/Tribal/Latincore' },

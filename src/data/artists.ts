@@ -75,19 +75,47 @@ export const ARTISTS: Record<string, Artist> = {
   },
 
   // ── Archive-only artists (minimal profiles) ─────────────────────────────
+  'calamidadesLola': {
+    id: 'calamidadesLola',
+    name: 'Calamidades Lola',
+    instagram: '',
+    origin: '',
+    bio: '',
+  },
+  
+  'donalirio': {
+    id: 'donalirio',
+    name: 'Don Alirio',
+    origin: 'Colombia',
+    bio: '',
+  },
+  
+  'macthenarco': {
+    id: 'macthenarco',
+    name: 'Macthenarco',
+    origin: '',
+    bio: '',
+  },
+
+  'chelita': {
+    id: 'chelita',
+    name: 'Chelita',
+    origin: '',
+    bio: '',
+  },
+
+  'maki': {
+    id: 'maki',
+    name: 'Maki',
+    origin: '',
+    bio: '',
+  },
+  
   'lagrima': {
     id: 'lagrima',
     name: 'Lágrima',
     origin: '',
     bio: '',
-  },
-
-  'silviaoviedo': {
-    id: 'silviaoviedo',
-    name: 'Silvia Oviedo',
-    origin: 'Colombia',
-    bio: '',
-    instagram: '@silvisalvaje',
   },
 
   'nenemone': {
@@ -112,9 +140,9 @@ export const ARTISTS: Record<string, Artist> = {
     instagram: '@seb_____vc',
   },
 
-  'juliant': {
-    id: 'juliant',
-    name: "Julián't",
+  'julian': {
+    id: 'julian',
+    name: "Julián Buenos Díaz",
     origin: '',
     bio: '',
     instagram: '@juliaaaaaaand',
@@ -144,7 +172,7 @@ export const ARTISTS: Record<string, Artist> = {
 
   'thydamore': {
     id: 'thydamore',
-    name: "Thy d' Amore",
+    name: "Thy d'Amore",
     origin: '',
     bio: '',
   },
@@ -159,15 +187,18 @@ export const ARTISTS: Record<string, Artist> = {
   'hiddenmemory': {
     id: 'hiddenmemory',
     name: 'Hidden Memory',
-    origin: '',
+    origin: 'Venezuela',
+    instagram: '@hidden___memory',
     bio: '',
   },
 
   'picosoundsystem': {
     id: 'picosoundsystem',
     name: 'Pico Soundsystem El Gran Fugaris',
-    origin: '',
+    origin: 'Colombia',
     bio: '',
+    soundcloudUrl: 'https://soundcloud.com/pico-soundsystem',
+    imageUrl: '/images/artists/pico-soundsystem.png',
   },
 }
 
