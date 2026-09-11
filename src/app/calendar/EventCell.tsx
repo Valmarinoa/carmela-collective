@@ -62,6 +62,7 @@ export default function EventCell({ event, col, row, onClick, onHover, onHoverEn
       <button
         type="button"
         onClick={() => onClick(event)}
+      
         className="absolute inset-0 z-10 cursor-pointer"
         aria-label={`View details for ${event.title}`}
       />
@@ -72,9 +73,11 @@ export default function EventCell({ event, col, row, onClick, onHover, onHoverEn
       </span>
 
       {/* Event title */}
-      <h2 className="relative z-0 text-2xl md:text-3xl lg:text-3xl md:leading-none leading-tight text-cream mb-2 group-hover:text-cream transition-colors duration-150">
+      <button
+        type="button"
+        onClick={() => onClick(event)} className="cursor-pointer relative z-0 text-2xl md:text-3xl lg:text-3xl md:leading-none leading-tight text-cream mb-2 group-hover:text-cream transition-colors duration-150">
         {event.title}
-      </h2>
+      </button>
 
       {/* Venue */}
       <p className="relative z-0 text-[11px] md:text-xs text-cream/40 font-inter mb-3 tracking-wide">

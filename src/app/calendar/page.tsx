@@ -176,9 +176,11 @@ function CalendarContent() {
                     <p className="text-[10px] tracking-[0.1em] uppercase text-white font-inter leading-tight">
                         {day}
                       </p>
-                      <p className="text-xl py-1 text-cream leading-tight group-hover:text-[#e8955a] transition-colors duration-150">
+                      <button
+                        type="button"
+                        onClick={() => handleEventClick(event)} className="text-xl py-1 text-cream leading-tight group-hover:text-[#e8955a] text-left transition-colors duration-150">
                         {event.title}
-                      </p>
+                      </button>
                       <p className="text-[11px] text-white mt-0.5 truncate">
                         {event.venue}
                       </p>
