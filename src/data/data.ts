@@ -86,7 +86,7 @@ export const members = [
 export const events: Event[] = [
   {
     id: 'carmela-bday',
-    title: 'Carmela Anniversary X POS',
+    title: 'Carmela Anniversary x POS',
     date: '2026-09-26',
     venue: 'POS',
     venueUrl: [

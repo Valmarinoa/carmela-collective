@@ -141,7 +141,7 @@ function CalendarContent() {
             className="flex flex-col gap-2"
           >
             {mobileEvents.length === 0 && (
-              <p className="text-sm text-cream/30 font-inter py-8 text-center tracking-[0.2em] uppercase">
+              <p className="text-xs text-cream/70 font-inter py-8 text-center tracking-[0.2em] uppercase">
                 We are planning our next events!
               </p>
             )}
