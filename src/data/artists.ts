@@ -12,7 +12,7 @@ export const ARTISTS: Record<string, Artist> = {
     bio: "Cali-born selector and DJ known for weaving together Caribbean folklore and Brazilian rhythms with contemporary club sounds. Resident at Carmela since 2025, she has become one of the most sought-after DJs in Amsterdam's underground Latin-American diaspora circuit. Her mixes are full of joy, percussion — it's impossible to remain seated.",
     instagram: '@valmarino.a',
     soundcloudUrl: 'https://soundcloud.com/marianrosas',
-    imageUrl: '/images/artists/marianrosas.png',
+    imageUrl: '/images/artists/marianrosas-2.png',
   },
 
   'ukab': {
@@ -39,7 +39,7 @@ export const ARTISTS: Record<string, Artist> = {
     id: 'cameronaudio',
     name: 'Cameron Audio',
     origin: 'Chile',
-    bio: 'Amsterdam-based DJ and producer whose sound bridges Latin rhythmic traditions with modern house music. Drawing from his Chilean roots and shaped by his move to Europe, his productions focus on tightly programmed percussion, deep low-end grooves, and subtle melodic details.',
+    bio: 'Cameron Audio is an Amsterdam based DJ and producer from Chile. His sound ranges from latin house to UK bass music, with a heavy emphasis in percussion. He is also label manager of Carmela Collective, helping the platform to make their debut album. For Carmela’s anniversary he will play a special vinyl set blending traditional South American sounds with contemporary groove, ranging from salsa to latin pop.',
     instagram: '@patrickcameron__audio',
     soundcloudUrl: 'https://soundcloud.com/cameron59',
     imageUrl: '/images/artists/patrick.png',
@@ -78,39 +78,58 @@ export const ARTISTS: Record<string, Artist> = {
   'calamidadesLola': {
     id: 'calamidadesLola',
     name: 'Calamidades Lola',
-    instagram: '',
-    origin: '',
-    bio: '',
+    instagram: '@pissandlove',
+    origin: 'Colombia/Germany',
+    imageUrl: '/images/artists/calamidades.png',
+    bio: "Our first artists introduction for our anniversary celebration is Calamidades Lola! A DJ, music researcher, vinyl collector and radio host, Lola was born and raised in Barranquilla, a city where massive, colorful pico soundsystems have been making entire barrios vibrate with African and Caribbean rhythms for decades. Now based in Berlin, her sound carries both those musical roots and the experience of migration with her. Afro-Caribbean music sits at the heart of what she does. Whether on a dance floor, radio show or in a listening room, her selections tell stories around migration, diaspora and music as a living memory, music that has travelled, changed and found new homes along the way. Her selections move through Guaguancó, Cumbia, Champeta, Bullerengue, Makossa, Bolero, Guaracha, Dub, Rumba, Latin Funk, Latin Disco, Reggae, Soca, Cadence and plenty more. Come for a dance and stay for a lesson!",
   },
   
   'donalirio': {
     id: 'donalirio',
     name: 'Don Alirio',
     origin: 'Colombia',
-    bio: '',
+    instagram: '@don_alirio',
+    bio: 'We are pleased to announce Don Alirio straight out of Barranquilla to Amsterdam! With more than four decades immersed in record collecting, Don Alirio is not a DJ, he is a Picotero, curator, selector, collectionist and musical researcher with a focus on the study and the preservation of the sounds of Latin America and the Black continent. His musical selection honors the barrio, the popular dances and the sound systems where he shows his devotion to the only element that matters, the music. ',
+  imageUrl: '/images/artists/donAlirio.png'
   },
   
   'macthenarco': {
     id: 'macthenarco',
     name: 'Macthenarco',
+    origin: 'Chile',
+    instagram: '@andres.ns',
+    bio: 'Macthenarco is a Chilean-born, Amsterdam-based DJ who’s always been more interested in finding fresh music than sticking to a specific genre. His selections come from years of digging through records, discovering new sounds and collecting music that simply feels right — from Latin and jazz to soul, funk, disco, electronic and everything that sits somewhere in between. He plays vinyl and digital, moving between records he’s had for years and tracks he’s only just discovered. His sets can be laid-back and intimate or more energetic with a groovy vibe, but there’s always a focus on creating a good atmosphere and taking people somewhere unexpected.',
+  imageUrl: '/images/artists/macthenarco.png'
+  },
+
+  'ekahuil': {
+    id: 'ekahuil',
+    name: 'Ekahuil',
     origin: '',
+    instagram: '@ekahuil.cello',
     bio: '',
+    imageUrl: '/images/artists/ekahuil.png'
   },
 
   'chelita': {
     id: 'chelita',
     name: 'Chelita',
-    origin: '',
-    bio: '',
+    origin: 'Salvador / Germany',
+    instagram: '@isafrndz',
+    bio: 'When Chelita researches music, she gets pulled in and follows the stream wherever it goes. Birdsong, traditional instruments, warm rhythms and warped guitars - pieces of the natural and unnatural world come together into something that sounds unknown, but feels familiar. In Amsterdam’s creative industry she moves through various organisations, also programming for @radio.temponaopara.  And in case you didn’t know, “chelita” is a Salvadoran term of endearment for someone pale, a nickname given to her by her family. Fitting for a half-German, half-Salvadoran.',
+ imageUrl: '/images/artists/chelita.png'
   },
 
   'maki': {
     id: 'maki',
     name: 'Maki',
-    origin: '',
-    bio: '',
+    origin: 'Brazil / Lisboa',
+    instagram: '@makibreaks',
+    imageUrl: '/images/artists/maki.png',
+    soundcloudUrl: 'https://soundcloud.com/makibreaks',
+    bio: "This Brazilian DJ, based between Amsterdam and Lisbon, is capable ofmoving mountains with simple resources, the journeys she proposes are driving, percussive, bassy, and more than thinking of musical genres that fit together, she thinks in her own language. Breaks, d'n'b, dubstep, trip hop, or dub are ideas that she skillfully blends in unison, a filter that is uniquely hers. Beyond the dancefloor, Maki is also online with her show undercurrent at ESR, as a programmer at RRFM and a part of Radio TNP."
   },
-  
+
   'lagrima': {
     id: 'lagrima',
     name: 'Lágrima',
@@ -142,10 +161,11 @@ export const ARTISTS: Record<string, Artist> = {
 
   'julian': {
     id: 'julian',
-    name: "Julián Buenos Díaz",
-    origin: '',
-    bio: '',
+    name: "Buenos Díaz",
+    origin: 'Colombia',
+    bio: 'DJ from bogotá who mixes and plays with the different sounds he grew up with in latinamerica and the new soundscapes he found in amsterdam, bringing some leftfield ambient, triphop and more to create a playful and contemplative listening experience for this special event <3 ',
     instagram: '@juliaaaaaaand',
+    imageUrl: '/images/artists/buenosdiaz.png'
   },
 
   'nicoba': {

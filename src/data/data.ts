@@ -86,7 +86,7 @@ export const members = [
 export const events: Event[] = [
   {
     id: 'carmela-bday',
-    title: 'Carmela 1st Anniversary X POS',
+    title: 'Carmela Anniversary X POS',
     date: '2026-09-26',
     venue: 'POS',
     venueUrl: [
@@ -99,7 +99,7 @@ export const events: Event[] = [
     ticketUrl: 'https://carmela-collective.weticket.io/un-a-o-de-carmela-collective?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRleAUPmzNwZG9mAmZkaWQWUOLEwftkE4Uw0afiRiqmNXH2upt5H2V4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABp5LCh4KmlcFeyWOEx-AucEVwXbgd5RjGasjrWMllALyaO6KIc_gAntqsO_HI_aem_dx317A8Hvmnls01J076iYw',
     tags: ['Live DJ set', 'Food & Drinks', 'Exhibition'],
     lineup: [
-      { id: 'marianrosas', isB2B: false, artists: [a('marianrosas')], note: 'Tropical Balear' },
+      { id: 'marianrosas', isB2B: false, artists: [a('marianrosas')] },
       { id: 'apushii', isB2B: false, artists: [a('apushii')] },
       { id: 'julian', isB2B: false, artists: [a('julian')] },
       { id: 'cameronaudio', isB2B: false, artists: [a('cameronaudio')] },
