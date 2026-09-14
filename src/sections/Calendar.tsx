@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
-import { getUpcomingEvents } from "@/lib/calendarData";
+import { eventSharePath, getUpcomingEvents } from "@/lib/calendarData";
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { track } from '@vercel/analytics';
@@ -58,19 +58,18 @@ export default function Calendar() {
         <>
           <div className="flex flex-col gap-6 w-full justify-between items-center px-4 md:px-6 divide divide-y-[1px] divide-black ">
             {sortedCalendar.map((event, index) => {
-              const [year, month] = event.date.split('-')
-              const monthLink = `/calendar?year=${year}&month=${month}&event=${event.id}`
+              const eventLink = eventSharePath(event)
 
               return (
                 <motion.div
                   key={event.id}
                   role="link"
                   tabIndex={0}
-                  onClick={() => router.push(monthLink)}
+                  onClick={() => router.push(eventLink)}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault()
-                      router.push(monthLink)
+                      router.push(eventLink)
                     }
                   }}
                   className="group cursor-pointer relative flex justify-between items-center gap-4 text-left pt-6 w-full md:w-1/2"

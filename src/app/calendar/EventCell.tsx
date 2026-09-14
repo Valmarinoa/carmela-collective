@@ -75,7 +75,7 @@ export default function EventCell({ event, col, row, onClick, onHover, onHoverEn
       {/* Event title */}
       <button
         type="button"
-        onClick={() => onClick(event)} className="cursor-pointer relative z-0 text-2xl md:text-3xl lg:text-3xl md:leading-none leading-tight text-cream mb-2 group-hover:text-cream transition-colors duration-150">
+        onClick={() => onClick(event)} className="cursor-pointer text-left relative z-0 text-2xl md:text-3xl lg:text-3xl md:leading-none leading-tight text-cream mb-2 group-hover:text-cream transition-colors duration-150">
         {event.title}
       </button>
 
@@ -85,9 +85,11 @@ export default function EventCell({ event, col, row, onClick, onHover, onHoverEn
       </p>
 
       {/* Lineup */}
-      <p className="relative z-0 text-[11px] md:text-sm text-cream/60 font-inter leading-relaxed flex-1">
-        {lineupNames}
-      </p>
+      <div className="relative z-0 flex-1 min-h-0">
+  <p className="text-[11px] md:text-sm text-cream/60 font-inter leading-relaxed line-clamp-2">
+    {lineupNames}
+  </p>
+</div>
 
       {/* CTAs — z-20 so they sit above the overlay */}
       <div className="relative z-20 flex items-center gap-4 pt-4">

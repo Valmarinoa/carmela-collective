@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
-import { getArchivePreview, formatShortDate } from '@/lib/calendarData'
+import { eventSharePath, getArchivePreview, formatShortDate } from '@/lib/calendarData'
 import { useRef } from 'react'
 import { cardContainerVariants, cardItemVariants } from '@/lib/animations'
 import Link from 'next/link'
@@ -78,7 +78,7 @@ export default function Archive() {
         {archive.map((event) => (
           <MotionLink
             key={event.id}
-            href={`/archive?event=${event.id}`}
+            href={eventSharePath(event)}
             className="project-card flex-shrink-0 w-[250px] group cursor-pointer"
             variants={cardItemVariants}
           >

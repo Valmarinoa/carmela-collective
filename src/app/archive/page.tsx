@@ -1,34 +1,15 @@
 'use client'
 
-import { useState, useCallback, useEffect, useMemo } from 'react'
+import { useMemo, Suspense } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { getArchiveEvents, formatShortDate, type Event } from '@/lib/calendarData'
+import { getArchiveEvents, formatShortDate } from '@/lib/calendarData'
 import EventModal from '@/app/calendar/EventModal'
-import { useRouter } from 'next/navigation'
+import { useEventModal } from '@/hooks/useEventModal'
 
-export default function ArchivePage() {
-  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
-  const router = useRouter()
+function ArchiveContent() {
+  const { selectedEvent, openEvent, closeEvent } = useEventModal('archive')
   const archive = useMemo(() => getArchiveEvents(), [])
-
-  const handleItemClick = useCallback((item: Event) => {
-    setSelectedEvent(item)
-  }, [])
-
-  // On mount: if ?event=<id> is present, open that modal and clean the URL
-  useEffect(() => {
-    const id = new URLSearchParams(window.location.search).get('event')
-    if (!id) return
-    const item = archive.find((a) => a.id === id)
-    if (item) setSelectedEvent(item)
-    router.replace('/archive', { scroll: false })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  const handleModalClose = useCallback(() => {
-    setSelectedEvent(null)
-  }, [])
 
   return (
     <main className="relative flex flex-col overflow-x-hidden min-h-screen">
@@ -44,7 +25,7 @@ export default function ArchivePage() {
             <motion.button
               key={item.id}
               type="button"
-              onClick={() => handleItemClick(item)}
+              onClick={() => openEvent(item)}
               className="relative h-56 w-[43.5vw] md:h-72 md:w-52 overflow-hidden rounded-lg"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -89,7 +70,15 @@ export default function ArchivePage() {
         </div>
       </div>
 
-      <EventModal event={selectedEvent} onClose={handleModalClose} isArchive />
+      <EventModal event={selectedEvent} onClose={closeEvent} isArchive />
     </main>
+  )
+}
+
+export default function ArchivePage() {
+  return (
+    <Suspense>
+      <ArchiveContent />
+    </Suspense>
   )
 }
