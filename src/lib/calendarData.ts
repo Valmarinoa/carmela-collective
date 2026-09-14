@@ -39,6 +39,24 @@ export function getArchiveEvents(list: Event[] = events): Event[] {
     .sort((a, b) => b.date.localeCompare(a.date))
 }
 
+export function getEventById(id: string, list: Event[] = events): Event | undefined {
+  return list.find((e) => e.id === id)
+}
+
+export type EventPage = 'calendar' | 'archive'
+
+/** Which listing page currently owns this event (same cutoff as upcoming/archive). */
+export function getEventPage(event: Event): EventPage {
+  return parseEventDate(event.date) < startOfMonthsAgo(CALENDAR_LOOKBACK_MONTHS)
+    ? 'archive'
+    : 'calendar'
+}
+
+export function eventSharePath(event: Event): string {
+  const base = getEventPage(event) === 'archive' ? '/archive' : '/calendar'
+  return `${base}?event=${encodeURIComponent(event.id)}`
+}
+
 /** Landing Archive carousel: newest first, capped */
 export function getArchivePreview(limit = 7): Event[] {
   return getArchiveEvents().slice(0, limit)

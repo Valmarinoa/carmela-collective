@@ -4,8 +4,9 @@ import { useState, useCallback, useMemo, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { getUpcomingEvents, Event } from '@/lib/calendarData'
+import { getUpcomingEvents } from '@/lib/calendarData'
 import { getMonthsWithEvents } from '@/lib/calendarUtils'
+import { useEventModal } from '@/hooks/useEventModal'
 import MonthFilter from './MonthFilter'
 import CalendarGrid from './CalendarGrid'
 import EventModal from './EventModal'
@@ -38,10 +39,10 @@ function CalendarContent() {
 
   const months = useMemo(() => getMonthsWithEvents(upcomingEvents), [upcomingEvents])
   const searchParams = useSearchParams()
+  const { selectedEvent, eventId, openEvent, closeEvent } = useEventModal('calendar')
 
   const requestedYear = Number(searchParams.get('year'))
   const requestedMonth = Number(searchParams.get('month')) - 1 // incoming month is 1-indexed
-  const requestedEventId = searchParams.get('event')
   const hasRequestedMonth = months.some(
     (item) => item.year === requestedYear && item.month === requestedMonth
   )
@@ -53,31 +54,30 @@ function CalendarContent() {
   const currentYear = now.getFullYear()
   const currentMonth = now.getMonth() // 0-indexed
 
+  const eventYear = selectedEvent ? Number(selectedEvent.date.split('-')[0]) : null
+  const eventMonthIndex = selectedEvent ? Number(selectedEvent.date.split('-')[1]) - 1 : null
+
   const [activeYear, setActiveYear] = useState<number>(
-    hasRequestedMonth ? requestedYear : currentYear
+    eventYear ?? (hasRequestedMonth ? requestedYear : currentYear)
   )
   const [activeMonth, setActiveMonth] = useState<number>(
-    hasRequestedMonth ? requestedMonth : currentMonth
+    eventMonthIndex ?? (hasRequestedMonth ? requestedMonth : currentMonth)
   )
-  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
 
   useEffect(() => {
+    if (eventYear != null && eventMonthIndex != null) {
+      setActiveYear(eventYear)
+      setActiveMonth(eventMonthIndex)
+      return
+    }
     if (!hasRequestedMonth) return
     setActiveYear(requestedYear)
     setActiveMonth(requestedMonth)
-  }, [hasRequestedMonth, requestedYear, requestedMonth])
+  }, [eventYear, eventMonthIndex, hasRequestedMonth, requestedYear, requestedMonth])
 
   const handleMonthSelect = useCallback((year: number, month: number) => {
     setActiveYear(year)
     setActiveMonth(month)
-  }, [])
-
-  const handleEventClick = useCallback((event: Event) => {
-    setSelectedEvent(event)
-  }, [])
-
-  const handleModalClose = useCallback(() => {
-    setSelectedEvent(null)
   }, [])
 
   // Mobile: filter events for the active month
@@ -125,8 +125,8 @@ function CalendarContent() {
               year={activeYear}
               month={activeMonth}
               events={upcomingEvents}
-              onEventClick={handleEventClick}
-              selectedEventId={requestedEventId}
+              onEventClick={openEvent}
+              selectedEventId={eventId}
             />
           </div>
         </div>
@@ -178,7 +178,7 @@ function CalendarContent() {
                       </p>
                       <button
                         type="button"
-                        onClick={() => handleEventClick(event)} className="text-xl py-1 text-cream leading-tight group-hover:text-[#e8955a] text-left transition-colors duration-150">
+                        onClick={() => openEvent(event)} className="text-xl py-1 text-cream leading-tight group-hover:text-[#e8955a] text-left transition-colors duration-150">
                         {event.title}
                       </button>
                       <p className="text-[11px] text-white mt-0.5 truncate">
@@ -217,7 +217,7 @@ function CalendarContent() {
                       )}
                       <button
                         type="button"
-                        onClick={() => handleEventClick(event)}
+                        onClick={() => openEvent(event)}
                         className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-inter text-white/70 hover:text-white transition-colors duration-150"
                       >
                         Info
@@ -233,7 +233,7 @@ function CalendarContent() {
       </div>
 
       {/* ── Event modal ─────────────────────────────────────────────── */}
-      <EventModal event={selectedEvent} onClose={handleModalClose} />
+      <EventModal event={selectedEvent} onClose={closeEvent} />
     </main>
   )
 }
