@@ -90,7 +90,7 @@ export default function Calendar() {
                       alt={event.title}
                       fill
                       sizes="(max-width: 768px) 128px, 160px"
-                      className="object-cover"
+                      className="object-contain"
                     />
                   ) : (
                     <>
