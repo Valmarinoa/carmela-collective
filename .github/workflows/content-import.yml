@@ -1,0 +1,41 @@
+# Pulls the Carmela content sheet and opens a pull request when something changed.
+# Runs every morning, or on demand: GitHub → Actions → "Import content from sheet" → Run workflow.
+name: Import content from sheet
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 5 * * *' # every day ~06:23 / 07:23 Amsterdam
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4 # uses the pnpm version from package.json "packageManager"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      # Fails (and GitHub emails you the reason) if the sheet has a problem: unknown artist, missing flyer, …
+      - run: pnpm import-content
+        env:
+          CONTENT_SHEET_ID: ${{ secrets.CONTENT_SHEET_ID }}
+
+      # Only opens/updates a PR when the generated files actually changed.
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          branch: content/sheet-update
+          add-paths: src/data/*.generated.ts
+          commit-message: 'content: update from the sheet'
+          title: 'Content update from the sheet'
+          body: |
+            Automatic import from the Carmela content sheet.
+            Check the Vercel preview on this PR, then merge to publish.
+          delete-branch: true
