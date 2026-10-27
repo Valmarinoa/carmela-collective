@@ -3,16 +3,7 @@ import type { FloatingImageItem, Event } from "@/types/index";
 import { a } from './artists'
 
 export const members = [
-  {
-    id: '1',
-    title: 'Monse Alvarez',
-    category: 'Marketing, New Media & Digital Comms',
-    description: 'Oversees Carmela’s overall communications strategy, ensuring a cohesive narrative across all platforms. She leads content development and manages digital communication channels. ',
-    image: '/images/monse.png',
-    nationality:'México',
-    igLink: 'https://instagram.com/pokemonse',
-    igHandle:'@pokemonse'
-  },
+
   {
     id: '2',
     title: 'Adrian Figueroa',
@@ -84,6 +75,27 @@ export const members = [
  * - date < today  → Archive
  */
 export const events: Event[] = [
+  {
+    id: 'carmela-sissis',
+    title: 'Carmela X NoFuture X La Movida',
+    date: '2026-11-13',
+    venue: "Sissi's",
+    venueUrl: [
+      'https://www.instagram.com/sissis.amsterdam',
+    ],
+    venueAddress: 'Anthony Fokkerweg 3, 1059CM Amsterdam',
+    description: "",
+    flyer: '/events/carmela-sissis/flyer.png',
+    objectFit: 'contain',
+    ticketUrl: 'https://sissisamsterdam.weticket.io/sisis-friday-hosted-by-carmela',
+    tags: ['Live DJ set', 'Club Night', 'Guest Collectives'],
+    lineup: [
+      {id: 'ukab', isB2B: false, artists: [a('ukab')]},
+      { id: 'cameronaudio', isB2B: false, artists: [a('cameronaudio')] },
+
+
+    ],
+  },
   {
     id: 'carmela-bday',
     title: 'Carmela Anniversary x POS',
