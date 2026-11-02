@@ -28,7 +28,7 @@ export function renderRichText(text: string): ReactNode[] {
   const out: ReactNode[] = []
   let last = 0
   let key = 0
-  for (const m of text.matchAll(TOKEN)) {
+  for (const m of Array.from(text.matchAll(TOKEN))) {
     const start = m.index ?? 0
     if (start > last) out.push(text.slice(last, start))
     const [whole, mdText, mdUrl, url, handle] = m
