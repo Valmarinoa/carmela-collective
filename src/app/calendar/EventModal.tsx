@@ -8,6 +8,8 @@ import { Event, Artist } from '@/lib/calendarData'
 import ArtistPanel from './ArtistPanel'
 import Masonry from './Masonry'
 import { track } from '@vercel/analytics';
+import RichText from '@/components/RichText'
+import { formatDate } from '@/lib/formatDate'
 
 interface EventModalProps {
   event: Event | null
@@ -30,17 +32,6 @@ const lineVariants = {
     y: 0,
     transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] },
   },
-}
-
-function formatDate(dateStr: string): string {
-  // Append T00:00:00 to avoid timezone-shifted parsing
-  const d = new Date(`${dateStr}T00:00:00`)
-  return d.toLocaleDateString('en-GB', {
-    weekday: 'long',
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  })
 }
 
 export default function EventModal({ event, onClose, isArchive = false }: EventModalProps) {
@@ -196,7 +187,7 @@ export default function EventModal({ event, onClose, isArchive = false }: EventM
 
                 {/* Date + Venue */}
                 <motion.div variants={lineVariants} className="flex flex-col gap-0.5">
-                  <p className="text-sm text-cream/45 ">{event.date}</p>
+                  <p className="text-sm text-cream/45 ">{formatDate(event.date)}</p>
                   {event.venueUrl ? (
                     <a
                       href={Array.isArray(event.venueUrl) ? event.venueUrl[0] : event.venueUrl}
@@ -229,12 +220,9 @@ export default function EventModal({ event, onClose, isArchive = false }: EventM
                 )}
 
                 {/* Description */}
-                <motion.p
-                  variants={lineVariants}
-                  className="text-sm text-cream/60  leading-relaxed"
-                >
-                  {event.description}
-                </motion.p>
+                <motion.div variants={lineVariants} className="flex flex-col gap-3">
+                  <RichText text={event.description} className="text-sm text-cream/60 leading-relaxed" />
+                </motion.div>
 
                 {/* Lineup */}
                 {event.lineup.length > 0 && (
