@@ -84,7 +84,7 @@ export const events: Event[] = [
       'https://www.instagram.com/lowlands_fest',
     ],
     venueAddress: 'Biddinghuizen',
-    description: 'Carmela Collective is joining the ArmadiLLo stage at Lowlands 2026! As radio residents with our show Mestizaund (link), we have been invited by Echobox to join their takeover, easing festival-goers into the party vibe from 14:00–16:00 with sounds from Ukab and MarianRosas. No livestream, no replay. Just a one-off moment in the field.',
+    description: 'Carmela Collective is joining the ArmadiLLo stage at Lowlands 2026! As radio residents with our show Mestizaund, we have been invited by Echobox to join their takeover, easing festival-goers into the party vibe from 14:00–16:00 with sounds from Ukab and MarianRosas. No livestream, no replay. Just a one-off moment in the field.',
     mediaType: 'video',
     video: '/events/carmela-lowlands/video.mp4',
     flyer: '/events/carmela-lowlands/flyer.png',
